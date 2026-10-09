@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { AccountCircle, Menu, Search } from "./icons";
 import styles from "./project-hero.module.css";
 
-export function ProjectHeader({ onSearch, onContact, activePage }: { onSearch: () => void; onContact: () => void; activePage?: "about" }) {
+export function ProjectHeader({ onSearch, onContact, activePage }: { onSearch: () => void; onContact: () => void; activePage?: "about" | "list-your-space" | "projects" }) {
   const menu = useRef<HTMLDetailsElement>(null);
   function act(callback: () => void) {
     menu.current?.removeAttribute("open");
@@ -17,7 +17,8 @@ export function ProjectHeader({ onSearch, onContact, activePage }: { onSearch: (
       <nav className={styles.links} aria-label="Main navigation">
         <Link href="/">Home</Link>
         <Link href="/about" aria-current={activePage === "about" ? "page" : undefined}>About Us</Link>
-        <button type="button" onClick={() => act(onSearch)}>Program</button>
+        <Link href="/list-your-space" aria-current={activePage === "list-your-space" ? "page" : undefined}>List Your Space</Link>
+        <Link href="/projects" aria-current={activePage === "projects" ? "page" : undefined}>Projects</Link>
       </nav>
       <div className={styles.actions}>
         <button type="button" className={styles.iconButton} aria-label="Search spaces" onClick={() => act(onSearch)}><Search /></button>
@@ -28,7 +29,8 @@ export function ProjectHeader({ onSearch, onContact, activePage }: { onSearch: (
           <nav className={styles.menuPanel} aria-label="More navigation">
             <Link href="/">Home</Link>
             <Link href="/about" aria-current={activePage === "about" ? "page" : undefined}>About Us</Link>
-            <button type="button" onClick={() => act(onSearch)}>Find My Space</button>
+            <Link href="/list-your-space" aria-current={activePage === "list-your-space" ? "page" : undefined}>List Your Space</Link>
+            <Link href="/projects" aria-current={activePage === "projects" ? "page" : undefined}>Projects</Link>
             <button type="button" onClick={() => act(onContact)}>Contact</button>
           </nav>
         </details>

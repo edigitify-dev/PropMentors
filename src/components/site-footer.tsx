@@ -9,10 +9,10 @@ const experts = [
 ];
 
 const explore = [
-  { label: "Properties", href: "#explore-spaces" },
-  { label: "Services", href: "#workspace-offers" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Insights", href: "#insights" },
+  { label: "List Your Space", href: "/list-your-space" },
+  { label: "Projects", href: "/projects" },
   { label: "Contact", href: "#contact" },
 ];
 

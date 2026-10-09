@@ -55,9 +55,10 @@ export function Hero() {
         <a className="brand" href="#home" aria-label="PropMentors home"><Image src="/images/propmentors-logo.svg" alt="PropMentors" width={43} height={48.2339} unoptimized /></a>
         <div className="header-links">
           <nav className="primary-nav" aria-label="Main navigation">
-            <a href="#home" aria-current="page">Home</a>
+            <Link href="/" aria-current="page">Home</Link>
             <Link href="/about">About Us</Link>
-            <button onClick={() => openPanel("spaces")}>Program</button>
+            <Link href="/list-your-space">List Your Space</Link>
+            <Link href="/projects">Projects</Link>
           </nav>
           <div className="header-actions">
             <button className="icon-button search-button" aria-label="Search workspaces" onClick={() => openPanel("spaces")}><Search /></button>
@@ -66,9 +67,10 @@ export function Hero() {
             <div className="menu-anchor">
               <button className="icon-button" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="hero-menu" onClick={() => setMenuOpen(!menuOpen)}><Menu /></button>
               {menuOpen && <nav id="hero-menu" className="menu-popover" aria-label="More navigation">
-                <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+                <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
                 <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
-                <button onClick={() => openPanel("spaces")}>Find My Space</button>
+                <Link href="/list-your-space" onClick={() => setMenuOpen(false)}>List Your Space</Link>
+                <Link href="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
                 <button onClick={() => openPanel("contact")}>Contact</button>
               </nav>}
             </div>
