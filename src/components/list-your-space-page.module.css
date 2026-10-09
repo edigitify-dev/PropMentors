@@ -1,0 +1,219 @@
+/* ── Page shell ── */
+.page { width: 100%; container-type: inline-size; color: var(--foreground); }
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100dvh;
+  color: var(--background);
+}
+
+/* Dark overlay + vignette for high contrast, matching screenshot density */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.45) 30%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.75) 100%),
+    rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.heroImage {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* ── Intro block — centred, vertically in lower-middle of viewport ── */
+.heroIntro {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-44%);   /* slightly above perfect centre, matching screenshot */
+  text-align: center;
+  color: var(--background);       /* cream/off-white */
+  padding-inline: 24px;
+}
+
+/* Badge sits just above the heading */
+.heroIntro :global(.section-badge) {
+  margin-inline: auto;
+  height: min(2.5cqw, 4dvh);
+  padding-inline: min(1.666667cqw, 2.6dvh);
+  font-size: min(.972222cqw, 1.6dvh);
+}
+
+/* Main heading — Kind Avenue serif, single line */
+.heroIntro h1 {
+  margin: min(2cqw, 3dvh) 0 0;
+  font-family: "Kind Avenue", Georgia, serif;
+  font-weight: 400;
+  font-size: min(4.4cqw, 7.5dvh);
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+
+/* Subtitle paragraph */
+.heroSubtitle {
+  margin: min(1.666667cqw, 2.6dvh) 0 0;
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: min(1.25cqw, 2dvh);
+  line-height: 1.55;
+  opacity: .92;
+}
+
+/* Hide inline <br> on small screens */
+.desktopBr { display: inline; }
+
+/* ── CTA button row ── */
+.heroCtas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: min(1.111111cqw, 2dvh);
+  margin-top: min(2.5cqw, 3.8dvh);
+  flex-wrap: wrap;
+}
+
+.ctaPrimary,
+.ctaOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  border: 0;
+  border-radius: 4px;
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: min(1.041667cqw, 1.8dvh);
+  line-height: 1;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+  white-space: nowrap;
+  padding: min(.833333cqw, 1.5dvh) min(1.666667cqw, 2.8dvh);
+}
+
+.ctaPrimary svg,
+.ctaOutline svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+.ctaPrimary {
+  background: var(--accent);
+  color: var(--background);
+  border: 2px solid var(--accent);
+}
+.ctaPrimary:hover { background: #4874a5; border-color: #4874a5; }
+
+.ctaOutline {
+  background: transparent;
+  color: var(--background);
+  border: 2px solid var(--background);
+}
+.ctaOutline:hover { background: #fcf7e420; }
+
+/* ── Focus ring ── */
+.page :is(button, a):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+/* ── Enquiry dialog ── */
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(520px, calc(100% - 48px));
+  max-height: calc(100dvh - 64px);
+  overflow-y: auto;
+  border: 0;
+  border-radius: 16px;
+  background: var(--background);
+  color: var(--foreground);
+  padding: 0;
+  box-shadow: 0 24px 80px #0004;
+}
+.dialog::backdrop { background: #0007; }
+
+.dialogForm { padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+.dialogTitle { margin: 0; font-family: "Kind Avenue", Georgia, serif; font-size: 28px; font-weight: 400; letter-spacing: -.02em; }
+.dialogSubtitle { margin: 0; font-size: 15px; line-height: 1.5; opacity: .7; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; }
+.field input,
+.field textarea {
+  border: 1px solid #12121826;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: var(--body-font);
+  font-size: 15px;
+  background: #fcf7e4;
+  color: var(--foreground);
+  resize: vertical;
+}
+.field input::placeholder, .field textarea::placeholder { opacity: .45; }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+.shareStatus { margin: 0; font-size: 14px; color: #2e7d32; font-weight: 500; }
+.draft { margin: 0; font-size: 12px; white-space: pre-wrap; background: #1212120a; border-radius: 8px; padding: 12px 14px; line-height: 1.6; }
+
+.dialogActions { display: flex; gap: 12px; justify-content: flex-end; padding-top: 4px; }
+.submitBtn {
+  padding: 11px 24px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 160ms;
+}
+.submitBtn:hover { background: #4874a5; }
+.cancelBtn {
+  padding: 11px 20px;
+  border: 1px solid #12121826;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 160ms;
+}
+.cancelBtn:hover { background: #12121208; }
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .heroIntro :global(.section-badge) { height: clamp(28px, 4dvh, 36px); padding-inline: 20px; font-size: 11px; }
+  .heroIntro h1 { font-size: clamp(26px, 4.4vw, 56px); white-space: nowrap; }
+  .heroSubtitle { font-size: clamp(15px, 2dvh, 18px); }
+  .ctaPrimary, .ctaOutline { font-size: clamp(13px, 1.6dvh, 16px); padding: 13px 26px; }
+}
+
+@media (max-width: 640px) {
+  .heroIntro h1 { font-size: clamp(24px, 5.8vw, 40px); white-space: normal; }
+  .desktopBr { display: none; }
+  .heroSubtitle { font-size: 14px; }
+  .heroCtas { gap: 12px; }
+  .ctaPrimary, .ctaOutline { font-size: 14px; padding: 12px 20px; }
+  .dialogForm { padding: 28px 24px; gap: 16px; }
+}
+
+@media (max-height: 520px) {
+  .heroIntro h1 { font-size: min(7cqw, 11dvh); }
+  .heroSubtitle { font-size: min(13px, 2.2dvh); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaPrimary, .ctaOutline, .submitBtn, .cancelBtn { transition: none; }
+}

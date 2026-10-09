@@ -30,29 +30,39 @@ const principles = [
   },
 ];
 
-export function RealGuidance() {
+type GuidanceProps = {
+  id?: string;
+  heading?: string;
+  introduction?: string;
+  showBadge?: boolean;
+  cards?: { title: string; description: string }[];
+};
+
+export function RealGuidance({ id = "real-guidance", heading = "Real Estate decisions deserve real guidance", introduction = "Complete the process with practical advice, relevant options and hands-on support - from search to closure.", showBadge = true, cards }: GuidanceProps = {}) {
+  const labelPrefix = id === "real-guidance" ? "guidance" : id;
+  const headingId = `${labelPrefix}-heading`;
   return (
-    <section className="real-guidance" id="real-guidance" aria-labelledby="guidance-heading" data-node-id="346:1856">
+    <section className="real-guidance" id={id} aria-labelledby={headingId} data-node-id="346:1856">
       <div className="guidance-heading">
-        <div className="section-badge" data-node-id="346:1851">
+        {showBadge && <div className="section-badge" data-node-id="346:1851">
           <span className="section-badge-icon" aria-hidden="true"><Image src="/images/glance/badge-star.svg" alt="" width={17} height={17} unoptimized /></span>
           <span>WHY PROPMENTORS</span>
-        </div>
+        </div>}
         <div className="guidance-heading-row">
-          <h2 id="guidance-heading">Real Estate decisions deserve real guidance</h2>
-          <p>Complete the process with practical advice, relevant options and hands-on support - from search to closure.</p>
+          <h2 id={headingId}>{heading}</h2>
+          <p>{introduction}</p>
         </div>
       </div>
 
       <div className="guidance-cards">
         {principles.map((principle, index) => (
-          <article className={`guidance-card guidance-card-${principle.id}`} key={principle.id} aria-labelledby={`guidance-${principle.id}-title`} data-node-id={principle.node}>
+          <article className={`guidance-card guidance-card-${principle.id}`} key={principle.id} aria-labelledby={`${labelPrefix}-${principle.id}-title`} data-node-id={principle.node}>
             <div className="guidance-card-content">
               <div className="guidance-card-heading">
                 <span className="guidance-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <h3 id={`guidance-${principle.id}-title`}>{principle.title}</h3>
+                <h3 id={`${labelPrefix}-${principle.id}-title`}>{cards?.[index]?.title ?? principle.title}</h3>
               </div>
-              <p>{principle.description}</p>
+              <p>{cards?.[index]?.description ?? principle.description}</p>
             </div>
             <div className={`guidance-photo guidance-photo-${principle.id}`} aria-hidden="true">
               <Image src={principle.image} alt="" width={principle.width} height={principle.height} unoptimized />

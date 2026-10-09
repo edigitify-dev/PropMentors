@@ -17,6 +17,9 @@ export function ArrowUp(props: IconProps) {
 export function ChevronLeft(props: IconProps) {
   return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}><path d="m15 18-6-6 6-6" /></svg>;
 }
+export function ChevronRight(props: IconProps) {
+  return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}><path d="m9 18 6-6-6-6" /></svg>;
+}
 export function PlayCircle(props: IconProps) {
   return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}><circle cx="12" cy="12" r="10" /><path d="m10 8 6 4-6 4V8Z" /></svg>;
 }

@@ -110,7 +110,7 @@ export function useHeroExpansion() {
           x = desktop ? viewportWidth * 0.068 : 32;
           y = desktop ? viewportHeight * 0.016 : 20;
         } else if (element.classList.contains("primary-nav")) {
-          x = viewportWidth * (desktop ? 0.397 : 0.2);
+          x = (viewportWidth - rect.width * scale) / 2;
           y = desktop ? viewportHeight * 0.016 : 20;
         } else if (element.classList.contains("header-actions")) {
           x = viewportWidth - (desktop ? viewportWidth * 0.067 : 32) - rect.width * scale;

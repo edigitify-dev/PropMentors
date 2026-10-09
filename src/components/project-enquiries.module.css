@@ -1,0 +1,87 @@
+.sections { width: 100%; }
+.requirements { position: relative; isolation: isolate; color: var(--background); background: var(--foreground); }
+.photo, .shade { position: absolute; z-index: -1; inset: 0; pointer-events: none; }
+.photo { overflow: hidden; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 58.5%; }
+.shade { background: rgb(0 0 0 / 64%); }
+.stage, .ownerStage { container-type: inline-size; width: 100%; max-width: 1440px; margin-inline: auto; }
+.requirementInner { display: grid; grid-template-columns: minmax(0, 548fr) minmax(0, 672fr); align-items: center; gap: 3.611111cqw; width: 88.333333cqw; min-height: 52.083333cqw; margin-left: 6.666667cqw; padding-block: 5cqw; }
+.copy { display: flex; flex-direction: column; align-items: start; gap: 2.222222cqw; }
+.badge { display: flex; align-items: center; gap: .555556cqw; width: max-content; max-width: 100%; min-height: 2.5cqw; padding: .555556cqw 1.666667cqw; border-radius: 24px; background: var(--accent); color: var(--background); font-size: .972222cqw; line-height: 1.4; font-weight: 400; }
+.badge img { flex-shrink: 0; width: 1.180556cqw; height: auto; }
+.copy h2, .owners h2 { margin: 0; font-family: "Kind Avenue", Georgia, serif; font-size: 4.444444cqw; font-weight: 400; line-height: 4.861111cqw; }
+.copy h2 { white-space: nowrap; }
+.copy p, .owners p { margin: 0; font-size: 1.666667cqw; font-weight: 400; line-height: 1.944444cqw; -webkit-font-smoothing: antialiased; }
+.shareButton, .listButton { display: flex; align-items: center; justify-content: center; gap: 1.388889cqw; height: 3.333333cqw; padding: .833333cqw 1.944444cqw; border: 0; border-radius: 8px; background: var(--accent); color: var(--background); font-size: 1.111111cqw; font-weight: 400; line-height: 1.388889cqw; white-space: nowrap; }
+.shareButton svg, .continueButton svg { width: 1.388889cqw; height: 1.388889cqw; transform: rotate(90deg); stroke-width: 1; }
+.listButton svg { width: 1.388889cqw; height: 1.388889cqw; transform: rotate(180deg); }
+.formCard { min-width: 0; min-height: 41.666667cqw; padding: 5cqw 1.666667cqw 3.888889cqw; border-radius: 8px; background: var(--background); color: var(--foreground); }
+.formCard h3 { margin: 0; font-size: 3.333333cqw; line-height: 1.3; font-weight: 800; }
+.formCard > p { max-width: 32.638889cqw; margin: .277778cqw 0 1.111111cqw; color: #a2a5a4; font-size: .972222cqw; line-height: 1.388889cqw; font-weight: 400; }
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.319444cqw 1.666667cqw; }
+.fields label { display: grid; gap: .277778cqw; min-width: 0; font-size: .972222cqw; font-weight: 500; line-height: 1.388889cqw; }
+.fullWidth { grid-column: 1 / -1; }
+.fields input, .fields select { width: 100%; min-width: 0; height: 1.944444cqw; padding: 0 .694444cqw; border: 1px solid #122c4f26; border-radius: 24px; background: transparent; color: var(--foreground); font-size: .833333cqw; font-weight: 400; line-height: normal; }
+.fields input::placeholder, .fields select:invalid { color: #a2a5a4; opacity: .65; }
+.selectWrap { position: relative; display: block; }
+.fields select { appearance: none; padding-right: 2.5cqw; cursor: pointer; }
+.selectWrap svg { position: absolute; top: 50%; right: 1.388889cqw; width: .972222cqw; height: .972222cqw; transform: translateY(-50%) rotate(-90deg); color: var(--accent); stroke-width: 1; pointer-events: none; }
+.continueButton { display: flex; align-items: center; justify-content: center; gap: .833333cqw; width: 100%; height: 3.888889cqw; margin-top: 1.388889cqw; padding: 0 24px; border: 0; border-radius: 8px; background: var(--accent); color: var(--background); font-size: 1.111111cqw; font-weight: 400; }
+.formCard :is(input, select):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sections button:hover { background: #4874a5; }
+.sections button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.copy button:focus-visible, .owners button:focus-visible { outline-color: var(--background); }
+.owners { background: var(--foreground); color: var(--background); text-align: center; }
+.ownerInner { display: flex; flex-direction: column; align-items: center; gap: 2.222222cqw; padding: 3.888889cqw 24px; }
+.owners p { max-width: 45.833333cqw; }
+.review { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.review dt { font-size: 12px; color: #4874a5; }
+.review dd { margin: 4px 0 0; font-size: 16px; overflow-wrap: anywhere; }
+.reviewActions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-bottom: 16px; }
+.reviewActions a { color: var(--foreground); font-size: 14px; }
+
+@media (max-width: 1000px) {
+  .requirementInner { width: calc(100% - 64px); margin-inline: 32px; gap: 32px; padding-block: 64px; min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+  .copy { gap: 24px; }
+  .badge { min-height: 36px; padding: 8px 16px; gap: 8px; font-size: 11px; }
+  .badge img { width: 14px; }
+  .copy h2, .owners h2 { font-size: 44px; line-height: 50px; }
+  .copy h2 { white-space: normal; }
+  .copy br { display: none; }
+  .copy p, .owners p { font-size: 18px; line-height: 26px; }
+  .shareButton, .listButton { height: 48px; padding: 12px 20px; gap: 16px; font-size: 14px; line-height: 20px; }
+  .shareButton svg, .listButton svg, .continueButton svg { width: 20px; height: 20px; }
+  .formCard { min-height: 0; padding: 36px 24px; }
+  .formCard h3 { font-size: 32px; }
+  .formCard > p { max-width: none; margin: 8px 0 24px; font-size: 13px; line-height: 19px; }
+  .fields { gap: 16px; }
+  .fields label { gap: 6px; font-size: 12px; line-height: 18px; }
+  .fields input, .fields select { height: 36px; padding: 0 12px; font-size: 12px; }
+  .fields select { padding-right: 32px; }
+  .selectWrap svg { width: 16px; height: 16px; right: 12px; }
+  .continueButton { height: 48px; margin-top: 20px; font-size: 14px; gap: 12px; }
+  .ownerInner { padding-block: 48px; gap: 28px; }
+  .owners p { max-width: 660px; }
+}
+
+@media (max-width: 800px) {
+  .requirementInner { grid-template-columns: 1fr; gap: 40px; }
+  .copy h2 { max-width: 540px; }
+  .copy p { max-width: 420px; }
+  .formCard { width: 100%; max-width: 640px; }
+  .photo img { object-position: center; }
+}
+
+@media (max-width: 640px) {
+  .requirementInner { width: calc(100% - 48px); margin-inline: 24px; padding-block: 48px; gap: 32px; }
+  .copy h2, .owners h2 { font-size: 40px; line-height: 46px; }
+  .copy p, .owners p { font-size: 17px; line-height: 25px; }
+  .badge { font-size: 10px; }
+  .formCard { padding: 32px 24px; }
+  .formCard h3 { font-size: 30px; }
+  .fields { grid-template-columns: 1fr; }
+  .fields input, .fields select { height: 44px; font-size: 14px; }
+  .ownerInner { padding: 40px 24px; gap: 24px; }
+  .owners br { display: none; }
+  .review { grid-template-columns: 1fr; }
+}

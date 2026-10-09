@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { AccountCircle, ArrowUp, ChevronLeft, Menu, Search } from "./icons";
 import { useHeroExpansion } from "@/hooks/use-hero-expansion";
@@ -10,7 +11,7 @@ const workspaces = [
   { name: "Co-Working", label: "CO-WORKING", description: "Flexible spaces for teams that want room to grow." },
   { name: "Conventional", label: "CONVENTIONAL LEASING", description: "Dedicated spaces with greater control and flexibility." },
 ];
-type Panel = "spaces" | "about" | "contact";
+type Panel = "spaces" | "contact";
 
 export function Hero() {
   const { trackRef, pinRef, heroRef, photoRef } = useHeroExpansion();
@@ -55,7 +56,7 @@ export function Hero() {
         <div className="header-links">
           <nav className="primary-nav" aria-label="Main navigation">
             <a href="#home" aria-current="page">Home</a>
-            <button onClick={() => openPanel("about")}>About Us</button>
+            <Link href="/about">About Us</Link>
             <button onClick={() => openPanel("spaces")}>Program</button>
           </nav>
           <div className="header-actions">
@@ -66,7 +67,7 @@ export function Hero() {
               <button className="icon-button" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="hero-menu" onClick={() => setMenuOpen(!menuOpen)}><Menu /></button>
               {menuOpen && <nav id="hero-menu" className="menu-popover" aria-label="More navigation">
                 <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-                <button onClick={() => openPanel("about")}>About Us</button>
+                <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
                 <button onClick={() => openPanel("spaces")}>Find My Space</button>
                 <button onClick={() => openPanel("contact")}>Contact</button>
               </nav>}
@@ -93,12 +94,8 @@ export function Hero() {
       <div className="dialog-content">
         <button className="dialog-close" aria-label="Close dialog" onClick={() => dialog.current?.close()}>×</button>
         <p className="dialog-eyebrow">PROPMENTORS</p>
-        <h2 id="dialog-title">{panel === "about" ? "Real guidance. The right space." : panel === "contact" ? "Let’s find your space" : "Three ways to work"}</h2>
-        {panel === "about" ? <>
-          <p>We bring practical commercial real estate experience to every space search and decision.</p>
-          <p>Because the right space isn’t just about rent — it’s about location, business needs and long-term fit.</p>
-          <button className="dialog-primary" onClick={() => openPanel("spaces")}>Explore workspace options</button>
-        </> : panel === "spaces" ? <>
+        <h2 id="dialog-title">{panel === "contact" ? "Let’s find your space" : "Three ways to work"}</h2>
+        {panel === "spaces" ? <>
           <label className="workspace-search"><Search /><input type="search" aria-label="Filter workspace types" placeholder="Search workspace types" value={query} onChange={(event) => setQuery(event.target.value)} /></label>
           <div className="dialog-spaces">
             {workspaces.filter((space) => `${space.name} ${space.description}`.toLowerCase().includes(query.toLowerCase())).map((space) => <button className={`dialog-space${selectedSpace === space.name ? " selected" : ""}`} key={space.name} onClick={() => openPanel("contact", space.name)}><strong>{space.name}</strong><span>{space.description}</span><span className="space-enquire">Prepare an enquiry →</span></button>)}

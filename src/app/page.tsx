@@ -7,19 +7,23 @@ import { RealGuidance } from "@/components/real-guidance";
 import { OurApproach } from "@/components/our-approach";
 import { ClientStories } from "@/components/client-stories";
 import { Insights } from "@/components/insights";
+import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <AtAGlance />
-      <ExploreSpaces />
-      <PropertyOwners />
-      <WorkspaceOffers />
-      <RealGuidance />
-      <OurApproach />
-      <ClientStories />
-      <Insights />
-    </main>
+    <>
+      <main>
+        <Hero />
+        <AtAGlance />
+        <ExploreSpaces />
+        <PropertyOwners />
+        <WorkspaceOffers />
+        <RealGuidance />
+        <OurApproach />
+        <ClientStories />
+        <Insights />
+      </main>
+      <SiteFooter />
+    </>
   );
 }
