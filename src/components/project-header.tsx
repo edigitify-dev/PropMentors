@@ -16,7 +16,7 @@ export function ProjectHeader({ activePage }: { onSearch?: () => void; onContact
       </nav>
       <div className={styles.actions}>
         <Link href="/projects" className={styles.iconButton} aria-label="Search spaces"><Search /></Link>
-        <Link href="/projects" className={styles.contactButton}>Contact</Link>
+        <Link href="/contact" className={styles.contactButton}>Contact</Link>
         <Link href="/projects" className={styles.iconButton} aria-label="Account"><AccountCircle /></Link>
       </div>
     </div>

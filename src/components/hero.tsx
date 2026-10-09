@@ -60,7 +60,7 @@ export function Hero() {
           </nav>
           <div className="header-actions">
             <Link href="/projects" className="icon-button search-button" aria-label="Search workspaces"><Search /></Link>
-            <Link href="/projects" className="contact-button">Contact</Link>
+            <Link href="/contact" className="contact-button">Contact</Link>
             <Link href="/projects" className="icon-button account-button" aria-label="Your workspace enquiry"><AccountCircle /></Link>
           </div>
         </div>

@@ -13,7 +13,7 @@ const explore = [
   { label: "About", href: "/about" },
   { label: "List Your Space", href: "/list-your-space" },
   { label: "Projects", href: "/projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const services = [
@@ -30,11 +30,11 @@ const socials = [
   { id: "twitter", label: "Twitter" },
 ];
 
-export function SiteFooter({ homePath = "" }: { homePath?: string }) {
+export function SiteFooter({ homePath = "", showCta = true, className = "" }: { homePath?: string; showCta?: boolean; className?: string }) {
   return (
-    <div className="site-footer-wrap" data-node-id="363:1256">
+    <div className={`site-footer-wrap ${className}`} data-node-id="363:1256">
       <div className="footer-inner">
-        <section className="final-cta" id="contact" aria-labelledby="cta-heading">
+        {showCta && <section className="final-cta" id="contact" aria-labelledby="cta-heading">
           <h2 id="cta-heading">Looking for the right space?</h2>
           <p>Tell us what you&apos;re looking for. We&apos;ll help you find the space that fits.</p>
           <div className="cta-actions" data-node-id="467:543">
@@ -49,7 +49,7 @@ export function SiteFooter({ homePath = "" }: { homePath?: string }) {
             <div className="cta-divider" aria-hidden="true"><Image src="/images/footer/divider.svg" alt="" width={30} height={.5} loading="eager" unoptimized /></div>
             <a className="cta-contact" href="mailto:hello@propmentors.in" data-node-id="363:1322">Talk to a PropMentor <span aria-hidden="true"><ArrowUp /></span></a>
           </div>
-        </section>
+        </section>}
 
         <div className="footer-wordmark" aria-hidden="true" data-node-id="364:1365">
           <div className="footer-wordmark-text"><Image src="/images/footer/wordmark.svg" alt="" width={1306} height={206.428} loading="eager" unoptimized /></div>
