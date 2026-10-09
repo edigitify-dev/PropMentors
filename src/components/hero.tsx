@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { AccountCircle, ArrowUp, ChevronLeft, Menu, Search } from "./icons";
+import { AccountCircle, ArrowUp, ChevronLeft, Search } from "./icons";
 import { useHeroExpansion } from "@/hooks/use-hero-expansion";
 
 const workspaces = [
@@ -17,7 +17,6 @@ export function Hero() {
   const { trackRef, pinRef, heroRef, photoRef } = useHeroExpansion();
   const dialog = useRef<HTMLDialogElement>(null);
   const [panel, setPanel] = useState<Panel>("spaces");
-  const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [selectedSpace, setSelectedSpace] = useState("");
   const [copied, setCopied] = useState(false);
@@ -25,7 +24,6 @@ export function Hero() {
   function openPanel(next: Panel, selected = "") {
     setPanel(next);
     setSelectedSpace(selected);
-    setMenuOpen(false);
     setCopied(false);
     setQuery("");
     dialog.current?.showModal();
@@ -61,19 +59,9 @@ export function Hero() {
             <Link href="/projects">Projects</Link>
           </nav>
           <div className="header-actions">
-            <button className="icon-button search-button" aria-label="Search workspaces" onClick={() => openPanel("spaces")}><Search /></button>
-            <button className="contact-button" onClick={() => openPanel("contact")}>Contact</button>
-            <button className="icon-button account-button" aria-label="Your workspace enquiry" onClick={() => openPanel("contact")}><AccountCircle /></button>
-            <div className="menu-anchor">
-              <button className="icon-button" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="hero-menu" onClick={() => setMenuOpen(!menuOpen)}><Menu /></button>
-              {menuOpen && <nav id="hero-menu" className="menu-popover" aria-label="More navigation">
-                <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-                <Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
-                <Link href="/list-your-space" onClick={() => setMenuOpen(false)}>List Your Space</Link>
-                <Link href="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
-                <button onClick={() => openPanel("contact")}>Contact</button>
-              </nav>}
-            </div>
+            <Link href="/projects" className="icon-button search-button" aria-label="Search workspaces"><Search /></Link>
+            <Link href="/projects" className="contact-button">Contact</Link>
+            <Link href="/projects" className="icon-button account-button" aria-label="Your workspace enquiry"><AccountCircle /></Link>
           </div>
         </div>
       </header>
