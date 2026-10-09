@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
-import { AccountCircle, Menu, Search } from "./icons";
+import { ProjectHeader } from "./project-header";
 import { SiteFooter } from "./site-footer";
 import styles from "./contact-page.module.css";
 
@@ -19,35 +19,11 @@ export function ContactPage() {
   }
 
   return (
-    <div className={styles.page}>
-      <main>
+    <>
+      <main className={styles.page}>
         <section className={styles.hero} aria-label="Contact PropMentors">
           <Image className={styles.heroImage} src="/contact/contacthero.png" alt="People meeting in a bright modern office" width={1200} height={1500} preload unoptimized />
-          <header className={styles.header}>
-            <Link href="/" className={styles.logo} aria-label="PropMentors home">
-              <Image src="/images/propmentors-logo.svg" alt="" width={43} height={48} unoptimized />
-            </Link>
-            <nav className={styles.links} aria-label="Main navigation">
-              <Link href="/">Home</Link>
-              <Link href="/about">About Us</Link>
-              <Link href="/list-your-space">Program</Link>
-            </nav>
-            <div className={styles.actions}>
-              <Link href="/projects" className={styles.iconButton} aria-label="Search spaces"><Search /></Link>
-              <Link href="/contact" className={styles.contactButton} aria-current="page">Contact</Link>
-              <a href="#contact-form" className={styles.iconButton} aria-label="Your workspace enquiry"><AccountCircle /></a>
-              <details className={styles.menu}>
-                <summary aria-label="Open navigation menu"><Menu /></summary>
-                <nav className={styles.menuPanel} aria-label="More navigation">
-                  <Link href="/" onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}>Home</Link>
-                  <Link href="/about">About Us</Link>
-                  <Link href="/list-your-space">List Your Space</Link>
-                  <Link href="/projects">Projects</Link>
-                  <Link href="/contact" aria-current="page">Contact</Link>
-                </nav>
-              </details>
-            </div>
-          </header>
+          <ProjectHeader />
         </section>
 
         <section className={styles.contact} aria-labelledby="contact-heading">
@@ -62,7 +38,7 @@ export function ContactPage() {
               <label className={styles.field}><span>Full Name*</span><input name="name" autoComplete="name" placeholder="Your Name" required maxLength={120} /></label>
               <label className={styles.field}><span>Contact Number*</span><input name="phone" type="tel" autoComplete="tel" placeholder="We’ll Reach Out On This Number For Your Onboarding Call." required maxLength={30} /></label>
               <label className={styles.field}><span>Email Address*</span><input name="email" type="email" autoComplete="email" placeholder="For Updates And Official Communication." required maxLength={254} /></label>
-              <label className={`${styles.field} ${styles.subject}`}><span>Subject*</span><input name="subject" placeholder="Topic" required maxLength={180} /></label>
+              <label className={styles.field}><span>Subject*</span><input name="subject" placeholder="Topic" required maxLength={180} /></label>
               <label className={styles.field}><span>Message*</span><textarea name="message" placeholder="Type Your Message Here" rows={3} required maxLength={5000} /></label>
               <button type="submit" className={styles.sendButton}>Send Now</button>
               {status && <p className={styles.status} role="status">{status}</p>}
@@ -76,7 +52,7 @@ export function ContactPage() {
           </address>
         </section>
       </main>
-      <SiteFooter homePath="/" showCta={false} className={styles.footer} />
-    </div>
+      <SiteFooter homePath="/" />
+    </>
   );
 }

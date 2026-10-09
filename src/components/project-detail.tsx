@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { ChevronLeft } from "./icons";
+import { ChevronLeft, ChevronRight } from "./icons";
 import { ProjectHeader } from "./project-header";
 import { ProjectEnquiries } from "./project-enquiries";
 import { PropertyCard } from "./property-card";
@@ -70,8 +70,14 @@ export function ProjectDetail({ project }: { project: Project }) {
       <ProjectHeader onSearch={() => scrollTo("detail-spaces")} onContact={() => openEnquiry("Property enquiry")} />
       <div className={styles.container}>
         <section className={styles.gallery} aria-label="Property photographs">
-          <button type="button" className={styles.mainPhoto} onClick={() => lightbox.current?.showModal()} aria-label="Open property photo gallery"><SpacePhoto image={gallery[activePhoto]} priority /><span className={styles.photoCount}>View photos <span aria-hidden="true">↗</span></span></button>
-          <div className={styles.thumbnails}>{gallery.slice(1).map((item, index) => <button key={item.id} type="button" onClick={() => setActivePhoto(index + 1)} aria-label={`Show property photo ${index + 2}`} aria-pressed={activePhoto === index + 1}><SpacePhoto image={item} /></button>)}</div>
+          <button type="button" className={styles.mainPhoto} onClick={() => lightbox.current?.showModal()} aria-label="Open property photo gallery"><SpacePhoto image={gallery[activePhoto]} priority /></button>
+          <div className={styles.thumbnails}>{gallery.slice(1).map((item, index) => {
+            const isLast = index === gallery.length - 2;
+            return <button key={item.id} type="button" className={isLast ? styles.allPhotos : undefined} onClick={() => { if (isLast) lightbox.current?.showModal(); else setActivePhoto(index + 1); }} aria-label={isLast ? "View All Photos" : `Show property photo ${index + 2}`} aria-pressed={isLast ? undefined : activePhoto === index + 1}>
+              <SpacePhoto image={item} />
+              {isLast && <span className={styles.viewAllPhotos}>View All Photos <ChevronRight /></span>}
+            </button>;
+          })}</div>
         </section>
         <div className={styles.titleRow}>
           <div><nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Spaces</Link><span>/</span><span>{project.name}</span></nav><h1>{project.name}</h1><p>{project.locationLabel}</p></div>
@@ -149,8 +155,32 @@ export function ProjectDetail({ project }: { project: Project }) {
         </form>
       </div>
     </dialog>
-    <dialog className={styles.lightbox} ref={lightbox} aria-label="Property photo gallery" onClick={(event) => { if (event.target === event.currentTarget) lightbox.current?.close(); }}>
-      <div className={styles.lightboxContent}><button type="button" className={styles.lightboxClose} aria-label="Close photo gallery" onClick={() => lightbox.current?.close()}>×</button><SpacePhoto image={gallery[activePhoto]} /><div className={styles.lightboxControls}><button type="button" aria-label="Previous photo" onClick={() => setActivePhoto((activePhoto + gallery.length - 1) % gallery.length)}><ChevronLeft /></button><span>{activePhoto + 1} / {gallery.length}</span><button type="button" aria-label="Next photo" onClick={() => setActivePhoto((activePhoto + 1) % gallery.length)}><ChevronLeft /></button></div></div>
+    <dialog className={styles.lightbox} ref={lightbox} aria-label="Property photo gallery" onClick={(event) => { if (event.target === event.currentTarget) lightbox.current?.close(); }} onKeyDown={(event) => {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        setActivePhoto((current) => (current + (event.key === "ArrowLeft" ? -1 : 1) + gallery.length) % gallery.length);
+      }
+    }}>
+      <header className={styles.lightboxHeader}>
+        <div className={styles.lightboxTitle}><p>PROPERTY GALLERY</p><h2>{project.name}</h2></div>
+        <div className={styles.lightboxActions}>
+          <span className={styles.lightboxCount} aria-live="polite" aria-atomic="true">{String(activePhoto + 1).padStart(2, "0")} <span>/ {String(gallery.length).padStart(2, "0")}</span></span>
+          <button type="button" className={styles.lightboxClose} aria-label="Close photo gallery" onClick={() => lightbox.current?.close()}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" /></svg></button>
+        </div>
+      </header>
+      <div className={styles.lightboxStage}>
+        <SpacePhoto image={gallery[activePhoto]} />
+        {gallery.length > 1 && <>
+          <button type="button" className={`${styles.lightboxArrow} ${styles.lightboxPrevious}`} aria-label="Previous photo" onClick={() => setActivePhoto((current) => (current + gallery.length - 1) % gallery.length)}><ChevronLeft /></button>
+          <button type="button" className={`${styles.lightboxArrow} ${styles.lightboxNext}`} aria-label="Next photo" onClick={() => setActivePhoto((current) => (current + 1) % gallery.length)}><ChevronRight /></button>
+        </>}
+      </div>
+      <div className={styles.lightboxFooter}>
+        <div className={styles.lightboxCaption}><p>{gallery[activePhoto].alt}</p><span>{project.locationLabel}</span></div>
+        <div className={styles.lightboxThumbnails} role="group" aria-label="Choose a property photo">
+          {gallery.map((image, index) => <button type="button" key={image.id} aria-label={`View photo ${index + 1}`} aria-pressed={activePhoto === index} onClick={() => setActivePhoto(index)}><SpacePhoto image={image} /></button>)}
+        </div>
+      </div>
     </dialog>
   </>;
 }

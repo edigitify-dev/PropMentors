@@ -30,7 +30,7 @@ const socials = [
   { id: "twitter", label: "Twitter" },
 ];
 
-export function SiteFooter({ homePath = "", showCta = true, className = "" }: { homePath?: string; showCta?: boolean; className?: string }) {
+export function SiteFooter({ homePath = "", showCta = true, className = "", exploreLinks = explore }: { homePath?: string; showCta?: boolean; className?: string; exploreLinks?: typeof explore }) {
   return (
     <div className={`site-footer-wrap ${className}`} data-node-id="363:1256">
       <div className="footer-inner">
@@ -67,7 +67,7 @@ export function SiteFooter({ homePath = "", showCta = true, className = "" }: { 
             </div>
             <nav className="footer-column" aria-labelledby="footer-explore-heading">
               <h3 id="footer-explore-heading">Explore</h3>
-              <ul>{explore.map(link => <li key={link.label}><a href={link.href.startsWith("/") ? link.href : `${homePath}${link.href}`}>{link.label}</a></li>)}</ul>
+              <ul>{exploreLinks.map(link => <li key={link.label}><a href={link.href.startsWith("/") ? link.href : `${homePath}${link.href}`}>{link.label}</a></li>)}</ul>
             </nav>
             <nav className="footer-column footer-services" aria-labelledby="footer-services-heading">
               <h3 id="footer-services-heading">Services</h3>
