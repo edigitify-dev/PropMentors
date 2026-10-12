@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { AccountCircle, ArrowUp, ChevronLeft, Search } from "./icons";
+import { ArrowUp, ChevronLeft, Menu, Phone, Search } from "./icons";
 import { useHeroExpansion } from "@/hooks/use-hero-expansion";
 
 const workspaces = [
@@ -53,15 +53,23 @@ export function Hero() {
         <a className="brand" href="#home" aria-label="PropMentors home"><Image src="/images/propmentors-logo.svg" alt="PropMentors" width={43} height={48.2339} unoptimized /></a>
         <div className="header-links">
           <nav className="primary-nav" aria-label="Main navigation">
-            <Link href="/" aria-current="page">Home</Link>
+            <Link href="/projects">Spaces</Link>
             <Link href="/about">About Us</Link>
             <Link href="/list-your-space">List Your Space</Link>
-            <Link href="/projects">Projects</Link>
+            <Link href="/contact">Contact Us</Link>
           </nav>
           <div className="header-actions">
-            <Link href="/projects" className="icon-button search-button" aria-label="Search workspaces"><Search /></Link>
-            <Link href="/contact" className="contact-button">Contact</Link>
-            <Link href="/projects" className="icon-button account-button" aria-label="Your workspace enquiry"><AccountCircle /></Link>
+            <a href="tel:+918010178010" className="icon-button" aria-label="Call PropMentors"><Phone /></a>
+            <Link href="/contact" className="contact-button">Schedule a Call</Link>
+            <details className="hero-mobile-menu">
+              <summary aria-label="Main navigation"><Menu /></summary>
+              <nav className="menu-popover" aria-label="Mobile navigation">
+                <Link href="/projects">Spaces</Link>
+                <Link href="/about">About Us</Link>
+                <Link href="/list-your-space">List Your Space</Link>
+                <Link href="/contact">Contact Us</Link>
+              </nav>
+            </details>
           </div>
         </div>
       </header>
@@ -70,7 +78,7 @@ export function Hero() {
       <p className="hero-tagline">can change everything</p>
       <div className="hero-intro">
         <p>Find commercial spaces that fit your business, your team and the way you work — with PropMentors by your side.</p>
-        <div className="find-space-label">Find My Space <ChevronLeft /></div>
+        <Link href="/projects" className="find-space-label">Find My Space <ChevronLeft /></Link>
       </div>
       <div className="workspace-overview" id="workspaces">{workspaces.map((space, index) => <div key={space.name} className="workspace-card">
         <span className="workspace-card-heading"><span className="workspace-number">{index + 1}</span><span>{space.name}</span></span>

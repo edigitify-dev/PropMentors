@@ -91,8 +91,10 @@
   display: inline-flex;
   align-items: center;
   gap: .5em;
-  border: 0;
-  border-radius: 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  min-height: 48px;
+  justify-content: center;
   font-family: var(--body-font);
   font-weight: 600;
   font-size: min(1.041667cqw, 1.8dvh);
@@ -113,14 +115,14 @@
 .ctaPrimary {
   background: var(--accent);
   color: var(--background);
-  border: 2px solid var(--accent);
+  border: 1px solid var(--accent);
 }
 .ctaPrimary:hover { background: #4874a5; border-color: #4874a5; }
 
 .ctaOutline {
   background: transparent;
   color: var(--background);
-  border: 2px solid var(--background);
+  border: 1px solid var(--background);
 }
 .ctaOutline:hover { background: #fcf7e420; }
 

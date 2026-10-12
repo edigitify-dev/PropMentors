@@ -37,13 +37,11 @@ export function OurApproach() {
                 <div className="approach-icon-artwork">
                   <Image className="approach-circle-base" src="/images/approach/step-circle.svg" alt="" width={64} height={64} loading="eager" unoptimized />
                   <Image className="approach-circle-active" src="/images/approach/active-circle.svg" alt="" width={64} height={64} loading="eager" unoptimized />
-                  <div className={`approach-icon-fill approach-icon-fill-${step.id}`}>
-                    <Image src={`/images/approach/${index === 0 ? "active" : "step"}-fill.svg`} alt="" width={index === 0 ? 81.0667 : 64} height={index === 0 ? 81.0667 : 64} loading="eager" unoptimized />
-                  </div>
+                  <div className={`approach-icon-fill approach-icon-fill-${step.id}`} />
                 </div>
               </div>
-              <div className="approach-stem"><Image src="/images/approach/connector.svg" alt="" width={85} height={1} loading="eager" unoptimized /></div>
-              {index === 0 && <div className="approach-dot"><div className="approach-dot-artwork"><Image src="/images/approach/active-dot.svg" alt="" width={18} height={18} loading="eager" unoptimized /></div></div>}
+              <div className="approach-stem" />
+              {index === 0 && <div className="approach-dot"><div className="approach-dot-artwork" /></div>}
             </div>
             <div className="approach-step-content">
               <h3>{String(index + 1).padStart(2, "0")} - {step.title}</h3>

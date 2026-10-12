@@ -35,7 +35,7 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
     <div className={`site-footer-wrap ${className}`} data-node-id="363:1256">
       <div className="footer-inner">
         {showCta && <section className="final-cta" id="contact" aria-labelledby="cta-heading">
-          <h2 id="cta-heading">Looking for the right space?</h2>
+          <h2 id="cta-heading">Looking for the right space</h2>
           <p>Tell us what you&apos;re looking for. We&apos;ll help you find the space that fits.</p>
           <div className="cta-actions" data-node-id="467:543">
             <div className="cta-experts">
