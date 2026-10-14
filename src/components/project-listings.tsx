@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Search } from "./icons";
 import { PropertyCard } from "./property-card";
 import { formatProjectPrice, projects } from "../data/projects";
-import { amenityOptions, emptyListingFilters, hasProjectAmenity, heroBudgetRanges, locationNames, matchesListing, projectSpaceType, sortListings, type ListingFilters, type ListingSort } from "../lib/project-listing-filters";
+import { amenityOptions, emptyListingFilters, finishedTypeOptions, hasProjectAmenity, heroBudgetRanges, locationNames, matchesListing, projectSpaceType, sortListings, type ListingFilters, type ListingSort } from "../lib/project-listing-filters";
 import type { ProjectFilters } from "@/lib/space-search";
 import styles from "./project-listings.module.css";
 
@@ -29,7 +29,7 @@ function initialSelection(search: ProjectFilters | null): ListingFilters {
   const spaceTypes: Record<string, string> = { Coworking: "Co-Working", "Managed Offices": "Managed Office", "Conventional Leasing": "Conventional Leasing" };
   const locations: Record<string, string> = { Noida: "noida", Gurgaon: "gurgaon", Delhi: "delhi", Bengaluru: "bengaluru", Mumbai: "mumbai" };
   const range = heroBudgetRanges[search.budget];
-  return { ...emptyListingFilters, spaceType: spaceTypes[search.spaceType] ? [spaceTypes[search.spaceType]] : [], location: locations[search.location] ? [locations[search.location]] : [], minPrice: range ? String(range[0]) : "", maxPrice: range && Number.isFinite(range[1]) ? String(range[1]) : "" };
+  return { ...emptyListingFilters, query: search.query?.trim() ?? "", spaceType: spaceTypes[search.spaceType] ? [spaceTypes[search.spaceType]] : [], location: locations[search.location] ? [locations[search.location]] : [], minPrice: range ? String(range[0]) : "", maxPrice: range && Number.isFinite(range[1]) ? String(range[1]) : "" };
 }
 
 export function ProjectListings({ search }: { search: ProjectFilters | null }) {
@@ -42,11 +42,12 @@ export function ProjectListings({ search }: { search: ProjectFilters | null }) {
   const pageCount = Math.ceil(visible.length / pageSize);
   const currentPage = Math.min(page, Math.max(1, pageCount));
   const pageItems = visible.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const activeCount = filters.spaceType.length + filters.location.length + filters.amenities.length + Number(Boolean(filters.minPrice || filters.maxPrice)) + Number(filters.hideSoldOut);
+  const activeCount = filters.spaceType.length + filters.finishedType.length + filters.location.length + filters.amenities.length + Number(Boolean(filters.minPrice || filters.maxPrice)) + Number(filters.hideSoldOut) + Number(Boolean(filters.query));
   const budgetInvalid = Boolean(filters.minPrice && filters.maxPrice && Number(filters.minPrice) > Number(filters.maxPrice));
   const sortLabel = sortOptions.find((option) => option.value === sort)!.label;
   const groups = [
     { key: "spaceType" as const, title: "Space type", options: [...new Set([...projects.map(projectSpaceType), ...filters.spaceType])].map((value) => ({ value, label: value, count: projects.filter((project) => matchesListing(project, { ...filters, spaceType: [value] })).length })) },
+    { key: "finishedType" as const, title: "Finished Type", options: finishedTypeOptions.map((value) => ({ value, label: value, count: projects.filter((project) => matchesListing(project, { ...filters, finishedType: [value] })).length })) },
     { key: "location" as const, title: "Location", options: [...new Set([...projects.map((project) => project.location), ...filters.location])].map((value) => ({ value, label: locationNames[value] ?? value, count: projects.filter((project) => matchesListing(project, { ...filters, location: [value] })).length })) },
     { key: "amenities" as const, title: "Amenities", options: amenityOptions.filter((value) => projects.some((project) => hasProjectAmenity(project, value)) || filters.amenities.includes(value)).map((value) => ({ value, label: value, count: projects.filter((project) => matchesListing(project, { ...filters, amenities: [...new Set([...filters.amenities, value])] })).length })) },
   ];
@@ -56,14 +57,14 @@ export function ProjectListings({ search }: { search: ProjectFilters | null }) {
     setPage(1);
   }
 
-  function toggle(group: "spaceType" | "location" | "amenities", value: string) {
+  function toggle(group: "spaceType" | "finishedType" | "location" | "amenities", value: string) {
     updateFilters({ ...filters, [group]: filters[group].includes(value) ? filters[group].filter((item) => item !== value) : [...filters[group], value] });
   }
 
   function resetFilters() {
     updateFilters(emptyListingFilters);
     const url = new URL(window.location.href);
-    ["spaceType", "location", "budget"].forEach((key) => url.searchParams.delete(key));
+    ["spaceType", "location", "budget", "query"].forEach((key) => url.searchParams.delete(key));
     window.history.replaceState(window.history.state, "", url);
   }
 
@@ -74,7 +75,7 @@ export function ProjectListings({ search }: { search: ProjectFilters | null }) {
 
   function renderFilters() {
     return <div className={styles.filterFields}>
-      {groups.slice(0, 2).map((group) => renderGroup(group))}
+      {groups.slice(0, 3).map((group) => renderGroup(group))}
       <fieldset className={styles.budget}>
         <legend>Budget</legend><p>Set your price range</p>
         <div className={styles.budgetInputs}>
@@ -83,7 +84,7 @@ export function ProjectListings({ search }: { search: ProjectFilters | null }) {
         </div>
         {budgetInvalid && <p className={styles.budgetError} role="alert">Max price must be at least the min price.</p>}
       </fieldset>
-      {groups.slice(2).map((group) => renderGroup(group))}
+      {groups.slice(3).map((group) => renderGroup(group))}
       <fieldset className={styles.availability}>
         <legend>Availability</legend>
         <label className={styles.option}><input type="checkbox" checked={filters.hideSoldOut} onChange={(event) => updateFilters({ ...filters, hideSoldOut: event.target.checked })} /><span className={styles.check} aria-hidden="true" /><span>Hide sold out</span></label>
@@ -127,6 +128,7 @@ export function ProjectListings({ search }: { search: ProjectFilters | null }) {
             </div>
           </div>
           {activeCount > 0 && <div className={styles.activeFilters} aria-label="Active filters">
+            {filters.query && <button type="button" aria-label="Remove search filter" onClick={() => updateFilters({ ...filters, query: "" })}>Search: {filters.query}<CloseIcon /></button>}
             {groups.flatMap((group) => filters[group.key].map((value) => <button type="button" key={`${group.key}-${value}`} aria-label={`Remove ${group.title}: ${group.key === "location" ? locationNames[value] ?? value : value}`} onClick={() => toggle(group.key, value)}>{group.key === "location" ? locationNames[value] ?? value : value}<CloseIcon /></button>))}
             {(filters.minPrice || filters.maxPrice) && <button type="button" aria-label="Remove budget filter" onClick={() => updateFilters({ ...filters, minPrice: "", maxPrice: "" })}>{filters.minPrice ? formatProjectPrice(Number(filters.minPrice)) : "Any price"} – {filters.maxPrice ? formatProjectPrice(Number(filters.maxPrice)) : "No limit"}<CloseIcon /></button>}
             {filters.hideSoldOut && <button type="button" aria-label="Remove availability filter" onClick={() => updateFilters({ ...filters, hideSoldOut: false })}>Hide sold out<CloseIcon /></button>}

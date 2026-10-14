@@ -56,7 +56,7 @@ export function ProjectHero({ mapBackground, initialFilters = {}, onSearch }: {
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="project-heading">
         {mapBackground && <div className={styles.map} style={{ backgroundImage: `url("${mapBackground}")` }} aria-hidden="true" />}
-        <ProjectHeader onSearch={focusSearch} onContact={openEnquiry} />
+        <ProjectHeader activePage="projects" onSearch={focusSearch} onContact={openEnquiry} />
         <div className={styles.intro}>
           <h1 id="project-heading">Find the space that fits<br /> your business</h1>
           <p>Explore curated commercial spaces across locations, formats and budgets — all in one place.</p>

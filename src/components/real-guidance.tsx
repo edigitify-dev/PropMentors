@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const principles = [
   {
@@ -39,6 +42,7 @@ type GuidanceProps = {
 };
 
 export function RealGuidance({ id = "real-guidance", heading = "Real Estate decisions deserve real guidance", introduction = "Complete the process with practical advice, relevant options and hands-on support - from search to closure.", showBadge = true, cards }: GuidanceProps = {}) {
+  const [active, setActive] = useState(0);
   const labelPrefix = id === "real-guidance" ? "guidance" : id;
   const headingId = `${labelPrefix}-heading`;
   return (
@@ -69,6 +73,45 @@ export function RealGuidance({ id = "real-guidance", heading = "Real Estate deci
             </div>
           </article>
         ))}
+      </div>
+
+      <div className="guidance-mobile-content" aria-label="Why PropMentors options">
+        <div className="guidance-mobile-cards" role="tablist">
+          {principles.map((principle, index) => {
+            const title = cards?.[index]?.title ?? principle.title;
+            const description = cards?.[index]?.description ?? principle.description;
+            const isActive = active === index;
+            return (
+              <button
+                key={principle.id}
+                type="button"
+                className={`guidance-mobile-card${isActive ? " is-active" : ""}`}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActive(index)}
+              >
+                <span className="guidance-mobile-card-heading">
+                  <span className="guidance-mobile-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                  <span>{title}</span>
+                </span>
+                <span className="guidance-mobile-description" aria-hidden={!isActive}>
+                  <span>{description}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="guidance-mobile-preview" aria-hidden="true">
+          {principles.map((principle, index) => (
+            <div
+              key={principle.id}
+              className={`guidance-mobile-image${active === index ? " is-active" : ""}`}
+            >
+              <Image src={principle.image} alt="" width={principle.width} height={principle.height} unoptimized />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

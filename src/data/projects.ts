@@ -1,3 +1,5 @@
+import { buildingResearch } from "./building-research";
+
 export type ProjectImage = {
   id: string;
   src: string;
@@ -10,6 +12,7 @@ export type ProjectImage = {
 };
 
 export type ProjectFact = [label: string, value: string];
+export type FinishedType = "Bare shell" | "Semi-Furnished" | "Ready-to-move";
 export type WorkspaceOption = {
   id: string;
   title: string;
@@ -29,10 +32,11 @@ export type Project = {
   type: string;
   category: string;
   badge: string;
-  price: number;
+  price: number | null;
   features: string[];
   cover: ProjectImage;
   spaceType?: string;
+  finishedTypes?: FinishedType[];
   amenities?: string[];
   detail: {
     description: string;
@@ -72,7 +76,7 @@ const commercialAmenities = [
   "Pantry",
 ];
 
-export const projects: Project[] = [
+const existingProjects: Project[] = [
   {
     id: "noida-exp-01",
     slug: "max-towers",
@@ -609,6 +613,7 @@ export const projects: Project[] = [
     category: "Commercial",
     spaceType: "Conventional Leasing",
     badge: "Ready to Move",
+    finishedTypes: ["Ready-to-move"],
     price: 85000,
     features: ["1 million sq ft", "16 Floors", "Ready to Move"],
     cover: photos["space-02"],
@@ -1576,6 +1581,63 @@ export const projects: Project[] = [
 
 ];
 
+const propertyPlaceholder: ProjectImage = {
+  id: "property-placeholder", src: "/images/spaces/property-placeholder.svg",
+  alt: "Property photographs available on request", width: 1200, height: 780,
+  cropWidth: 400, cropHeight: 260, cropTop: 0,
+};
+
+const researchedProjects: Project[] = buildingResearch.map((building) => {
+  const existing = existingProjects.find((project) => project.slug === building.slug);
+  const id = existing?.id ?? building.slug;
+  const locationLabel = `Noida (Sector ${building.sector})`;
+  const cover = existing?.cover ?? propertyPlaceholder;
+
+  return {
+    id, slug: building.slug, aliases: existing?.aliases,
+    name: building.name, location: "noida", locationLabel,
+    type: "commercial", category: "Commercial", badge: "Enquire Now",
+    price: null, features: building.features, cover,
+    amenities: building.amenities,
+    detail: {
+      description: building.description,
+      overview: [
+        ["Building", building.name], ["Location", locationLabel],
+        ["Property Type", "Commercial"], ["Rent", "Price on request"],
+        ["Availability", "Contact our team for current availability"],
+      ],
+      building: [
+        ["Building Name", building.name], ["Sector / Zone", `Sector ${building.sector}`],
+        ["Structure / Floors / Floor Plate", building.structure],
+      ],
+      amenities: building.amenities,
+      gallery: existing?.detail.gallery ?? [cover],
+      spaces: [],
+      location: {
+        address: building.address, caption: `${building.name}\n${building.address}`,
+        directionsQuery: `${building.name}, Sector ${building.sector}, Noida`,
+        map: existing?.detail.location.map ?? propertyPlaceholder,
+        coordinates: existing?.detail.location.coordinates,
+        nearby: [["City", "Noida, Uttar Pradesh"], ["Sector", building.sector]],
+      },
+      views: existing?.detail.views ?? { interior: cover, exterior: cover },
+      startingPrice: "Price on request", startingPriceUnit: "",
+      highlights: [`Sector ${building.sector}, Noida`, "Contact our team for leasing details"],
+      benefits: [
+        { title: "Workspace Guidance", description: "Discuss your team size, preferred office format and location with PropMentors." },
+        { title: "Leasing Details", description: "Request current availability, rental terms and building specifications for your requirements." },
+        { title: "Site Visits", description: "Ask our team to arrange a visit and help you evaluate your options." },
+      ],
+      similarProjectIds: buildingResearch.filter((item) => item.slug !== building.slug).slice(0, 3).map((item) => item.slug),
+    },
+  };
+});
+
+export const projects: Project[] = [
+  ...researchedProjects,
+  ...existingProjects.filter((project) => !buildingResearch.some((building) => building.slug === project.slug)),
+];
+
 export function getProject(slugOrId: string): Project | undefined {
   return projects.find((project) => project.slug === slugOrId || project.id === slugOrId || project.aliases?.includes(slugOrId));
 }
@@ -1584,6 +1646,7 @@ export function projectHref(project: Pick<Project, "slug">): string {
   return `/projects/${project.slug}`;
 }
 
-export function formatProjectPrice(price: number): string {
+export function formatProjectPrice(price: number | null): string {
+  if (price === null) return "Price on request";
   return `₹${new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(price)}`;
 }

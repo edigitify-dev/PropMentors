@@ -11,7 +11,7 @@ export default async function ProjectsPage({ searchParams }: {
 }) {
   const query = await searchParams;
   const initialFilters = Object.fromEntries(
-    ["spaceType", "location", "budget"].map((key) => [key, typeof query[key] === "string" ? query[key] : undefined]),
+    ["spaceType", "location", "budget", "query"].map((key) => [key, typeof query[key] === "string" ? query[key] : undefined]),
   );
   return <ProjectPage initialFilters={initialFilters} />;
 }

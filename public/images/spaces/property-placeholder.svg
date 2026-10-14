@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780">
+  <rect width="1200" height="780" fill="#e9edf0"/>
+  <g fill="none" stroke="#9baab7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M485 437V237h144v200M629 292h86v145M453 437h294"/>
+    <path d="M517 273h21m32 0h21m-74 40h21m32 0h21m-74 40h21m32 0h21m-74 40h21m32 0h21m70-67h22m-22 40h22m-22 40h22"/>
+  </g>
+  <text x="600" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#334f68">Property photos on request</text>
+  <text x="600" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" letter-spacing="5" fill="#6d8193">PROPMENTORS</text>
+</svg>

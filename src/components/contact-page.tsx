@@ -23,7 +23,7 @@ export function ContactPage() {
       <main className={styles.page}>
         <section className={styles.hero} aria-label="Contact PropMentors">
           <Image className={styles.heroImage} src="/contact/contacthero.png" alt="People meeting in a bright modern office" width={1200} height={1500} preload unoptimized />
-          <ProjectHeader />
+          <ProjectHeader activePage="contact" />
         </section>
 
         <section className={styles.contact} aria-labelledby="contact-heading">

@@ -24,7 +24,7 @@ export function ExploreSpaces() {
     const budget = budgets[appliedFilters.budget];
     return (appliedFilters.location === "all" || property.location === appliedFilters.location)
       && (appliedFilters.propertyType === "all" || property.type === appliedFilters.propertyType)
-      && (!budget || property.price >= budget[0] && property.price <= budget[1]);
+      && (!budget || property.price !== null && property.price >= budget[0] && property.price <= budget[1]);
   });
   const visibleProperties = filteredProperties.slice(0, 6);
 

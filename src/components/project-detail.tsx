@@ -96,6 +96,7 @@ export function ProjectDetail({ project }: { project: Project }) {
             </section>
             <section className={styles.detailSection} id="detail-spaces" aria-labelledby="team-heading">
               <h2 id="team-heading">Find the space that<br /> fits your team</h2><p>{detail.description}</p>
+              {!detail.spaces.length && <p>Contact our team for current availability, office configurations and leasing terms.</p>}
               <div className={styles.teamGrid}>{detail.spaces.map((item) => <article className={styles.teamCard} key={item.id}>
                 <div className={styles.teamPhoto}><SpacePhoto image={item.image} /><div className={styles.smallBadges}><span>{project.category.toUpperCase()}</span><span>{item.badge.toUpperCase()}</span></div></div>
                 <h3>{item.title}</h3><p>{item.location}</p><p>{item.description}</p>
@@ -115,12 +116,13 @@ export function ProjectDetail({ project }: { project: Project }) {
             </section>
             <section className={styles.detailSection} id="detail-amenities" aria-labelledby="amenities-heading">
               <h2 id="amenities-heading">Amenities</h2><p>{detail.description}</p>
+              {!detail.amenities.length && <p>Contact our team for building amenities and facilities.</p>}
               <ul className={styles.amenities}>{detail.amenities.map((item, index) => <li key={item}><span aria-hidden="true"><AmenityIcon index={index} /></span>{item}</li>)}</ul>
             </section>
             <section className={styles.detailSection} id="detail-location" aria-labelledby="location-heading">
               <h2 id="location-heading">Location</h2>
               <div className={styles.locationRow}><p>{detail.location.caption}</p><a className={styles.primary} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronLeft /></a></div>
-              <ProjectMap project={project} />
+              {detail.location.coordinates ? <ProjectMap project={project} /> : <p>Contact our team to confirm the exact building location.</p>}
               <Facts items={detail.location.nearby} />
             </section>
             <section className={styles.detailSection} id="detail-explore" aria-labelledby="explore-heading">
@@ -139,7 +141,7 @@ export function ProjectDetail({ project }: { project: Project }) {
           </div>
           <aside className={styles.enquiryCard} aria-labelledby="space-enquiry-heading">
             <h2 id="space-enquiry-heading">Interested in this space?</h2><p>Let’s help you find the right workspace for your business.</p>
-            <span className={styles.starting}>STARTING FROM</span><p className={styles.rent}>{formatProjectPrice(project.price)}</p>
+            <span className={styles.starting}>{project.price === null ? "RENT" : "STARTING FROM"}</span><p className={styles.rent}>{formatProjectPrice(project.price)}</p>
             <ul>{detail.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
             <button type="button" className={styles.primary} onClick={() => openEnquiry()}>Request for Visit <ChevronLeft /></button>
             <div className={styles.similarPrompt}><h3>Not quite what you’re looking for?</h3><p>We’ll help you find a space that fits your business.</p><button type="button" className={styles.outline} onClick={() => scrollTo("similar-spaces")}>Find Similar Spaces <ChevronLeft /></button></div>

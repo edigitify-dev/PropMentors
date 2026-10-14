@@ -27,17 +27,42 @@ export function useApproachTimeline() {
     let centers: number[] = [];
     let lineWidth = 1;
     let viewportWidth = 1;
+    let mobileCenters: number[] = [];
+    let mobileStart = 0;
+    let mobileDistance = 1;
+    let mobileTotalHeight = 1;
 
     function render() {
       frame = 0;
       if (mobile.matches) {
         for (const property of ["--approach-line-x", "--approach-dot-x", "--approach-pan-x"]) list!.style.removeProperty(property);
-        section!.style.setProperty("--approach-progress", "0");
-        section!.removeAttribute("data-active-step");
-        steps.forEach(step => {
-          step.dataset.active = "false";
-          step.removeAttribute("aria-current");
+        
+        const progress = reducedMotion.matches
+          ? 1
+          : Math.min(1, Math.max(0, (window.scrollY - mobileStart) / mobileDistance));
+        
+        const lineHeight = mobileTotalHeight * progress;
+        list!.style.setProperty("--approach-mobile-line-height", `${lineHeight}px`);
+        list!.style.setProperty("--approach-mobile-dot-y", `${lineHeight}px`);
+        list!.style.setProperty("--approach-mobile-progress", String(progress));
+
+        const y0 = mobileCenters[0] ?? 42;
+        let activeIndex = 0;
+        steps.forEach((step, index) => {
+          const stepY = (mobileCenters[index] ?? y0) - y0;
+          const isReached = progress > 0 && lineHeight >= stepY - 16;
+          if (isReached) activeIndex = index;
+          step.dataset.reached = String(isReached);
         });
+
+        steps.forEach((step, index) => {
+          const isActive = index === activeIndex;
+          step.dataset.active = String(isActive);
+          if (isActive) step.setAttribute("aria-current", "step");
+          else step.removeAttribute("aria-current");
+        });
+
+        section!.dataset.activeStep = String(activeIndex);
         return;
       }
       const progress = reducedMotion.matches ? 0 : Math.min(1, Math.max(0, (window.scrollY - start) / distance));
@@ -65,18 +90,46 @@ export function useApproachTimeline() {
     }
 
     function scheduleRender() {
-      if (mobile.matches) return;
       if (!frame) frame = window.requestAnimationFrame(render);
     }
 
     function measure() {
       if (disposed) return;
-      track!.dataset.animated = String(!reducedMotion.matches && !mobile.matches);
+      track!.dataset.animated = String(!reducedMotion.matches);
       if (mobile.matches) {
         pin!.style.setProperty("--approach-sticky-top", "0px");
         track!.style.setProperty("--approach-scroll-distance", "0px");
-        if (frame) window.cancelAnimationFrame(frame);
-        render();
+        
+        const listRect = list!.getBoundingClientRect();
+        mobileCenters = steps.map(step => {
+          const circle = step.querySelector<HTMLElement>(".approach-mobile-number");
+          if (!circle) return step.offsetTop + 42;
+          const circleRect = circle.getBoundingClientRect();
+          return circleRect.top + circleRect.height / 2 - listRect.top;
+        });
+
+        const y0 = mobileCenters[0] ?? 42;
+        const yLast = mobileCenters[mobileCenters.length - 1] ?? (y0 + 300);
+        mobileTotalHeight = Math.max(1, yLast - y0);
+        list!.style.setProperty("--approach-mobile-total-height", `${mobileTotalHeight}px`);
+        list!.style.setProperty("--approach-mobile-start-y", `${y0}px`);
+
+        const circle0 = steps[0]?.querySelector<HTMLElement>(".approach-mobile-number");
+        const circleLast = steps[steps.length - 1]?.querySelector<HTMLElement>(".approach-mobile-number");
+        const triggerY = window.innerHeight * 0.6;
+        
+        if (circle0 && circleLast) {
+          const c0Top = circle0.getBoundingClientRect().top + window.scrollY;
+          const cLastTop = circleLast.getBoundingClientRect().top + window.scrollY;
+          mobileStart = c0Top - triggerY;
+          mobileDistance = Math.max(1, cLastTop - triggerY - mobileStart);
+        } else {
+          const trackTop = track!.getBoundingClientRect().top + window.scrollY;
+          mobileStart = trackTop - triggerY;
+          mobileDistance = Math.max(1, track!.offsetHeight);
+        }
+
+        scheduleRender();
         return;
       }
       const height = window.innerHeight;

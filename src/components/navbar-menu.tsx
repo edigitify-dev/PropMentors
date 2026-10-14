@@ -25,7 +25,7 @@ const menuItems: MenuItem[] = [
     ),
   },
   {
-    title: "Explore Spaces",
+    title: "Spaces",
     subtitle: "20+ verified Noida Expressway corporate towers",
     href: "/projects",
     icon: (props) => (
@@ -61,7 +61,7 @@ const menuItems: MenuItem[] = [
     ),
   },
   {
-    title: "Contact & Advisory",
+    title: "Contact Us",
     subtitle: "Direct consultations, inquiries & site visits",
     href: "/contact",
     icon: (props) => (

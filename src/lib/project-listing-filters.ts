@@ -1,7 +1,9 @@
-import type { Project } from "../data/projects";
+import type { FinishedType, Project } from "../data/projects";
 
 export type ListingFilters = {
+  query: string;
   spaceType: string[];
+  finishedType: string[];
   location: string[];
   amenities: string[];
   minPrice: string;
@@ -12,8 +14,10 @@ export type ListingFilters = {
 export type ListingSort = "recommended" | "price-low" | "price-high" | "name";
 
 export const emptyListingFilters: ListingFilters = {
-  spaceType: [], location: [], amenities: [], minPrice: "", maxPrice: "", hideSoldOut: false,
+  query: "", spaceType: [], finishedType: [], location: [], amenities: [], minPrice: "", maxPrice: "", hideSoldOut: false,
 };
+
+export const finishedTypeOptions: FinishedType[] = ["Bare shell", "Semi-Furnished", "Ready-to-move"];
 
 export const locationNames: Record<string, string> = {
   noida: "Noida", gurgaon: "Gurugram", delhi: "Delhi", "greater-noida": "Greater Noida", bengaluru: "Bengaluru", mumbai: "Mumbai",
@@ -54,18 +58,25 @@ export function hasProjectAmenity(project: Project, amenity: string) {
 }
 
 export function matchesListing(project: Project, filters: ListingFilters) {
-  return (!filters.spaceType.length || filters.spaceType.includes(projectSpaceType(project)))
+  const searchText = normalise([project.name, ...(project.aliases ?? []), project.locationLabel, project.detail.location.address].join(" "));
+  const matchesQuery = filters.query.trim().split(/\s+/).every((term) => searchText.includes(normalise(term)));
+  return matchesQuery
+    && (!filters.spaceType.length || filters.spaceType.includes(projectSpaceType(project)))
+    && (!filters.finishedType.length || (project.finishedTypes ?? []).some((value) => filters.finishedType.includes(value)))
     && (!filters.location.length || filters.location.includes(project.location))
     && filters.amenities.every((amenity) => hasProjectAmenity(project, amenity))
-    && (!filters.minPrice || project.price >= Number(filters.minPrice))
-    && (!filters.maxPrice || project.price <= Number(filters.maxPrice))
+    && (!filters.minPrice || project.price !== null && project.price >= Number(filters.minPrice))
+    && (!filters.maxPrice || project.price !== null && project.price <= Number(filters.maxPrice))
     && (!filters.hideSoldOut || normalise(project.badge) !== "soldout");
 }
 
 export function sortListings(listings: Project[], sort: ListingSort) {
   return listings.toSorted((a, b) => {
-    if (sort === "price-low") return a.price - b.price;
-    if (sort === "price-high") return b.price - a.price;
+    if (sort === "price-low" || sort === "price-high") {
+      if (a.price === null) return b.price === null ? 0 : 1;
+      if (b.price === null) return -1;
+      return sort === "price-low" ? a.price - b.price : b.price - a.price;
+    }
     if (sort === "name") return a.name.localeCompare(b.name, "en-IN");
     return 0;
   });
