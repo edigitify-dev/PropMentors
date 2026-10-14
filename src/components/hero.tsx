@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, Phone } from "./icons";
+import { Phone } from "./icons";
+import { NavbarMenu } from "./navbar-menu";
 import { HeroSearchFilters } from "./hero-search-filters";
 import { useHeroExpansion } from "@/hooks/use-hero-expansion";
 
@@ -33,15 +34,7 @@ export function Hero() {
           <div className="header-actions">
             <a href="tel:+918010178010" className="icon-button" aria-label="Call PropMentors"><Phone /></a>
             <Link href="/contact" className="contact-button">Schedule a Call</Link>
-            <details className="hero-mobile-menu">
-              <summary aria-label="Main navigation"><Menu /></summary>
-              <nav className="menu-popover" aria-label="Mobile navigation">
-                <Link href="/projects">Spaces</Link>
-                <Link href="/about">About Us</Link>
-                <Link href="/list-your-space">List Your Space</Link>
-                <Link href="/contact">Contact Us</Link>
-              </nav>
-            </details>
+            <NavbarMenu className="hero-menu" />
           </div>
         </div>
       </header>

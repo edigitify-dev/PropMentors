@@ -38,7 +38,7 @@
 .contactButton:hover { background: #4874a5; }
 .submit:hover { background: #24456b; }
 
-@media (max-width: 767px) {
+@media (max-width: 820px) {
   .header { padding: clamp(10px, 2.5dvh, 20px) 6%; }
   .brand { width: 31px; height: 35px; }
   .links { display: none; }

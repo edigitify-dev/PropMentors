@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "./icons";
 import { ProjectHeader } from "./project-header";
 import { ProjectEnquiries } from "./project-enquiries";
 import { PropertyCard } from "./property-card";
-import { getProject, type Project, type ProjectImage, type ProjectFact } from "../data/projects";
+import { getProject, formatProjectPrice, type Project, type ProjectImage, type ProjectFact } from "../data/projects";
 import { RealGuidance } from "./real-guidance";
 import { SiteFooter } from "./site-footer";
 import { ProjectMap } from "./project-map";
@@ -139,7 +139,7 @@ export function ProjectDetail({ project }: { project: Project }) {
           </div>
           <aside className={styles.enquiryCard} aria-labelledby="space-enquiry-heading">
             <h2 id="space-enquiry-heading">Interested in this space?</h2><p>Let’s help you find the right workspace for your business.</p>
-            <span className={styles.starting}>STARTING FROM</span><p className={styles.rent}>{detail.startingPrice}<span> {detail.startingPriceUnit}</span></p>
+            <span className={styles.starting}>STARTING FROM</span><p className={styles.rent}>{formatProjectPrice(project.price)}</p>
             <ul>{detail.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
             <button type="button" className={styles.primary} onClick={() => openEnquiry()}>Request for Visit <ChevronLeft /></button>
             <div className={styles.similarPrompt}><h3>Not quite what you’re looking for?</h3><p>We’ll help you find a space that fits your business.</p><button type="button" className={styles.outline} onClick={() => scrollTo("similar-spaces")}>Find Similar Spaces <ChevronLeft /></button></div>
