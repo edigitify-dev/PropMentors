@@ -10,6 +10,7 @@ import { PropertyCard } from "./property-card";
 import { getProject, type Project, type ProjectImage, type ProjectFact } from "../data/projects";
 import { RealGuidance } from "./real-guidance";
 import { SiteFooter } from "./site-footer";
+import { ProjectMap } from "./project-map";
 import styles from "./project-detail.module.css";
 
 const galleryTabs = ["FLOOR PLAN", "INTERIOR", "EXTERIOR"] as const;
@@ -84,7 +85,7 @@ export function ProjectDetail({ project }: { project: Project }) {
           <button type="button" className={styles.primary} onClick={() => openEnquiry("Request a brochure")}>Request Brochure <ChevronLeft /></button>
         </div>
         <nav className={styles.sectionNav} aria-label="Property sections">
-          <a href="#detail-overview">Overview</a><a href="#detail-amenities">Amenities</a><a href="#detail-location">Location</a><a href="#detail-explore">Floor Plan</a>
+          <a href="#detail-overview">Overview</a><a href="#detail-spaces">Spaces</a><a href="#detail-building">Building</a><a href="#detail-amenities">Amenities</a><a href="#detail-location">Location</a><a href="#detail-explore">Floor Plan</a>
           <button type="button" className={styles.primary} onClick={() => openEnquiry()}>Schedule Visit</button>
         </nav>
         <div className={styles.detailLayout}>
@@ -101,8 +102,16 @@ export function ProjectDetail({ project }: { project: Project }) {
                 <button type="button" className={styles.primary} onClick={() => openEnquiry(`Workspace enquiry — ${item.title}`)}>Enquire <ChevronLeft /></button>
               </article>)}</div>
             </section>
-            <section className={styles.detailSection} aria-labelledby="building-heading">
-              <h2 id="building-heading">Building<br /> Information</h2><p>{detail.description}</p><Facts items={detail.building} />
+            <section className={styles.detailSection} id="detail-building" aria-labelledby="building-heading">
+              <h2 id="building-heading" className={styles.buildingHeading}>Building information</h2>
+              <div className={styles.buildingTable}>
+                {detail.building.map(([label, value]) => (
+                  <div key={label} className={styles.buildingRow}>
+                    <span className={styles.buildingLabel}>{label}</span>
+                    <span className={styles.buildingValue}>{value}</span>
+                  </div>
+                ))}
+              </div>
             </section>
             <section className={styles.detailSection} id="detail-amenities" aria-labelledby="amenities-heading">
               <h2 id="amenities-heading">Amenities</h2><p>{detail.description}</p>
@@ -111,7 +120,8 @@ export function ProjectDetail({ project }: { project: Project }) {
             <section className={styles.detailSection} id="detail-location" aria-labelledby="location-heading">
               <h2 id="location-heading">Location</h2>
               <div className={styles.locationRow}><p>{detail.location.caption}</p><a className={styles.primary} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronLeft /></a></div>
-              <div className={styles.map}><Image src={detail.location.map.src} alt={detail.location.map.alt} width={detail.location.map.width} height={detail.location.map.height} unoptimized /></div><Facts items={detail.location.nearby} />
+              <ProjectMap project={project} />
+              <Facts items={detail.location.nearby} />
             </section>
             <section className={styles.detailSection} id="detail-explore" aria-labelledby="explore-heading">
               <h2 id="explore-heading">Explore the Space</h2>

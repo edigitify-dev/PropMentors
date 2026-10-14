@@ -19,7 +19,7 @@ export function PropertyCard({ property, className = "" }: { property: Project; 
         <h3>{property.name}</h3>
         <p className="property-location">{property.locationLabel}</p>
         <ul className="property-amenities" aria-label="Property features">
-          {property.features.map((feature, index) => <li key={feature}>
+          {property.features.map((feature, index) => <li key={`${feature}-${index}`}>
             {index > 0 && <Image src="/images/spaces/detail-dot.svg" alt="" width={4} height={4} unoptimized />}
             <span>{feature}</span>
           </li>)}

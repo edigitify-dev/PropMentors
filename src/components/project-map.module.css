@@ -1,0 +1,361 @@
+.mapWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 720 / 430;
+  margin-top: 24px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #e8e7df;
+  border: 1px solid rgba(18, 44, 79, 0.12);
+  box-shadow: 0 4px 24px rgba(18, 44, 79, 0.06);
+  isolation: isolate;
+}
+
+.mapCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  font-family: var(--body-font);
+  background: #e8e7df;
+}
+
+/* Grayscale elegant architectural map tiles matching PropMentors */
+.mapCanvas :global(.leaflet-tile-pane) {
+  filter: grayscale(0.9) contrast(0.95) brightness(1.02);
+}
+
+.mapCanvas :global(.leaflet-control-attribution) {
+  padding: 3px 8px;
+  background: rgba(252, 247, 228, 0.92);
+  color: var(--foreground);
+  font-size: 10px;
+  border-top-left-radius: 4px;
+}
+
+.mapCanvas :global(.leaflet-control-attribution a) {
+  color: var(--foreground);
+}
+
+.mapCanvas :global(.leaflet-control-zoom) {
+  overflow: hidden;
+  border: 1px solid rgba(18, 44, 79, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(18, 44, 79, 0.12);
+}
+
+.mapCanvas :global(.leaflet-control-zoom a) {
+  background: var(--background);
+  color: var(--foreground);
+  transition: background 0.15s ease;
+}
+
+.mapCanvas :global(.leaflet-control-zoom a:hover) {
+  background: #becfe1;
+}
+
+.mapCanvas :global(.leaflet-top) {
+  top: 14px;
+}
+
+.mapCanvas :global(.leaflet-right) {
+  right: 14px;
+}
+
+/* Custom Marker Styles */
+.mainMarker {
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  pointer-events: auto !important;
+}
+
+.mainMarkerPulse {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(93, 135, 181, 0.8);
+  border-radius: 50%;
+  background: rgba(93, 135, 181, 0.25);
+  animation: pulsePin 2.2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  pointer-events: none;
+}
+
+.mainMarkerPin {
+  position: relative;
+  width: 34px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 10px rgba(18, 44, 79, 0.35));
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.mainMarkerPin svg {
+  pointer-events: auto;
+}
+
+.mainMarker:hover .mainMarkerPin {
+  transform: translateY(-3px) scale(1.08);
+}
+
+.mainMarkerLabel {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  border: 1px solid rgba(18, 44, 79, 0.15);
+  border-radius: 6px;
+  background: rgba(252, 247, 228, 0.96);
+  color: var(--foreground);
+  font-family: var(--body-font);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(18, 44, 79, 0.12);
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mainMarkerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Other nearby projects markers */
+.nearbyMarker {
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nearbyMarkerDot {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--background);
+  border-radius: 50%;
+  background: #7393b3;
+  box-shadow: 0 2px 6px rgba(18, 44, 79, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.nearbyMarker:hover .nearbyMarkerDot {
+  transform: scale(1.3);
+  background: var(--foreground);
+}
+
+/* Map Action Controls */
+.mapFloatingBar {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.floatingBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid rgba(18, 44, 79, 0.18);
+  border-radius: 6px;
+  background: rgba(252, 247, 228, 0.94);
+  backdrop-filter: blur(8px);
+  color: var(--foreground);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(18, 44, 79, 0.12);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.floatingBtn:hover {
+  background: #becfe1;
+  color: var(--foreground);
+  transform: translateY(-1px);
+}
+
+.floatingBtn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.badgeCoords {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(252, 247, 228, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(18, 44, 79, 0.12);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--foreground);
+  box-shadow: 0 2px 8px rgba(18, 44, 79, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.liveIndicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+/* Custom Leaflet Popup Overrides */
+.mapCanvas :global(.leaflet-popup-content-wrapper) {
+  padding: 0;
+  border-radius: 10px;
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 10px 30px rgba(18, 44, 79, 0.2);
+  border: 1px solid rgba(18, 44, 79, 0.12);
+  overflow: hidden;
+}
+
+.mapCanvas :global(.leaflet-popup-content) {
+  margin: 0;
+  line-height: 1.4;
+  font-family: var(--body-font);
+}
+
+.mapCanvas :global(.leaflet-popup-tip) {
+  background: var(--background);
+}
+
+.popupCard {
+  padding: 14px 16px;
+  min-width: 200px;
+  max-width: 260px;
+}
+
+.popupBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  background: rgba(93, 135, 181, 0.15);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.popupTitle {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.popupAddress {
+  margin: 0 0 12px;
+  font-size: 11px;
+  color: #4a6382;
+  line-height: 1.35;
+}
+
+.popupDirections {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.popupDirections:hover {
+  opacity: 0.88;
+}
+
+.statusOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #e8e7df;
+  z-index: 3;
+  font-size: 13px;
+  color: var(--foreground);
+}
+
+.statusOverlay button {
+  padding: 6px 14px;
+  border: 1px solid rgba(18, 44, 79, 0.2);
+  border-radius: 6px;
+  background: var(--background);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+@keyframes pulsePin {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.9;
+  }
+  80%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .mapWrapper {
+    aspect-ratio: 1.25;
+  }
+
+  .mapFloatingBar {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    justify-content: space-between;
+  }
+
+  .floatingBtn {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .badgeCoords {
+    top: 10px;
+    left: 10px;
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}

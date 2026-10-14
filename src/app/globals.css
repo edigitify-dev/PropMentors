@@ -654,7 +654,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--background); ou
   .insight-caption p { font-size: 15px; line-height: 21px; }
 }
 
-.site-footer-wrap { width: 100%; margin-top: 90px; background: linear-gradient(to bottom, #fcf7e4 0%, #fcf7e4 26%, #c8d7e6 48%, #5d87b5 70%, #122c4f 90%); }
+.site-footer-wrap { width: 100%; margin-top: 90px; background: linear-gradient(to bottom, #fcf7e4 22.738%, #becfe1 62.697%, #5d87b5 95%); }
 .footer-inner { container-type: inline-size; width: 100%; max-width: 1440px; margin-inline: auto; padding-bottom: min(2.222222vw, 32px); --footer-asset-scale: calc(100cqw / 1440px); }
 .site-footer-wrap, .site-footer-wrap * { cursor: default; }
 .site-footer-wrap a, .site-footer-wrap a *, .site-footer-wrap button, .site-footer-wrap button * { cursor: pointer; }
@@ -679,7 +679,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--background); ou
 .cta-contact:focus-visible { outline: 2px solid var(--foreground); outline-offset: 2px; }
 .cta-contact > span { display: block; flex: none; width: 1.666667cqw; height: 1.666667cqw; transform: rotate(90deg); }
 .cta-contact svg { display: block; max-width: none; transform: scale(calc(100cqw / 3600px)); transform-origin: top left; }
-.footer-wordmark { position: relative; height: 16.765833cqw; margin-top: 7.638889cqw; overflow: clip; pointer-events: none; mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.75) 25%, rgba(0, 0, 0, 0.3) 65%, transparent 95%); -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.75) 25%, rgba(0, 0, 0, 0.3) 65%, transparent 95%); }
+.footer-wordmark { position: relative; height: 16.765833cqw; margin-top: 7.638889cqw; overflow: clip; pointer-events: none; }
 .footer-wordmark-text { position: absolute; top: 2.430556cqw; left: 4.652778cqw; }
 .footer-wordmark-crown { position: absolute; top: 0; left: 39.42cqw; }
 .footer-wordmark img { display: block; max-width: none; width: auto; height: auto; transform: scale(var(--footer-asset-scale)); transform-origin: top left; }
