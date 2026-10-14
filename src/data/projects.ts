@@ -1,4 +1,5 @@
 import { buildingResearch } from "./building-research";
+import { getProjectMedia } from "./project-images-data";
 
 export type ProjectImage = {
   id: string;
@@ -1587,11 +1588,43 @@ const propertyPlaceholder: ProjectImage = {
   cropWidth: 400, cropHeight: 260, cropTop: 0,
 };
 
+function enrichWithWebsiteMedia(project: Project): Project {
+  const media = getProjectMedia(project.slug, project.name);
+  if (!media) return project;
+
+  const cover = media.cover;
+  const gallery = media.gallery;
+  const views = {
+    exterior: media.views.exterior,
+    interior: media.views.interior,
+    floorPlan: project.detail.views.floorPlan,
+  };
+
+  const spaces = project.detail.spaces.map((sp, idx) => ({
+    ...sp,
+    image: gallery[(idx + 1) % gallery.length] || cover,
+  }));
+
+  return {
+    ...project,
+    cover,
+    detail: {
+      ...project.detail,
+      gallery,
+      views,
+      spaces,
+    },
+  };
+}
+
 const researchedProjects: Project[] = buildingResearch.map((building) => {
   const existing = existingProjects.find((project) => project.slug === building.slug);
   const id = existing?.id ?? building.slug;
   const locationLabel = `Noida (Sector ${building.sector})`;
-  const cover = existing?.cover ?? propertyPlaceholder;
+  const media = getProjectMedia(building.slug, building.name);
+  const cover = media?.cover ?? existing?.cover ?? propertyPlaceholder;
+  const gallery = media?.gallery ?? existing?.detail.gallery ?? [cover];
+  const views = media?.views ?? existing?.detail.views ?? { interior: cover, exterior: cover };
 
   return {
     id, slug: building.slug, aliases: existing?.aliases,
@@ -1611,8 +1644,11 @@ const researchedProjects: Project[] = buildingResearch.map((building) => {
         ["Structure / Floors / Floor Plate", building.structure],
       ],
       amenities: building.amenities,
-      gallery: existing?.detail.gallery ?? [cover],
-      spaces: [],
+      gallery,
+      spaces: existing?.detail.spaces.map((sp, idx) => ({
+        ...sp,
+        image: gallery[(idx + 1) % gallery.length] || cover,
+      })) ?? [],
       location: {
         address: building.address, caption: `${building.name}\n${building.address}`,
         directionsQuery: `${building.name}, Sector ${building.sector}, Noida`,
@@ -1620,7 +1656,7 @@ const researchedProjects: Project[] = buildingResearch.map((building) => {
         coordinates: existing?.detail.location.coordinates,
         nearby: [["City", "Noida, Uttar Pradesh"], ["Sector", building.sector]],
       },
-      views: existing?.detail.views ?? { interior: cover, exterior: cover },
+      views,
       startingPrice: "Price on request", startingPriceUnit: "",
       highlights: [`Sector ${building.sector}, Noida`, "Contact our team for leasing details"],
       benefits: [
@@ -1635,7 +1671,9 @@ const researchedProjects: Project[] = buildingResearch.map((building) => {
 
 export const projects: Project[] = [
   ...researchedProjects,
-  ...existingProjects.filter((project) => !buildingResearch.some((building) => building.slug === project.slug)),
+  ...existingProjects
+    .filter((project) => !buildingResearch.some((building) => building.slug === project.slug))
+    .map(enrichWithWebsiteMedia),
 ];
 
 export function getProject(slugOrId: string): Project | undefined {

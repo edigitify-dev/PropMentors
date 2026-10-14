@@ -72,13 +72,33 @@ export function ProjectDetail({ project }: { project: Project }) {
       <div className={styles.container}>
         <section className={styles.gallery} aria-label="Property photographs">
           <button type="button" className={styles.mainPhoto} onClick={() => lightbox.current?.showModal()} aria-label="Open property photo gallery"><SpacePhoto image={gallery[activePhoto]} priority /></button>
-          <div className={styles.thumbnails}>{gallery.slice(1).map((item, index) => {
-            const isLast = index === gallery.length - 2;
-            return <button key={item.id} type="button" className={isLast ? styles.allPhotos : undefined} onClick={() => { if (isLast) lightbox.current?.showModal(); else setActivePhoto(index + 1); }} aria-label={isLast ? "View All Photos" : `Show property photo ${index + 2}`} aria-pressed={isLast ? undefined : activePhoto === index + 1}>
-              <SpacePhoto image={item} />
-              {isLast && <span className={styles.viewAllPhotos}>View All Photos <ChevronRight /></span>}
-            </button>;
-          })}</div>
+          {gallery.length > 1 && (
+            <div className={styles.thumbnails}>
+              {gallery.slice(1, 4).map((item, index, slice) => {
+                const isLast = index === slice.length - 1 && gallery.length >= 4;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={isLast ? styles.allPhotos : undefined}
+                    onClick={() => {
+                      if (isLast) lightbox.current?.showModal();
+                      else setActivePhoto(index + 1);
+                    }}
+                    aria-label={isLast ? "View All Photos" : `Show property photo ${index + 2}`}
+                    aria-pressed={isLast ? undefined : activePhoto === index + 1}
+                  >
+                    <SpacePhoto image={item} />
+                    {isLast && (
+                      <span className={styles.viewAllPhotos}>
+                        View All Photos <ChevronRight />
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </section>
         <div className={styles.titleRow}>
           <div><nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Spaces</Link><span>/</span><span>{project.name}</span></nav><h1>{project.name}</h1><p>{project.locationLabel}</p></div>
