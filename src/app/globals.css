@@ -233,7 +233,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--background); ou
 .property-amenities li { display: flex; align-items: center; gap: .555556cqw; white-space: nowrap; }
 .property-amenities img { display: block; max-width: none; width: auto; height: auto; }
 .space-actions { display: flex; flex-wrap: wrap; gap: 2.222222cqw; align-items: start; }
-.space-action { display: flex; align-items: center; justify-content: center; gap: 1.388889cqw; height: 3.333333cqw; padding: .833333cqw 1.944444cqw; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: var(--background); font-size: 1.111111cqw; font-weight: 600; line-height: 1.388889cqw; white-space: nowrap; }
+.space-action { display: flex; align-items: center; justify-content: center; gap: 1.388889cqw; height: 3.333333cqw; padding: .833333cqw 1.944444cqw; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: var(--background); font-size: 1.111111cqw; font-weight: 600; line-height: 1.388889cqw; white-space: nowrap; text-decoration: none; }
 .space-action svg { transform: rotate(180deg); }
 .space-action-outline { background: transparent; color: var(--accent); }
 .space-search-button:hover, .space-action:hover { filter: brightness(.94); }

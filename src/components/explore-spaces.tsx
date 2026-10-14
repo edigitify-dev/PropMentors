@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { ChevronLeft, Search } from "./icons";
 import { PropertyCard } from "./property-card";
@@ -18,13 +19,14 @@ export function ExploreSpaces() {
   const [copied, setCopied] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-  const visibleProperties = projects.filter((property) => {
+  const filteredProperties = projects.filter((property) => {
     if (!appliedFilters) return true;
     const budget = budgets[appliedFilters.budget];
     return (appliedFilters.location === "all" || property.location === appliedFilters.location)
       && (appliedFilters.propertyType === "all" || property.type === appliedFilters.propertyType)
       && (!budget || property.price >= budget[0] && property.price <= budget[1]);
   });
+  const visibleProperties = filteredProperties.slice(0, 6);
 
   function showAllSpaces() {
     setFilters(allFilters);
@@ -90,7 +92,7 @@ export function ExploreSpaces() {
         </div>
         <div className="space-actions">
           <button className="space-action" type="button" onClick={() => { setCopied(false); dialogRef.current?.showModal(); }}>Find My Space <ChevronLeft /></button>
-          <button className="space-action space-action-outline" type="button" onClick={() => { showAllSpaces(); gridRef.current?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" }); }}>View More <ChevronLeft /></button>
+          <Link href="/projects" className="space-action space-action-outline">View More <ChevronLeft /></Link>
         </div>
         {status && <p className="space-results-status" role="status">{status}</p>}
       </div>
