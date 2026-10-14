@@ -114,7 +114,7 @@ export function ListYourSpacePage() {
           <div className={aboutStyles.decisionGrid}>
             <article className={aboutStyles.decisionColumn}>
               <div className={aboutStyles.decisionText}>
-                <h3>01 - Understand</h3>
+                <h3><span className={styles.decisionNumber}>01</span> - Understand</h3>
                 <p>We start with your business needs, priorities and plans for growth.</p>
               </div>
               <div className={aboutStyles.decisionPhoto}>
@@ -126,13 +126,13 @@ export function ListYourSpacePage() {
                 <Image src="/images/offers/managed-offices.png" width={736} height={1008} alt="Commercial property options being reviewed" unoptimized />
               </div>
               <div className={aboutStyles.decisionText}>
-                <h3>02 - Curate</h3>
+                <h3><span className={styles.decisionNumber}>02</span> - Curate</h3>
                 <p>We identify spaces aligned with your goals, budget and preferred locations.</p>
               </div>
             </article>
             <article className={aboutStyles.decisionColumn}>
               <div className={aboutStyles.decisionText}>
-                <h3>03 - Guide</h3>
+                <h3><span className={styles.decisionNumber}>03</span> - Guide</h3>
                 <p>We help you compare, evaluate and move forward with confidence.</p>
               </div>
               <div className={aboutStyles.decisionPhoto}>

@@ -1,5 +1,6 @@
 /* ── Page shell ── */
 .page { width: 100%; container-type: inline-size; color: var(--foreground); }
+.decisionNumber, .page :global(.approach-step-number) { color: var(--accent); }
 
 /* ── Hero ── */
 .hero {
@@ -196,7 +197,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 1000px) {
-  .heroIntro :global(.section-badge) { height: clamp(28px, 4dvh, 36px); padding-inline: 20px; font-size: 11px; }
+  .heroIntro :global(.section-badge) { height: var(--mobile-eyebrow-height, clamp(28px, 4dvh, 36px)); padding-inline: var(--mobile-eyebrow-padding, 20px); font-size: var(--mobile-eyebrow-font-size, 11px); }
   .heroIntro h1 { font-size: clamp(26px, 4.4vw, 56px); white-space: nowrap; }
   .heroSubtitle { font-size: clamp(15px, 2dvh, 18px); }
   .ctaPrimary, .ctaOutline { font-size: clamp(13px, 1.6dvh, 16px); padding: 13px 26px; }
@@ -209,6 +210,11 @@
   .heroCtas { gap: 12px; }
   .ctaPrimary, .ctaOutline { font-size: 14px; padding: 12px 20px; }
   .dialogForm { padding: 28px 24px; gap: 16px; }
+}
+
+@media (max-width: 767px) {
+  .heroIntro h1 { white-space: normal; text-wrap: balance; }
+  .field input, .field textarea { min-width: 0; font-size: 16px; }
 }
 
 @media (max-height: 520px) {

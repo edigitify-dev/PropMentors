@@ -1,23 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { budgets, locations, resolveProjectFilters, spaceTypes, type ProjectFilters } from "@/lib/space-search";
 import { Search } from "./icons";
 import { ProjectHeader } from "./project-header";
 import styles from "./project-hero.module.css";
-
-export type ProjectFilters = { spaceType: string; location: string; budget: string };
-
-const spaceTypes = ["Coworking", "Managed Offices", "Conventional Leasing"];
-const locations = ["Noida", "Gurgaon", "Delhi", "Bengaluru", "Mumbai"];
-const budgets = ["30k - 80k", "80k - 1.5L", "1.5L - 3L", "3L+"];
-
-export function resolveProjectFilters(initialFilters: Partial<ProjectFilters>): ProjectFilters {
-  return {
-    spaceType: spaceTypes.includes(initialFilters.spaceType ?? "") ? initialFilters.spaceType! : spaceTypes[0],
-    location: locations.includes(initialFilters.location ?? "") ? initialFilters.location! : locations[0],
-    budget: budgets.includes(initialFilters.budget ?? "") ? initialFilters.budget! : budgets[0],
-  };
-}
 
 export function ProjectHero({ mapBackground, initialFilters = {}, onSearch }: {
   mapBackground?: string;

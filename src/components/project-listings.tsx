@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Search } from "./icons";
 import { PropertyCard } from "./property-card";
 import { formatProjectPrice, projects } from "../data/projects";
 import { amenityOptions, emptyListingFilters, hasProjectAmenity, heroBudgetRanges, locationNames, matchesListing, projectSpaceType, sortListings, type ListingFilters, type ListingSort } from "../lib/project-listing-filters";
-import type { ProjectFilters } from "./project-hero";
+import type { ProjectFilters } from "@/lib/space-search";
 import styles from "./project-listings.module.css";
 
 const sortOptions: { value: ListingSort; label: string; description: string }[] = [

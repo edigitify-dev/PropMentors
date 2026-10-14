@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRef, useState, type FormEvent } from "react";
 import { ArrowUp } from "@/components/icons";
 
 const experts = [
@@ -31,6 +34,30 @@ const socials = [
 ];
 
 export function SiteFooter({ homePath = "", showCta = true, className = "", exploreLinks = explore }: { homePath?: string; showCta?: boolean; className?: string; exploreLinks?: typeof explore }) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const [status, setStatus] = useState("");
+
+  function handleTalkSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const spaceType = String(data.get("spaceType") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    const body = `Name: ${name}\nContact: ${phone}\nEmail: ${email}\nInterested in: ${spaceType}\n\nRequirements:\n${message}`;
+
+    try {
+      void navigator.clipboard?.writeText(body);
+    } catch {}
+
+    const subject = `Talk to a PropMentor — Enquiry from ${name}`;
+    window.location.href = `mailto:hello@propmentors.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    setStatus("Your enquiry is ready! We've prepared the email draft and copied a copy to your clipboard.");
+  }
+
   return (
     <div className={`site-footer-wrap ${className}`} data-node-id="363:1256">
       <div className="footer-inner">
@@ -47,7 +74,18 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
               </div>
             </div>
             <div className="cta-divider" aria-hidden="true"><Image src="/images/footer/divider.svg" alt="" width={30} height={.5} loading="eager" unoptimized /></div>
-            <a className="cta-contact" href="mailto:hello@propmentors.in" data-node-id="363:1322">Talk to a PropMentor <span aria-hidden="true"><ArrowUp /></span></a>
+            <button
+              type="button"
+              className="cta-contact"
+              onClick={() => {
+                setStatus("");
+                dialogRef.current?.showModal();
+              }}
+              data-node-id="363:1322"
+              aria-haspopup="dialog"
+            >
+              Talk to a PropMentor <span aria-hidden="true"><ArrowUp /></span>
+            </button>
           </div>
         </section>}
 
@@ -59,8 +97,12 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
         <footer className="site-footer">
           <div className="footer-panel" data-node-id="363:1326">
             <div className="footer-brand">
-              <a className="footer-logo" href={`${homePath}#home`} aria-label="PropMentors home"><Image src="/images/footer/logo.svg" alt="PropMentors" width={62} height={69.5466} loading="eager" unoptimized /></a>
-              <p>Experience real estate excellence.</p>
+              <div className="footer-brand-header">
+                <a className="footer-logo" href={`${homePath}#home`} aria-label="PropMentors home">
+                  <Image src="/images/footer/logo.svg" alt="PropMentors" width={34} height={38} loading="eager" unoptimized />
+                </a>
+                <p className="footer-tagline">Experience real estate excellence.</p>
+              </div>
               <div className="footer-socials" aria-label="Social platforms" data-node-id="365:1411">
                 {socials.map(social => <span className={`footer-social footer-social-${social.id}`} key={social.id} title={social.label}><Image src={`/images/footer/${social.id}.svg`} alt={social.label} width={31.923} height={31.923} loading="eager" unoptimized /></span>)}
               </div>
@@ -84,6 +126,73 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
           </div>
         </footer>
       </div>
+
+      <dialog
+        className="hero-dialog talk-mentor-dialog"
+        ref={dialogRef}
+        aria-labelledby="talk-mentor-heading"
+        onClose={() => setStatus("")}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) dialogRef.current?.close();
+        }}
+      >
+        <div className="dialog-content talk-mentor-content">
+          <button
+            type="button"
+            className="dialog-close"
+            aria-label="Close dialog"
+            onClick={() => dialogRef.current?.close()}
+          >
+            ×
+          </button>
+          <p className="dialog-eyebrow">PROPMENTORS</p>
+          <h2 id="talk-mentor-heading">Talk to a PropMentor</h2>
+          <form className="enquiry-form talk-mentor-form" onSubmit={handleTalkSubmit}>
+            <label>
+              Your name*
+              <input name="name" autoComplete="name" placeholder="Full Name" required maxLength={120} />
+            </label>
+            <label>
+              Contact number*
+              <input name="phone" type="tel" autoComplete="tel" placeholder="+91 98765 43210" required maxLength={30} />
+            </label>
+            <label>
+              Email address*
+              <input name="email" type="email" autoComplete="email" placeholder="name@company.com" required maxLength={254} />
+            </label>
+            <label>
+              Space type / Requirement
+              <select name="spaceType" defaultValue="Managed Offices">
+                <option value="Managed Offices">Managed Offices</option>
+                <option value="Co-Working">Co-Working</option>
+                <option value="Conventional Leasing">Conventional Leasing</option>
+                <option value="Commercial Advisory">Commercial Advisory</option>
+              </select>
+            </label>
+            <label>
+              Tell us what your team needs*
+              <textarea
+                name="message"
+                rows={2}
+                placeholder="City, preferred location, team size, move-in timeline and any specific requirements..."
+                required
+                maxLength={2000}
+              />
+            </label>
+            <p className="form-note">
+              Our team of 25+ commercial real estate experts will connect with you to curate the right options.
+            </p>
+            <button type="submit" className="dialog-primary talk-submit-btn">
+              Send Enquiry
+            </button>
+            {status && (
+              <p className="copy-status" role="status" style={{ color: "#2d6a4f", fontWeight: 600 }}>
+                {status}
+              </p>
+            )}
+          </form>
+        </div>
+      </dialog>
     </div>
   );
 }

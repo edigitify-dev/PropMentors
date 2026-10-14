@@ -12,13 +12,16 @@
 .iconButton, .menu summary { display: grid; place-items: center; width: 1.666667cqw; height: 1.666667cqw; padding: 0; background: none; border: 0; }
 .iconButton svg { width: 1.666667cqw; height: 1.666667cqw; }
 .contactButton { display: grid; place-items: center; height: min(3.333333cqw, 6dvh); padding-inline: 1.944444cqw; border-radius: 2cqw; font-size: 1.111111cqw; font-weight: 500; white-space: nowrap; background: var(--accent); color: var(--background); border: 0; }
-.menu { position: relative; }
+.menu { display: none; position: relative; }
 .menu summary { cursor: pointer; list-style: none; width: 1.944444cqw; height: 1.944444cqw; }
 .menu summary::-webkit-details-marker { display: none; }
 .menu summary svg { width: 1.944444cqw; height: 1.944444cqw; }
-.menuPanel { position: absolute; top: calc(100% + 16px); right: 0; display: grid; min-width: 200px; padding: 12px; border: 1px solid var(--accent); border-radius: 12px; background: var(--background); box-shadow: 0 12px 40px #122c4f20; font-size: 14px; }
+.menuPanel { position: absolute; z-index: 3; top: calc(100% + 8px); right: 0; display: grid; width: min(240px, calc(100vw - 40px)); padding: 8px; border: 1px solid #becfe1; border-radius: 14px; background: var(--background); color: var(--foreground); box-shadow: 0 12px 40px #122c4f20; font-size: 14px; }
 .menuPanel a, .menuPanel button { border: 0; padding: 12px; background: none; text-align: left; }
 .menuPanel a:hover, .menuPanel button:hover { background: #5d87b520; border-radius: 6px; }
+.menuPanel a { min-height: 44px; border-radius: 8px; }
+.menuPanel a[aria-current="page"] { background: #5d87b520; font-weight: 600; }
+.menu summary:focus-visible, .menuPanel a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .intro { padding-top: min(8.194444cqw, 13dvh); text-align: center; }
 .intro h1 { margin: 0; font-family: "Kind Avenue", Georgia, serif; font-weight: 400; font-size: min(4.756944cqw, 8.5dvh); line-height: min(5.555556cqw, 10dvh); }
 .intro p { margin: min(1.944444cqw, 3dvh) auto 0; max-width: 82cqw; font-size: min(1.666667cqw, 3dvh); line-height: 1.5; font-weight: 500; -webkit-font-smoothing: antialiased; }
@@ -42,7 +45,9 @@
   .navigation { gap: 0; }
   .actions { gap: 16px; }
   .iconButton, .iconButton svg { width: 22px; height: 22px; }
-  .menu summary, .menu summary svg { width: 26px; height: 26px; }
+  .menu { display: block; }
+  .menu summary { width: 44px; height: 44px; }
+  .menu summary svg { width: 24px; height: 24px; }
   .contactButton { padding: 0 16px; height: 36px; border-radius: 24px; font-size: 12px; }
   .intro { padding: clamp(14px, 6dvh, 60px) 6% 0; }
   .intro h1 { font-size: clamp(28px, min(6.8vw, 5.5dvh), 52px); line-height: 1.12; }

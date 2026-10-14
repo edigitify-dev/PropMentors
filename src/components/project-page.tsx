@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ProjectHero, resolveProjectFilters, type ProjectFilters } from "./project-hero";
+import { ProjectHero } from "./project-hero";
+import { resolveProjectFilters, type ProjectFilters } from "@/lib/space-search";
 import { ProjectListings } from "./project-listings";
 import { ProjectEnquiries } from "./project-enquiries";
 import { RealGuidance } from "./real-guidance";

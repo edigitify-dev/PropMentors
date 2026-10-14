@@ -29,10 +29,11 @@ export function OurApproach() {
       </div>
 
       <div className="approach-timeline" ref={timelineRef}>
-      <ol className="approach-steps" ref={stepsRef}>
+      <ol className="approach-steps" ref={stepsRef} role="list">
         {steps.map((step, index) => (
           <li className={`approach-step approach-step-${step.id}`} key={step.id} data-active={index === 0} aria-current={index === 0 ? "step" : undefined}>
             <div className="approach-step-visual" aria-hidden="true">
+              <span className="approach-mobile-number">{String(index + 1).padStart(2, "0")}</span>
               <div className="approach-icon">
                 <div className="approach-icon-artwork">
                   <Image className="approach-circle-base" src="/images/approach/step-circle.svg" alt="" width={64} height={64} loading="eager" unoptimized />
@@ -44,7 +45,7 @@ export function OurApproach() {
               {index === 0 && <div className="approach-dot"><div className="approach-dot-artwork" /></div>}
             </div>
             <div className="approach-step-content">
-              <h3>{String(index + 1).padStart(2, "0")} - {step.title}</h3>
+              <h3><span className="approach-step-number">{String(index + 1).padStart(2, "0")}</span><span className="approach-step-separator"> - </span>{step.title}</h3>
               <p>{step.description}</p>
             </div>
           </li>

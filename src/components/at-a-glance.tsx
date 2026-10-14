@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ClientLogoMarquee } from "./client-logo-marquee";
 
 type StatPhotoProps = {
   variant: "cities" | "leased" | "clients";
@@ -28,9 +29,15 @@ function StatPhoto({ variant, value, label }: StatPhotoProps) {
   );
 }
 
-export function AtAGlance() {
+const statistics = [
+  { value: "100", label: "Happy clients" },
+  { value: "1 Mn", label: "Sq.ft. leased & transacted" },
+  { value: "05", label: "Cities & markets" },
+];
+
+export function AtAGlance({ variant = "summary" }: { variant?: "summary" | "photos" }) {
   return (
-    <section className="glance" id="at-a-glance" aria-labelledby="glance-heading" data-node-id="331:1792">
+    <section className={`glance${variant === "summary" ? " glance-summary" : ""}`} id="at-a-glance" aria-labelledby="glance-heading" data-node-id={variant === "summary" ? "669:314" : "331:1792"}>
       <div className="glance-heading">
         <div className="section-badge" data-node-id="382:1689">
           <span className="section-badge-icon" aria-hidden="true">
@@ -44,20 +51,34 @@ export function AtAGlance() {
         </div>
       </div>
 
-      <div className="glance-stats">
-        <div className="glance-column">
-          <StatPhoto variant="cities" value="5+" label="CITIES" />
-          <div className="glance-feature"><p>3 WAYS TO WORK</p></div>
+      {variant === "summary" ? (
+        <>
+          <dl className="glance-metrics">
+            {statistics.map(({ value, label }) => (
+              <div className="glance-metric" key={label}>
+                <dt>{label}</dt>
+                <dd>{value}<span>+</span></dd>
+              </div>
+            ))}
+          </dl>
+          <ClientLogoMarquee />
+        </>
+      ) : (
+        <div className="glance-stats">
+          <div className="glance-column">
+            <StatPhoto variant="cities" value="5+" label="CITIES" />
+            <div className="glance-feature"><p>3 WAYS TO WORK</p></div>
+          </div>
+          <div className="glance-column glance-column-center">
+            <div className="glance-feature"><p>CURATED SPACES</p></div>
+            <StatPhoto variant="leased" value="1Mn+" label="SQ.FT. LEASED & TRANSACTED" />
+          </div>
+          <div className="glance-column">
+            <StatPhoto variant="clients" value="100+" label="CLIENTS" />
+            <div className="glance-feature glance-feature-destinations"><p>KEY BUSINESS DESTINATIONS</p></div>
+          </div>
         </div>
-        <div className="glance-column glance-column-center">
-          <div className="glance-feature"><p>CURATED SPACES</p></div>
-          <StatPhoto variant="leased" value="1Mn+" label="SQ.FT. LEASED & TRANSACTED" />
-        </div>
-        <div className="glance-column">
-          <StatPhoto variant="clients" value="100+" label="CLIENTS" />
-          <div className="glance-feature glance-feature-destinations"><p>KEY BUSINESS DESTINATIONS</p></div>
-        </div>
-      </div>
+      )}
     </section>
   );
 }

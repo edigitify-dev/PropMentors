@@ -24,6 +24,7 @@ export function useHeroExpansion() {
     if (!track || !pin || !hero || !photo) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const compactLandscape = window.matchMedia("(max-width: 1000px) and (max-height: 600px) and (orientation: landscape)");
     let frame = 0;
     let start = 0;
     let distance = 1;
@@ -34,7 +35,7 @@ export function useHeroExpansion() {
 
     function render() {
       frame = 0;
-      const progress = reducedMotion.matches ? 0 : Math.min(1, Math.max(0, (window.scrollY - start) / distance));
+      const progress = reducedMotion.matches || compactLandscape.matches ? 0 : Math.min(1, Math.max(0, (window.scrollY - start) / distance));
       // Smooth endpoints without adding lag between the scroll and the image.
       const eased = progress * progress * (3 - 2 * progress);
       pin!.style.setProperty("--hero-expansion", String(eased));
@@ -68,16 +69,14 @@ export function useHeroExpansion() {
       const photoWidth = photo!.offsetWidth;
       const photoHeight = photo!.offsetHeight;
       if (!photoWidth || !photoHeight) return;
-      // Bleed beyond the viewport to move the image's rounded edges and
-      // transparent bottom notch out of view without changing the asset.
-      const notchDepth = Math.max(photoHeight * 0.12, desktop ? photoWidth * (136 / 2618) : 0);
-      targetScale = Math.max((viewportWidth + 48) / photoWidth, (viewportHeight + 24) / (photoHeight - notchDepth));
+      // Bleed beyond the viewport so the rounded edges leave the frame.
+      targetScale = Math.max((viewportWidth + 48) / photoWidth, (viewportHeight + 48) / photoHeight);
       const photoLeft = hero!.offsetLeft + photo!.offsetLeft;
       targetX = (viewportWidth - photoWidth * targetScale) / 2 - photoLeft;
       targetY = overflow - 24 - photo!.offsetTop;
 
       const elements = Array.from(hero!.querySelectorAll<HTMLElement>(
-        ".brand, .primary-nav, .header-actions, .workspace-nav, .hero-title, .hero-tagline, .hero-intro, .workspace-overview, .hero-scroll",
+        ".brand, .primary-nav, .header-actions, .workspace-nav, .hero-title, .hero-tagline, .hero-search-filters",
       ));
       // Always measure the original layout, including when resizing mid-scroll.
       for (const element of elements) {
@@ -85,21 +84,10 @@ export function useHeroExpansion() {
         element.style.removeProperty("--hero-content-y");
         element.style.removeProperty("--hero-content-scale");
       }
-      // Reserve space above the arrow when a wide viewport has less height.
-      hero!.style.setProperty("--hero-bottom-adjust", "0px");
-      if (desktop) {
-        const overviewBottom = hero!.querySelector<HTMLElement>(".workspace-overview")!.getBoundingClientRect().bottom;
-        const arrowTop = hero!.querySelector<HTMLElement>(".hero-scroll")!.getBoundingClientRect().top;
-        const gap = 16 * hero!.offsetWidth / 1440;
-        hero!.style.setProperty("--hero-bottom-adjust", `${Math.max(0, overviewBottom + gap - arrowTop)}px`);
-      }
       const pinTop = pin!.getBoundingClientRect().top;
       const scale = desktop ? viewportWidth / hero!.offsetWidth : 1;
       const bounds = new Map(elements.map(element => [element, element.getBoundingClientRect()]));
-      const intro = hero!.querySelector<HTMLElement>(".hero-intro")!;
-      const overview = hero!.querySelector<HTMLElement>(".workspace-overview")!;
-      const mobileOverviewY = viewportHeight - 32 - bounds.get(overview)!.height;
-      const mobileIntroY = mobileOverviewY - 40 - bounds.get(intro)!.height;
+      const filters = hero!.querySelector<HTMLElement>(".hero-search-filters")!;
 
       content = elements.filter(element => bounds.get(element)!.width > 0).map(element => {
         const rect = bounds.get(element)!;
@@ -122,19 +110,11 @@ export function useHeroExpansion() {
           y = desktop ? viewportHeight * 0.27 : 150;
           endScale = desktop ? scale * (128 / 110) : 1;
         } else if (element.classList.contains("hero-tagline")) {
-          y = desktop ? viewportHeight * 0.388 : 200;
+          const title = hero!.querySelector<HTMLElement>(".hero-title")!;
+          y = desktop ? viewportHeight * 0.388 : Math.max(200, 150 + bounds.get(title)!.height + 12);
           endScale = desktop ? scale * (32 / 24) : 1;
-        } else if (element.classList.contains("hero-intro")) {
-          x = desktop ? viewportWidth * 0.068 : rect.left;
-          y = desktop ? viewportHeight * 0.765 : mobileIntroY;
-        } else if (element.classList.contains("workspace-overview")) {
-          x = desktop ? viewportWidth * 0.533 : rect.left;
-          y = desktop ? viewportHeight * 0.765 : mobileOverviewY;
-        } else if (element.classList.contains("hero-scroll")) {
-          // Move the down arrow through the lower edge, rather than fading it
-          // in place or carrying it upward with the expanding image.
-          y = viewportHeight + 24;
-          endScale = 1;
+        } else if (element.classList.contains("hero-search-filters")) {
+          y = desktop ? Math.min(viewportHeight * (741 / 940), viewportHeight - rect.height - 48) : viewportHeight - 32 - bounds.get(filters)!.height;
         }
         return { element, x: x - rect.left, y: y + overflow - (rect.top - pinTop), scale: endScale };
       });
@@ -143,11 +123,12 @@ export function useHeroExpansion() {
 
     const observer = new ResizeObserver(measure);
     observer.observe(hero);
-    const overview = hero.querySelector<HTMLElement>(".workspace-overview");
-    if (overview) observer.observe(overview);
+    const filters = hero.querySelector<HTMLElement>(".hero-search-filters");
+    if (filters) observer.observe(filters);
     window.addEventListener("scroll", scheduleRender, { passive: true });
     window.addEventListener("resize", measure);
     reducedMotion.addEventListener("change", measure);
+    compactLandscape.addEventListener("change", measure);
     measure();
 
     return () => {
@@ -155,6 +136,7 @@ export function useHeroExpansion() {
       window.removeEventListener("scroll", scheduleRender);
       window.removeEventListener("resize", measure);
       reducedMotion.removeEventListener("change", measure);
+      compactLandscape.removeEventListener("change", measure);
       window.cancelAnimationFrame(frame);
     };
   }, []);

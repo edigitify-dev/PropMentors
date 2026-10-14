@@ -18,6 +18,7 @@ export function useApproachTimeline() {
     if (!track || !pin || !section || !timeline || !list) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mobile = window.matchMedia("(max-width: 767px)");
     const steps = Array.from(list.querySelectorAll<HTMLElement>(".approach-step"));
     let frame = 0;
     let disposed = false;
@@ -29,6 +30,16 @@ export function useApproachTimeline() {
 
     function render() {
       frame = 0;
+      if (mobile.matches) {
+        for (const property of ["--approach-line-x", "--approach-dot-x", "--approach-pan-x"]) list!.style.removeProperty(property);
+        section!.style.setProperty("--approach-progress", "0");
+        section!.removeAttribute("data-active-step");
+        steps.forEach(step => {
+          step.dataset.active = "false";
+          step.removeAttribute("aria-current");
+        });
+        return;
+      }
       const progress = reducedMotion.matches ? 0 : Math.min(1, Math.max(0, (window.scrollY - start) / distance));
       if (!centers.length) return;
       // Fill from the first point to the end of the line, holding the last
@@ -54,12 +65,20 @@ export function useApproachTimeline() {
     }
 
     function scheduleRender() {
+      if (mobile.matches) return;
       if (!frame) frame = window.requestAnimationFrame(render);
     }
 
     function measure() {
       if (disposed) return;
-      track!.dataset.animated = String(!reducedMotion.matches);
+      track!.dataset.animated = String(!reducedMotion.matches && !mobile.matches);
+      if (mobile.matches) {
+        pin!.style.setProperty("--approach-sticky-top", "0px");
+        track!.style.setProperty("--approach-scroll-distance", "0px");
+        if (frame) window.cancelAnimationFrame(frame);
+        render();
+        return;
+      }
       const height = window.innerHeight;
       const overflow = Math.max(0, pin!.offsetHeight - height);
       pin!.style.setProperty("--approach-sticky-top", `${-overflow}px`);
@@ -82,6 +101,7 @@ export function useApproachTimeline() {
     window.addEventListener("scroll", scheduleRender, { passive: true });
     window.addEventListener("resize", measure);
     reducedMotion.addEventListener("change", measure);
+    mobile.addEventListener("change", measure);
     void document.fonts.ready.then(measure);
     measure();
 
@@ -91,6 +111,7 @@ export function useApproachTimeline() {
       window.removeEventListener("scroll", scheduleRender);
       window.removeEventListener("resize", measure);
       reducedMotion.removeEventListener("change", measure);
+      mobile.removeEventListener("change", measure);
       window.cancelAnimationFrame(frame);
     };
   }, []);
