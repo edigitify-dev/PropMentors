@@ -24,6 +24,8 @@
 .menu summary:focus-visible, .menuPanel a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .intro { padding-top: min(8.194444cqw, 13dvh); text-align: center; }
 .intro h1 { margin: 0; font-family: "Kind Avenue", Georgia, serif; font-weight: 400; font-size: min(4.756944cqw, 8.5dvh); line-height: min(5.555556cqw, 10dvh); }
+.desktopBr { display: inline; }
+.mobileEyebrow { display: none; }
 .intro p { margin: min(1.944444cqw, 3dvh) auto 0; max-width: 82cqw; font-size: min(1.666667cqw, 3dvh); line-height: 1.5; font-weight: 500; -webkit-font-smoothing: antialiased; }
 .filters { position: relative; display: grid; grid-template-columns: 230fr 262fr 286fr 88fr 204fr; gap: 2.222222cqw; align-items: end; margin: min(4.444444cqw, 7dvh) 8.125cqw 0 8.75cqw; }
 .field { display: grid; gap: .833333cqw; min-width: 0; font-size: .972222cqw; line-height: 1.285714; }
@@ -33,48 +35,228 @@
 .submit { grid-column: 5; display: flex; align-items: center; justify-content: space-between; height: min(3.333333cqw, 6dvh); padding: 0 1.388889cqw; border: 0; border-radius: 2cqw; background: var(--foreground); color: var(--background); font-size: 1.111111cqw; white-space: nowrap; }
 .submit svg { width: 1.666667cqw; height: 1.666667cqw; }
 .status { position: absolute; top: calc(100% + 16px); left: 0; margin: 0; font-size: 14px; }
+.mobileFilters { display: none; }
+.mobileSearchbar { display: none; }
+.mobileFilterPills { display: none; }
+.mobileFilterPill { display: none; }
+.mobileNote { display: none; }
 .page :is(a, button, select, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .links a:hover, .links button:hover { color: var(--accent); }
 .contactButton:hover { background: #4874a5; }
 .submit:hover { background: #24456b; }
 
+/* Mobile view - follows the homepage hero mobile layout */
 @media (max-width: 820px) {
-  .header { padding: clamp(10px, 2.5dvh, 20px) 6%; }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100svh;
+    height: auto;
+    padding: max(16px, calc(env(safe-area-inset-top) + 12px)) 24px 28px;
+    box-sizing: border-box;
+  }
+  .header {
+    position: relative;
+    padding: 0;
+    width: 100%;
+    height: 44px;
+    z-index: 5;
+  }
   .brand { width: 31px; height: 35px; }
   .links { display: none; }
   .navigation { gap: 0; }
-  .actions { gap: 16px; }
+  .actions { gap: 12px; }
   .iconButton, .iconButton svg { width: 22px; height: 22px; }
   .menu { display: block; }
   .menu summary { width: 44px; height: 44px; }
   .menu summary svg { width: 24px; height: 24px; }
   .contactButton { padding: 0 16px; height: 36px; border-radius: 24px; font-size: 12px; }
-  .intro { padding: clamp(14px, 6dvh, 60px) 6% 0; }
-  .intro h1 { font-size: clamp(28px, min(6.8vw, 5.5dvh), 52px); line-height: 1.12; }
-  .intro h1 br { display: none; }
-  .intro p { max-width: 540px; margin-top: clamp(12px, 3dvh, 28px); font-size: clamp(12px, 2.2dvh, 16px); line-height: 1.5; }
-  .filters { grid-template-columns: 1fr 1fr; gap: clamp(12px, 2.5dvh, 20px) 20px; margin: clamp(16px, 4dvh, 36px) 8% 0; }
-  .field { gap: clamp(6px, 1.2dvh, 10px); font-size: 12px; line-height: 1.4; }
-  .field:first-child { grid-column: 1 / -1; }
-  .field select { height: clamp(36px, 5.6dvh, 48px); padding: 0 36px 0 16px; border-radius: 28px; font-size: 14px; }
-  .selectWrap::after { right: 18px; width: 7px; height: 7px; }
-  .submit { grid-column: 1 / -1; justify-self: center; width: 204px; height: clamp(36px, 5.6dvh, 48px); padding: 0 20px; border-radius: 28px; font-size: 14px; }
-  .submit svg { width: 24px; height: 24px; }
-  .status { top: calc(100% + 10px); width: 100%; font-size: 12px; text-align: center; }
-  .map { inset: 30dvh 0 0; background-size: auto max(900px, 100dvh); background-position: center -110px; mask-image: linear-gradient(transparent, #000 65%); }
+
+  /* Mobile Hero Copy */
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    max-width: 540px;
+    margin: clamp(24px, 5svh, 48px) auto 0;
+    padding: 0;
+  }
+  .mobileEyebrow {
+    display: block;
+    margin: 0 0 14px;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .intro h1 {
+    font-family: "Kind Avenue", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(38px, 10vw, 56px);
+    line-height: 1.05;
+    letter-spacing: normal;
+    text-align: left;
+    margin: 0;
+    color: var(--foreground);
+  }
+  .desktopBr { display: none; }
+  .intro p {
+    margin: 14px 0 0;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -.02em;
+    color: var(--foreground);
+    opacity: 0.85;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  /* Hide desktop grid on mobile */
+  .filters { display: none; }
+
+  /* Mobile Filters (Homepage hero mobile layout) */
+  .mobileFilters {
+    display: grid;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 540px;
+    gap: 12px;
+    margin: auto auto 0;
+    padding-top: 36px;
+  }
+  .mobileSearchbar {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    height: 56px;
+    padding: 5px 6px 5px 17px;
+    border: 1px solid #cedbe6;
+    border-radius: 999px;
+    background: #fffefa;
+    color: var(--foreground);
+    box-shadow: 0 6px 24px #00000012;
+  }
+  .mobileSearchbar > svg {
+    flex-shrink: 0;
+    width: 19px;
+    height: 19px;
+    color: #7b8792;
+    stroke-width: 1.7;
+  }
+  .mobileSearchbar input {
+    width: 100%;
+    min-width: 0;
+    padding: 8px 0;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--foreground);
+    font-size: 16px;
+    line-height: 24px;
+    cursor: text;
+  }
+  .mobileSearchbar input::placeholder {
+    color: #7b8792;
+    font-size: 13px;
+  }
+  .mobileSearchbar button {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--foreground);
+    color: #fffefa;
+    cursor: pointer;
+  }
+  .mobileSearchbar button svg {
+    width: 19px;
+    height: 19px;
+    color: #fffefa;
+  }
+  .mobileSearchbar:focus-within {
+    box-shadow: 0 0 0 3px #9dbadb80;
+    border-color: var(--accent);
+  }
+  .mobileFilterPills {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    padding: 3px 2px 5px;
+    margin-inline: -2px;
+  }
+  .mobileFilterPills::-webkit-scrollbar {
+    display: none;
+  }
+  .mobileFilterPill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 14px;
+    border: 1px solid #cedbe6;
+    border-radius: 999px;
+    background: #ffffffeb;
+    color: var(--foreground);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px #0000000a;
+  }
+  .mobileFilterPill svg {
+    width: 14px;
+    height: 14px;
+    color: #7b8792;
+    flex-shrink: 0;
+  }
+  .mobileFilterPill select {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  .mobileNote {
+    display: block;
+    margin: 8px auto 0;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+  }
+  .mobileNote a {
+    color: inherit;
+    text-decoration: none;
+    opacity: .85;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .map {
+    inset: 20dvh 0 0;
+    background-size: auto max(900px, 100dvh);
+    background-position: center -60px;
+    mask-image: linear-gradient(transparent, #000 60%);
+  }
 }
 
 @media (max-width: 420px) {
   .contactButton { display: none; }
-  .filters { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 767px) and (max-height: 520px) {
   .intro { padding-top: 14px; }
-  .filters { grid-template-columns: 1fr 1fr; }
-}
-
-@media (min-width: 421px) and (max-width: 767px) and (max-height: 520px) {
-  .filters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .field:first-child { grid-column: auto; }
 }

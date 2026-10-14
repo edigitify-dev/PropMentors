@@ -11,6 +11,36 @@ interface ProjectMapProps {
 }
 
 export function ProjectMap({ project }: ProjectMapProps) {
+  const coordinates = project.detail.location.coordinates;
+  if (coordinates) return <CoordinateProjectMap project={project} coords={coordinates} />;
+
+  const query = encodeURIComponent(project.detail.location.directionsQuery);
+
+  return (
+    <div className={styles.mapWrapper}>
+      <iframe
+        className={styles.mapEmbed}
+        title={`Location map for ${project.name}`}
+        src={`https://www.google.com/maps?q=${query}&output=embed`}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+      />
+      <div className={styles.mapFloatingBar}>
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${query}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.floatingBtn}
+        >
+          Open in Google Maps &rarr;
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function CoordinateProjectMap({ project, coords }: ProjectMapProps & { coords: { lat: number; lng: number } }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const tileLayerRef = useRef<TileLayer | null>(null);
@@ -19,7 +49,6 @@ export function ProjectMap({ project }: ProjectMapProps) {
   const [showNearby, setShowNearby] = useState(true);
   const nearbyMarkersRef = useRef<Marker[]>([]);
 
-  const coords = project.detail.location.coordinates ?? { lat: 28.5355, lng: 77.391 };
   const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     project.detail.location.directionsQuery
   )}`;

@@ -43,7 +43,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--background); ou
 .hero-brand-name, .hero-copy-eyebrow, .hero-mobile-filters, .hero-mobile-note { display: none; }
 .hero-header a, .hero-header button, .hero-header a *, .hero-header button * { cursor: pointer; }
 .hero-photo { position: absolute; left: 4.583333%; top: 2.553191%; width: 90.902778%; height: 92.765957%; }
-.hero-photo, .hero-top-shade { transform-origin: top left; transform: translate3d(var(--hero-photo-x), var(--hero-photo-y), 0) scale(var(--hero-photo-scale)); will-change: transform; }
+.hero-photo, .hero-top-shade { transform-origin: top left; transform: translate3d(var(--hero-photo-x, 0px), var(--hero-photo-y, 0px), 0) scale(var(--hero-photo-scale, 1)); will-change: transform; }
 .brand, .primary-nav, .header-actions, .hero-search-filters {
   transform-origin: top left;
   transform: translate3d(var(--hero-content-x, 0px), var(--hero-content-y, 0px), 0) scale(var(--hero-content-scale, 1));

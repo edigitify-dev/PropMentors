@@ -142,7 +142,7 @@ export function ProjectDetail({ project }: { project: Project }) {
             <section className={styles.detailSection} id="detail-location" aria-labelledby="location-heading">
               <h2 id="location-heading">Location</h2>
               <div className={styles.locationRow}><p>{detail.location.caption}</p><a className={styles.primary} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronLeft /></a></div>
-              {detail.location.coordinates ? <ProjectMap project={project} /> : <p>Contact our team to confirm the exact building location.</p>}
+              <ProjectMap project={project} />
               <Facts items={detail.location.nearby} />
             </section>
             <section className={styles.detailSection} id="detail-explore" aria-labelledby="explore-heading">

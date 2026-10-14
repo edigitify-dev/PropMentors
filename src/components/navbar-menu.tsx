@@ -7,7 +7,6 @@ import styles from "./navbar-menu.module.css";
 
 interface MenuItem {
   title: string;
-  subtitle: string;
   href: string;
   icon: (props: { className?: string }) => React.JSX.Element;
 }
@@ -15,7 +14,6 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     title: "Home",
-    subtitle: "Overview & key commercial highlights",
     href: "/",
     icon: (props) => (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -26,7 +24,6 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Spaces",
-    subtitle: "20+ verified Noida Expressway corporate towers",
     href: "/projects",
     icon: (props) => (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -39,7 +36,6 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "About Us",
-    subtitle: "Institutional advisory & track record",
     href: "/about",
     icon: (props) => (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -52,7 +48,6 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "List Your Space",
-    subtitle: "Monetize & market your commercial inventory",
     href: "/list-your-space",
     icon: (props) => (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -62,7 +57,6 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Contact Us",
-    subtitle: "Direct consultations, inquiries & site visits",
     href: "/contact",
     icon: (props) => (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -152,10 +146,10 @@ export function NavbarMenu({ className = "" }: { className?: string }) {
               <span className={styles.brandDot} />
               <span>PropMentors</span>
             </div>
-            <span className={styles.quickBadge}>Directory</span>
+            <span className={styles.quickBadge}>Menu</span>
           </div>
 
-          {/* Links list */}
+          {/* Links list (clean single-line premium design) */}
           <div className={styles.menuNav}>
             {menuItems.map((item) => {
               const isActive =
@@ -174,14 +168,10 @@ export function NavbarMenu({ className = "" }: { className?: string }) {
                   <div className={styles.itemIcon}>
                     <item.icon />
                   </div>
-                  <div className={styles.itemContent}>
-                    <span className={styles.itemTitle}>{item.title}</span>
-                    <span className={styles.itemSubtitle}>{item.subtitle}</span>
-                  </div>
+                  <span className={styles.itemTitle}>{item.title}</span>
                   <div className={styles.itemArrow} aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
+                      <polyline points="9 18 15 12 9 6" />
                     </svg>
                   </div>
                 </Link>
@@ -205,7 +195,7 @@ export function NavbarMenu({ className = "" }: { className?: string }) {
                 </svg>
                 <span>+91 80101 78010</span>
               </div>
-              <span className={styles.hotlineAvailability}>Direct Line</span>
+              <span className={styles.hotlineAvailability}>Call</span>
             </a>
 
             <Link
@@ -213,7 +203,7 @@ export function NavbarMenu({ className = "" }: { className?: string }) {
               className={styles.scheduleCallBtn}
               onClick={() => setIsOpen(false)}
             >
-              Schedule a Consultation
+              Schedule a Call
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
