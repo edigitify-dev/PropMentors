@@ -25,7 +25,7 @@ export function PropertyOwners() {
             <h2 id="owners-heading">Have a space to lease?</h2>
             <div className="owners-intro">
               <p>Put your property in front of businesses actively looking for their next workspace.</p>
-              <p>List your commercial space with PropMentors and start receiving relevant enquiries.</p>
+              <p className="owners-listing-description">List your commercial space with PropMentors and start receiving relevant enquiries.</p>
             </div>
           </div>
         </div>

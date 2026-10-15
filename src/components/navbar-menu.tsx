@@ -1,217 +1,120 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ChevronRight, Search } from "./icons";
 import styles from "./navbar-menu.module.css";
 
-interface MenuItem {
-  title: string;
-  href: string;
-  icon: (props: { className?: string }) => React.JSX.Element;
-}
-
-const menuItems: MenuItem[] = [
-  {
-    title: "Home",
-    href: "/",
-    icon: (props) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    ),
-  },
-  {
-    title: "Spaces",
-    href: "/projects",
-    icon: (props) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <rect x="3" y="3" width="7" height="9" />
-        <rect x="14" y="3" width="7" height="5" />
-        <rect x="14" y="12" width="7" height="9" />
-        <rect x="3" y="16" width="7" height="5" />
-      </svg>
-    ),
-  },
-  {
-    title: "About Us",
-    href: "/about",
-    icon: (props) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
-  },
-  {
-    title: "List Your Space",
-    href: "/list-your-space",
-    icon: (props) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    ),
-  },
-  {
-    title: "Contact Us",
-    href: "/contact",
-    icon: (props) => (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
-  },
+const menuItems = [
+  { title: "Home", href: "/" },
+  { title: "Spaces", href: "/projects" },
+  { title: "About Us", href: "/about" },
+  { title: "List Your Space", href: "/list-your-space" },
+  { title: "Contact Us", href: "/contact" },
 ];
 
 export function NavbarMenu({ className = "" }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const menuId = useId();
   const pathname = usePathname();
 
-  // Close on outside click
+  function closeMenu() {
+    dialogRef.current?.close();
+  }
+
+  useEffect(() => {
+    dialogRef.current?.close();
+  }, [pathname]);
+
   useEffect(() => {
     if (!isOpen) return;
 
-    function handleClickOutside(event: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
+    const root = document.documentElement;
+    const previousOverflow = root.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    root.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
 
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-        triggerRef.current?.focus();
-      }
+    const desktop = window.matchMedia("(min-width: 821px)");
+    function handleResize() {
+      if (desktop.matches) dialogRef.current?.close();
     }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleKeyDown);
+    desktop.addEventListener("change", handleResize);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
+      root.style.overflow = previousOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      desktop.removeEventListener("change", handleResize);
     };
   }, [isOpen]);
 
-  // Close menu when pathname changes
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   return (
-    <div className={`${styles.menuContainer} ${className}`} ref={containerRef}>
-      {/* Premium Trigger Button */}
+    <div className={`${styles.menuContainer} ${className}`}>
       <button
         ref={triggerRef}
         type="button"
         className={styles.triggerButton}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => {
+          dialogRef.current?.showModal();
+          setIsOpen(true);
+        }}
         aria-expanded={isOpen}
-        aria-haspopup="true"
-        aria-label="Toggle navigation menu"
-        data-open={isOpen}
+        aria-controls={menuId}
+        aria-haspopup="dialog"
+        aria-label="Open navigation menu"
       >
-        <span className={styles.hamburgerIcon} aria-hidden="true">
-          <span className={styles.hamburgerLine} />
-          <span className={styles.hamburgerLine} />
-          <span className={styles.hamburgerLine} />
-        </span>
+        <svg className={styles.hamburgerIcon} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
       </button>
 
-      {/* Backdrop */}
-      {isOpen && (
-        <div
-          className={styles.menuBackdrop}
-          aria-hidden="true"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Luxury Dropdown Menu */}
-      {isOpen && (
-        <nav
-          className={styles.menuDropdown}
-          aria-label="Primary site navigation"
-          role="dialog"
-          aria-modal="true"
-        >
-          {/* Header */}
-          <div className={styles.dropdownHeader}>
-            <div className={styles.dropdownBrand}>
-              <span className={styles.brandDot} />
-              <span>PropMentors</span>
-            </div>
-            <span className={styles.quickBadge}>Menu</span>
+      <dialog
+        ref={dialogRef}
+        id={menuId}
+        className={styles.menuPanel}
+        aria-label="Site menu"
+        onClose={() => {
+          setIsOpen(false);
+          triggerRef.current?.focus({ preventScroll: true });
+        }}
+        onClick={(event) => {
+          if (event.target !== event.currentTarget) return;
+          const bounds = event.currentTarget.getBoundingClientRect();
+          if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeMenu();
+        }}
+      >
+        <div className={styles.panelHeader}>
+          <Link href="/" className={styles.brand} aria-label="PropMentors home" onClick={closeMenu}>
+            <span className={styles.brandMark} aria-hidden="true" />
+            <span>PropMentors</span>
+          </Link>
+          <div className={styles.headerActions}>
+            <Link href="/projects" className={styles.searchButton} aria-label="Search spaces" onClick={closeMenu}><Search /></Link>
+            <button type="button" className={styles.closeButton} aria-label="Close navigation menu" onClick={closeMenu}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+            </button>
           </div>
+        </div>
 
-          {/* Links list (clean single-line premium design) */}
-          <div className={styles.menuNav}>
-            {menuItems.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname?.startsWith(item.href);
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={styles.menuLink}
-                  data-active={isActive}
-                  onClick={() => setIsOpen(false)}
-                >
-                  <div className={styles.itemIcon}>
-                    <item.icon />
-                  </div>
-                  <span className={styles.itemTitle}>{item.title}</span>
-                  <div className={styles.itemArrow} aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Divider */}
-          <div className={styles.menuDivider} />
-
-          {/* Quick Action Footer */}
-          <div className={styles.dropdownFooter}>
-            <a
-              href="tel:+918010178010"
-              className={styles.hotlineRow}
-              onClick={() => setIsOpen(false)}
-            >
-              <div className={styles.hotlineInfo}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                <span>+91 80101 78010</span>
-              </div>
-              <span className={styles.hotlineAvailability}>Call</span>
-            </a>
-
-            <Link
-              href="/contact"
-              className={styles.scheduleCallBtn}
-              onClick={() => setIsOpen(false)}
-            >
-              Schedule a Call
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </Link>
-          </div>
+        <nav className={styles.menuNav} aria-label="Main navigation">
+          {menuItems.map((item) => {
+            const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            return (
+              <Link key={item.href} href={item.href} className={styles.menuLink} aria-current={isActive ? "page" : undefined} onClick={closeMenu}>
+                <span className={styles.itemTitle}>{item.title}</span>
+                <ChevronRight className={styles.itemArrow} />
+              </Link>
+            );
+          })}
         </nav>
-      )}
+
+        <div className={styles.panelFooter}>
+          <Link href="/contact" className={styles.contactButton} onClick={closeMenu}>Schedule a Call <ChevronRight /></Link>
+        </div>
+      </dialog>
     </div>
   );
 }

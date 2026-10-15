@@ -18,7 +18,7 @@ export default function Home() {
         <ExploreSpaces />
         <PropertyOwners />
         <WorkspaceOffers />
-        <RealGuidance />
+        {/* <RealGuidance /> */}
         <OurApproach />
         <ClientStories />
         <Insights />

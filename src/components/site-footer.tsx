@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState, type FormEvent } from "react";
 import { ArrowUp } from "@/components/icons";
 
@@ -122,7 +123,7 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
           </div>
           <div className="footer-bottom">
             <p>Copyright © 2026 PropMentors | All rights reserved</p>
-            <p>Privacy Policy · Terms</p>
+            <p><Link href="/privacy-policy">Privacy Policy</Link> · Terms</p>
           </div>
         </footer>
       </div>

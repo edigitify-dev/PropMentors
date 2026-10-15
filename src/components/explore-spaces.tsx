@@ -63,27 +63,30 @@ export function ExploreSpaces() {
           <div className="space-filter-fields">
             <div className="space-filter"><label htmlFor="space-location">Location</label>
               <span className="space-select">
-                <select id="space-location" name="location" value={filters.location} onChange={(event) => setFilters({ ...filters, location: event.target.value })}>
+                {filters.location === "all" && <span className="space-filter-placeholder" aria-hidden="true">Location</span>}
+                <select id="space-location" name="location" value={filters.location} data-unfiltered={filters.location === "all"} onChange={(event) => setFilters({ ...filters, location: event.target.value })}>
                   <option value="noida">Noida</option><option value="gurgaon">Gurgaon</option><option value="all">All locations</option>
                 </select><ChevronLeft />
               </span>
             </div>
             <div className="space-filter"><label htmlFor="space-property-type">Property Type</label>
               <span className="space-select">
-                <select id="space-property-type" name="property-type" value={filters.propertyType} onChange={(event) => setFilters({ ...filters, propertyType: event.target.value })}>
+                {filters.propertyType === "all" && <span className="space-filter-placeholder" aria-hidden="true">Type</span>}
+                <select id="space-property-type" name="property-type" value={filters.propertyType} data-unfiltered={filters.propertyType === "all"} onChange={(event) => setFilters({ ...filters, propertyType: event.target.value })}>
                   <option value="residential">Residential</option><option value="commercial">Commercial</option><option value="all">All property types</option>
                 </select><ChevronLeft />
               </span>
             </div>
             <div className="space-filter"><label htmlFor="space-budget">Budget</label>
               <span className="space-select">
-                <select id="space-budget" name="budget" value={filters.budget} onChange={(event) => setFilters({ ...filters, budget: event.target.value })}>
+                {filters.budget === "all" && <span className="space-filter-placeholder" aria-hidden="true">Budget</span>}
+                <select id="space-budget" name="budget" value={filters.budget} data-unfiltered={filters.budget === "all"} onChange={(event) => setFilters({ ...filters, budget: event.target.value })}>
                   <option value="30k-80k">30k - 80k</option><option value="40l-60l">₹40L - ₹60L</option><option value="60l-plus">₹60L and above</option><option value="all">All budgets</option>
                 </select><ChevronLeft />
               </span>
             </div>
           </div>
-          <button type="submit" className="space-search-button">Search <Search /></button>
+          <button type="submit" className="space-search-button" aria-label="Search spaces"><span>Search</span><Search /></button>
         </form>
         {appliedFilters && <p className="space-results-status" role="status">{visibleProperties.length ? `${visibleProperties.length} spaces match your search.` : "No spaces match these filters."}</p>}
         <div className="property-grid" ref={gridRef} id="property-results">
