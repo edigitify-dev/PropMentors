@@ -83,7 +83,7 @@ export function AboutPage() {
         </div>
       </section>
       <WorkspaceOffers />
-      <AtAGlance variant="photos" />
+      <AtAGlance />
       <AboutMarkets />
       <AboutTeam />
     </main>
