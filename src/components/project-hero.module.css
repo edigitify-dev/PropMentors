@@ -25,7 +25,6 @@
 .intro { padding-top: min(8.194444cqw, 13dvh); text-align: center; }
 .intro h1 { margin: 0; font-family: "Kind Avenue", Georgia, serif; font-weight: 400; font-size: min(4.756944cqw, 8.5dvh); line-height: min(5.555556cqw, 10dvh); }
 .desktopBr { display: inline; }
-.mobileEyebrow { display: none; }
 .intro p { margin: min(1.944444cqw, 3dvh) auto 0; max-width: 82cqw; font-size: min(1.666667cqw, 3dvh); line-height: 1.5; font-weight: 500; -webkit-font-smoothing: antialiased; }
 .filters { position: relative; display: grid; grid-template-columns: 230fr 262fr 286fr 88fr 204fr; gap: 2.222222cqw; align-items: end; margin: min(4.444444cqw, 7dvh) 8.125cqw 0 8.75cqw; }
 .field { display: grid; gap: .833333cqw; min-width: 0; font-size: .972222cqw; line-height: 1.285714; }
@@ -53,25 +52,29 @@
     justify-content: space-between;
     min-height: 100svh;
     height: auto;
-    padding: max(16px, calc(env(safe-area-inset-top) + 12px)) 24px 28px;
+    padding: 0 24px 28px;
     box-sizing: border-box;
   }
   .header {
     position: relative;
-    padding: 0;
+    gap: 12px;
+    flex-shrink: 0;
+    padding: max(32px, calc(env(safe-area-inset-top) + 16px)) 28px 0;
     width: 100%;
-    height: 44px;
+    height: calc(44px + max(32px, calc(env(safe-area-inset-top) + 16px)));
     z-index: 5;
   }
-  .brand { width: 31px; height: 35px; }
+  .hero > .header { width: calc(100% + 48px); margin-inline: -24px; }
+  .brand { width: 30px; height: auto; aspect-ratio: 43 / 48.2339; }
   .links { display: none; }
   .navigation { gap: 0; }
-  .actions { gap: 12px; }
-  .iconButton, .iconButton svg { width: 22px; height: 22px; }
+  .actions { gap: 8px; }
+  .iconButton { width: 44px; height: 44px; }
+  .iconButton svg { width: 18px; height: 18px; }
   .menu { display: block; }
   .menu summary { width: 44px; height: 44px; }
   .menu summary svg { width: 24px; height: 24px; }
-  .contactButton { padding: 0 16px; height: 36px; border-radius: 24px; font-size: 12px; }
+  .contactButton { display: none; }
 
   /* Mobile Hero Copy */
   .intro {
@@ -83,16 +86,6 @@
     max-width: 540px;
     margin: clamp(24px, 5svh, 48px) auto 0;
     padding: 0;
-  }
-  .mobileEyebrow {
-    display: block;
-    margin: 0 0 14px;
-    color: var(--accent);
-    font-size: 9px;
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: .16em;
-    text-transform: uppercase;
   }
   .intro h1 {
     font-family: "Kind Avenue", Georgia, serif;
@@ -232,18 +225,34 @@
   }
   .mobileNote {
     display: block;
-    margin: 8px auto 0;
-    font-size: 13px;
-    font-weight: 500;
+    flex-shrink: 0;
+    margin: 8px 0 0;
     text-align: center;
   }
   .mobileNote a {
-    color: inherit;
-    text-decoration: none;
-    opacity: .85;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    max-width: 180px;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--background);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-decoration: none;
+  }
+  .mobileNote a, .mobileNote a * { cursor: pointer; }
+  .mobileNote a:hover { background: #4874a5; }
+  .mobileNote a svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.5;
   }
   .map {
     inset: 20dvh 0 0;
@@ -253,8 +262,9 @@
   }
 }
 
-@media (max-width: 420px) {
-  .contactButton { display: none; }
+@media (max-width: 374px) {
+  .header { padding-inline: 24px; }
+  .actions { gap: 6px; }
 }
 
 @media (max-width: 767px) and (max-height: 520px) {

@@ -74,6 +74,7 @@ export function AboutPage() {
           <div><h2>From requirement to<br /> right-fit space.</h2><p>We bring together relevant spaces, market understanding and practical guidance to help businesses move forward with confidence.</p></div>
         </div>
       </section>
+      {/* Our Approach section hidden.
       <section className={styles.decisions} aria-labelledby="decisions-heading">
         <SectionHeading badge="OUR APPROACH" id="decisions-heading" title={<>Built around<br /> better decisions</>}>We make the process simpler, understanding what you need, curating the right options and helping you make informed choices.</SectionHeading>
         <div className={styles.decisionGrid}>
@@ -82,6 +83,7 @@ export function AboutPage() {
           <article className={styles.decisionColumn}><div className={styles.decisionText}><h3>03 - Guide</h3><p>We help you compare, evaluate and move forward with confidence.</p></div><div className={styles.decisionPhoto}><Image src="/images/guidance/experience.png" width={1024} height={683} alt="An adviser reviewing plans and workspace details" unoptimized /></div></article>
         </div>
       </section>
+      */}
       <WorkspaceOffers />
       <AtAGlance />
       <AboutMarkets />

@@ -116,9 +116,6 @@ export function ProjectHero({
 
           {/* Main Copy Area */}
           <div className={styles.intro}>
-            <p className={styles.mobileEyebrow} aria-hidden="true">
-              ROOM FOR WHAT’S NEXT
-            </p>
             <h1 id="project-heading">
               Find the space that fits<br className={styles.desktopBr} /> your business
             </h1>
@@ -257,7 +254,7 @@ export function ProjectHero({
                   });
                 }}
               >
-                Explore all spaces <span aria-hidden="true">↓</span>
+                Explore all spaces <ChevronRight />
               </a>
             </p>
           </form>

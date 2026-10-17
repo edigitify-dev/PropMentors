@@ -13,7 +13,8 @@ import { SiteFooter } from "./site-footer";
 import { ProjectMap } from "./project-map";
 import styles from "./project-detail.module.css";
 
-const galleryTabs = ["FLOOR PLAN", "INTERIOR", "EXTERIOR"] as const;
+type GalleryTab = "FLOOR PLAN" | "INTERIOR" | "EXTERIOR" | "PHOTOS";
+const defaultGalleryTabs: GalleryTab[] = ["FLOOR PLAN", "INTERIOR", "EXTERIOR"];
 
 function Facts({ items }: { items: ProjectFact[] }) {
   return <dl className={styles.facts}>{items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>;
@@ -26,9 +27,10 @@ function SpacePhoto({ image, priority = false }: { image: ProjectImage; priority
 export function ProjectDetail({ project }: { project: Project }) {
   const detail = project.detail;
   const gallery = detail.gallery.length ? detail.gallery : [project.cover];
+  const galleryTabs: GalleryTab[] = detail.photoViewsOnly ? ["PHOTOS", "FLOOR PLAN"] : defaultGalleryTabs;
   const similarProjects = detail.similarProjectIds.map(getProject).filter((item): item is Project => Boolean(item) && item?.id !== project.id);
   const [activePhoto, setActivePhoto] = useState(0);
-  const [activeTab, setActiveTab] = useState<(typeof galleryTabs)[number]>("FLOOR PLAN");
+  const [activeTab, setActiveTab] = useState<GalleryTab>(detail.photoViewsOnly ? "PHOTOS" : "FLOOR PLAN");
   const [request, setRequest] = useState("Schedule a visit");
   const [shareStatus, setShareStatus] = useState("");
   const [draft, setDraft] = useState("");
@@ -64,7 +66,7 @@ export function ProjectDetail({ project }: { project: Project }) {
     }
   }
 
-  const visual = activeTab === "INTERIOR" ? detail.views.interior : activeTab === "EXTERIOR" ? detail.views.exterior : detail.views.floorPlan ?? project.cover;
+  const visual = activeTab === "INTERIOR" ? detail.views.interior : activeTab === "EXTERIOR" ? detail.views.exterior : activeTab === "PHOTOS" ? project.cover : detail.views.floorPlan ?? project.cover;
 
   return <>
     <main className={styles.page}>

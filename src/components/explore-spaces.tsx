@@ -5,10 +5,11 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { ChevronLeft, Search } from "./icons";
 import { PropertyCard } from "./property-card";
+import { projectSpaceType } from "@/lib/project-listing-filters";
 import { projects } from "../data/projects";
 
 type Filters = { location: string; propertyType: string; budget: string };
-const initialFilters: Filters = { location: "noida", propertyType: "residential", budget: "30k-80k" };
+const initialFilters: Filters = { location: "noida", propertyType: "all", budget: "30k-80k" };
 const allFilters: Filters = { location: "all", propertyType: "all", budget: "all" };
 const budgets: Record<string, [number, number]> = { "30k-80k": [30000, 80000], "40l-60l": [4000000, 6000000], "60l-plus": [6000000, Infinity] };
 
@@ -23,7 +24,7 @@ export function ExploreSpaces() {
     if (!appliedFilters) return true;
     const budget = budgets[appliedFilters.budget];
     return (appliedFilters.location === "all" || property.location === appliedFilters.location)
-      && (appliedFilters.propertyType === "all" || property.type === appliedFilters.propertyType)
+      && (appliedFilters.propertyType === "all" || projectSpaceType(property) === appliedFilters.propertyType)
       && (!budget || property.price !== null && property.price >= budget[0] && property.price <= budget[1]);
   });
   const visibleProperties = filteredProperties.slice(0, 6);
@@ -65,15 +66,15 @@ export function ExploreSpaces() {
               <span className="space-select">
                 {filters.location === "all" && <span className="space-filter-placeholder" aria-hidden="true">Location</span>}
                 <select id="space-location" name="location" value={filters.location} data-unfiltered={filters.location === "all"} onChange={(event) => setFilters({ ...filters, location: event.target.value })}>
-                  <option value="noida">Noida</option><option value="gurgaon">Gurgaon</option><option value="all">All locations</option>
+                  <option value="noida">Noida</option><option value="greater-noida">GNoida</option><option value="all">All locations</option>
                 </select><ChevronLeft />
               </span>
             </div>
-            <div className="space-filter"><label htmlFor="space-property-type">Property Type</label>
+            <div className="space-filter"><label htmlFor="space-property-type">Space Type</label>
               <span className="space-select">
                 {filters.propertyType === "all" && <span className="space-filter-placeholder" aria-hidden="true">Type</span>}
                 <select id="space-property-type" name="property-type" value={filters.propertyType} data-unfiltered={filters.propertyType === "all"} onChange={(event) => setFilters({ ...filters, propertyType: event.target.value })}>
-                  <option value="residential">Residential</option><option value="commercial">Commercial</option><option value="all">All property types</option>
+                  <option value="Co-Working">Co-working</option><option value="Conventional Leasing">Conventional spaces</option><option value="Managed Office">Managed spaces</option><option value="all">All space types</option>
                 </select><ChevronLeft />
               </span>
             </div>

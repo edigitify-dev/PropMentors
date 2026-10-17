@@ -5,11 +5,9 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { ProjectHeader } from "./project-header";
 import { ChevronRight } from "./icons";
-import { OurApproach } from "./our-approach";
 import { ProjectEnquiries } from "./project-enquiries";
 import { SiteFooter } from "./site-footer";
 import styles from "./list-your-space-page.module.css";
-import aboutStyles from "./about-page.module.css";
 
 const heroImage = "/why/10a08bb92e1114da01c5df205cac22e266a1eea0.jpg";
 
@@ -98,7 +96,7 @@ export function ListYourSpacePage() {
           </div>
         </section>
 
-        {/* ── Our Approach Section from About Us Page ── */}
+        {/* Our Approach section hidden.
         <section className={aboutStyles.decisions} aria-labelledby="decisions-heading">
           <div className={aboutStyles.sectionHeading}>
             <Badge>OUR APPROACH</Badge>
@@ -142,8 +140,7 @@ export function ListYourSpacePage() {
           </div>
         </section>
 
-        {/* ── Timeline OurApproach component from Homepage ── */}
-        <OurApproach />
+        */}
 
         {/* ── Find Your Next Space Section (Form) ── */}
         <ProjectEnquiries showOwners={false} />

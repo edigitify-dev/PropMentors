@@ -73,7 +73,7 @@
 .card :global(.property-price) { font-weight: 500; }
 .card :global(.property-details h3) { white-space: normal; }
 .card :global(.property-card-trigger):focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
-.pagination { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 40px 0 0; }
+.pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin: 40px 0 0; }
 .pagination > button { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid #122c4f20; border-radius: 50%; background: transparent; color: var(--foreground); font-size: 12px; }
 .pagination > button[aria-current="page"] { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
 .pagination > button:disabled { opacity: .3; cursor: default; }

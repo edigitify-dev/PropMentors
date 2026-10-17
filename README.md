@@ -2,6 +2,14 @@
 
 PropMentor is a Next.js application using the App Router, TypeScript, and Tailwind CSS.
 
+## Current building catalog
+
+The inventory now follows all 104 rows in `public/Building sheet.xlsx`, in spreadsheet order. Building names repeated in different sectors have separate detail URLs. EstateLion building pages supply specifications, amenities, office sizes, coordinates, and locally stored photographs for 84 matching entries; the remaining 20 keep the sheet's name/location with details and photos available on request. Unlisted sample projects are no longer appended. Rents remain on request because the matched building records do not publish current prices.
+
+`src/data/building-catalog.json` stores the imported facts and source references; `src/data/building-research.ts` types that snapshot and `src/data/projects.ts` builds the shared homepage/listings/detail data. The detail gallery uses a general Photos tab because imported photos are not individually identified as interiors or exteriors. The listing pagination wraps for the larger inventory on mobile. Existing links for retained projects remain supported through aliases.
+
+See [the import report](docs/building-catalog-import.md) for source links, missing/conflicting entries, and photo failures. Refresh with `python3 scripts/import-building-catalog.py`; it uses Python's standard library, the existing `sharp` dependency, and a temporary source cache. No external account or runtime property API is required.
+
 ## Getting started
 
 Install dependencies, then start the development server:

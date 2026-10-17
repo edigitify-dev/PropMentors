@@ -22,7 +22,7 @@ const explore = [
 
 const services = [
   { label: "Commercial Leasing", href: "#workspace-offers" },
-  { label: "Tenant Representation", href: "#our-approach" },
+  { label: "Tenant Representation", href: "#contact" },
   { label: "Landlord Representation", href: "#property-owners" },
   { label: "Advisory", href: "#real-guidance" },
 ];
