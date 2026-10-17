@@ -1,0 +1,47 @@
+.original { transition: opacity 180ms ease, visibility 180ms ease; }
+.original[data-hidden="true"] { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.floating.floating {
+  position: fixed;
+  z-index: 50;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  min-height: 68px;
+  margin: 0;
+  padding: 12px 5.277778vw;
+  color: var(--foreground);
+  background: var(--background);
+  box-shadow: 0 4px 24px #122c4f14;
+  transform: translateY(-110%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 220ms ease, visibility 220ms ease;
+}
+.floating[data-visible="true"] { transform: translateY(0); visibility: visible; pointer-events: auto; }
+
+/* The homepage navbar also animates with the hero; the floating copy uses viewport coordinates. */
+.floating :global(.brand), .floating :global(.primary-nav), .floating :global(.header-actions) { transform: none; }
+.floating :global(.brand) { position: relative; width: 38px; height: auto; }
+.floating :global(.brand)::before { content: ""; position: absolute; inset: 0; background: currentColor; mask: url("/images/propmentors-logo.svg") center / contain no-repeat; }
+.floating :global(.brand img) { width: 100%; height: auto; transform: none; opacity: 0; }
+.floating :global(.primary-nav) { position: absolute; left: 50%; transform: translateX(-50%); font-size: 16px; }
+.floating :global(.header-actions) { gap: 20px; }
+.floating :global(.contact-button) { color: var(--background); }
+.floating :is(a, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+@media (max-width: 820px) {
+  .floating.floating { min-height: 68px; padding: max(12px, env(safe-area-inset-top)) 28px 12px; }
+  .floating :global(.brand) { width: 30px; }
+  .floating :global(.primary-nav), .floating :global(.contact-button) { display: none; }
+  .floating :global(.header-actions) { gap: 8px; }
+  .floating :global(.icon-button) { width: 44px; height: 44px; }
+  .floating :global(.icon-button svg) { width: 18px; height: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .original, .floating.floating { transition: none; }
+}

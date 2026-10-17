@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { AccountCircle, Search } from "./icons";
 import { NavbarMenu } from "./navbar-menu";
+import { ScrollHeader } from "./scroll-header";
 import styles from "./project-hero.module.css";
 
 export function ProjectHeader({
@@ -15,7 +16,7 @@ export function ProjectHeader({
   activePage?: "about" | "list-your-space" | "projects" | "contact";
 }) {
   return (
-    <header className={styles.header}>
+    <ScrollHeader className={styles.header}>
       <Link href="/" className={styles.brand} aria-label="PropMentors home">
         <span aria-hidden="true" />
       </Link>
@@ -47,6 +48,6 @@ export function ProjectHeader({
           <NavbarMenu />
         </div>
       </div>
-    </header>
+    </ScrollHeader>
   );
 }
