@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "./icons";
 import { ProjectHeader } from "./project-header";
 import { ProjectEnquiries } from "./project-enquiries";
@@ -15,6 +15,13 @@ import styles from "./project-detail.module.css";
 
 type GalleryTab = "FLOOR PLAN" | "INTERIOR" | "EXTERIOR" | "PHOTOS";
 const defaultGalleryTabs: GalleryTab[] = ["FLOOR PLAN", "INTERIOR", "EXTERIOR"];
+const propertySections = [
+  { id: "detail-overview", label: "Overview" },
+  { id: "detail-building", label: "Building" },
+  { id: "detail-amenities", label: "Amenities" },
+  { id: "detail-location", label: "Location" },
+] as const;
+type PropertySection = (typeof propertySections)[number]["id"];
 
 function Facts({ items }: { items: ProjectFact[] }) {
   return <dl className={styles.facts}>{items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>;
@@ -30,12 +37,69 @@ export function ProjectDetail({ project }: { project: Project }) {
   const galleryTabs: GalleryTab[] = detail.photoViewsOnly ? ["PHOTOS", "FLOOR PLAN"] : defaultGalleryTabs;
   const similarProjects = detail.similarProjectIds.map(getProject).filter((item): item is Project => Boolean(item) && item?.id !== project.id);
   const [activePhoto, setActivePhoto] = useState(0);
+  const [activeSection, setActiveSection] = useState<PropertySection>("detail-overview");
   const [activeTab, setActiveTab] = useState<GalleryTab>(detail.photoViewsOnly ? "PHOTOS" : "FLOOR PLAN");
   const [request, setRequest] = useState("Schedule a visit");
   const [shareStatus, setShareStatus] = useState("");
   const [draft, setDraft] = useState("");
   const enquiry = useRef<HTMLDialogElement>(null);
   const lightbox = useRef<HTMLDialogElement>(null);
+  const pageRef = useRef<HTMLElement>(null);
+  const sectionNavRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const page = pageRef.current;
+    const navigation = sectionNavRef.current;
+    if (!page || !navigation) return;
+
+    let frame = 0;
+    let initialScrollFrame = 0;
+    let disposed = false;
+    function updateActiveSection() {
+      frame = 0;
+      const threshold = navigation!.getBoundingClientRect().height + 32;
+      let current: PropertySection = "detail-overview";
+      for (const section of propertySections) {
+        const element = document.getElementById(section.id);
+        if (element && element.getBoundingClientRect().top <= threshold) current = section.id;
+      }
+      setActiveSection(current);
+    }
+    function scheduleUpdate() {
+      if (!frame) frame = window.requestAnimationFrame(updateActiveSection);
+    }
+    function measureNavigation() {
+      page!.style.setProperty("--property-section-nav-height", `${navigation!.getBoundingClientRect().height}px`);
+      scheduleUpdate();
+    }
+
+    measureNavigation();
+    const initialSection = propertySections.find((section) => `#${section.id}` === window.location.hash);
+    if (initialSection) {
+      void document.fonts.ready.then(() => {
+        if (disposed || window.location.hash !== `#${initialSection.id}`) return;
+        initialScrollFrame = window.requestAnimationFrame(() => {
+          measureNavigation();
+          document.getElementById(initialSection.id)?.scrollIntoView({ block: "start", behavior: "instant" });
+        });
+      });
+    }
+    const observer = new ResizeObserver(measureNavigation);
+    observer.observe(navigation);
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", measureNavigation);
+    window.addEventListener("hashchange", scheduleUpdate);
+    return () => {
+      disposed = true;
+      window.cancelAnimationFrame(frame);
+      window.cancelAnimationFrame(initialScrollFrame);
+      observer.disconnect();
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", measureNavigation);
+      window.removeEventListener("hashchange", scheduleUpdate);
+      page.style.removeProperty("--property-section-nav-height");
+    };
+  }, [project.id]);
 
   function scrollTo(id: string) {
     document.getElementById(id)?.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
@@ -69,7 +133,7 @@ export function ProjectDetail({ project }: { project: Project }) {
   const visual = activeTab === "INTERIOR" ? detail.views.interior : activeTab === "EXTERIOR" ? detail.views.exterior : activeTab === "PHOTOS" ? project.cover : detail.views.floorPlan ?? project.cover;
 
   return <>
-    <main className={styles.page}>
+    <main className={styles.page} ref={pageRef}>
       <ProjectHeader onSearch={() => scrollTo("detail-spaces")} onContact={() => openEnquiry("Property enquiry")} />
       <div className={styles.container}>
         <section className={styles.gallery} aria-label="Property photographs">
@@ -106,13 +170,15 @@ export function ProjectDetail({ project }: { project: Project }) {
           <div><nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Spaces</Link><span>/</span><span>{project.name}</span></nav><h1>{project.name}</h1><p>{project.locationLabel}</p></div>
           <button type="button" className={styles.primary} onClick={() => openEnquiry("Request a brochure")}>Request Brochure <ChevronLeft /></button>
         </div>
-        <nav className={styles.sectionNav} aria-label="Property sections">
-          <a href="#detail-overview">Overview</a><a href="#detail-spaces">Spaces</a><a href="#detail-building">Building</a><a href="#detail-amenities">Amenities</a><a href="#detail-location">Location</a><a href="#detail-explore">Floor Plan</a>
+        <nav className={styles.sectionNav} ref={sectionNavRef} aria-label="Property sections">
+          <div className={styles.sectionNavLinks}>
+            {propertySections.map((section) => <a key={section.id} href={`#${section.id}`} aria-current={activeSection === section.id ? "location" : undefined}>{section.label}</a>)}
+          </div>
           <button type="button" className={styles.primary} onClick={() => openEnquiry()}>Schedule Visit</button>
         </nav>
         <div className={styles.detailLayout}>
           <div className={styles.content}>
-            <section className={styles.overview} id="detail-overview" aria-labelledby="overview-heading">
+            <section className={styles.overview} id="detail-overview" aria-labelledby="overview-heading" tabIndex={-1}>
               <h2 id="overview-heading">{project.name}</h2><p>{detail.description}</p>
               <h3>Overview</h3><Facts items={detail.overview} />
             </section>
@@ -125,7 +191,7 @@ export function ProjectDetail({ project }: { project: Project }) {
                 <button type="button" className={styles.primary} onClick={() => openEnquiry(`Workspace enquiry — ${item.title}`)}>Enquire <ChevronLeft /></button>
               </article>)}</div>
             </section>
-            <section className={styles.detailSection} id="detail-building" aria-labelledby="building-heading">
+            <section className={styles.detailSection} id="detail-building" aria-labelledby="building-heading" tabIndex={-1}>
               <h2 id="building-heading" className={styles.buildingHeading}>Building information</h2>
               <div className={styles.buildingTable}>
                 {detail.building.map(([label, value]) => (
@@ -136,12 +202,12 @@ export function ProjectDetail({ project }: { project: Project }) {
                 ))}
               </div>
             </section>
-            <section className={styles.detailSection} id="detail-amenities" aria-labelledby="amenities-heading">
+            <section className={styles.detailSection} id="detail-amenities" aria-labelledby="amenities-heading" tabIndex={-1}>
               <h2 id="amenities-heading">Amenities</h2><p>{detail.description}</p>
               {!detail.amenities.length && <p>Contact our team for building amenities and facilities.</p>}
               <ul className={styles.amenities}>{detail.amenities.map((item, index) => <li key={item}><span aria-hidden="true"><AmenityIcon index={index} /></span>{item}</li>)}</ul>
             </section>
-            <section className={styles.detailSection} id="detail-location" aria-labelledby="location-heading">
+            <section className={styles.detailSection} id="detail-location" aria-labelledby="location-heading" tabIndex={-1}>
               <h2 id="location-heading">Location</h2>
               <div className={styles.locationRow}><p>{detail.location.caption}</p><a className={styles.primary} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronLeft /></a></div>
               <ProjectMap project={project} />
