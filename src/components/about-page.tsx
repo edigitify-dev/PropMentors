@@ -10,15 +10,15 @@ import { ProjectHeader } from "./project-header";
 import { PropertyCard } from "./property-card";
 import { DestinationMap } from "./destination-map";
 import { SiteFooter } from "./site-footer";
-import { ChevronLeft, PlayCircle } from "./icons";
+import { ChevronLeft } from "./icons";
 import { projects } from "../data/projects";
 import { businessDestinations as cities } from "../data/business-destinations";
 import styles from "./about-page.module.css";
 
 const aboutImages = {
   hero: "/about/f017dfaa52a8616b05e1acbe08abab354496a17e.jpg",
+  mobileHero: "/About%20page/Hero.jpg",
   city: "/about/a32ed8b05c100a50648b2b62f02ea4c4c1100934.png",
-  adviser: "/about/3267b2cbd3766e5bbd74e357ac0a3a48573eda5a.jpg",
 };
 
 function Badge({ children }: { children: React.ReactNode }) {
@@ -62,7 +62,10 @@ export function AboutPage() {
   return <>
     <main className={styles.page}>
       <section className={styles.hero} id="about" aria-labelledby="about-heading">
-        <Image className={styles.heroImage} src={aboutImages.hero} width={1440} height={920} alt="A team discussing commercial real estate around a meeting table" preload unoptimized />
+        <picture>
+          <source media="(max-width: 640px)" srcSet={aboutImages.mobileHero} width={1080} height={2340} />
+          <Image className={styles.heroImage} src={aboutImages.hero} width={1440} height={920} alt="A team discussing commercial real estate around a meeting table" loading="eager" fetchPriority="high" unoptimized />
+        </picture>
         <ProjectHeader activePage="about" onSearch={() => router.push("/projects")} onContact={openEnquiry} />
         <div className={styles.heroIntro}><Badge>ABOUT PROPMENTORS</Badge><h1 id="about-heading">Space Is The Product</h1><p>Guidance is the difference.</p></div>
         {/* <p className={styles.heroDescription}>PropMentors helps businesses find, evaluate and secure commercial spaces — from managed offices and co-working spaces to conventional leasing.</p> */}
@@ -116,13 +119,21 @@ function AboutMarkets() {
   </section>;
 }
 
+const teamImagePath = (file: string) => encodeURI(`/About page/Team/${file}`);
 const advisers = [
-  { image: aboutImages.adviser, width: 1440, height: 920, role: "Commercial Leasing", alt: "Commercial property adviser standing outside an office", position: "center" },
-  { image: "/images/footer/expert-one.png", width: 736, height: 1111, role: "Workspace Advisory", alt: "Workspace adviser portrait", position: "center 25%" },
-  { image: "/images/footer/expert-two.png", width: 736, height: 1308, role: "Tenant Representation", alt: "Tenant representation adviser portrait", position: "center 25%" },
-  { image: "/images/footer/expert-three.png", width: 736, height: 736, role: "Property Advisory", alt: "Property adviser portrait", position: "center 25%" },
-  { image: "/images/footer/expert-four.png", width: 736, height: 1104, role: "Business Spaces", alt: "Business workspace adviser portrait", position: "center 25%" },
+  { id: "nikhlesh-chand", darkPortrait: false, name: "Nikhlesh Chand", role: "VP, Leasing", image: teamImagePath("Team Nikhlesh Chand VP leasing 2.jpeg.jpg"), mobileImage: teamImagePath("1.jpg"), width: 1227, height: 920 },
+  { id: "dharmveer", darkPortrait: true, name: "Dharmveer", role: "Advisory Board Member", image: teamImagePath("Team Dharmveer Adviosry board member 2.jpg"), mobileImage: teamImagePath("2.jpg"), width: 1227, height: 920 },
+  { id: "prabhat-asthana", darkPortrait: true, name: "Prabhat Asthana", role: "Leasing Manager", image: teamImagePath("Team Prabhat Asthana leasing manager 2.jpeg.jpg"), mobileImage: teamImagePath("3.jpg"), width: 1227, height: 920 },
+  { id: "prashant-tyagi", darkPortrait: true, name: "Prashant Tyagi", role: "General Manager", image: teamImagePath("Team Prashant tyagi General manager 2.jpeg.jpg"), mobileImage: teamImagePath("4.jpg"), width: 1227, height: 920 },
+  { id: "shobhit-chand", darkPortrait: false, name: "Shobhit Chand", role: "Head of Leasing", image: teamImagePath("Team Shobhit Chand head  of leasing 2.JPG.jpg"), mobileImage: teamImagePath("5.jpg"), width: 1440, height: 920 },
 ];
+
+function TeamPhoto({ adviser, decorative = false }: { adviser: (typeof advisers)[number]; decorative?: boolean }) {
+  return <picture>
+    <source media="(max-width: 640px)" srcSet={adviser.mobileImage} width={1080} height={2340} />
+    <Image src={adviser.image} width={adviser.width} height={adviser.height} alt={decorative ? "" : `${adviser.name}, ${adviser.role}`} unoptimized />
+  </picture>;
+}
 
 function AboutTeam() {
   const [active, setActive] = useState(0);
@@ -135,17 +146,18 @@ function AboutTeam() {
     if (button && rail) rail.scrollTo({ left: Math.max(0, button.offsetLeft - rail.offsetLeft - 8), behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   }
 
-  return <section className={styles.team} aria-labelledby="team-heading" aria-roledescription="carousel" aria-label="Meet the PropMentors" onKeyDown={(event) => {
+  return <section className={styles.team} data-adviser={advisers[active].id} data-dark-portrait={advisers[active].darkPortrait} aria-labelledby="team-heading" aria-roledescription="carousel" aria-label="Meet the PropMentors" onKeyDown={(event) => {
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault();
     select((active + (event.key === "ArrowLeft" ? -1 : 1) + advisers.length) % advisers.length);
   }}>
-    <div className={styles.teamPortrait} id="about-team-portrait">{advisers.map((adviser, index) => <Image key={adviser.image} data-active={active === index} src={adviser.image} width={adviser.width} height={adviser.height} alt={adviser.alt} aria-hidden={active !== index} style={{ objectPosition: adviser.position }} unoptimized />)}</div>
+    <div className={styles.teamPortrait} id="about-team-portrait">{advisers.map((adviser, index) => <div className={styles.teamSlide} key={adviser.id} data-active={active === index} aria-hidden={active !== index}><TeamPhoto adviser={adviser} /></div>)}</div>
     <SectionHeading badge="MEET PROPMENTORS" id="team-heading" title={<>Experience you<br /> can talk to</>}>Real estate is ultimately about people. Our team brings commercial understanding, practical advice and the capability to turn requirements into the right spaces.</SectionHeading>
+    <div className={styles.teamIdentity} aria-live="polite" aria-atomic="true"><h3>{advisers[active].name}</h3><p>{advisers[active].role}</p></div>
     <div className={styles.teamBottom}>
       <div className={styles.teamControls}><button type="button" aria-label="Previous PropMentor" onClick={() => select((active + advisers.length - 1) % advisers.length)}><ChevronLeft /></button><button type="button" aria-label="Next PropMentor" onClick={() => select((active + 1) % advisers.length)}><ChevronLeft /></button></div>
-      <div className={styles.teamThumbnails} ref={thumbnails}>{advisers.map((adviser, index) => <button type="button" className={styles.teamThumbnail} key={adviser.image} aria-label={`Show ${adviser.role} adviser`} aria-pressed={active === index} aria-controls="about-team-portrait" onClick={() => select(index)}><Image src={adviser.image} width={adviser.width} height={adviser.height} alt="" style={{ objectPosition: adviser.position }} unoptimized /><span className={styles.thumbnailPlay} aria-hidden="true"><PlayCircle /></span><span className={styles.adviserCaption}>PropMentors<br /><strong>{adviser.role}</strong></span></button>)}</div>
+      <div className={styles.teamThumbnails} ref={thumbnails}>{advisers.map((adviser, index) => <button type="button" className={styles.teamThumbnail} key={adviser.id} aria-label={`Show ${adviser.name}, ${adviser.role}`} aria-pressed={active === index} aria-controls="about-team-portrait" onClick={() => select(index)}><TeamPhoto adviser={adviser} decorative /><span className={styles.adviserCaption}><strong>{adviser.name}</strong><span>{adviser.role}</span></span></button>)}</div>
     </div>
-    <p className={styles.srOnly} aria-live="polite" aria-atomic="true">PropMentor {active + 1} of {advisers.length}: {advisers[active].role}</p>
+    <p className={styles.srOnly}>PropMentor {active + 1} of {advisers.length}</p>
   </section>;
 }

@@ -1,4 +1,5 @@
 import { buildingResearch, type BuildingRecord } from "./building-research";
+import { getProjectMedia } from "./project-images-data";
 
 export type ProjectImage = {
   id: string;
@@ -129,6 +130,9 @@ export const projects: Project[] = buildingResearch.map((building) => {
   const photographs = buildingPhotos(building);
   const gallery = photographs.length ? photographs : [{ ...propertyPlaceholder, id: `${building.slug}-placeholder` }];
   const cover = gallery[0];
+  const suppliedMedia = getProjectMedia(building.slug, building.name);
+  const detailGallery = suppliedMedia?.gallery ?? gallery;
+  const detailCover = detailGallery[0];
   const area = areaRange(building);
   const floors = building.specifications.find(([label]) => label === "Total floors")?.[1];
   const features = [area, floors ? `${floors} floors` : null].filter((value): value is string => Boolean(value));
@@ -141,7 +145,6 @@ export const projects: Project[] = buildingResearch.map((building) => {
   if (building.spaceType) overview.push(["Workspace format", building.spaceType]);
   const information: ProjectFact[] = [["Building name", building.name], ["Location", location], ...building.specifications.map(([label, value]): ProjectFact => [label, value])];
   if (building.source.status !== "matched") information.push(["Specifications", "Available on request"]);
-  const uniqueUnits = building.units.slice(0, 6);
   return {
     id: building.slug,
     slug: building.slug,
@@ -163,17 +166,33 @@ export const projects: Project[] = buildingResearch.map((building) => {
       overview,
       building: information,
       amenities: building.amenities,
-      gallery,
-      spaces: uniqueUnits.map((unit, index) => ({
-        id: `${building.slug}-office-${index + 1}`,
-        title: `${formatArea(unit.area)} sq.ft. office`,
-        location,
-        description: unit.workstations
-          ? `Listed configuration: ${formatArea(unit.workstations)} workstations. Contact our team for current availability and terms.`
-          : "Contact our team for the current layout, availability and leasing terms.",
-        badge: "Office option",
-        image: cover,
-      })),
+      gallery: detailGallery,
+      spaces: [
+        {
+          id: `${building.slug}-conventional`,
+          title: "Conventional office",
+          location: `${building.name} · ${location}`,
+          description: `Discuss a dedicated office lease at ${building.name}${area ? `, with listed office sizes of ${area}` : ""}. Enquire for current layouts and leasing terms.`,
+          badge: "Conventional",
+          image: detailCover,
+        },
+        {
+          id: `${building.slug}-commercial`,
+          title: "Commercial space",
+          location: `${building.name} · ${location}`,
+          description: `Discuss your business space requirements at ${building.name}. Enquire for suitable configurations and current availability.`,
+          badge: "Commercial",
+          image: detailGallery[1] ?? detailCover,
+        },
+        {
+          id: `${building.slug}-coworking`,
+          title: "Coworking space",
+          location: `${building.name} · ${location}`,
+          description: `Ask about coworking options at ${building.name}, including shared desks and private team spaces. Contact our team to confirm availability and terms.`,
+          badge: "Coworking",
+          image: detailGallery[2] ?? detailCover,
+        },
+      ],
       location: {
         address,
         caption: `${building.name}\n${address}`,
@@ -182,7 +201,7 @@ export const projects: Project[] = buildingResearch.map((building) => {
         map: propertyPlaceholder,
         nearby,
       },
-      views: { exterior: cover, interior: gallery[1] ?? cover },
+      views: suppliedMedia?.views ?? { exterior: cover, interior: gallery[1] ?? cover },
       photoViewsOnly: true,
       startingPrice: "Price on request",
       startingPriceUnit: "",

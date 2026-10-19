@@ -10,13 +10,17 @@ export function ProjectHeader({
   activePage,
   onSearch,
   onContact,
+  revealOnScrollUp = true,
 }: {
   onSearch?: () => void;
   onContact?: () => void;
   activePage?: "about" | "list-your-space" | "projects" | "contact";
+  revealOnScrollUp?: boolean;
 }) {
+  const Header = revealOnScrollUp ? ScrollHeader : "header";
+
   return (
-    <ScrollHeader className={styles.header}>
+    <Header className={styles.header}>
       <Link href="/" className={styles.brand} aria-label="PropMentors home">
         <span aria-hidden="true" />
       </Link>
@@ -48,6 +52,6 @@ export function ProjectHeader({
           <NavbarMenu />
         </div>
       </div>
-    </ScrollHeader>
+    </Header>
   );
 }

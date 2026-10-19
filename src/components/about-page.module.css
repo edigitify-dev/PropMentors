@@ -49,24 +49,34 @@
 .team { position: relative; isolation: isolate; width: 100%; height: clamp(680px, 90svh, 860px); padding-top: 48px; background: #b8c5c9; }
 .team::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(#becfe133, transparent 40%, #0004 72%, #000e); pointer-events: none; }
 .teamPortrait { position: absolute; z-index: -2; inset: 0; overflow: hidden; }
-.teamPortrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 450ms ease; }
-.teamPortrait img[data-active="true"] { opacity: 1; }
+.teamSlide { position: absolute; inset: 0; opacity: 0; transition: opacity 450ms ease; }
+.teamSlide[data-active="true"] { opacity: 1; }
+.teamPortrait picture, .teamThumbnail picture { display: block; width: 100%; height: 100%; }
+.teamPortrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.team .headingRow { grid-template-columns: minmax(0, 1fr); max-width: 46%; gap: 20px; }
+.team .headingRow > p { font-size: clamp(15px, 1.3vw, 18px); line-height: 1.6; }
+.team[data-dark-portrait="true"] .headingRow > :is(h2, p) { color: var(--background); }
+.team[data-dark-portrait="false"] .teamIdentity { color: var(--foreground); text-shadow: none; }
+.team[data-adviser="shobhit-chand"] .teamIdentity { color: var(--background); text-shadow: 0 2px 16px #0006; }
+.teamIdentity { position: absolute; left: 6.666667%; bottom: calc(17.5cqw + 44px); color: var(--background); text-shadow: 0 2px 16px #0006; }
+.teamIdentity h3 { margin: 0; font-family: "Kind Avenue", Georgia, serif; font-size: clamp(28px, 2.6vw, 38px); font-weight: 400; line-height: 1.15; }
+.teamIdentity p { margin: 8px 0 0; font-size: 14px; line-height: 1.5; }
 .teamBottom { position: absolute; bottom: 2.222222cqw; left: 6.666667%; right: 0; display: flex; align-items: flex-end; gap: 2.222222cqw; }
 .teamControls { display: flex; gap: 1.111111cqw; flex: none; width: 13.888889cqw; padding-bottom: .555556cqw; }
 .teamControls button { display: grid; place-items: center; width: 3.333333cqw; height: 3.333333cqw; padding: .833333cqw; border: 1px solid #fcf7e490; border-radius: 50%; background: transparent; color: var(--background); }
 .teamControls button:hover { background: #fcf7e424; }
 .teamControls button:last-child svg { transform: rotate(180deg); }
 .teamControls svg { width: 1.666667cqw; height: 1.666667cqw; }
-.teamThumbnails { display: flex; gap: 1.111111cqw; min-width: 0; padding: 4px 6.666667cqw 4px 4px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x proximity; }
+.teamThumbnails { display: flex; gap: 1.111111cqw; min-width: 0; padding: 8px 6.666667cqw 8px 8px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x proximity; scroll-padding-inline-start: 8px; }
 .teamThumbnails::-webkit-scrollbar { display: none; }
 .teamThumbnail { position: relative; flex: 0 0 18.055556cqw; height: 15.277778cqw; padding: 0; overflow: hidden; border: 0; border-radius: .555556cqw; background: var(--foreground); color: var(--background); scroll-snap-align: start; }
 .teamThumbnail::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 40%, #000c); pointer-events: none; }
 .teamThumbnail[aria-pressed="true"] { outline: 2px solid var(--background); outline-offset: 2px; }
-.teamThumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
-.thumbnailPlay { position: absolute; z-index: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 2.222222cqw; height: 2.222222cqw; pointer-events: none; }
-.thumbnailPlay svg { width: 100%; height: 100%; }
+.teamThumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 75% center; filter: grayscale(1); }
+.teamThumbnail[aria-pressed="true"] img { filter: none; }
 .adviserCaption { position: absolute; z-index: 1; left: 1.111111cqw; right: 1.111111cqw; bottom: 1.111111cqw; text-align: left; font-size: .833333cqw; font-weight: 400; line-height: 1.5; }
-.adviserCaption strong { font-weight: 500; }
+.adviserCaption strong { display: block; font-size: clamp(12px, 1.05vw, 15px); font-weight: 600; line-height: 1.4; }
+.adviserCaption > span { display: block; margin-top: 4px; font-size: clamp(10px, .8vw, 12px); line-height: 1.4; }
 .srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .email { color: var(--foreground); font-size: 14px; text-underline-offset: 4px; }
 .page :is(button, a):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
@@ -109,19 +119,20 @@
   .mapCta { margin-top: 12px; min-height: 36px; padding: 6px; gap: 10px; font-size: 12px; }
   .mapCta svg { width: 16px; height: 16px; }
   .team { height: 760px; padding-top: 40px; }
+  .team .headingRow { max-width: 48%; }
+  .teamIdentity { left: 32px; bottom: 278px; }
   .teamBottom { left: 32px; bottom: 24px; gap: 24px; }
   .teamControls { width: 112px; gap: 12px; padding-bottom: 8px; }
   .teamControls button { width: 44px; height: 44px; padding: 12px; }
   .teamControls svg { width: 20px; height: 20px; }
   .teamThumbnails { gap: 12px; padding-right: 32px; }
   .teamThumbnail { flex-basis: 220px; height: 210px; border-radius: 8px; }
-  .thumbnailPlay { width: 32px; height: 32px; }
   .adviserCaption { left: 16px; right: 16px; bottom: 16px; font-size: 12px; }
 }
 
 @media (max-width: 640px) {
   .hero { height: 100svh; min-height: 600px; }
-  .heroImage { object-position: 54% center; }
+  .heroImage { object-position: center; }
   .heroIntro { top: clamp(88px, 10svh, 104px); padding-inline: 24px; }
   .heroIntro h1 { font-size: clamp(32px, 10vw, 48px); margin-top: 16px; text-wrap: balance; }
   .heroIntro > p { margin-top: 8px; font-size: clamp(18px, 5vw, 22px); }
@@ -147,13 +158,29 @@
   .cityTabs { flex-wrap: wrap; gap: 8px; margin: 24px 24px 0; }
   .cityTabs button { padding-inline: 12px; font-size: 11px; }
   .marketMap { height: 560px; margin-top: 24px; }
-  .team { height: 820px; padding-top: 32px; }
-  .teamPortrait img { object-position: 70% center !important; }
-  .team::after { background: linear-gradient(#becfe1ee, #becfe1a6 35%, transparent 53%, #0004 72%, #000e); }
+  .team { height: max(880px, 100svh); padding-top: 28px; }
+  .teamPortrait { top: 64px; }
+  .teamPortrait img { object-position: center top; }
+  .team .headingRow { max-width: none; gap: 14px; margin-top: 20px; }
+  .team .headingRow h2 { font-size: 34px; line-height: 1.08; }
+  .team .headingRow > p { font-size: 14px; line-height: 1.6; }
+  .teamIdentity { left: 24px; right: 24px; bottom: 342px; }
+  .teamIdentity h3 { font-size: 30px; }
+  .teamIdentity p { margin-top: 6px; font-size: 13px; }
+  .teamThumbnail img { object-position: center 40%; }
+  .team::after { background: linear-gradient(#becfe1 0%, #becfe1f2 20%, #becfe180 26%, transparent 34%, transparent 70%, #0004); }
+  .team[data-dark-portrait="true"] .headingRow > :is(h2, p) { color: var(--foreground); }
+  .team[data-dark-portrait="false"] .teamIdentity { color: var(--background); text-shadow: 0 2px 16px #0006; }
   .teamBottom { left: 24px; bottom: 24px; flex-direction: column; align-items: flex-start; gap: 20px; width: calc(100% - 24px); }
   .teamControls { width: auto; padding-bottom: 0; }
   .teamThumbnails { width: 100%; padding-right: 24px; }
   .teamThumbnail { flex-basis: 200px; height: 190px; }
+}
+
+@media (max-width: 360px) {
+  .teamPortrait { top: 112px; }
+  .team .headingRow h2 { font-size: 30px; }
+  .team .headingRow > p { font-size: 13px; }
 }
 
 @media (max-height: 520px) {
@@ -173,5 +200,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .teamPortrait img { transition: none; }
+  .teamSlide { transition: none; }
 }

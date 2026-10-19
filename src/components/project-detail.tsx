@@ -8,7 +8,6 @@ import { ProjectHeader } from "./project-header";
 import { ProjectEnquiries } from "./project-enquiries";
 import { PropertyCard } from "./property-card";
 import { getProject, formatProjectPrice, type Project, type ProjectImage, type ProjectFact } from "../data/projects";
-import { RealGuidance } from "./real-guidance";
 import { SiteFooter } from "./site-footer";
 import { ProjectMap } from "./project-map";
 import styles from "./project-detail.module.css";
@@ -20,6 +19,7 @@ const propertySections = [
   { id: "detail-building", label: "Building" },
   { id: "detail-amenities", label: "Amenities" },
   { id: "detail-location", label: "Location" },
+  { id: "detail-explore", label: "Explore the Space" },
 ] as const;
 type PropertySection = (typeof propertySections)[number]["id"];
 
@@ -27,8 +27,8 @@ function Facts({ items }: { items: ProjectFact[] }) {
   return <dl className={styles.facts}>{items.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>;
 }
 
-function SpacePhoto({ image, priority = false }: { image: ProjectImage; priority?: boolean }) {
-  return <Image src={image.src} data-space-id={image.id} alt={image.alt} width={image.width} height={image.height} unoptimized priority={priority} />;
+function SpacePhoto({ image, preload = false }: { image: ProjectImage; preload?: boolean }) {
+  return <Image src={image.src} data-space-id={image.id} alt={image.alt} width={image.width} height={image.height} unoptimized preload={preload} />;
 }
 
 export function ProjectDetail({ project }: { project: Project }) {
@@ -53,11 +53,12 @@ export function ProjectDetail({ project }: { project: Project }) {
     if (!page || !navigation) return;
 
     let frame = 0;
-    let initialScrollFrame = 0;
+    let hashFrame = 0;
     let disposed = false;
+
     function updateActiveSection() {
       frame = 0;
-      const threshold = navigation!.getBoundingClientRect().height + 32;
+      const threshold = navigation!.getBoundingClientRect().height + 26;
       let current: PropertySection = "detail-overview";
       for (const section of propertySections) {
         const element = document.getElementById(section.id);
@@ -65,38 +66,46 @@ export function ProjectDetail({ project }: { project: Project }) {
       }
       setActiveSection(current);
     }
+
     function scheduleUpdate() {
       if (!frame) frame = window.requestAnimationFrame(updateActiveSection);
     }
+
     function measureNavigation() {
       page!.style.setProperty("--property-section-nav-height", `${navigation!.getBoundingClientRect().height}px`);
       scheduleUpdate();
     }
 
-    measureNavigation();
-    const initialSection = propertySections.find((section) => `#${section.id}` === window.location.hash);
-    if (initialSection) {
-      void document.fonts.ready.then(() => {
-        if (disposed || window.location.hash !== `#${initialSection.id}`) return;
-        initialScrollFrame = window.requestAnimationFrame(() => {
-          measureNavigation();
-          document.getElementById(initialSection.id)?.scrollIntoView({ block: "start", behavior: "instant" });
-        });
+    function restoreSection() {
+      window.cancelAnimationFrame(hashFrame);
+      hashFrame = window.requestAnimationFrame(() => {
+        measureNavigation();
+        const section = propertySections.find((item) => `#${item.id}` === window.location.hash);
+        if (section) {
+          document.getElementById(section.id)?.scrollIntoView({ block: "start", behavior: "instant" });
+        } else if (window.location.hash === "#share-requirement") {
+          document.getElementById("share-requirement")?.scrollIntoView({ block: "start", behavior: "instant" });
+        }
       });
     }
+
+    measureNavigation();
+    void document.fonts.ready.then(() => {
+      if (!disposed) restoreSection();
+    });
     const observer = new ResizeObserver(measureNavigation);
     observer.observe(navigation);
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", measureNavigation);
-    window.addEventListener("hashchange", scheduleUpdate);
+    window.addEventListener("hashchange", restoreSection);
     return () => {
       disposed = true;
       window.cancelAnimationFrame(frame);
-      window.cancelAnimationFrame(initialScrollFrame);
+      window.cancelAnimationFrame(hashFrame);
       observer.disconnect();
       window.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("resize", measureNavigation);
-      window.removeEventListener("hashchange", scheduleUpdate);
+      window.removeEventListener("hashchange", restoreSection);
       page.style.removeProperty("--property-section-nav-height");
     };
   }, [project.id]);
@@ -130,120 +139,126 @@ export function ProjectDetail({ project }: { project: Project }) {
     }
   }
 
-  const visual = activeTab === "INTERIOR" ? detail.views.interior : activeTab === "EXTERIOR" ? detail.views.exterior : activeTab === "PHOTOS" ? project.cover : detail.views.floorPlan ?? project.cover;
+  const visual = activeTab === "INTERIOR" ? detail.views.interior : activeTab === "EXTERIOR" ? detail.views.exterior : activeTab === "PHOTOS" ? gallery[0] : detail.views.floorPlan ?? gallery[0];
 
   return <>
     <main className={styles.page} ref={pageRef}>
-      <ProjectHeader onSearch={() => scrollTo("detail-spaces")} onContact={() => openEnquiry("Property enquiry")} />
+      <ProjectHeader revealOnScrollUp={false} onSearch={() => scrollTo("detail-spaces")} onContact={() => openEnquiry("Property enquiry")} />
       <div className={styles.container}>
-        <section className={styles.gallery} aria-label="Property photographs">
-          <button type="button" className={styles.mainPhoto} onClick={() => lightbox.current?.showModal()} aria-label="Open property photo gallery"><SpacePhoto image={gallery[activePhoto]} priority /></button>
-          {gallery.length > 1 && (
-            <div className={styles.thumbnails}>
-              {gallery.slice(1, 4).map((item, index, slice) => {
-                const isLast = index === slice.length - 1 && gallery.length >= 4;
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    className={isLast ? styles.allPhotos : undefined}
-                    onClick={() => {
-                      if (isLast) lightbox.current?.showModal();
-                      else setActivePhoto(index + 1);
-                    }}
-                    aria-label={isLast ? "View All Photos" : `Show property photo ${index + 2}`}
-                    aria-pressed={isLast ? undefined : activePhoto === index + 1}
-                  >
-                    <SpacePhoto image={item} />
-                    {isLast && (
-                      <span className={styles.viewAllPhotos}>
-                        View All Photos <ChevronRight />
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </section>
+        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+          <Link href="/">Home</Link><span>/</span><Link href="/projects">Spaces</Link><span>/</span><span>{project.name}</span>
+        </nav>
         <div className={styles.titleRow}>
-          <div><nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Spaces</Link><span>/</span><span>{project.name}</span></nav><h1>{project.name}</h1><p>{project.locationLabel}</p></div>
-          <button type="button" className={styles.primary} onClick={() => openEnquiry("Request a brochure")}>Request Brochure <ChevronLeft /></button>
+          <div>
+            <span className={styles.eyebrow}>{project.category} · {project.spaceType ?? "Office space"}</span>
+            <h1>{project.name}</h1>
+            <p className={styles.address}><LocationPin />{project.locationLabel}</p>
+          </div>
+          <button type="button" className={styles.outline} onClick={() => openEnquiry("Request a brochure")}>Request Brochure <ChevronRight /></button>
         </div>
+
+        <section className={`${styles.gallery} ${gallery.length === 1 ? styles.singlePhoto : ""}`} aria-label="Property photographs">
+          <div className={styles.mainPhotoWrap}>
+            <button type="button" className={styles.mainPhoto} onClick={() => lightbox.current?.showModal()} aria-label="Open property photo gallery">
+              <SpacePhoto image={gallery[activePhoto]} preload />
+            </button>
+            <span className={styles.photoCount}>{String(activePhoto + 1).padStart(2, "0")} / {String(gallery.length).padStart(2, "0")}</span>
+            <button type="button" className={styles.viewAllPhotos} onClick={() => lightbox.current?.showModal()}>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1" /><rect x="12" y="2" width="6" height="6" rx="1" /><rect x="2" y="12" width="6" height="6" rx="1" /><rect x="12" y="12" width="6" height="6" rx="1" /></svg>
+              View All Photos <span>{gallery.length}</span>
+            </button>
+          </div>
+          {gallery.length > 1 && <div className={styles.thumbnails}>
+            {gallery.slice(1, 3).map((item, index) => <button key={item.id} type="button" onClick={() => setActivePhoto(index + 1)} aria-label={`Show property photo ${index + 2}`} aria-pressed={activePhoto === index + 1}>
+              <SpacePhoto image={item} />
+              <span aria-hidden="true"><ChevronRight /></span>
+            </button>)}
+          </div>}
+        </section>
+
         <nav className={styles.sectionNav} ref={sectionNavRef} aria-label="Property sections">
           <div className={styles.sectionNavLinks}>
             {propertySections.map((section) => <a key={section.id} href={`#${section.id}`} aria-current={activeSection === section.id ? "location" : undefined}>{section.label}</a>)}
           </div>
           <button type="button" className={styles.primary} onClick={() => openEnquiry()}>Schedule Visit</button>
         </nav>
+
         <div className={styles.detailLayout}>
           <div className={styles.content}>
-            <section className={styles.overview} id="detail-overview" aria-labelledby="overview-heading" tabIndex={-1}>
-              <h2 id="overview-heading">{project.name}</h2><p>{detail.description}</p>
-              <h3>Overview</h3><Facts items={detail.overview} />
-            </section>
-            <section className={styles.detailSection} id="detail-spaces" aria-labelledby="team-heading">
-              <h2 id="team-heading">Find the space that<br /> fits your team</h2><p>{detail.description}</p>
-              {!detail.spaces.length && <p>Contact our team for current availability, office configurations and leasing terms.</p>}
-              <div className={styles.teamGrid}>{detail.spaces.map((item) => <article className={styles.teamCard} key={item.id}>
-                <div className={styles.teamPhoto}><SpacePhoto image={item.image} /><div className={styles.smallBadges}><span>{project.category.toUpperCase()}</span><span>{item.badge.toUpperCase()}</span></div></div>
-                <h3>{item.title}</h3><p>{item.location}</p><p>{item.description}</p>
-                <button type="button" className={styles.primary} onClick={() => openEnquiry(`Workspace enquiry — ${item.title}`)}>Enquire <ChevronLeft /></button>
-              </article>)}</div>
-            </section>
-            <section className={styles.detailSection} id="detail-building" aria-labelledby="building-heading" tabIndex={-1}>
-              <h2 id="building-heading" className={styles.buildingHeading}>Building information</h2>
-              <div className={styles.buildingTable}>
-                {detail.building.map(([label, value]) => (
-                  <div key={label} className={styles.buildingRow}>
-                    <span className={styles.buildingLabel}>{label}</span>
-                    <span className={styles.buildingValue}>{value}</span>
+            <div className={styles.information}>
+              <section className={styles.infoPanel} id="detail-overview" aria-labelledby="overview-heading" tabIndex={-1}>
+                <div className={styles.panelHeading}><h2 id="overview-heading">Overview</h2><span className={styles.eyebrow}>At a glance</span></div>
+                <p className={styles.description}>{detail.description}</p>
+                <Facts items={detail.overview} />
+              </section>
+              <section className={styles.spacesSection} id="detail-spaces" aria-labelledby="team-heading">
+                <div className={styles.sectionHeading}><h2 id="team-heading">Find the space that fits your team</h2><span className={styles.eyebrow}>Workspace options</span></div>
+                {!detail.spaces.length && <p>Contact our team for current availability, office configurations and leasing terms.</p>}
+                <div className={styles.teamGrid}>{detail.spaces.map((item) => <article className={styles.teamCard} key={item.id}>
+                  <div className={styles.teamPhoto}><SpacePhoto image={item.image} /></div>
+                  <div className={styles.teamBody}>
+                    <span className={styles.spaceBadge}>{item.badge}</span>
+                    <h3>{item.title}</h3><p className={styles.teamLocation}>{item.location}</p><p className={styles.teamDescription}>{item.description}</p>
+                    <button type="button" className={styles.textLink} onClick={() => openEnquiry(`Workspace enquiry — ${item.title}`)}>Enquire <ChevronRight /></button>
                   </div>
-                ))}
-              </div>
-            </section>
-            <section className={styles.detailSection} id="detail-amenities" aria-labelledby="amenities-heading" tabIndex={-1}>
-              <h2 id="amenities-heading">Amenities</h2><p>{detail.description}</p>
-              {!detail.amenities.length && <p>Contact our team for building amenities and facilities.</p>}
-              <ul className={styles.amenities}>{detail.amenities.map((item, index) => <li key={item}><span aria-hidden="true"><AmenityIcon index={index} /></span>{item}</li>)}</ul>
-            </section>
-            <section className={styles.detailSection} id="detail-location" aria-labelledby="location-heading" tabIndex={-1}>
-              <h2 id="location-heading">Location</h2>
-              <div className={styles.locationRow}><p>{detail.location.caption}</p><a className={styles.primary} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronLeft /></a></div>
-              <ProjectMap project={project} />
-              <Facts items={detail.location.nearby} />
-            </section>
-            <section className={styles.detailSection} id="detail-explore" aria-labelledby="explore-heading">
-              <h2 id="explore-heading">Explore the Space</h2>
-              <div className={styles.tabs} role="tablist" aria-label="Space views">{galleryTabs.map((tab) => <button type="button" role="tab" key={tab} id={`space-tab-${tab.replaceAll(" ", "-").toLowerCase()}`} aria-selected={activeTab === tab} aria-controls="space-view" onClick={() => setActiveTab(tab)} onKeyDown={(event) => {
-                const direction = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
-                if (!direction && event.key !== "Home" && event.key !== "End") return;
-                event.preventDefault();
-                const next = event.key === "Home" ? 0 : event.key === "End" ? galleryTabs.length - 1 : (galleryTabs.indexOf(tab) + direction + galleryTabs.length) % galleryTabs.length;
-                setActiveTab(galleryTabs[next]);
-                (event.currentTarget.parentElement?.children[next] as HTMLButtonElement)?.focus();
-              }} tabIndex={activeTab === tab ? 0 : -1}>{tab}</button>)}</div>
-              <div className={styles.spaceView} role="tabpanel" id="space-view" aria-labelledby={`space-tab-${activeTab.replaceAll(" ", "-").toLowerCase()}`} tabIndex={0}><SpacePhoto image={visual} />{activeTab === "FLOOR PLAN" && !detail.views.floorPlan && <span className={styles.planNote}>Floor plan available on request</span>}</div>
-              <p className={styles.exploreCaption}>{detail.location.caption}</p>
-            </section>
+                </article>)}</div>
+              </section>
+
+              <section className={styles.infoPanel} id="detail-building" aria-labelledby="building-heading" tabIndex={-1}>
+                <div className={styles.panelHeading}><h2 id="building-heading">Building information</h2><span className={styles.eyebrow}>The essentials</span></div>
+                <dl className={styles.buildingTable}>
+                  {detail.building.map(([label, value]) => <div key={label} className={styles.buildingRow}><dt>{label}</dt><dd>{value}</dd></div>)}
+                </dl>
+              </section>
+              <section className={styles.infoPanel} id="detail-amenities" aria-labelledby="amenities-heading" tabIndex={-1}>
+                <div className={styles.panelHeading}><h2 id="amenities-heading">Amenities</h2><span className={styles.eyebrow}>In the building</span></div>
+                {!detail.amenities.length && <p className={styles.description}>Contact our team for building amenities and facilities.</p>}
+                <ul className={styles.amenities}>{detail.amenities.map((item, index) => <li key={item}><span aria-hidden="true"><AmenityIcon index={index} /></span>{item}</li>)}</ul>
+              </section>
+              <section className={styles.infoPanel} id="detail-location" aria-labelledby="location-heading" tabIndex={-1}>
+                <div className={styles.panelHeading}><h2 id="location-heading">Location</h2><a className={styles.textLink} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronRight /></a></div>
+                <p className={styles.locationCaption}>{detail.location.caption}</p>
+                <div className={styles.locationMap}><ProjectMap project={project} /></div>
+                <Facts items={detail.location.nearby} />
+              </section>
+              <section className={styles.infoPanel} id="detail-explore" aria-labelledby="explore-heading" tabIndex={-1}>
+                <div className={styles.panelHeading}><h2 id="explore-heading">Explore the Space</h2></div>
+                <div className={styles.tabs} role="tablist" aria-label="Space views">{galleryTabs.map((tab) => <button type="button" role="tab" key={tab} id={`space-tab-${tab.replaceAll(" ", "-").toLowerCase()}`} aria-selected={activeTab === tab} aria-controls="space-view" onClick={() => setActiveTab(tab)} onKeyDown={(event) => {
+                  const direction = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+                  if (!direction && event.key !== "Home" && event.key !== "End") return;
+                  event.preventDefault();
+                  const next = event.key === "Home" ? 0 : event.key === "End" ? galleryTabs.length - 1 : (galleryTabs.indexOf(tab) + direction + galleryTabs.length) % galleryTabs.length;
+                  setActiveTab(galleryTabs[next]);
+                  (event.currentTarget.parentElement?.children[next] as HTMLButtonElement)?.focus();
+                }} tabIndex={activeTab === tab ? 0 : -1}>{tab}</button>)}</div>
+                <div className={`${styles.spaceView} ${activeTab === "FLOOR PLAN" ? styles.floorPlan : ""}`} role="tabpanel" id="space-view" aria-labelledby={`space-tab-${activeTab.replaceAll(" ", "-").toLowerCase()}`} tabIndex={0}>
+                  <SpacePhoto image={visual} />
+                  {activeTab === "FLOOR PLAN" && !detail.views.floorPlan && <span className={styles.planNote}>Floor plan available on request</span>}
+                </div>
+                <p className={styles.exploreCaption}>{detail.location.caption}</p>
+              </section>
+            </div>
           </div>
+
           <aside className={styles.enquiryCard} aria-labelledby="space-enquiry-heading">
-            <h2 id="space-enquiry-heading">Interested in this space?</h2><p>Let’s help you find the right workspace for your business.</p>
-            <span className={styles.starting}>{project.price === null ? "RENT" : "STARTING FROM"}</span><p className={styles.rent}>{formatProjectPrice(project.price)}</p>
-            <ul>{detail.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
-            <button type="button" className={styles.primary} onClick={() => openEnquiry()}>Request for Visit <ChevronLeft /></button>
-            <div className={styles.similarPrompt}><h3>Not quite what you’re looking for?</h3><p>We’ll help you find a space that fits your business.</p><button type="button" className={styles.outline} onClick={() => scrollTo("similar-spaces")}>Find Similar Spaces <ChevronLeft /></button></div>
+            <span className={styles.starting}>{project.price === null ? "RENT" : "STARTING FROM"}</span>
+            <p className={styles.rent}>{formatProjectPrice(project.price)}</p>
+            <div className={styles.enquiryIntro}><h2 id="space-enquiry-heading">Interested in this space?</h2><p>Let’s help you find the right workspace for your business.</p></div>
+            <ul>{detail.highlights.map((highlight) => <li key={highlight}><span aria-hidden="true">✓</span>{highlight}</li>)}</ul>
+            <button type="button" className={styles.primary} onClick={() => openEnquiry()}>Request for Visit <ChevronRight /></button>
+            <button type="button" className={styles.brochureLink} onClick={() => openEnquiry("Request a brochure")}>Request Brochure <ChevronRight /></button>
+            <div className={styles.similarPrompt}><h3>Not quite what you’re looking for?</h3><p>We’ll help you find a space that fits your business.</p><button type="button" className={styles.textLink} onClick={() => scrollTo("similar-spaces")}>Find Similar Spaces <ChevronRight /></button></div>
           </aside>
         </div>
+
+        <section className={styles.similar} id="similar-spaces" aria-labelledby="similar-heading">
+          <div className={styles.sectionHeading}><h2 id="similar-heading">Looking for something similar?</h2><Link href="/projects" className={styles.textLink}>View all spaces <ChevronRight /></Link></div>
+          <div className={styles.similarGrid}>{similarProjects.map((item) => <PropertyCard key={item.id} property={item} />)}</div>
+        </section>
       </div>
-      <div className={styles.reasons}><RealGuidance id="space-benefits" showBadge={false} heading="Why businesses choose this space" introduction="Complete the process with practical advice, relevant options and hands-on support." cards={detail.benefits} /></div>
-      <section className={styles.similar} id="similar-spaces" aria-labelledby="similar-heading">
-        <div className={styles.similarHeading}><h2 id="similar-heading">Looking for something<br /> similar?</h2><p>Complete the process with practical advice, relevant options and hands-on support.</p></div>
-        <div className={styles.similarGrid}>{similarProjects.map((item) => <PropertyCard key={item.id} property={item} />)}</div>
-      </section>
       <ProjectEnquiries showOwners={false} />
     </main>
-    <SiteFooter homePath="/" />
+    <SiteFooter homePath="/" className={styles.footer} />
     <dialog className="hero-dialog" ref={enquiry} aria-labelledby="detail-enquiry-heading" onClose={() => { setDraft(""); setShareStatus(""); }} onClick={(event) => { if (event.target === event.currentTarget) enquiry.current?.close(); }}>
       <div className="dialog-content">
         <button type="button" className="dialog-close" aria-label="Close property enquiry" onClick={() => enquiry.current?.close()}>×</button><p className="dialog-eyebrow">{project.name} · {project.locationLabel}</p><h2 id="detail-enquiry-heading">{request}</h2>
@@ -288,4 +303,8 @@ export function ProjectDetail({ project }: { project: Project }) {
 function AmenityIcon({ index }: { index: number }) {
   const paths = ["m13 2-8 11h6l-1 9 9-12h-6l1-8Z", "M3 9c5-5 13-5 18 0M6 12c3-3 9-3 12 0M9 15c2-1 4-1 6 0M12 19h.01", "M12 2v20M3 7l18 10M3 17 21 7M8 4l4 3 4-3M8 20l4-3 4 3", "m12 3 8 4v6c0 4-5 7-8 9-3-2-8-5-8-9V7l8-4Zm-4 9 3 3 5-6", "M4 21V4h16v17M9 21V7h6v14M12 12h1", "M6 21V3h8a5 5 0 0 1 0 10H6M10 7h4a1 1 0 0 1 0 2h-4", "M4 21v-8h16v8M2 21h20M8 9a4 4 0 1 1 8 0M12 9v4", "M4 3h16v18H4V3Zm4 7 2-3 2 3m0 4 2 3 2-3"];
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={paths[index % paths.length]} /></svg>;
+}
+
+function LocationPin() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>;
 }

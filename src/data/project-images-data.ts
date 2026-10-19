@@ -351,8 +351,18 @@ const rawProjectMedia: Record<string, { folder: string; images: RawImage[] }> = 
   },
 };
 
+// Match renamed catalog entries to the supplied collection by building and sector.
+// JASK's supplied folder is Sector 125; the catalog also has a separate Sector 127 tower.
+const suppliedMediaAliases: Record<string, string> = {
+  "tech-boulevard": "boulevard",
+  "candor-techspace-sector-135": "candor-techspace-n1",
+  "dlf-tech-park": "dlf-techpark",
+  "express-trade-tower": "express-trade-tower-i",
+  "jask-tower-sector-125": "jask",
+};
+
 export function getProjectMedia(slug: string, projectName = "Commercial Office Tower"): ProjectMedia | null {
-  const data = rawProjectMedia[slug];
+  const data = rawProjectMedia[suppliedMediaAliases[slug] ?? slug];
   if (!data || !data.images.length) return null;
 
   const gallery: ProjectImage[] = data.images.map((img, index) => {

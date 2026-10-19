@@ -10,7 +10,7 @@ const steps = [
   { id: "close", title: "Close", description: "Navigate negotiations and move forward confidently." },
 ];
 
-export function OurApproach() {
+export function OurApproach({ badge = "THE PROPMENTORS APPROACH" }: { badge?: string } = {}) {
   const { trackRef, pinRef, sectionRef, timelineRef, stepsRef } = useApproachTimeline();
 
   return (
@@ -20,7 +20,7 @@ export function OurApproach() {
       <div className="approach-heading">
         <div className="section-badge" data-node-id="352:2235">
           <span className="section-badge-icon" aria-hidden="true"><Image src="/images/glance/badge-star.svg" alt="" width={17} height={17} unoptimized /></span>
-          <span>THE PROPMENTORS APPROACH</span>
+          <span>{badge}</span>
         </div>
         <div className="approach-heading-row">
           <h2 id="approach-heading"><span>From requirement</span><span>to right-fit space</span></h2>
