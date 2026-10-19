@@ -37,6 +37,7 @@ export function ProjectDetail({ project }: { project: Project }) {
   const galleryTabs: GalleryTab[] = detail.photoViewsOnly ? ["PHOTOS", "FLOOR PLAN"] : defaultGalleryTabs;
   const similarProjects = detail.similarProjectIds.map(getProject).filter((item): item is Project => Boolean(item) && item?.id !== project.id);
   const [activePhoto, setActivePhoto] = useState(0);
+  const [previewPhotos, setPreviewPhotos] = useState(gallery);
   const [activeSection, setActiveSection] = useState<PropertySection>("detail-overview");
   const [activeTab, setActiveTab] = useState<GalleryTab>(detail.photoViewsOnly ? "PHOTOS" : "FLOOR PLAN");
   const [request, setRequest] = useState("Schedule a visit");
@@ -121,6 +122,13 @@ export function ProjectDetail({ project }: { project: Project }) {
     enquiry.current?.showModal();
   }
 
+  function openPhoto(image = gallery[0]) {
+    const index = gallery.findIndex((photo) => photo.src === image.src);
+    setPreviewPhotos(index === -1 ? [image] : gallery);
+    setActivePhoto(Math.max(0, index));
+    lightbox.current?.showModal();
+  }
+
   async function prepareEnquiry(form: HTMLFormElement) {
     const data = new FormData(form);
     const text = `${request}\nProperty: ${project.name}\nLocation: ${project.locationLabel}\nReference: ${project.id}\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nMobile: ${data.get("mobile")}\nPreferred visit date: ${data.get("date") || "To be arranged"}\nRequirements: ${data.get("requirements") || "Please contact me with more details."}`;
@@ -159,19 +167,18 @@ export function ProjectDetail({ project }: { project: Project }) {
 
         <section className={`${styles.gallery} ${gallery.length === 1 ? styles.singlePhoto : ""}`} aria-label="Property photographs">
           <div className={styles.mainPhotoWrap}>
-            <button type="button" className={styles.mainPhoto} onClick={() => lightbox.current?.showModal()} aria-label="Open property photo gallery">
-              <SpacePhoto image={gallery[activePhoto]} preload />
+            <button type="button" className={styles.mainPhoto} onClick={() => openPhoto()} aria-label="Open property photo gallery">
+              <SpacePhoto image={gallery[0]} preload />
             </button>
-            <span className={styles.photoCount}>{String(activePhoto + 1).padStart(2, "0")} / {String(gallery.length).padStart(2, "0")}</span>
-            <button type="button" className={styles.viewAllPhotos} onClick={() => lightbox.current?.showModal()}>
+            <span className={styles.photoCount}>01 / {String(gallery.length).padStart(2, "0")}</span>
+            <button type="button" className={styles.viewAllPhotos} onClick={() => openPhoto()}>
               <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1" /><rect x="12" y="2" width="6" height="6" rx="1" /><rect x="2" y="12" width="6" height="6" rx="1" /><rect x="12" y="12" width="6" height="6" rx="1" /></svg>
               View All Photos <span>{gallery.length}</span>
             </button>
           </div>
           {gallery.length > 1 && <div className={styles.thumbnails}>
-            {gallery.slice(1, 3).map((item, index) => <button key={item.id} type="button" onClick={() => setActivePhoto(index + 1)} aria-label={`Show property photo ${index + 2}`} aria-pressed={activePhoto === index + 1}>
+            {gallery.slice(1, 4).map((item, index) => <button key={item.id} type="button" onClick={() => openPhoto(item)} aria-label={`Open property photo ${index + 2} at full size`}>
               <SpacePhoto image={item} />
-              <span aria-hidden="true"><ChevronRight /></span>
             </button>)}
           </div>}
         </section>
@@ -195,7 +202,7 @@ export function ProjectDetail({ project }: { project: Project }) {
                 <div className={styles.sectionHeading}><h2 id="team-heading">Find the space that fits your team</h2><span className={styles.eyebrow}>Workspace options</span></div>
                 {!detail.spaces.length && <p>Contact our team for current availability, office configurations and leasing terms.</p>}
                 <div className={styles.teamGrid}>{detail.spaces.map((item) => <article className={styles.teamCard} key={item.id}>
-                  <div className={styles.teamPhoto}><SpacePhoto image={item.image} /></div>
+                  <button type="button" className={`${styles.teamPhoto} ${styles.photoPreview}`} onClick={() => openPhoto(item.image)} aria-label={`View ${item.title} photo at full size`}><SpacePhoto image={item.image} /></button>
                   <div className={styles.teamBody}>
                     <span className={styles.spaceBadge}>{item.badge}</span>
                     <h3>{item.title}</h3><p className={styles.teamLocation}>{item.location}</p><p className={styles.teamDescription}>{item.description}</p>
@@ -232,7 +239,7 @@ export function ProjectDetail({ project }: { project: Project }) {
                   (event.currentTarget.parentElement?.children[next] as HTMLButtonElement)?.focus();
                 }} tabIndex={activeTab === tab ? 0 : -1}>{tab}</button>)}</div>
                 <div className={`${styles.spaceView} ${activeTab === "FLOOR PLAN" ? styles.floorPlan : ""}`} role="tabpanel" id="space-view" aria-labelledby={`space-tab-${activeTab.replaceAll(" ", "-").toLowerCase()}`} tabIndex={0}>
-                  <SpacePhoto image={visual} />
+                  <button type="button" className={styles.photoPreview} onClick={() => openPhoto(visual)} aria-label={`View ${activeTab.toLowerCase()} image at full size`}><SpacePhoto image={visual} /></button>
                   {activeTab === "FLOOR PLAN" && !detail.views.floorPlan && <span className={styles.planNote}>Floor plan available on request</span>}
                 </div>
                 <p className={styles.exploreCaption}>{detail.location.caption}</p>
@@ -273,27 +280,27 @@ export function ProjectDetail({ project }: { project: Project }) {
     <dialog className={styles.lightbox} ref={lightbox} aria-label="Property photo gallery" onClick={(event) => { if (event.target === event.currentTarget) lightbox.current?.close(); }} onKeyDown={(event) => {
       if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
-        setActivePhoto((current) => (current + (event.key === "ArrowLeft" ? -1 : 1) + gallery.length) % gallery.length);
+        setActivePhoto((current) => (current + (event.key === "ArrowLeft" ? -1 : 1) + previewPhotos.length) % previewPhotos.length);
       }
     }}>
       <header className={styles.lightboxHeader}>
         <div className={styles.lightboxTitle}><p>PROPERTY GALLERY</p><h2>{project.name}</h2></div>
         <div className={styles.lightboxActions}>
-          <span className={styles.lightboxCount} aria-live="polite" aria-atomic="true">{String(activePhoto + 1).padStart(2, "0")} <span>/ {String(gallery.length).padStart(2, "0")}</span></span>
+          <span className={styles.lightboxCount} aria-live="polite" aria-atomic="true">{String(activePhoto + 1).padStart(2, "0")} <span>/ {String(previewPhotos.length).padStart(2, "0")}</span></span>
           <button type="button" className={styles.lightboxClose} aria-label="Close photo gallery" onClick={() => lightbox.current?.close()}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" /></svg></button>
         </div>
       </header>
       <div className={styles.lightboxStage}>
-        <SpacePhoto image={gallery[activePhoto]} />
-        {gallery.length > 1 && <>
-          <button type="button" className={`${styles.lightboxArrow} ${styles.lightboxPrevious}`} aria-label="Previous photo" onClick={() => setActivePhoto((current) => (current + gallery.length - 1) % gallery.length)}><ChevronLeft /></button>
-          <button type="button" className={`${styles.lightboxArrow} ${styles.lightboxNext}`} aria-label="Next photo" onClick={() => setActivePhoto((current) => (current + 1) % gallery.length)}><ChevronRight /></button>
+        <SpacePhoto image={previewPhotos[activePhoto]} />
+        {previewPhotos.length > 1 && <>
+          <button type="button" className={`${styles.lightboxArrow} ${styles.lightboxPrevious}`} aria-label="Previous photo" onClick={() => setActivePhoto((current) => (current + previewPhotos.length - 1) % previewPhotos.length)}><ChevronLeft /></button>
+          <button type="button" className={`${styles.lightboxArrow} ${styles.lightboxNext}`} aria-label="Next photo" onClick={() => setActivePhoto((current) => (current + 1) % previewPhotos.length)}><ChevronRight /></button>
         </>}
       </div>
       <div className={styles.lightboxFooter}>
-        <div className={styles.lightboxCaption}><p>{gallery[activePhoto].alt}</p><span>{project.locationLabel}</span></div>
+        <div className={styles.lightboxCaption}><p>{previewPhotos[activePhoto].alt}</p><span>{project.locationLabel}</span></div>
         <div className={styles.lightboxThumbnails} role="group" aria-label="Choose a property photo">
-          {gallery.map((image, index) => <button type="button" key={image.id} aria-label={`View photo ${index + 1}`} aria-pressed={activePhoto === index} onClick={() => setActivePhoto(index)}><SpacePhoto image={image} /></button>)}
+          {previewPhotos.map((image, index) => <button type="button" key={image.id} aria-label={`View photo ${index + 1}`} aria-pressed={activePhoto === index} onClick={() => setActivePhoto(index)}><SpacePhoto image={image} /></button>)}
         </div>
       </div>
     </dialog>

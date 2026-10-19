@@ -21,15 +21,12 @@
 .textLink:hover { color: var(--accent); }
 
 /* The full gallery remains available in the lightbox. */
-.gallery { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); gap: 10px; height: clamp(280px, 27vw, 380px); }
+.gallery { display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr); gap: 10px; height: clamp(420px, 42vw, 560px); }
 .singlePhoto { grid-template-columns: 1fr; }
 .mainPhotoWrap { position: relative; min-width: 0; min-height: 0; overflow: hidden; border-radius: 16px 0 0 16px; background: #dce1e2; }
 .singlePhoto .mainPhotoWrap { border-radius: 16px; }
 .mainPhoto { width: 100%; height: 100%; padding: 0; border: 0; cursor: zoom-in; background: transparent; }
-.mainPhoto img, .thumbnails img, .teamPhoto img, .spaceView img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.mainPhoto img { object-position: center 48%; transition: transform 600ms ease; }
-.mainPhoto:hover img { transform: scale(1.025); }
-.mainPhoto img[data-space-id="space-01"] { object-position: center 70%; }
+.mainPhoto img, .thumbnails img, .teamPhoto img, .spaceView img { display: block; width: 100%; height: 100%; object-fit: fill; object-position: center; }
 .mainPhotoWrap::after { content: ""; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent, #0c1d2b66); pointer-events: none; }
 .photoCount { position: absolute; z-index: 1; bottom: 23px; left: 24px; color: var(--background); font-size: 11px; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: .08em; }
 .viewAllPhotos { position: absolute; z-index: 1; right: 20px; bottom: 16px; display: inline-flex; align-items: center; gap: 10px; min-height: 42px; padding: 10px 14px; border: 1px solid #fcf7e480; border-radius: 7px; background: var(--background); color: var(--foreground); font-size: 11px; font-weight: 500; cursor: pointer; box-shadow: 0 3px 16px #122c4f15; }
@@ -37,14 +34,12 @@
 .viewAllPhotos > span { padding-left: 10px; border-left: 1px solid #122c4f25; color: #607083; font-size: 10px; }
 .viewAllPhotos:hover { background: #f5efd8; }
 .thumbnails { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
-.thumbnails button { position: relative; flex: 1; min-height: 0; padding: 0; overflow: hidden; border: 0; background: #dce1e2; cursor: pointer; }
+.thumbnails button { position: relative; flex: 1; min-height: 0; padding: 0; overflow: hidden; border: 0; background: #dce1e2; cursor: zoom-in; }
 .thumbnails button:first-child { border-top-right-radius: 16px; }
 .thumbnails button:last-child { border-bottom-right-radius: 16px; }
-.thumbnails button[aria-pressed="true"] { outline: 3px solid var(--accent); outline-offset: -3px; }
-.thumbnails button > span { position: absolute; right: 12px; bottom: 12px; display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #fcf7e470; border-radius: 50%; color: var(--background); background: #0c1d2b30; }
-.thumbnails button > span svg { width: 14px; height: 14px; }
-.thumbnails img { transition: transform 400ms ease; }
-.thumbnails button:hover img { transform: scale(1.035); }
+.photoPreview { display: block; width: 100%; padding: 0; border: 0; background: #dce1e2; cursor: zoom-in; }
+.spaceView > .photoPreview { height: 100%; }
+.spaceView .planNote { pointer-events: none; }
 
 /* Full property sections with persistent navigation and a compact enquiry card. */
 .detailLayout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; align-items: start; gap: 32px; margin-top: 32px; }
@@ -94,7 +89,6 @@
 .teamCard { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--detail-border); border-radius: 10px; overflow: hidden; background: var(--detail-surface); transition: box-shadow 180ms ease, border-color 180ms ease; }
 .teamCard:hover { border-color: #5d87b560; box-shadow: 0 8px 24px #122c4f08; }
 .teamPhoto { height: 130px; overflow: hidden; }
-.teamPhoto img { object-position: center 50%; }
 .teamBody { display: flex; flex: 1; flex-direction: column; align-items: start; padding: 16px; }
 .spaceBadge { color: #4a7097; font-size: 8px; font-weight: 600; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; }
 .teamBody h3 { margin: 7px 0 6px; font-size: 14px; font-weight: 500; line-height: 1.45; letter-spacing: -.02em; }
@@ -170,7 +164,7 @@
 .lightboxThumbnails button { flex: 0 0 64px; width: 64px; height: 48px; padding: 0; overflow: hidden; border: 0; border-radius: 5px; background: #d5d8d9; opacity: .55; transition: opacity 150ms ease; }
 .lightboxThumbnails button[aria-pressed="true"] { opacity: 1; outline: 2px solid var(--foreground); outline-offset: 2px; }
 .lightboxThumbnails button:hover { opacity: 1; }
-.lightboxThumbnails img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lightboxThumbnails img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .lightbox :is(button):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .lightboxArrow:focus-visible { outline-color: var(--background); }
 @keyframes galleryAppear { from { opacity: 0; scale: .98; } to { opacity: 1; scale: 1; } }
@@ -214,9 +208,11 @@
   .titleRow > .outline { min-height: 40px; padding: 9px 14px; font-size: 11px; }
   .eyebrow { font-size: 8px; }
   .address { font-size: 12px; }
-  .gallery { height: 270px; grid-template-columns: minmax(0, 1fr); }
-  .mainPhotoWrap { border-radius: 12px; }
-  .thumbnails { display: none; }
+  .gallery { height: auto; grid-template-columns: minmax(0, 1fr); }
+  .mainPhotoWrap { height: 270px; border-radius: 12px; }
+  .thumbnails { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: 90px; }
+  .thumbnails button { border-radius: 8px; }
+  .thumbnails button:first-child, .thumbnails button:last-child { border-radius: 8px; }
   .viewAllPhotos { right: 12px; bottom: 12px; gap: 8px; padding-inline: 10px; font-size: 10px; }
   .photoCount { left: 16px; bottom: 26px; font-size: 10px; }
   .detailLayout { margin-top: 22px; gap: 24px; }
