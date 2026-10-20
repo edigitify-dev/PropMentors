@@ -223,7 +223,7 @@ export function ProjectDetail({ project }: { project: Project }) {
                 <ul className={styles.amenities}>{detail.amenities.map((item, index) => <li key={item}><span aria-hidden="true"><AmenityIcon index={index} /></span>{item}</li>)}</ul>
               </section>
               <section className={styles.infoPanel} id="detail-location" aria-labelledby="location-heading" tabIndex={-1}>
-                <div className={styles.panelHeading}><h2 id="location-heading">Neighbourhood</h2><a className={styles.textLink} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronRight /></a></div>
+                <div className={styles.panelHeading}><h2 id="location-heading">Location</h2><a className={styles.textLink} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronRight /></a></div>
                 <p className={styles.locationCaption}>{detail.location.caption}</p>
                 <div className={styles.locationMap}><ProjectMap project={project} /></div>
                 <Facts items={detail.location.nearby} />
