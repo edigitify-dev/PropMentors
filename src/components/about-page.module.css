@@ -3,7 +3,7 @@
 .hero::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(transparent 54%, #0006 75%, #000 100%); pointer-events: none; }
 .heroImage, .beliefImage { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .heroImage { object-position: center 30%; }
-.heroIntro { position: absolute; top: 16.5%; left: 0; width: 100%; text-align: center; }
+.heroIntro { position: absolute; top: 16.5%; left: 0; width: 100%; transform: translateY(24px); text-align: center; }
 .heroIntro :global(.section-badge) { margin-inline: auto; height: min(2.5cqw, 4dvh); padding-inline: min(1.666667cqw, 2.6dvh); font-size: min(.972222cqw, 1.6dvh); }
 .heroIntro h1 { margin: min(2.222222cqw, 3.478261dvh) 0 0; font-family: "Kind Avenue", Georgia, serif; font-weight: 400; font-size: min(8cqw, 12.5dvh); line-height: 1.08; letter-spacing: -.02em; }
 .heroIntro > p { margin: 0; font-family: "Kind Avenue", Georgia, serif; font-weight: 400; font-size: min(2.222222cqw, 3.478261dvh); line-height: 1.25; }

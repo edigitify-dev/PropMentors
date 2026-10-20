@@ -73,7 +73,7 @@
 .amenities li > span { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #122c4f0a; border-radius: 8px; background: #becfe12b; color: var(--accent); }
 .amenities svg { width: 17px; height: 17px; }
 .locationCaption { margin: 12px 0 0; font-size: 12px; line-height: 1.65; color: var(--detail-muted); white-space: pre-line; }
-.locationMap > div { height: 250px; aspect-ratio: auto; margin-top: 18px; border-radius: 9px; box-shadow: none; }
+.locationMap { margin-top: 18px; }
 .tabs { display: flex; gap: 6px; width: max-content; max-width: 100%; padding: 4px; margin-top: 18px; border: 1px solid var(--detail-border); border-radius: 8px; background: #f4f2e9; }
 .tabs button { min-height: 36px; padding: 8px 16px; border: 0; border-radius: 5px; background: transparent; color: var(--detail-muted); font-family: inherit; font-size: 10px; font-weight: 500; cursor: pointer; }
 .tabs button[aria-selected="true"] { background: var(--accent); color: var(--background); }
@@ -202,26 +202,34 @@
 }
 @media (max-width: 640px) {
   .container { width: calc(100% - 40px); }
-  .breadcrumb { margin-top: 24px; gap: 7px; font-size: 10px; }
-  .titleRow { align-items: start; flex-direction: column; gap: 18px; padding-block: 20px 22px; }
-  .titleRow h1 { font-size: clamp(34px, 9vw, 46px); margin-top: 10px; }
-  .titleRow > .outline { min-height: 40px; padding: 9px 14px; font-size: 11px; }
-  .eyebrow { font-size: 8px; }
-  .address { font-size: 12px; }
-  .gallery { height: auto; grid-template-columns: minmax(0, 1fr); }
-  .mainPhotoWrap { height: 270px; border-radius: 12px; }
-  .thumbnails { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: 90px; }
+  .breadcrumb { margin-top: 20px; gap: 7px; font-size: 10px; }
+  .titleRow { align-items: start; flex-direction: column; gap: 20px; padding-block: 24px; }
+  .titleRow h1 { font-size: clamp(36px, 10vw, 48px); margin-block: 12px 14px; }
+  .titleRow > .outline { justify-content: space-between; min-height: 44px; padding: 11px 16px; border-radius: 10px; font-size: 11px; }
+  .eyebrow { font-size: 9px; }
+  .address { align-items: start; font-size: 12px; }
+  .address svg { margin-top: 2px; }
+  .gallery { height: auto; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .mainPhotoWrap, .singlePhoto .mainPhotoWrap { height: auto; aspect-ratio: 4 / 3; border-radius: 16px; }
+  .mainPhoto img, .thumbnails img, .teamPhoto img, .spaceView img { object-fit: cover; }
+  .floorPlan img { object-fit: contain; }
+  .thumbnails { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; height: clamp(64px, 20vw, 110px); }
   .thumbnails button { border-radius: 8px; }
   .thumbnails button:first-child, .thumbnails button:last-child { border-radius: 8px; }
   .viewAllPhotos { right: 12px; bottom: 12px; gap: 8px; padding-inline: 10px; font-size: 10px; }
   .photoCount { left: 16px; bottom: 26px; font-size: 10px; }
-  .detailLayout { margin-top: 22px; gap: 24px; }
-  .sectionNav { gap: 10px; margin-top: 20px; padding: 6px 10px; }
-  .sectionNav > .primary { min-height: 40px; padding: 9px 10px; font-size: 10px; }
-  .sectionNavLinks { gap: 18px; }
-  .sectionNavLinks > a { min-height: 52px; font-size: 11px; }
-  .infoPanel { padding: 22px 18px; }
+  .detailLayout { margin-top: 28px; gap: 28px; }
+  .information { gap: 28px; }
+  /* Five section links and the visit action share a fixed two-row grid. */
+  .sectionNav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 4px; margin-top: 24px; padding: 6px; border-radius: 16px; background: #fcf7e4f5; backdrop-filter: blur(12px); box-shadow: 0 6px 24px #122c4f08; }
+  .sectionNav > .primary { grid-column: 3; grid-row: 1; align-self: end; width: 100%; min-width: 0; min-height: 44px; padding: 8px 4px; border-radius: 10px; font-size: 10px; }
+  .sectionNavLinks { grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; overflow: visible; }
+  .sectionNavLinks > a { display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 44px; padding: 8px 4px; border-radius: 10px; font-size: 10px; line-height: 1.4; white-space: normal; }
+  .sectionNavLinks > a[aria-current="location"] { background: #becfe145; color: var(--foreground); }
+  .sectionNavLinks > a[aria-current="location"]::after { display: none; }
+  .infoPanel { padding: 24px 20px; border-radius: 18px; background: #ffffff26; }
   .panelHeading { gap: 12px; }
+  .infoPanel:has(.locationMap) .panelHeading { flex-wrap: wrap; gap: 8px; }
   .panelHeading h2 { font-size: 28px; }
   .panelHeading > .eyebrow { font-size: 7px; }
   .description { font-size: 13px; line-height: 1.85; }
@@ -234,23 +242,25 @@
   .amenities { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; margin-top: 22px; }
   .amenities li { gap: 8px; font-size: 11px; }
   .amenities li > span { width: 28px; height: 28px; }
-  .locationMap > div { height: 280px; }
-  .locationMap :global(.leaflet-control-zoom) { display: none; }
   .tabs button { min-height: 40px; padding-inline: 12px; }
-  .spaceView { height: 240px; }
-  .spacesSection { margin-top: 28px; }
+  .tabs { width: 100%; gap: 4px; border-radius: 10px; }
+  .tabs button { flex: 1; min-width: 0; padding-inline: 6px; }
+  .spaceView { height: auto; aspect-ratio: 4 / 3; border-radius: 12px; }
+  .spacesSection { margin-top: 32px; }
   .sectionHeading { align-items: start; gap: 18px; }
-  .sectionHeading h2 { font-size: 29px; }
-  .teamGrid { grid-template-columns: 1fr; gap: 14px; margin-top: 20px; }
-  .teamCard { display: grid; grid-template-columns: 96px minmax(0, 1fr); }
-  .teamPhoto { height: 100%; min-height: 210px; }
-  .teamBody { padding: 18px 16px 10px; }
-  .spaceBadge { font-size: 8px; }
-  .teamBody h3 { font-size: 15px; }
-  .teamLocation { font-size: 10px; }
-  .teamDescription { margin-block: 10px; font-size: 12px; line-height: 1.75; }
-  .teamBody > .textLink { font-size: 12px; }
-  .enquiryCard { display: block; padding: 24px; }
+  .sectionHeading h2 { font-size: clamp(30px, 8vw, 38px); line-height: 1.12; }
+  .spacesSection > .sectionHeading { flex-direction: column-reverse; gap: 12px; }
+  .spacesSection > .sectionHeading > .eyebrow { display: block; color: #4a7097; font-size: 9px; letter-spacing: .16em; }
+  .teamGrid { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+  .teamCard { display: flex; flex-direction: column; border-radius: 18px; background: #ffffff40; box-shadow: 0 6px 24px #122c4f06; }
+  .teamPhoto { flex: none; width: 100%; height: auto; min-height: 0; aspect-ratio: 16 / 10; }
+  .teamBody { padding: 22px 20px 12px; }
+  .spaceBadge { padding: 5px 9px; border: 1px solid #5d87b520; border-radius: 6px; background: #becfe12b; font-size: 9px; letter-spacing: .1em; }
+  .teamBody h3 { margin-block: 14px 6px; font-size: 20px; line-height: 1.35; }
+  .teamLocation { font-size: 11px; line-height: 1.65; }
+  .teamDescription { margin-block: 14px 18px; font-size: 13px; line-height: 1.8; }
+  .teamBody > .textLink { min-height: 48px; padding-top: 4px; color: #4a7097; font-size: 12px; }
+  .enquiryCard { display: block; padding: 26px 22px; border-radius: 18px; background: linear-gradient(145deg, #becfe12b, #ffffff40); box-shadow: 0 8px 28px #122c4f08; }
   .rent { font-size: 36px; margin-bottom: 20px; }
   .enquiryIntro { padding-top: 18px; border-top: 1px solid var(--detail-border); }
   .enquiryCard > ul { margin-block: 18px; }

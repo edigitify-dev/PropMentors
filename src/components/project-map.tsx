@@ -1,349 +1,210 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { Map as LeafletMap, Marker, TileLayer } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { type Project, projects } from "../data/projects";
+import type { Project } from "../data/projects";
+import {
+  formatDistance, neighbourhoodCategories, placeDirectionsUrl,
+  type Coordinates, type NearbyPlace, type NeighbourhoodCategory, type NeighbourhoodData,
+} from "../lib/neighbourhood";
 import styles from "./project-map.module.css";
 
-interface ProjectMapProps {
-  project: Project;
+function CategoryIcon({ category }: { category: NeighbourhoodCategory }) {
+  const paths = {
+    connectivity: "M7 3h10a2 2 0 0 1 2 2v11a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V5a2 2 0 0 1 2-2ZM5 10h14M8 15h.01M16 15h.01M8 19l-2 3M16 19l2 3M10 3V1h4v2",
+    business: "M9 7V4h6v3M3 7h18v13H3V7ZM3 12c5 4 13 4 18 0M12 12v4",
+    dining: "M4 2v6a3 3 0 0 0 6 0V2M7 2v20M20 22V2c-5 3-5 10 0 10",
+    hospitality: "M5 22V3h14v19M2 22h20M9 22v-5h6v5M9 7h.01M15 7h.01M9 12h.01M15 12h.01",
+    shopping: "M5 7h14l2 14H3L5 7ZM8 8V5a4 4 0 0 1 8 0v3M8 12c0 5 8 5 8 0",
+  };
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[category]} /></svg>;
 }
 
-export function ProjectMap({ project }: ProjectMapProps) {
-  const coordinates = project.detail.location.coordinates;
-  if (coordinates) return <CoordinateProjectMap project={project} coords={coordinates} />;
-
-  const query = encodeURIComponent(project.detail.location.directionsQuery);
-
-  return (
-    <div className={styles.mapWrapper}>
-      <iframe
-        className={styles.mapEmbed}
-        title={`Location map for ${project.name}`}
-        src={`https://www.google.com/maps?q=${query}&output=embed`}
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        allowFullScreen
-      />
-      <div className={styles.mapFloatingBar}>
-        <a
-          href={`https://www.google.com/maps/search/?api=1&query=${query}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.floatingBtn}
-        >
-          Open in Google Maps &rarr;
-        </a>
-      </div>
-    </div>
-  );
+function DirectionIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m3 10 18-7-7 18-3-8-8-3ZM11 13l10-10" /></svg>;
 }
 
-function CoordinateProjectMap({ project, coords }: ProjectMapProps & { coords: { lat: number; lng: number } }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<LeafletMap | null>(null);
-  const tileLayerRef = useRef<TileLayer | null>(null);
-  const mainMarkerRef = useRef<Marker | null>(null);
-  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
-  const [showNearby, setShowNearby] = useState(true);
-  const nearbyMarkersRef = useRef<Marker[]>([]);
-
-  const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    project.detail.location.directionsQuery
-  )}`;
+export function ProjectMap({ project }: { project: Project }) {
+  const coords = project.detail.location.coordinates;
+  const root = useRef<HTMLDivElement>(null);
+  const resultsId = useId();
+  const [category, setCategory] = useState<NeighbourhoodCategory>("connectivity");
+  const [type, setType] = useState("All");
+  const [data, setData] = useState<NeighbourhoodData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [attempt, setAttempt] = useState(0);
+  const [expanded, setExpanded] = useState(true);
+  const [selected, setSelected] = useState<string | null>(null);
+  const activeCategory = neighbourhoodCategories.find(item => item.id === category)!;
+  const places = useMemo(() => (data?.places ?? []).filter(place => place.category === category && (type === "All" || place.type === type)), [data, category, type]);
+  const visiblePlaces = useMemo(() => places.slice(0, 12), [places]);
+  const searchTerm = category === "dining" ? "restaurants and cafes" : category === "connectivity" ? "metro stations and bus stops" : category === "hospitality" ? "hotels" : category === "business" ? "offices and banks" : "shopping malls and supermarkets";
+  const searchQuery = `${type === "All" ? searchTerm : type} near ${project.detail.location.directionsQuery}`;
+  const searchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchQuery)}`;
+  const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(project.detail.location.directionsQuery)}`;
 
   useEffect(() => {
-    const element = containerRef.current;
-    if (!element) return;
-
+    const element = root.current;
+    if (!element || !coords) return;
+    const controller = new AbortController();
     let disposed = false;
-    let resizeObserver: ResizeObserver | undefined;
-    let hasLoadedTile = false;
-
-    async function initMap(container: HTMLDivElement) {
-      try {
-        const L = await import("leaflet");
-        if (disposed) return;
-
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        // Initialize map instance centered on current project
-        const instance = L.map(container, {
-          center: [coords.lat, coords.lng],
-          zoom: 15,
-          scrollWheelZoom: false,
-          zoomControl: false,
-          minZoom: 11,
-          maxZoom: 18,
-          fadeAnimation: !prefersReducedMotion,
-          zoomAnimation: !prefersReducedMotion,
-          markerZoomAnimation: !prefersReducedMotion,
-        });
-
-        mapRef.current = instance;
-
-        // Add Zoom Control to top-right
-        L.control.zoom({ position: "topright" }).addTo(instance);
-
-        // OpenStreetMap tile layer with attribution
-        const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
-          maxZoom: 19,
-          keepBuffer: 1,
-        });
-
-        tileLayerRef.current = tiles;
-        tiles.on("tileload", () => {
-          hasLoadedTile = true;
-          setStatus("ready");
-        });
-        tiles.on("load", () => {
-          if (!hasLoadedTile) setStatus("error");
-        });
-        tiles.addTo(instance);
-
-        // Create main project marker with custom SVG Pin + pulse aura + name badge
-        const pinSvg = `
-          <svg width="34" height="44" viewBox="0 0 34 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17 0C7.61116 0 0 7.61116 0 17C0 29.75 17 44 17 44C17 44 34 29.75 34 17C34 7.61116 26.3888 0 17 0Z" fill="#122C4F"/>
-            <circle cx="17" cy="17" r="13" fill="#FCF7E4"/>
-            <path d="M12 21V12H22V21" stroke="#122C4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M10 21H24" stroke="#122C4F" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M15 15H19" stroke="#5D87B5" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M15 18H19" stroke="#5D87B5" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        `;
-
-        const mainIcon = L.divIcon({
-          className: styles.mainMarker,
-          html: `
-            <div class="${styles.mainMarkerPulse}"></div>
-            <div class="${styles.mainMarkerPin}">
-              ${pinSvg}
-            </div>
-            <div class="${styles.mainMarkerLabel}">
-              <span class="${styles.mainMarkerDot}"></span>
-              <span>${project.name}</span>
-            </div>
-          `,
-          iconSize: [44, 52],
-          iconAnchor: [22, 44],
-          popupAnchor: [0, -46],
-        });
-
-        const mainMarker = L.marker([coords.lat, coords.lng], {
-          icon: mainIcon,
-          title: project.name,
-          zIndexOffset: 1000,
-        }).addTo(instance);
-
-        mainMarkerRef.current = mainMarker;
-
-        // Popup content for the primary project
-        const popupHtml = `
-          <div class="${styles.popupCard}">
-            <span class="${styles.popupBadge}">${project.badge || project.locationLabel}</span>
-            <h3 class="${styles.popupTitle}">${project.name}</h3>
-            <p class="${styles.popupAddress}">${project.detail.location.address}</p>
-            <a href="${directionsUrl}" target="_blank" rel="noopener noreferrer" class="${styles.popupDirections}">
-              Directions
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        `;
-
-        mainMarker.bindPopup(popupHtml, {
-          closeButton: true,
-          autoPan: true,
-          autoPanPadding: [20, 20],
-        });
-
-        mainMarker.on("click", () => {
-          mainMarker.openPopup();
-        });
-
-        // Add other nearby project pointers on the corridor for rich geographical context
-        const otherProjects = projects.filter(
-          (p) => p.id !== project.id && p.detail.location.coordinates
-        );
-
-        nearbyMarkersRef.current = otherProjects.map((p) => {
-          const pCoords = p.detail.location.coordinates!;
-          const nearbyIcon = L.divIcon({
-            className: styles.nearbyMarker,
-            html: `<div class="${styles.nearbyMarkerDot}" title="${p.name}"></div>`,
-            iconSize: [16, 16],
-            iconAnchor: [8, 8],
-            popupAnchor: [0, -10],
-          });
-
-          const marker = L.marker([pCoords.lat, pCoords.lng], {
-            icon: nearbyIcon,
-            title: p.name,
-            zIndexOffset: 100,
-          }).addTo(instance);
-
-          const nearbyPopupHtml = `
-            <div class="${styles.popupCard}">
-              <span class="${styles.popupBadge}">${p.locationLabel}</span>
-              <h3 class="${styles.popupTitle}">${p.name}</h3>
-              <p class="${styles.popupAddress}">${p.detail.location.address}</p>
-              <a href="/projects/${p.slug}" class="${styles.popupDirections}">
-                View Project &rarr;
-              </a>
-            </div>
-          `;
-
-          marker.bindPopup(nearbyPopupHtml, {
-            closeButton: true,
-            autoPan: true,
-            autoPanPadding: [20, 20],
-          });
-
-          marker.on("click", () => {
-            marker.openPopup();
-          });
-
-          return marker;
-        });
-
-        // Keep map responsive with ResizeObserver
-        resizeObserver = new ResizeObserver(() => {
-          instance.invalidateSize({ pan: false });
-        });
-        resizeObserver.observe(container);
-
-        setStatus("ready");
-      } catch {
-        if (!disposed) setStatus("error");
-      }
-    }
-
-    // Lazy load when section comes into view
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       observer.disconnect();
-      void initMap(element);
-    });
-
-    observer.observe(element);
-
-    return () => {
-      disposed = true;
-      observer.disconnect();
-      resizeObserver?.disconnect();
-      tileLayerRef.current?.off();
-      mapRef.current?.remove();
-      mapRef.current = null;
-      tileLayerRef.current = null;
-      nearbyMarkersRef.current = [];
-    };
-  }, [coords.lat, coords.lng, directionsUrl, project]);
-
-  // Handle toggling of nearby corporate markers
-  useEffect(() => {
-    if (!mapRef.current) return;
-    nearbyMarkersRef.current.forEach((marker) => {
-      if (showNearby) {
-        if (!mapRef.current?.hasLayer(marker)) {
-          marker.addTo(mapRef.current!);
-        }
-      } else {
-        if (mapRef.current?.hasLayer(marker)) {
-          mapRef.current.removeLayer(marker);
+      async function load() {
+        try {
+          const response = await fetch(`/api/projects/${encodeURIComponent(project.slug)}/neighbourhood`, { signal: controller.signal });
+          if (!response.ok) throw new Error("Nearby search unavailable");
+          const result: NeighbourhoodData = await response.json();
+          if (!disposed) setData(result);
+        } catch {
+          if (!disposed) setData({ places: [], radius: 5000, availability: "unavailable" });
+        } finally {
+          if (!disposed) setLoading(false);
         }
       }
-    });
-  }, [showNearby]);
+      void load();
+    }, { rootMargin: "160px" });
+    observer.observe(element);
+    return () => { disposed = true; observer.disconnect(); controller.abort(); };
+  }, [project.slug, coords, attempt]);
 
-  const handleRecenter = () => {
-    if (!mapRef.current) return;
-    mapRef.current.flyTo([coords.lat, coords.lng], 15, {
-      duration: 1.2,
-    });
-    mainMarkerRef.current?.openPopup();
-  };
+  function selectCategory(next: NeighbourhoodCategory) {
+    setCategory(next); setType("All"); setSelected(null); setExpanded(true);
+  }
 
-  return (
-    <div className={styles.mapWrapper}>
-      {/* Map Canvas */}
-      <div
-        ref={containerRef}
-        className={styles.mapCanvas}
-        role="region"
-        aria-label={`Interactive map showing location of ${project.name}`}
-      />
+  return <div className={styles.explorer} ref={root}>
+    <div className={styles.explorerIntro}><span>EXPLORE THE NEIGHBOURHOOD</span><p>A closer look at life around your workspace.</p></div>
+    {coords
+      ? <CoordinateProjectMap project={project} coords={coords} places={visiblePlaces} selected={selected} onSelect={setSelected} directionsUrl={directionsUrl} />
+      : <div className={styles.mapWrapper}><iframe className={styles.mapEmbed} title={`Explore ${activeCategory.label.toLowerCase()} near ${project.name}`} src={`https://www.google.com/maps?q=${encodeURIComponent(searchQuery)}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div>}
 
-      {/* Top Left Live GPS Badge */}
-      <div className={styles.badgeCoords}>
-        <span className={styles.liveIndicator} />
-        <span>{coords.lat.toFixed(4)}° N, {coords.lng.toFixed(4)}° E</span>
+    <div className={styles.explorerBody}>
+      <div className={styles.categories} role="group" aria-label="Neighbourhood categories">
+        {neighbourhoodCategories.map(item => <button type="button" key={item.id} aria-pressed={category === item.id} onClick={() => selectCategory(item.id)}><span><CategoryIcon category={item.id} /></span>{item.label}</button>)}
       </div>
-
-      {/* Floating Map Actions */}
-      <div className={styles.mapFloatingBar}>
-        <button
-          type="button"
-          className={styles.floatingBtn}
-          onClick={handleRecenter}
-          aria-label={`Recenter on ${project.name}`}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="22" y1="12" x2="18" y2="12"></line>
-            <line x1="6" y1="12" x2="2" y2="12"></line>
-            <line x1="12" y1="6" x2="12" y2="2"></line>
-            <line x1="12" y1="22" x2="12" y2="18"></line>
-          </svg>
-          Recenter
-        </button>
-
-        <button
-          type="button"
-          className={styles.floatingBtn}
-          onClick={() => setShowNearby((prev) => !prev)}
-          aria-pressed={showNearby}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          {showNearby ? "Hide Nearby Towers" : "Show Nearby Towers"}
-        </button>
-
-        <a
-          href={directionsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.floatingBtn}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
-          </svg>
-          Google Maps
-        </a>
+      <div className={styles.filters} role="group" aria-label={`${activeCategory.label} filters`}>
+        {["All", ...activeCategory.types].map(item => <button type="button" key={item} aria-pressed={type === item} onClick={() => { setType(item); setSelected(null); setExpanded(true); }}>{item}</button>)}
       </div>
-
-      {/* Fallback & Error Status Overlay */}
-      {status === "error" && (
-        <div className={styles.statusOverlay} role="status">
-          <p>Map could not be loaded. Please check your internet connection.</p>
-          <a
-            href={directionsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.floatingBtn}
-          >
-            Open in Google Maps &rarr;
-          </a>
+      <div className={styles.results}>
+        <button type="button" className={styles.resultsHeading} aria-expanded={expanded} aria-controls={resultsId} onClick={() => setExpanded(value => !value)}>
+          <CategoryIcon category={category} /><span>{activeCategory.label}<small aria-live="polite">{!coords ? "Explore the surrounding area" : loading ? "Finding nearby places…" : `${places.length} ${places.length === 1 ? "place" : "places"} within 5 km`}</small></span><svg className={styles.chevron} data-expanded={expanded} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+        </button>
+        <div id={resultsId} hidden={!expanded}>
+          {coords && loading && <div className={styles.loadingState} role="status"><span />Discovering what’s around {project.name}…</div>}
+          {coords && !loading && visiblePlaces.length > 0 && <ol className={styles.placeList} aria-label={`Nearby ${activeCategory.label.toLowerCase()}`}>
+            {visiblePlaces.map((place, index) => <li key={place.id} data-selected={selected === place.id}>
+              <button type="button" className={styles.placeButton} onClick={() => setSelected(place.id)} aria-pressed={selected === place.id} aria-label={`Show ${place.name} on map`}><span className={styles.placeNumber}>{index + 1}</span><span className={styles.placeName}>{place.name}<small>{place.type}</small></span><span className={styles.distance}>{formatDistance(place.distance)}</span></button>
+              <a className={styles.placeDirections} href={placeDirectionsUrl(place, coords)} target="_blank" rel="noopener noreferrer" aria-label={`Get directions from ${project.name} to ${place.name}`}><DirectionIcon /></a>
+            </li>)}
+          </ol>}
+          {!coords && <p className={styles.emptyState}>Explore nearby {activeCategory.label.toLowerCase()} on Google Maps. Exact distances will be available once this property’s map pin is confirmed.</p>}
+          {coords && !loading && !visiblePlaces.length && <p className={styles.emptyState}>{data?.availability === "unavailable" ? "Nearby places couldn’t be loaded right now." : `No ${type === "All" ? activeCategory.label.toLowerCase() + " places" : type.toLowerCase()} are listed within 5 km. Try another filter or explore on Google Maps.`}</p>}
+          {coords && !loading && data?.availability === "unavailable" && <div className={styles.retryRow}><span>{visiblePlaces.length ? "Showing catalogue properties. More nearby places are temporarily unavailable." : "Try again to refresh nearby places."}</span><button type="button" onClick={() => { setLoading(true); setAttempt(value => value + 1); }}>Try again</button></div>}
+          {places.length > 12 && <p className={styles.resultLimit}>Showing the 12 closest places.</p>}
+          <a className={styles.exploreLink} href={searchUrl} target="_blank" rel="noopener noreferrer">Explore {type === "All" ? activeCategory.label.toLowerCase() : type.toLowerCase()} on Google Maps <span aria-hidden="true">↗</span></a>
         </div>
-      )}
+      </div>
+      {coords && <p className={styles.sourceNote}>Approximate straight-line distances within 5 km. Routes may be longer.</p>}
     </div>
-  );
+  </div>;
+}
+
+function CoordinateProjectMap({ project, coords, places, selected, onSelect, directionsUrl }: {
+  project: Project; coords: Coordinates; places: NearbyPlace[]; selected: string | null;
+  onSelect: (id: string) => void; directionsUrl: string;
+}) {
+  const container = useRef<HTMLDivElement>(null);
+  const map = useRef<LeafletMap | null>(null);
+  const markers = useRef(new Map<string, Marker>());
+  const [ready, setReady] = useState(false);
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+
+  useEffect(() => {
+    const element = container.current;
+    if (!element) return;
+    let disposed = false;
+    let resize: ResizeObserver | undefined;
+    let tiles: TileLayer | undefined;
+    let loadedTile = false;
+    const currentMarkers = markers.current;
+    async function initialise() {
+      try {
+        const L = await import("leaflet");
+        if (disposed) return;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const instance = L.map(element!, { center: [coords.lat, coords.lng], zoom: 14, scrollWheelZoom: false, zoomControl: false, minZoom: 10, maxZoom: 19, fadeAnimation: !reduced, zoomAnimation: !reduced, markerZoomAnimation: !reduced });
+        map.current = instance;
+        L.control.zoom({ position: "topright" }).addTo(instance);
+        tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors', maxZoom: 19, keepBuffer: 1,
+        });
+        tiles.on("tileload", () => { loadedTile = true; if (!disposed) setStatus("ready"); });
+        tiles.on("load", () => { if (!disposed && !loadedTile) setStatus("error"); });
+        tiles.addTo(instance);
+        const label = document.createElement("span");
+        label.className = styles.propertyPin;
+        label.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V3h14v18M2 21h20M9 7h.01M15 7h.01M9 11h.01M15 11h.01M10 21v-5h4v5" /></svg>';
+        const pin = L.marker([coords.lat, coords.lng], { title: project.name, alt: project.name, zIndexOffset: 1000, icon: L.divIcon({ className: styles.mainMarker, html: label, iconSize: [42, 48], iconAnchor: [21, 44] }) }).addTo(instance);
+        const content = document.createElement("div");
+        content.className = styles.popupCard;
+        const title = document.createElement("strong"); title.textContent = project.name;
+        const address = document.createElement("p"); address.textContent = project.detail.location.address;
+        content.append(title, address);
+        pin.bindPopup(content);
+        resize = new ResizeObserver(() => instance.invalidateSize({ pan: false }));
+        resize.observe(element!);
+        setReady(true);
+      } catch { if (!disposed) setStatus("error"); }
+    }
+    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { observer.disconnect(); void initialise(); } });
+    observer.observe(element);
+    return () => { disposed = true; observer.disconnect(); resize?.disconnect(); tiles?.off(); map.current?.remove(); map.current = null; currentMarkers.clear(); };
+  }, [coords.lat, coords.lng, project.name, project.detail.location.address]);
+
+  useEffect(() => {
+    if (!ready || !map.current) return;
+    let disposed = false;
+    const instance = map.current;
+    const currentMarkers = markers.current;
+    async function update() {
+      const L = await import("leaflet");
+      if (disposed) return;
+      currentMarkers.forEach(marker => marker.remove()); currentMarkers.clear();
+      for (const [index, place] of places.entries()) {
+        const number = document.createElement("span"); number.textContent = String(index + 1); number.className = styles.poiNumber;
+        const marker = L.marker([place.lat, place.lng], { title: place.name, alt: place.name, icon: L.divIcon({ className: styles.poiMarker, html: number, iconSize: [34, 40], iconAnchor: [17, 36] }) }).addTo(instance);
+        const popup = document.createElement("div"); popup.className = styles.popupCard;
+        const name = document.createElement("strong"); name.textContent = place.name;
+        const caption = document.createElement("p"); caption.textContent = `${place.type} · ${formatDistance(place.distance)} away`;
+        const link = document.createElement("a"); link.textContent = "Get directions ↗"; link.href = placeDirectionsUrl(place, coords); link.target = "_blank"; link.rel = "noopener noreferrer";
+        popup.append(name, caption, link); marker.bindPopup(popup, { maxWidth: 220, autoPanPadding: [24, 24] });
+        marker.on("click", () => onSelect(place.id));
+        currentMarkers.set(place.id, marker);
+      }
+      const bounds = L.latLngBounds([[coords.lat, coords.lng], ...places.map(place => [place.lat, place.lng] as [number, number])]);
+      instance.fitBounds(bounds, { paddingTopLeft: [36, 56], paddingBottomRight: [36, 58], maxZoom: 15, animate: false });
+    }
+    void update();
+    return () => { disposed = true; currentMarkers.forEach(marker => marker.remove()); currentMarkers.clear(); };
+  }, [ready, places, coords, onSelect]);
+
+  useEffect(() => {
+    if (!ready || !map.current) return;
+    markers.current.forEach((item, id) => { item.getElement()?.setAttribute("data-selected", String(id === selected)); item.setZIndexOffset(id === selected ? 500 : 0); });
+    if (!selected) { map.current.closePopup(); return; }
+    const marker = markers.current.get(selected);
+    if (marker) { map.current.panTo(marker.getLatLng(), { animate: false }); marker.openPopup(); }
+  }, [ready, selected]);
+
+  return <div className={styles.mapWrapper}>
+    <div ref={container} className={styles.mapCanvas} role="region" aria-label={`Interactive neighbourhood map for ${project.name}`} />
+    <div className={styles.propertyLabel}><span />{project.name}</div>
+    <div className={styles.mapFloatingBar}>
+      <button type="button" className={styles.floatingBtn} onClick={() => { map.current?.closePopup(); map.current?.setView([coords.lat, coords.lng], 15, { animate: false }); }} aria-label={`Recenter on ${project.name}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7" /><path d="M12 2v5M12 17v5M2 12h5M17 12h5" /></svg>Recenter</button>
+      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className={styles.floatingBtn}><DirectionIcon />Directions</a>
+    </div>
+    {status === "error" && <div className={styles.mapNotice} role="status">Map tiles are unavailable. <a href={directionsUrl} target="_blank" rel="noopener noreferrer">Open Google Maps ↗</a></div>}
+  </div>;
 }

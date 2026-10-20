@@ -1,0 +1,1461 @@
+{
+  "checkedAt": "2026-10-20",
+  "sources": [
+    "https://estatelion.com/advant-navis-business-park-build1012",
+    "https://estatelion.com/assotech-business-cresterra-build1020",
+    "https://estatelion.com/candor-techspace-build1029",
+    "https://estatelion.com/ithum-tower-build1026",
+    "https://estatelion.com/max-towers-build1000",
+    "https://estatelion.com/supertech-astralis-build1044"
+  ],
+  "places": [
+    {
+      "id": "landmark-681cdaf19e35",
+      "name": "Advant Navis Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.500660399999997,
+      "lng": 77.41030839999999
+    },
+    {
+      "id": "landmark-14c7be1dcb6c",
+      "name": "Axis Bank - Noida",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.577889499999998,
+      "lng": 77.31720039999999
+    },
+    {
+      "id": "landmark-10922eaac870",
+      "name": "Axis Bank - Sector 135 Noida",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.4967236,
+      "lng": 77.4016272
+    },
+    {
+      "id": "landmark-d39395168ea7",
+      "name": "B N CORPORATE PARK PVT TD",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.499305,
+      "lng": 77.4005122
+    },
+    {
+      "id": "landmark-b9e219bffe4a",
+      "name": "BSI Business Park C51",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.6111257,
+      "lng": 77.36276950000001
+    },
+    {
+      "id": "landmark-8eac4713a0d5",
+      "name": "BSI Business Park H161 Sector 63 Noida",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.6252914,
+      "lng": 77.3784211
+    },
+    {
+      "id": "landmark-20c118ef6715",
+      "name": "BSI Business Park Private Limited 7/135",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.500125999999998,
+      "lng": 77.401032
+    },
+    {
+      "id": "landmark-be2708f79a80",
+      "name": "Bank of India - Staff Training College",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.6195813,
+      "lng": 77.3596582
+    },
+    {
+      "id": "landmark-0f1fdf2381fe",
+      "name": "Bloom Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.615443,
+      "lng": 77.38139579999999
+    },
+    {
+      "id": "landmark-76f0a5b5504e",
+      "name": "Centrade Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.514195599999997,
+      "lng": 77.4183515
+    },
+    {
+      "id": "landmark-808f4e59713f",
+      "name": "Corporate Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.502780899999998,
+      "lng": 77.4115774
+    },
+    {
+      "id": "landmark-628844c9b7f0",
+      "name": "DLF Techpark Noida",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.4967725,
+      "lng": 77.4279313
+    },
+    {
+      "id": "landmark-265dbc79d598",
+      "name": "Dallas 1 Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.625743999999997,
+      "lng": 77.38014199999999
+    },
+    {
+      "id": "landmark-aa93bb64f95f",
+      "name": "Embassy Galaxy Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.624443499999998,
+      "lng": 77.37024720000001
+    },
+    {
+      "id": "landmark-1c4f91404ea1",
+      "name": "Federal Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.4993156,
+      "lng": 77.3940537
+    },
+    {
+      "id": "landmark-bff72124bc25",
+      "name": "HDFC Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.4968266,
+      "lng": 77.4021813
+    },
+    {
+      "id": "landmark-836cb0cfffd1",
+      "name": "HDFC Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.6141713,
+      "lng": 77.3672654
+    },
+    {
+      "id": "landmark-a760e901d062",
+      "name": "HDFC Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.625458,
+      "lng": 77.3711103
+    },
+    {
+      "id": "landmark-40aeb2ae46e7",
+      "name": "HDFC Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.577940899999998,
+      "lng": 77.3175897
+    },
+    {
+      "id": "landmark-7237dab0dc8f",
+      "name": "HDFC Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5724296,
+      "lng": 77.3218175
+    },
+    {
+      "id": "landmark-644ae4689128",
+      "name": "HDFC Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5698159,
+      "lng": 77.3241523
+    },
+    {
+      "id": "landmark-98bcb22da7b9",
+      "name": "ICICI Bank Branch - Noida - Sector 135",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.499596399999998,
+      "lng": 77.4046717
+    },
+    {
+      "id": "landmark-8254e98db53e",
+      "name": "ICICI Bank Branch- Noida- Sector- 137",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5076619,
+      "lng": 77.40793289999999
+    },
+    {
+      "id": "landmark-207edd055dfc",
+      "name": "ICICI Bank Branch- Noida- Sector18- Seniormall",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5717592,
+      "lng": 77.3223773
+    },
+    {
+      "id": "landmark-f294d94300f7",
+      "name": "IDFC FIRST Bank - Noida Sector 63 Branch",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.626742,
+      "lng": 77.37549469999999
+    },
+    {
+      "id": "landmark-87f8be88906e",
+      "name": "IDFC FIRST Bank - Noida, Sector 142 Branch",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.500737299999997,
+      "lng": 77.41018369999999
+    },
+    {
+      "id": "landmark-b770da8de4a3",
+      "name": "IDFC FIRST Bank - Noida, Sector 18 Branch",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5690601,
+      "lng": 77.3243361
+    },
+    {
+      "id": "landmark-9963c54b4cc3",
+      "name": "IndusInd Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5066778,
+      "lng": 77.4082469
+    },
+    {
+      "id": "landmark-31943ab1c2c0",
+      "name": "Infinity Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.6246685,
+      "lng": 77.378565
+    },
+    {
+      "id": "landmark-b6199481dac3",
+      "name": "Kotak Mahindra Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.612855699999997,
+      "lng": 77.3621702
+    },
+    {
+      "id": "landmark-72eda234d1ce",
+      "name": "Kotak Mahindra Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.628732199999998,
+      "lng": 77.3753491
+    },
+    {
+      "id": "landmark-3ba0c05e5e00",
+      "name": "Kotak Mahindra Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5780182,
+      "lng": 77.317306
+    },
+    {
+      "id": "landmark-e13a2cb568f4",
+      "name": "Lotus Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.5334904,
+      "lng": 77.3477036
+    },
+    {
+      "id": "landmark-83f91736a833",
+      "name": "Maharaja Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.6296537,
+      "lng": 77.38096019999999
+    },
+    {
+      "id": "landmark-646726d80380",
+      "name": "Noida sec 62 c41 procapitus business park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.611087599999998,
+      "lng": 77.3655251
+    },
+    {
+      "id": "landmark-948bbb0cfac9",
+      "name": "Pinnacle Business Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.579210999999997,
+      "lng": 77.3209207
+    },
+    {
+      "id": "landmark-43427539fa92",
+      "name": "Pride Corporate Park",
+      "category": "business",
+      "type": "Offices",
+      "lat": 28.5050387,
+      "lng": 77.3996566
+    },
+    {
+      "id": "landmark-503e37a4af54",
+      "name": "Punjab National Bank",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.610368200000003,
+      "lng": 77.3604467
+    },
+    {
+      "id": "landmark-18456671a279",
+      "name": "RBL Bank Ltd - Sector 18, Noida Branch & ATM",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5698479,
+      "lng": 77.32503679999999
+    },
+    {
+      "id": "landmark-4a239af74d24",
+      "name": "SBI Branch Sector 77 Noida",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.6196067,
+      "lng": 77.3504895
+    },
+    {
+      "id": "landmark-6dce5e121bb6",
+      "name": "SBI Branch Sector18 Noida",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.570262699999997,
+      "lng": 77.3262807
+    },
+    {
+      "id": "landmark-0901d22a97bf",
+      "name": "Standard Chartered Noida Branch",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.5712382,
+      "lng": 77.3232676
+    },
+    {
+      "id": "landmark-fe8662327bba",
+      "name": "Union Bank of India",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.6267724,
+      "lng": 77.37410140000001
+    },
+    {
+      "id": "landmark-97dcca71e034",
+      "name": "YES BANK",
+      "category": "business",
+      "type": "Banks",
+      "lat": 28.6265182,
+      "lng": 77.3754903
+    },
+    {
+      "id": "landmark-e8d7751bed08",
+      "name": "Botanical Garden",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.564033100000003,
+      "lng": 77.33427999999999
+    },
+    {
+      "id": "landmark-ca8f807628b8",
+      "name": "Botanical Garden",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.563869999999998,
+      "lng": 77.333372
+    },
+    {
+      "id": "landmark-697598680a42",
+      "name": "Golf Course",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.56719,
+      "lng": 77.34597
+    },
+    {
+      "id": "landmark-7c71cce65aff",
+      "name": "HCL Technologies / Amity University",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.54884,
+      "lng": 77.33358
+    },
+    {
+      "id": "landmark-a648a76d2157",
+      "name": "HCL Technologies / Amity University",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.548185999999998,
+      "lng": 77.334774
+    },
+    {
+      "id": "landmark-f161c46d77ec",
+      "name": "Kalindi Kunj",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.542835,
+      "lng": 77.310175
+    },
+    {
+      "id": "landmark-4278573236e6",
+      "name": "Mayur Vihar Phase III Paper Market",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.617155999999998,
+      "lng": 77.339518
+    },
+    {
+      "id": "landmark-8a714d216bd6",
+      "name": "Mayur Vihar Phase III Paper Market",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.617169999999998,
+      "lng": 77.33944
+    },
+    {
+      "id": "landmark-347251b215a9",
+      "name": "Ncr",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.4948315,
+      "lng": 77.4116712
+    },
+    {
+      "id": "landmark-d58d96c023fe",
+      "name": "New Ashok Nagar",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.58916,
+      "lng": 77.30214
+    },
+    {
+      "id": "landmark-6f6ffc115e00",
+      "name": "Noida - Greater Noida Expressway",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.554042,
+      "lng": 77.32825
+    },
+    {
+      "id": "landmark-cccc6d9c73ca",
+      "name": "Noida Electronic City",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.627941,
+      "lng": 77.37493
+    },
+    {
+      "id": "landmark-bd5956e6e027",
+      "name": "Noida Sec 142 Metro Station",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.499081999999998,
+      "lng": 77.41252329999999
+    },
+    {
+      "id": "landmark-cbe8bf3242a1",
+      "name": "Noida Sec 16",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.5782353,
+      "lng": 77.31771979999999
+    },
+    {
+      "id": "landmark-ec8472520e90",
+      "name": "Noida Sec 37 Botanical Garden Bus Stand",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.5646021,
+      "lng": 77.335011
+    },
+    {
+      "id": "landmark-9eddbe718f47",
+      "name": "Noida Sec-18",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.570751,
+      "lng": 77.326188
+    },
+    {
+      "id": "landmark-d347a8954104",
+      "name": "Noida Sector-15",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.58509,
+      "lng": 77.31159
+    },
+    {
+      "id": "landmark-d5d28b3fb967",
+      "name": "Okhla Bird Sanctuary",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.552863499999997,
+      "lng": 77.3216503
+    },
+    {
+      "id": "landmark-aa6434f9a23d",
+      "name": "Royal Tower",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.601025999999997,
+      "lng": 77.36994399999999
+    },
+    {
+      "id": "landmark-870107d268aa",
+      "name": "Sector -56",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.600005999999997,
+      "lng": 77.34171099999999
+    },
+    {
+      "id": "landmark-1fb5b6adf3f8",
+      "name": "Sector 137",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.510812,
+      "lng": 77.403628
+    },
+    {
+      "id": "landmark-38ddc48048d7",
+      "name": "Sector 142",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.499029,
+      "lng": 77.41259099999999
+    },
+    {
+      "id": "landmark-3d4c66bd9286",
+      "name": "Sector 143",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.4942484,
+      "lng": 77.42232179999999
+    },
+    {
+      "id": "landmark-0bb916ffee79",
+      "name": "Sector 38 Botanical Garden Metro Station",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.565033,
+      "lng": 77.334497
+    },
+    {
+      "id": "landmark-48a10f6dffe2",
+      "name": "Sector 59 Noida",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.606493,
+      "lng": 77.372726
+    },
+    {
+      "id": "landmark-8026caec05b5",
+      "name": "Sector 61 Noida",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.597631000000003,
+      "lng": 77.372299
+    },
+    {
+      "id": "landmark-6ba77cc3666b",
+      "name": "Sector 62 Noida",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.616995,
+      "lng": 77.37361
+    },
+    {
+      "id": "landmark-8b41110dd61d",
+      "name": "Sector 83",
+      "category": "connectivity",
+      "type": "Metro & rail",
+      "lat": 28.522284,
+      "lng": 77.396475
+    },
+    {
+      "id": "landmark-093e3d1f5dc7",
+      "name": "Sector- 44",
+      "category": "connectivity",
+      "type": "Bus stops",
+      "lat": 28.558151,
+      "lng": 77.33002499999999
+    },
+    {
+      "id": "landmark-a599cb79d075",
+      "name": "AB's - Absolute Barbecues | Gautambudh Nagar, Noida",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.6227025,
+      "lng": 77.366562
+    },
+    {
+      "id": "landmark-1f8a99ff0264",
+      "name": "Bajidpur",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.499613399999998,
+      "lng": 77.4019193
+    },
+    {
+      "id": "landmark-d92d53cb76f6",
+      "name": "Baraamda Heritage",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.5038445,
+      "lng": 77.41535999999999
+    },
+    {
+      "id": "landmark-48e71fb6a06b",
+      "name": "Barbeque Nation",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.6129583,
+      "lng": 77.3624639
+    },
+    {
+      "id": "landmark-17d3229625bc",
+      "name": "Barbeque Nation",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.580173900000002,
+      "lng": 77.3152551
+    },
+    {
+      "id": "landmark-43ef0ef75956",
+      "name": "Barista - Sector 18 Noida",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.571029799999998,
+      "lng": 77.3235603
+    },
+    {
+      "id": "landmark-d64620794fba",
+      "name": "Barista Cafe",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.612876099999998,
+      "lng": 77.362692
+    },
+    {
+      "id": "landmark-01105d634be6",
+      "name": "Blue Tokai Coffee Roasters | Advant Noida",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.500841299999998,
+      "lng": 77.4097426
+    },
+    {
+      "id": "landmark-4caf43f56a91",
+      "name": "Cafe 99",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.6182421,
+      "lng": 77.3696488
+    },
+    {
+      "id": "landmark-66f5d8cdb8de",
+      "name": "Cafe Delhi Heights",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.6260105,
+      "lng": 77.37512629999999
+    },
+    {
+      "id": "landmark-7e723decb6cb",
+      "name": "California Burrito Mexican Kitchen @ Sector 142, Advant Navis Noida",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.5012731,
+      "lng": 77.4096327
+    },
+    {
+      "id": "landmark-22e3be08271b",
+      "name": "Carnatic Cafe",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.5744255,
+      "lng": 77.3124412
+    },
+    {
+      "id": "landmark-fff06ad24d89",
+      "name": "Chaayos Cafe at Advant Noida",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.501226,
+      "lng": 77.4093882
+    },
+    {
+      "id": "landmark-3237d4cb11d5",
+      "name": "Chaayos Cafe at Binge Central",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.6212335,
+      "lng": 77.3583479
+    },
+    {
+      "id": "landmark-fad9f0b154a3",
+      "name": "Chaayos Cafe at Candor Tech Space",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.498766099999997,
+      "lng": 77.4039703
+    },
+    {
+      "id": "landmark-cb8d4a359d34",
+      "name": "Chai Sutta Bar Sec-62 Noida",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.618145799999997,
+      "lng": 77.36973189999999
+    },
+    {
+      "id": "landmark-6d14768f8b44",
+      "name": "Chai se Yaari",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.4995036,
+      "lng": 77.405014
+    },
+    {
+      "id": "landmark-d06eb6308901",
+      "name": "Desi Vibes",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.568958799999997,
+      "lng": 77.32385529999999
+    },
+    {
+      "id": "landmark-c07a57e0a59c",
+      "name": "Downtown Noida",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.6211217,
+      "lng": 77.35798580000001
+    },
+    {
+      "id": "landmark-0f5c178aec49",
+      "name": "Firni, The Play Kitchen",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.5053271,
+      "lng": 77.4056396
+    },
+    {
+      "id": "landmark-f66fd9b598f0",
+      "name": "Haldiram's - Advant It Park",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.5010719,
+      "lng": 77.4090934
+    },
+    {
+      "id": "landmark-2979f2fca93b",
+      "name": "Haldiram's - Hush Food Mall",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.625999,
+      "lng": 77.3752118
+    },
+    {
+      "id": "landmark-707f7f2543d2",
+      "name": "Haldiram's - Noida Sector-18",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.571800699999997,
+      "lng": 77.32362669999999
+    },
+    {
+      "id": "landmark-b1005c1d8dc1",
+      "name": "Haldiram's - Route 63",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.628141499999998,
+      "lng": 77.3752647
+    },
+    {
+      "id": "landmark-237180514691",
+      "name": "Karigari Advant",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.501415299999998,
+      "lng": 77.4094387
+    },
+    {
+      "id": "landmark-2a42ef0c78fa",
+      "name": "Local Cafe Noida",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.5637105,
+      "lng": 77.3233805
+    },
+    {
+      "id": "landmark-d58fa1846d46",
+      "name": "McDonald's - Advant IT Park, Noida",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.5009412,
+      "lng": 77.40915059999999
+    },
+    {
+      "id": "landmark-d9592fc5cdde",
+      "name": "McDonald's - Sector 16, Noida",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.580063600000003,
+      "lng": 77.3154242
+    },
+    {
+      "id": "landmark-5a913a9112e7",
+      "name": "Ministry of Daru",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.627395999999997,
+      "lng": 77.3753491
+    },
+    {
+      "id": "landmark-217532779f41",
+      "name": "Noor by Khubani",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.563809,
+      "lng": 77.3234473
+    },
+    {
+      "id": "landmark-2cc042e142ec",
+      "name": "One8 Commune - Noida",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.551922899999997,
+      "lng": 77.32499399999999
+    },
+    {
+      "id": "landmark-3c9608d6cfad",
+      "name": "Romeo Lane",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.621044299999998,
+      "lng": 77.3578369
+    },
+    {
+      "id": "landmark-02f08f4a9229",
+      "name": "Sakhuaa",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.5809605,
+      "lng": 77.3199427
+    },
+    {
+      "id": "landmark-526ad6dbf7a4",
+      "name": "Sandwich King",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.6139729,
+      "lng": 77.3611146
+    },
+    {
+      "id": "landmark-7700f185f6ae",
+      "name": "Sonu tea stall",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.499514899999998,
+      "lng": 77.4022308
+    },
+    {
+      "id": "landmark-df8263be78f5",
+      "name": "Starbucks",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.6341982,
+      "lng": 77.37037699999999
+    },
+    {
+      "id": "landmark-ce44f044be29",
+      "name": "Starbucks - Sector 142",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.500740999999998,
+      "lng": 77.410326
+    },
+    {
+      "id": "landmark-cb9ffe8697eb",
+      "name": "Starbucks - Sector 38",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.5643942,
+      "lng": 77.3217221
+    },
+    {
+      "id": "landmark-9e1dbcfe9a33",
+      "name": "Starbucks Coffee",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.545754499999997,
+      "lng": 77.32873839999999
+    },
+    {
+      "id": "landmark-06b53e616fe2",
+      "name": "Starbucks Coffee | Sector 16B | Noida",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.574491,
+      "lng": 77.3134712
+    },
+    {
+      "id": "landmark-37e8a5521105",
+      "name": "Starbucks Coffee | Sector 18 | Noida",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.5673638,
+      "lng": 77.32140609999999
+    },
+    {
+      "id": "landmark-ae36a6c263cb",
+      "name": "Starbucks Coffee | Sector 62 | Noida",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.621563499999997,
+      "lng": 77.35804159999999
+    },
+    {
+      "id": "landmark-e269073a7403",
+      "name": "Sutra Gastropub",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.564329299999997,
+      "lng": 77.3234935
+    },
+    {
+      "id": "landmark-b8ff8bd3304e",
+      "name": "THE BLACK COFFEE CAFE - BCC",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.626568,
+      "lng": 77.37237549999999
+    },
+    {
+      "id": "landmark-c8be2296a573",
+      "name": "The Big Chill Cafe",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.567077899999997,
+      "lng": 77.3215886
+    },
+    {
+      "id": "landmark-2a6d74902ba7",
+      "name": "The Cafe artist",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.5725162,
+      "lng": 77.32404129999999
+    },
+    {
+      "id": "landmark-f4b41d4f7a60",
+      "name": "The Flying Dutchman, Noida, Sector 63",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.625959199999997,
+      "lng": 77.37535559999999
+    },
+    {
+      "id": "landmark-b836d4bcd849",
+      "name": "The Yellow Chilli - Sector 63",
+      "category": "dining",
+      "type": "Restaurants",
+      "lat": 28.6269286,
+      "lng": 77.37552649999999
+    },
+    {
+      "id": "landmark-b85b9749781d",
+      "name": "Third Wave Coffee",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.5009667,
+      "lng": 77.4100401
+    },
+    {
+      "id": "landmark-bac7cebd7e85",
+      "name": "Third Wave Coffee",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.627808400000003,
+      "lng": 77.37512579999999
+    },
+    {
+      "id": "landmark-6a88b6057ced",
+      "name": "Third Wave Coffee",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.567677399999997,
+      "lng": 77.3211307
+    },
+    {
+      "id": "landmark-621fb95073c7",
+      "name": "Zerro Cafe",
+      "category": "dining",
+      "type": "Cafés",
+      "lat": 28.496023599999997,
+      "lng": 77.4019406
+    },
+    {
+      "id": "landmark-826dc7ecdcc0",
+      "name": "Belvedere Suites- A Boutique Hotel",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.456614799999997,
+      "lng": 77.5022828
+    },
+    {
+      "id": "landmark-39989f0b9197",
+      "name": "FabHotel The Grand Olive",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.582449999999998,
+      "lng": 77.37597
+    },
+    {
+      "id": "landmark-538d9e8c346a",
+      "name": "HOTEL LYF SUITES NOIDA 63",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.627525,
+      "lng": 77.389121
+    },
+    {
+      "id": "landmark-fd9d37857798",
+      "name": "Hotel Downtown by Quadis Sector 15 Noida",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.5815761,
+      "lng": 77.3139798
+    },
+    {
+      "id": "landmark-afa0ef1bb211",
+      "name": "Hotel Emerald Suites & By Aura",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.540695799999998,
+      "lng": 77.3695053
+    },
+    {
+      "id": "landmark-98a8515f6e51",
+      "name": "Hotel Mazestic Bay - A Luxury Stay",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.6196289,
+      "lng": 77.3951968
+    },
+    {
+      "id": "landmark-efca6ddccd41",
+      "name": "Hotel Noida Grand 121",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.5978902,
+      "lng": 77.3979398
+    },
+    {
+      "id": "landmark-5c96470f8bd6",
+      "name": "Hotel Noida International",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.5969233,
+      "lng": 77.3305341
+    },
+    {
+      "id": "landmark-f49ed498188e",
+      "name": "Hotel Park Stay",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.5812226,
+      "lng": 77.3134166
+    },
+    {
+      "id": "landmark-659c409ea935",
+      "name": "Hotel Red York",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.6197761,
+      "lng": 77.3952698
+    },
+    {
+      "id": "landmark-ab4d67735487",
+      "name": "Hotel Red York",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.619840099999998,
+      "lng": 77.3950076
+    },
+    {
+      "id": "landmark-9519c84cbcff",
+      "name": "Hotel Vibe Blue & Banquet",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.5979001,
+      "lng": 77.3799892
+    },
+    {
+      "id": "landmark-2751ce5cf3dd",
+      "name": "Radisson Blu MBD Hotel, Noida",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.5684434,
+      "lng": 77.3226406
+    },
+    {
+      "id": "landmark-44292cbc76a5",
+      "name": "Treebo Noida Business Suites",
+      "category": "hospitality",
+      "type": "Hotels",
+      "lat": 28.5945707,
+      "lng": 77.3840686
+    },
+    {
+      "id": "landmark-4d8c39220113",
+      "name": "7X Basket",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.581026599999998,
+      "lng": 77.3179821
+    },
+    {
+      "id": "landmark-83e2fc9ee726",
+      "name": "Ashok Atta Chakki",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.556755600000002,
+      "lng": 77.3413325
+    },
+    {
+      "id": "landmark-9f6536d68783",
+      "name": "BB-NOIDA-THE GREAT INDIA PLACE",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.567492299999998,
+      "lng": 77.3262653
+    },
+    {
+      "id": "landmark-03c1e19b5f4c",
+      "name": "Bhutani City Center 32",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.5737402,
+      "lng": 77.3535354
+    },
+    {
+      "id": "landmark-46f2229e683b",
+      "name": "Choudhary Housekeeping & Beverages (Groceries)",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.6186622,
+      "lng": 77.36963539999999
+    },
+    {
+      "id": "landmark-3023ffbfc4c1",
+      "name": "Choudhary mart",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.5083739,
+      "lng": 77.4156615
+    },
+    {
+      "id": "landmark-36940e2e566b",
+      "name": "DLF Mall of India, Noida",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.5671429,
+      "lng": 77.3211441
+    },
+    {
+      "id": "landmark-c8ac7c4e6e94",
+      "name": "Evergreen Namkeen Bhandar",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.5705447,
+      "lng": 77.32585259999999
+    },
+    {
+      "id": "landmark-037b512ea76b",
+      "name": "Gardens Galleria Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.564782599999997,
+      "lng": 77.3217906
+    },
+    {
+      "id": "landmark-0c0c9c5689ee",
+      "name": "Gaur City Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.606028499999997,
+      "lng": 77.4296325
+    },
+    {
+      "id": "landmark-d37fe455bd5e",
+      "name": "Gulshan One29 Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.5084993,
+      "lng": 77.38707889999999
+    },
+    {
+      "id": "landmark-84c82a374170",
+      "name": "Jigyasa Store",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.5001358,
+      "lng": 77.3916011
+    },
+    {
+      "id": "landmark-f821450de885",
+      "name": "KOKO BEAUTY MINI MART",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.5563802,
+      "lng": 77.33948389999999
+    },
+    {
+      "id": "landmark-6d72374228d2",
+      "name": "Lakshya Grocery Store",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.541321999999997,
+      "lng": 77.3367887
+    },
+    {
+      "id": "landmark-fb00d71c5f3d",
+      "name": "Logix Mall, Noida City Centre",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.573989599999997,
+      "lng": 77.353591
+    },
+    {
+      "id": "landmark-d4009f5f4d28",
+      "name": "Maa Narayani Super Store",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.5055306,
+      "lng": 77.4132585
+    },
+    {
+      "id": "landmark-8ce48e35d893",
+      "name": "Modi Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.5861175,
+      "lng": 77.34128079999999
+    },
+    {
+      "id": "landmark-34ff285b7f50",
+      "name": "Noida mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.566516999999997,
+      "lng": 77.3214129
+    },
+    {
+      "id": "landmark-3a5ac5224933",
+      "name": "North India Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.634023900000003,
+      "lng": 77.3703457
+    },
+    {
+      "id": "landmark-58a2c03f196f",
+      "name": "Reliance SMART Bazaar",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.6378187,
+      "lng": 77.3604246
+    },
+    {
+      "id": "landmark-4d69b19e736f",
+      "name": "Reliance SMART Bazaar",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.6345535,
+      "lng": 77.370013
+    },
+    {
+      "id": "landmark-c480069a3faf",
+      "name": "Reliance SMART Bazaar",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.6381111,
+      "lng": 77.36035009999999
+    },
+    {
+      "id": "landmark-26c6f461833d",
+      "name": "Reliance SMART Bazaar",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.567297399999998,
+      "lng": 77.32089359999999
+    },
+    {
+      "id": "landmark-9e1a56e6f513",
+      "name": "Reliance SMART Bazaar",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.567787199999998,
+      "lng": 77.3257745
+    },
+    {
+      "id": "landmark-e61683d85c85",
+      "name": "Reliance SMART Superstore",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.6394499,
+      "lng": 77.3642977
+    },
+    {
+      "id": "landmark-b499253bbe03",
+      "name": "Reliance SMART Superstore",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.640670699999998,
+      "lng": 77.3782526
+    },
+    {
+      "id": "landmark-534632a014e2",
+      "name": "Sab Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.5737219,
+      "lng": 77.3236927
+    },
+    {
+      "id": "landmark-85c5ac82b050",
+      "name": "Scoops of delight",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.4936741,
+      "lng": 77.4085149
+    },
+    {
+      "id": "landmark-986cf3a58b56",
+      "name": "Sector 57 Khora",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.605833999999998,
+      "lng": 77.3511797
+    },
+    {
+      "id": "landmark-3cf8d990c034",
+      "name": "Shiri shyam pooja bhandar",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.498088499999998,
+      "lng": 77.38843709999999
+    },
+    {
+      "id": "landmark-2a0aa370552e",
+      "name": "Shopprix Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.5971491,
+      "lng": 77.3648925
+    },
+    {
+      "id": "landmark-852c2ff2cd45",
+      "name": "Shree Shyam Supermart",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.4979139,
+      "lng": 77.40902460000001
+    },
+    {
+      "id": "landmark-13c20def6225",
+      "name": "Shri vinayak store",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.4937139,
+      "lng": 77.40965829999999
+    },
+    {
+      "id": "landmark-830b661e7f7d",
+      "name": "Sikka Mall of Noida - Food Court",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.5341255,
+      "lng": 77.3578228
+    },
+    {
+      "id": "landmark-9d96d92c7585",
+      "name": "Som And Shukar Bazar",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.6198695,
+      "lng": 77.3450597
+    },
+    {
+      "id": "landmark-58a6b131bd81",
+      "name": "Spectrum Metro Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.573406,
+      "lng": 77.37941
+    },
+    {
+      "id": "landmark-307ec51bf2f8",
+      "name": "Status Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.511488099999998,
+      "lng": 77.384614
+    },
+    {
+      "id": "landmark-4c465f4c763d",
+      "name": "The Great India Place",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.566983399999998,
+      "lng": 77.32551430000001
+    },
+    {
+      "id": "landmark-2e004eac2514",
+      "name": "Vishal Mega Mart",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.6107789,
+      "lng": 77.35423689999999
+    },
+    {
+      "id": "landmark-34b23765f0cc",
+      "name": "WH Smith",
+      "category": "shopping",
+      "type": "Supermarkets",
+      "lat": 28.5461934,
+      "lng": 77.3345849
+    },
+    {
+      "id": "landmark-4d40d74fcd6c",
+      "name": "Wave Mall",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.568087,
+      "lng": 77.323032
+    },
+    {
+      "id": "landmark-84c9d0646032",
+      "name": "Zudio - GIP Mall, Noida",
+      "category": "shopping",
+      "type": "Malls",
+      "lat": 28.5675954,
+      "lng": 77.32603019999999
+    }
+  ]
+}
