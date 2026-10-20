@@ -83,6 +83,10 @@
 .page :is(button, a):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .team :is(button, a):focus-visible { outline-color: var(--background); }
 
+@media (min-width: 1001px) {
+  .heroIntro { transform: none; }
+}
+
 @media (max-width: 1000px) {
   .heroIntro { top: 18%; }
   .heroIntro :global(.section-badge) { height: var(--mobile-eyebrow-height, clamp(28px, 4dvh, 36px)); padding-inline: var(--mobile-eyebrow-padding, 20px); font-size: var(--mobile-eyebrow-font-size, 11px); }
