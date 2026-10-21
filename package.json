@@ -8,23 +8,30 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "migrate:cloudinary": "node scripts/migrate-cloudinary.mjs"
+    "migrate:cloudinary": "node scripts/migrate-cloudinary.mjs",
+    "db:setup": "tsx scripts/setup-database.ts",
+    "test:integration": "tsx --test tests/admin.integration.test.ts"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
     "next": "^16.0.0",
+    "pg": "^8.23.1",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
     "@types/leaflet": "^1.9.22",
     "@types/node": "^22.0.0",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "^16.0.0",
     "tailwindcss": "^4.0.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.0.0"
   }
 }

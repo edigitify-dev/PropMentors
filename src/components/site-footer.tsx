@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState, type FormEvent } from "react";
 import { ArrowUp } from "@/components/icons";
+import { useContactDetails } from "./contact-provider";
+import { submitEnquiry } from "@/lib/submit-enquiry";
 
 const experts = [
   { id: "one", width: 736, height: 1111 },
@@ -37,9 +39,13 @@ const socials = [
 export function SiteFooter({ homePath = "", showCta = true, className = "", exploreLinks = explore }: { homePath?: string; showCta?: boolean; className?: string; exploreLinks?: typeof explore }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
+  const contact = useContactDetails();
 
-  function handleTalkSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleTalkSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (sending) return;
+    const form = event.currentTarget;
     const data = new FormData(event.currentTarget);
     const name = String(data.get("name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
@@ -49,14 +55,11 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
 
     const body = `Name: ${name}\nContact: ${phone}\nEmail: ${email}\nInterested in: ${spaceType}\n\nRequirements:\n${message}`;
 
-    try {
-      void navigator.clipboard?.writeText(body);
-    } catch {}
-
     const subject = `Talk to a PropMentor — Enquiry from ${name}`;
-    window.location.href = `mailto:hello@propmentors.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    setStatus("Your enquiry is ready! We've prepared the email draft and copied a copy to your clipboard.");
+    setSending(true); setStatus("");
+    try { await submitEnquiry({ name, email, phone, subject, message: body, source: "footer" }); setStatus("Thank you. Your enquiry has been received. Our team will be in touch shortly."); form.reset(); }
+    catch (error) { setStatus((error as Error).message); }
+    finally { setSending(false); }
   }
 
   return (
@@ -118,7 +121,7 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
             </nav>
             <div className="footer-column footer-contact">
               <h3>Contact</h3>
-              <address><span>Delhi NCR</span><span>+91 XXXXX XXXXX</span><a href="mailto:hello@propmentors.in">hello@propmentors.in</a></address>
+              <address><span style={{ whiteSpace: "pre-line" }}>{contact.address}</span><a href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}>{contact.phone}</a><a href={`mailto:${contact.email}`}>{contact.email}</a></address>
             </div>
           </div>
           <div className="footer-bottom">
@@ -183,8 +186,8 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
             <p className="form-note">
               Our team of 25+ commercial real estate experts will connect with you to curate the right options.
             </p>
-            <button type="submit" className="dialog-primary talk-submit-btn">
-              Send Enquiry
+            <button type="submit" className="dialog-primary talk-submit-btn" disabled={sending}>
+              {sending ? "Sending…" : "Send Enquiry"}
             </button>
             {status && (
               <p className="copy-status" role="status" style={{ color: "#2d6a4f", fontWeight: 600 }}>

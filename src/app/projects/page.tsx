@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ProjectPage } from "@/components/project-page";
+import { getPublishedProjects } from "@/lib/project-repository";
 
 export const metadata: Metadata = {
   title: "Find your space | PropMentors",
@@ -13,5 +14,5 @@ export default async function ProjectsPage({ searchParams }: {
   const initialFilters = Object.fromEntries(
     ["spaceType", "location", "budget", "query"].map((key) => [key, typeof query[key] === "string" ? query[key] : undefined]),
   );
-  return <ProjectPage initialFilters={initialFilters} />;
+  return <ProjectPage initialFilters={initialFilters} projects={await getPublishedProjects()} />;
 }

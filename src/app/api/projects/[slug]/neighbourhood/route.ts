@@ -1,4 +1,4 @@
-import { getProject, projects } from "../../../../../data/projects";
+import { findPublishedProject, getPublishedProjects } from "@/lib/project-repository";
 import research from "../../../../../data/neighbourhood-places.json";
 import {
   nearbyPlacesFor, neighbourhoodRadius,
@@ -7,7 +7,7 @@ import {
 
 export async function GET(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await findPublishedProject(slug);
   if (!project) return Response.json({ error: "Property not found" }, { status: 404 });
 
   const origin = project.detail.location.coordinates;
@@ -18,7 +18,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
   // Published, dated landmark research lives on the server. Each property's
   // distances are calculated from its own verified coordinates, never copied
   // from another building or invented when a location is missing.
-  const offices: Omit<NearbyPlace, "distance">[] = projects.flatMap(other => {
+  const offices: Omit<NearbyPlace, "distance">[] = (await getPublishedProjects()).flatMap(other => {
     const coords = other.detail.location.coordinates;
     return other.id !== project.id && coords
       ? [{ id: `project-${other.id}`, name: other.name, category: "business", type: "Offices", ...coords }]

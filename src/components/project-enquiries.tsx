@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 import { ArrowUp, ChevronLeft } from "./icons";
 import { PropertyListingDialog } from "./property-listing-dialog";
 import styles from "./project-enquiries.module.css";
+import { submitEnquiry } from "@/lib/submit-enquiry";
+import { useContactDetails } from "./contact-provider";
 
 type Requirement = { name: string; mobile: string; email: string; age: string; city: string; status: string };
 const requirementLabels: Record<keyof Requirement, string> = { name: "Full name", mobile: "Mobile number", email: "Email address", age: "Age", city: "Current city", status: "Current status" };
@@ -20,6 +22,8 @@ export function ProjectEnquiries({ showOwners = true }: { showOwners?: boolean }
   const listingDialog = useRef<HTMLDialogElement>(null);
   const [requirement, setRequirement] = useState<Requirement | null>(null);
   const [shareStatus, setShareStatus] = useState("");
+  const [sending, setSending] = useState(false);
+  const contact = useContactDetails();
   const draft = requirement ? `Workspace requirement\n${Object.entries(requirement).map(([key, value]) => `${requirementLabels[key as keyof Requirement]}: ${value}`).join("\n")}` : "";
 
   function focusRequirement() {
@@ -27,11 +31,16 @@ export function ProjectEnquiries({ showOwners = true }: { showOwners?: boolean }
     nameInput.current?.focus({ preventScroll: true });
   }
 
-  function reviewRequirement(form: HTMLFormElement) {
+  async function reviewRequirement(form: HTMLFormElement) {
+    if (sending) return;
     const data = new FormData(form);
-    setRequirement(Object.fromEntries(Object.keys(requirementLabels).map((key) => [key, String(data.get(key) ?? "").trim()])) as Requirement);
-    setShareStatus("");
-    reviewDialog.current?.showModal();
+    const next = Object.fromEntries(Object.keys(requirementLabels).map((key) => [key, String(data.get(key) ?? "").trim()])) as Requirement;
+    setSending(true); setShareStatus("");
+    try {
+      await submitEnquiry({ name: next.name, email: next.email, phone: next.mobile, subject: "Workspace requirement", message: Object.entries(next).map(([key, value]) => `${requirementLabels[key as keyof Requirement]}: ${value}`).join("\n"), source: "requirement" });
+      setRequirement(next); setShareStatus("Your requirement has been received. Our team will be in touch shortly."); form.reset(); reviewDialog.current?.showModal();
+    } catch (error) { setShareStatus((error as Error).message); }
+    finally { setSending(false); }
   }
 
   async function copyRequirement() {
@@ -64,7 +73,7 @@ export function ProjectEnquiries({ showOwners = true }: { showOwners?: boolean }
           <div className={styles.formCard} ref={formCard}>
             <h3 id="requirement-form-heading">Find your space</h3>
             <p>Tell us a little about your requirement and we’ll get back to you with availability, pricing and similar options.</p>
-            <form aria-labelledby="requirement-form-heading" onSubmit={(event) => { event.preventDefault(); reviewRequirement(event.currentTarget); }}>
+            <form aria-labelledby="requirement-form-heading" onSubmit={(event) => { event.preventDefault(); void reviewRequirement(event.currentTarget); }}>
               <div className={styles.fields}>
                 <label>Full Name*<input name="name" ref={nameInput} autoComplete="name" placeholder="Rohan Gupta" required /></label>
                 <label>Mobile Number*<input name="mobile" type="tel" autoComplete="tel" placeholder="+91 123 4567 890" required /></label>
@@ -76,7 +85,8 @@ export function ProjectEnquiries({ showOwners = true }: { showOwners?: boolean }
                   <option>Salaried</option><option>Self-employed</option><option>Business owner</option><option>Student</option><option>Other</option>
                 </select><ChevronLeft /></span></label>
               </div>
-              <button className={styles.continueButton} type="submit">Continue<ArrowUp /></button>
+              <button className={styles.continueButton} type="submit" disabled={sending}>{sending ? "Sending…" : "Send requirement"}<ArrowUp /></button>
+              {shareStatus && <p role="status">{shareStatus}</p>}
             </form>
           </div>
         </div>
@@ -96,11 +106,11 @@ export function ProjectEnquiries({ showOwners = true }: { showOwners?: boolean }
       <div className="dialog-content">
         <button type="button" className="dialog-close" aria-label="Close requirement review" onClick={() => reviewDialog.current?.close()}>×</button>
         <p className="dialog-eyebrow">PROPMENTORS</p>
-        <h2 id="requirement-review-heading">Review your requirement</h2>
+        <h2 id="requirement-review-heading">Your requirement is received</h2>
         {requirement && <dl className={styles.review}>{Object.entries(requirement).map(([key, value]) => <div key={key}><dt>{requirementLabels[key as keyof Requirement]}</dt><dd>{value}</dd></div>)}</dl>}
         <div className={styles.reviewActions}>
           <button type="button" className="dialog-primary" onClick={() => void copyRequirement()}>Copy requirement</button>
-          <a href={`mailto:hello@propmentors.in?subject=${encodeURIComponent("Workspace requirement")}&body=${encodeURIComponent(draft)}`}>Share by email</a>
+          <a href={`mailto:${contact.email}?subject=${encodeURIComponent("Workspace requirement")}&body=${encodeURIComponent(draft)}`}>Also share by email</a>
         </div>
         <p className="copy-status" role="status">{shareStatus}</p>
       </div>

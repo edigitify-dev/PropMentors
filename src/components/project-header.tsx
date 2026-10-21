@@ -11,11 +11,13 @@ export function ProjectHeader({
   onSearch,
   onContact,
   revealOnScrollUp = true,
+  spacesHref = "/projects",
 }: {
   onSearch?: () => void;
   onContact?: () => void;
   activePage?: "about" | "list-your-space" | "projects" | "contact";
   revealOnScrollUp?: boolean;
+  spacesHref?: string;
 }) {
   const Header = revealOnScrollUp ? ScrollHeader : "header";
 
@@ -26,7 +28,7 @@ export function ProjectHeader({
       </Link>
       <div className={styles.navigation}>
         <nav className={styles.links} aria-label="Main navigation">
-          <Link href="/projects" aria-current={activePage === "projects" ? "page" : undefined}>
+          <Link href={spacesHref} aria-current={activePage === "projects" ? "page" : undefined}>
             Spaces
           </Link>
           <Link href="/about" aria-current={activePage === "about" ? "page" : undefined}>
@@ -40,7 +42,7 @@ export function ProjectHeader({
           </Link>
         </nav>
         <div className={styles.actions}>
-          <Link href="/projects" className={styles.iconButton} aria-label="Search spaces">
+          <Link href={spacesHref} className={styles.iconButton} aria-label="Search spaces">
             <Search />
           </Link>
           <Link href="/contact" className={styles.contactButton}>
@@ -49,7 +51,7 @@ export function ProjectHeader({
           <Link href="/projects" className={styles.iconButton} aria-label="Account">
             <AccountCircle />
           </Link>
-          <NavbarMenu />
+          <NavbarMenu spacesHref={spacesHref} />
         </div>
       </div>
     </Header>

@@ -11,7 +11,7 @@ import { PropertyCard } from "./property-card";
 import { DestinationMap } from "./destination-map";
 import { SiteFooter } from "./site-footer";
 import { ChevronLeft } from "./icons";
-import { projects } from "../data/projects";
+import type { Project } from "@/lib/project-types";
 import { businessDestinations as cities } from "../data/business-destinations";
 import styles from "./about-page.module.css";
 
@@ -29,7 +29,7 @@ function SectionHeading({ badge, id, title, children }: { badge: string; id: str
   return <div className={styles.sectionHeading}><Badge>{badge}</Badge><div className={styles.headingRow}><h2 id={id}>{title}</h2><p>{children}</p></div></div>;
 }
 
-export function AboutPage() {
+export function AboutPage({ projects }: { projects: Project[] }) {
   const router = useRouter();
   const enquiry = useRef<HTMLDialogElement>(null);
   const [shareStatus, setShareStatus] = useState("");
@@ -89,7 +89,7 @@ export function AboutPage() {
       */}
       <WorkspaceOffers />
       <AtAGlance />
-      <AboutMarkets />
+      <AboutMarkets projects={projects} />
       <AboutTeam />
     </main>
     <SiteFooter homePath="/" />
@@ -104,7 +104,7 @@ export function AboutPage() {
   </>;
 }
 
-function AboutMarkets() {
+function AboutMarkets({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<number | null>(null);
   const city = active === null ? null : cities[active];
   return <section className={styles.markets} aria-labelledby="markets-heading">
@@ -112,7 +112,7 @@ function AboutMarkets() {
     <div className={styles.cityTabs} role="group" aria-label="Explore business destinations">{cities.map((item, index) => <button type="button" key={item.name} aria-pressed={active === index} onClick={() => setActive(index)}>{item.name}</button>)}</div>
     <div className={styles.marketMap}>
       <DestinationMap active={active} onSelect={setActive}>
-        {city && <div className={styles.mapPreview}><PropertyCard property={projects[city.projectIndex]} className={styles.mapCard} /><Link className={styles.mapCta} href="/projects">View Our Spaces <ChevronLeft /></Link></div>}
+        {city && projects.length > 0 && <div className={styles.mapPreview}><PropertyCard property={projects[city.projectIndex] ?? projects[0]} className={styles.mapCard} /><Link className={styles.mapCta} href="/projects">View Our Spaces <ChevronLeft /></Link></div>}
       </DestinationMap>
     </div>
     <p className={styles.srOnly} role="status">{city ? `Selected destination: ${city.name}` : "Select a city marker to explore spaces."}</p>

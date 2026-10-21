@@ -1,5 +1,6 @@
-import type { ProjectImage } from "./projects";
+import type { ProjectImage } from "../lib/project-types";
 import cloudinaryMapJson from "../../cloudinary-map.json";
+import archiveProjectMediaJson from "./archive-project-images.json";
 
 const cloudinaryMap = cloudinaryMapJson as Record<string, string>;
 
@@ -15,10 +16,14 @@ export interface ProjectMedia {
 
 interface RawImage {
   file: string;
+  src?: string;
   width: number;
   height: number;
   isInterior?: boolean;
 }
+
+type RawProjectMedia = { folder: string; images: RawImage[] };
+const archiveProjectMedia: Record<string, RawProjectMedia> = archiveProjectMediaJson;
 
 const rawProjectMedia: Record<string, { folder: string; images: RawImage[] }> = {
   "ats-bouquet": {
@@ -361,13 +366,44 @@ const suppliedMediaAliases: Record<string, string> = {
   "jask-tower-sector-125": "jask",
 };
 
+// Reviewed against the previously uploaded photographs. Several first images
+// were meeting rooms or receptions, so choose a building exterior for the cover.
+// Interior positions refer to the original, one-based order above.
+const reviewedSelections: Record<string, { cover: string; interiors: number[] }> = {
+  "windsor-grand": { cover: "8c9u37.webp", interiors: [1, 2, 4, 5, 7] },
+  "max-square": { cover: "1746718949113-lsae2cmwo1.jpeg", interiors: [1, 2, 5, 6] },
+  "gulshan-one29": { cover: "overview.webp", interiors: [1, 2, 5] },
+  "candor-techspace-n1": { cover: "Amenties_9bda92e24e.jpg", interiors: [2, 3, 4, 5] },
+  "aykon-tower": { cover: "g6ujyf.webp", interiors: [1, 2, 3, 4, 5] },
+  "assotech-business-cresterra": { cover: "8jex87.webp", interiors: [1, 3, 6, 7, 8] },
+  "advant-navis-business-park": { cover: "8540303Advant Navis-Sector-142.png", interiors: [4, 6, 7, 8] },
+  "skymark-one": { cover: "Skymark one 4.jpeg", interiors: [2, 3, 4, 5, 6, 8, 9] },
+  "embassy-oxygen-business-park": { cover: "74c53p.webp", interiors: [2, 3, 4, 8] },
+  "dlf-techpark": { cover: "v7m7eg.webp", interiors: [2, 4, 5, 7] },
+  "max-towers": { cover: "max-towers-big-2.jpg", interiors: [1, 4, 5] },
+};
+
 export function getProjectMedia(slug: string, projectName = "Commercial Office Tower"): ProjectMedia | null {
-  const data = rawProjectMedia[suppliedMediaAliases[slug] ?? slug];
+  const mediaSlug = suppliedMediaAliases[slug] ?? slug;
+  const archive = archiveProjectMedia[slug];
+  const data = archive ?? rawProjectMedia[mediaSlug];
   if (!data || !data.images.length) return null;
 
-  const gallery: ProjectImage[] = data.images.map((img, index) => {
+  const selection = !archive ? reviewedSelections[mediaSlug] : undefined;
+  const images = data.images.map((img, index) => ({
+    ...img,
+    isInterior: selection ? selection.interiors.includes(index + 1) : img.isInterior,
+  }));
+  if (selection) {
+    const coverIndex = images.findIndex((img) => img.file === selection.cover);
+    if (coverIndex > 0) images.unshift(...images.splice(coverIndex, 1));
+  }
+
+  const gallery: ProjectImage[] = images.map((img, index) => {
     const key = `${data.folder}/${img.file}`;
-    const src = cloudinaryMap[key] || `/Website%20Images/${encodeURIComponent(data.folder)}/${encodeURIComponent(img.file)}`;
+    const src = img.src
+      ? cloudinaryMap[img.src.slice(1)] ?? img.src
+      : cloudinaryMap[key] ?? `/Website%20Images/${encodeURIComponent(data.folder)}/${encodeURIComponent(img.file)}`;
     return {
       id: `${slug}-img-${index + 1}`,
       src,
@@ -381,7 +417,7 @@ export function getProjectMedia(slug: string, projectName = "Commercial Office T
   });
 
   const cover = gallery[0];
-  const interiorImage = gallery.find((_, idx) => data.images[idx].isInterior) || gallery[1] || gallery[0];
+  const interiorImage = gallery.find((_, idx) => images[idx].isInterior) || gallery[0];
   const exteriorImage = gallery[0];
 
   return {

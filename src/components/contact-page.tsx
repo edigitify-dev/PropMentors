@@ -6,16 +6,26 @@ import { useState, type FormEvent } from "react";
 import { ProjectHeader } from "./project-header";
 import { SiteFooter } from "./site-footer";
 import styles from "./contact-page.module.css";
+import { useContactDetails } from "./contact-provider";
+import { submitEnquiry } from "@/lib/submit-enquiry";
 
 export function ContactPage() {
   const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
+  const details = useContactDetails();
 
-  function sendEnquiry(event: FormEvent<HTMLFormElement>) {
+  async function sendEnquiry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const body = `Name: ${data.get("name")}\nContact number: ${data.get("phone")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`;
-    window.location.href = `mailto:hello@propmentors.com?subject=${encodeURIComponent(String(data.get("subject")))}&body=${encodeURIComponent(body)}`;
-    setStatus("Your enquiry is ready in your email app. Send the draft to get in touch.");
+    if (sending) return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setSending(true); setStatus("");
+    try {
+      await submitEnquiry({ name: String(data.get("name")), email: String(data.get("email")), phone: String(data.get("phone")), subject: String(data.get("subject")), message: String(data.get("message")), website: String(data.get("website") || ""), source: "contact" });
+      form.reset();
+      setStatus("Thank you. Your enquiry has been received. Our team will be in touch shortly.");
+    } catch (error) { setStatus(error instanceof Error ? error.message : "Please try again."); }
+    finally { setSending(false); }
   }
 
   return (
@@ -29,8 +39,8 @@ export function ContactPage() {
         <section className={styles.contact} aria-labelledby="contact-heading">
           <div className={styles.contactGrid}>
             <div className={styles.intro}>
-              <h1 id="contact-heading">Ready?<br />Let’s Talk</h1>
-              <p>From first conversations to final decisions - we’re here to make every step clearer, simpler, and more thoughtful.</p>
+              <h1 id="contact-heading" style={{ whiteSpace: "pre-line" }}>{details.heading}</h1>
+              <p>{details.introduction}</p>
               <Link href="/projects" className={styles.exploreButton}>Explore Spaces <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7" /></svg></Link>
             </div>
 
@@ -40,15 +50,16 @@ export function ContactPage() {
               <label className={styles.field}><span>Email Address*</span><input name="email" type="email" autoComplete="email" placeholder="For Updates And Official Communication." required maxLength={254} /></label>
               <label className={styles.field}><span>Subject*</span><input name="subject" placeholder="Topic" required maxLength={180} /></label>
               <label className={styles.field}><span>Message*</span><textarea name="message" placeholder="Type Your Message Here" rows={3} required maxLength={5000} /></label>
-              <button type="submit" className={styles.sendButton}>Send Now</button>
+              <label hidden aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
+              <button type="submit" className={styles.sendButton} disabled={sending}>{sending ? "Sending…" : "Send Now"}</button>
               {status && <p className={styles.status} role="status">{status}</p>}
             </form>
           </div>
 
           <address className={styles.details}>
-            <div><h2>Phone Number</h2><a href="tel:+918010178010">+91 8010178010</a></div>
-            <div><h2>Email Address</h2><a href="mailto:hello@propmentors.com">hello@propmentors.com</a></div>
-            <div><h2>Location</h2><p>G.F.C Business Centre, H Block ,<br />Connaught Place, Delhi - 110001</p></div>
+            <div><h2>Phone Number</h2><a href={`tel:${details.phone.replace(/[^+\d]/g, "")}`}>{details.phone}</a></div>
+            <div><h2>Email Address</h2><a href={`mailto:${details.email}`}>{details.email}</a></div>
+            <div><h2>Location</h2><p style={{ whiteSpace: "pre-line" }}>{details.address}</p></div>
           </address>
         </section>
       </main>

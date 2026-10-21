@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ContactProvider } from "@/components/contact-provider";
+import { getContactDetails } from "@/lib/project-repository";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "PropMentors | Find the right space",
@@ -11,14 +15,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><ContactProvider details={await getContactDetails()}>{children}</ContactProvider></body>
     </html>
   );
 }

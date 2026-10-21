@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatProjectPrice, projectHref, type Project } from "../data/projects";
+import { formatProjectPrice, projectHref, type Project } from "@/lib/project-types";
 
-export function PropertyCard({ property, className = "" }: { property: Project; className?: string }) {
+export function PropertyCard({ property, className = "", returnTo }: { property: Project; className?: string; returnTo?: string }) {
   const image = property.cover;
   return (
     <article className={`property-card ${className}`}>
-      <Link className="property-card-trigger" href={projectHref(property)} aria-label={`View project: ${property.name}`} />
+      <Link className="property-card-trigger" href={returnTo ? { pathname: projectHref(property), query: { returnTo } } : projectHref(property)} aria-label={`View project: ${property.name}`} />
       <div className="property-photo">
         <div className="property-photo-mask">
           <Image src={image.src} alt={image.alt} width={image.width} height={image.height} unoptimized

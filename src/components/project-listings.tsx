@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, Search } from "./icons";
 import { PropertyCard } from "./property-card";
-import { formatProjectPrice, projects } from "../data/projects";
+import { formatProjectPrice, type Project } from "@/lib/project-types";
 import { amenityOptions, emptyListingFilters, finishedTypeOptions, hasProjectAmenity, heroBudgetRanges, locationNames, matchesListing, projectSpaceType, sortListings, type ListingFilters, type ListingSort } from "../lib/project-listing-filters";
 import type { ProjectFilters } from "@/lib/space-search";
 import styles from "./project-listings.module.css";
@@ -15,6 +16,13 @@ const sortOptions: { value: ListingSort; label: string; description: string }[] 
   { value: "name", label: "Name: A to Z", description: "Browse alphabetically" },
 ];
 const pageSize = 6;
+
+function paginationItems(currentPage: number, pageCount: number): (number | "start-ellipsis" | "end-ellipsis")[] {
+  if (pageCount <= 7) return Array.from({ length: pageCount }, (_, index) => index + 1);
+  if (currentPage <= 4) return [1, 2, 3, 4, 5, "end-ellipsis", pageCount];
+  if (currentPage >= pageCount - 3) return [1, "start-ellipsis", pageCount - 4, pageCount - 3, pageCount - 2, pageCount - 1, pageCount];
+  return [1, "start-ellipsis", currentPage - 1, currentPage, currentPage + 1, "end-ellipsis", pageCount];
+}
 
 function FilterIcon() {
   return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="M4 7h6m4 0h6M4 17h10m4 0h2" /><circle cx="12" cy="7" r="2" /><circle cx="16" cy="17" r="2" /></svg>;
@@ -32,15 +40,22 @@ function initialSelection(search: ProjectFilters | null): ListingFilters {
   return { ...emptyListingFilters, query: search.query?.trim() ?? "", spaceType: spaceTypes[search.spaceType] ? [spaceTypes[search.spaceType]] : [], location: locations[search.location] ? [locations[search.location]] : [], minPrice: range ? String(range[0]) : "", maxPrice: range && Number.isFinite(range[1]) ? String(range[1]) : "" };
 }
 
-export function ProjectListings({ search }: { search: ProjectFilters | null }) {
+export function ProjectListings({ search, projects }: { search: ProjectFilters | null; projects: Project[] }) {
   const [filters, setFilters] = useState<ListingFilters>(() => initialSelection(search));
   const [sort, setSort] = useState<ListingSort>("recommended");
-  const [page, setPage] = useState(1);
+  const searchParams = useSearchParams();
+  const requestedPage = Number(searchParams.get("page"));
+  const page = Number.isSafeInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
   const sortMenu = useRef<HTMLDetailsElement>(null);
   const filterDialog = useRef<HTMLDialogElement>(null);
   const visible = sortListings(projects.filter((project) => matchesListing(project, filters)), sort);
   const pageCount = Math.ceil(visible.length / pageSize);
   const currentPage = Math.min(page, Math.max(1, pageCount));
+  const returnParams = new URLSearchParams(searchParams.toString());
+  if (currentPage > 1) returnParams.set("page", String(currentPage));
+  else returnParams.delete("page");
+  const returnQuery = returnParams.toString();
+  const listingHref = `/projects${returnQuery ? `?${returnQuery}` : ""}#project-listings`;
   const pageItems = visible.slice((currentPage - 1) * pageSize, currentPage * pageSize);
   const activeCount = filters.spaceType.length + filters.finishedType.length + filters.location.length + filters.amenities.length + Number(Boolean(filters.minPrice || filters.maxPrice)) + Number(filters.hideSoldOut) + Number(Boolean(filters.query));
   const budgetInvalid = Boolean(filters.minPrice && filters.maxPrice && Number(filters.minPrice) > Number(filters.maxPrice));
@@ -51,6 +66,13 @@ export function ProjectListings({ search }: { search: ProjectFilters | null }) {
     { key: "location" as const, title: "Location", options: [...new Set([...projects.map((project) => project.location), ...filters.location])].map((value) => ({ value, label: locationNames[value] ?? value, count: projects.filter((project) => matchesListing(project, { ...filters, location: [value] })).length })) },
     { key: "amenities" as const, title: "Amenities", options: amenityOptions.filter((value) => projects.some((project) => hasProjectAmenity(project, value)) || filters.amenities.includes(value)).map((value) => ({ value, label: value, count: projects.filter((project) => matchesListing(project, { ...filters, amenities: [...new Set([...filters.amenities, value])] })).length })) },
   ];
+
+  function setPage(next: number) {
+    const url = new URL(window.location.href);
+    if (next > 1) url.searchParams.set("page", String(next));
+    else url.searchParams.delete("page");
+    window.history.replaceState(null, "", url);
+  }
 
   function updateFilters(next: ListingFilters) {
     setFilters(next);
@@ -134,10 +156,16 @@ export function ProjectListings({ search }: { search: ProjectFilters | null }) {
             {filters.hideSoldOut && <button type="button" aria-label="Remove availability filter" onClick={() => updateFilters({ ...filters, hideSoldOut: false })}>Hide sold out<CloseIcon /></button>}
           </div>}
           <div className={styles.cards}>
-            {pageItems.map((item) => <PropertyCard key={item.id} property={item} className={styles.card} />)}
+            {pageItems.map((item) => <PropertyCard key={item.id} property={item} className={styles.card} returnTo={listingHref} />)}
             {!visible.length && <div className={styles.empty}><span className={styles.emptyIcon}><Search /></span><h3>A little more room to explore</h3><p>No spaces match this combination. Try a wider budget or remove a filter to see more options.</p><button type="button" onClick={resetFilters}>Clear filters<ChevronRight /></button></div>}
           </div>
-          {pageCount > 1 && <nav className={styles.pagination} aria-label="Property pages"><button type="button" aria-label="Previous page" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)}><ChevronLeft /></button>{Array.from({ length: pageCount }, (_, index) => index + 1).map((number) => <button type="button" key={number} aria-label={`Page ${number}`} aria-current={currentPage === number ? "page" : undefined} onClick={() => changePage(number)}>{number}</button>)}<button type="button" aria-label="Next page" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)}><ChevronRight /></button></nav>}
+          {pageCount > 1 && <nav className={styles.pagination} aria-label="Property pages">
+            <button type="button" aria-label="Previous page" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)}><ChevronLeft /></button>
+            {paginationItems(currentPage, pageCount).map((item) => typeof item === "number"
+              ? <button type="button" key={item} aria-label={`Page ${item}`} aria-current={currentPage === item ? "page" : undefined} onClick={() => changePage(item)}>{item}</button>
+              : <span key={item} className={styles.paginationEllipsis} aria-hidden="true">…</span>)}
+            <button type="button" aria-label="Next page" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)}><ChevronRight /></button>
+          </nav>}
           <p className={styles.resultsNote}>{visible.length > 0 ? `Showing ${(currentPage - 1) * pageSize + 1}–${Math.min(currentPage * pageSize, visible.length)} of ${visible.length} spaces` : "Your next space could be one filter away."}</p>
         </div>
       </div>

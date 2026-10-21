@@ -1,61 +1,9 @@
 import { buildingResearch, type BuildingRecord } from "./building-research";
 import { getProjectMedia } from "./project-images-data";
 
-export type ProjectImage = {
-  id: string;
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  cropWidth: number;
-  cropHeight: number;
-  cropTop: number;
-};
-
-export type ProjectFact = [label: string, value: string];
-export type FinishedType = "Bare shell" | "Semi-Furnished" | "Ready-to-move";
-export type WorkspaceOption = {
-  id: string;
-  title: string;
-  location: string;
-  description: string;
-  badge: string;
-  image: ProjectImage;
-};
-
-export type Project = {
-  id: string;
-  slug: string;
-  aliases?: string[];
-  name: string;
-  location: string;
-  locationLabel: string;
-  type: string;
-  category: string;
-  badge: string;
-  price: number | null;
-  features: string[];
-  cover: ProjectImage;
-  spaceType?: string;
-  finishedTypes?: FinishedType[];
-  amenities?: string[];
-  detail: {
-    description: string;
-    overview: ProjectFact[];
-    building: ProjectFact[];
-    amenities: string[];
-    gallery: ProjectImage[];
-    spaces: WorkspaceOption[];
-    location: { address: string; caption: string; directionsQuery: string; map: ProjectImage; nearby: ProjectFact[]; coordinates?: { lat: number; lng: number } };
-    views: { floorPlan?: ProjectImage; interior: ProjectImage; exterior: ProjectImage };
-    photoViewsOnly?: boolean;
-    startingPrice: string;
-    startingPriceUnit: string;
-    highlights: string[];
-    benefits: { title: string; description: string }[];
-    similarProjectIds: string[];
-  };
-};
+import type { Project, ProjectImage, ProjectFact, FinishedType } from "../lib/project-types";
+export type { Project, ProjectImage, ProjectFact, FinishedType, WorkspaceOption } from "../lib/project-types";
+export { projectHref, formatProjectPrice } from "../lib/project-types";
 
 const propertyPlaceholder: ProjectImage = {
   id: "property-placeholder", src: "/images/spaces/property-placeholder.svg",
@@ -128,10 +76,10 @@ function buildingPhotos(building: BuildingRecord): ProjectImage[] {
 export const projects: Project[] = buildingResearch.map((building) => {
   const location = locationLabel(building);
   const photographs = buildingPhotos(building);
-  const gallery = photographs.length ? photographs : [{ ...propertyPlaceholder, id: `${building.slug}-placeholder` }];
-  const cover = gallery[0];
   const suppliedMedia = getProjectMedia(building.slug, building.name);
-  const detailGallery = suppliedMedia?.gallery ?? gallery;
+  const gallery = suppliedMedia?.gallery ?? (photographs.length ? photographs : [{ ...propertyPlaceholder, id: `${building.slug}-placeholder` }]);
+  const cover = gallery[0];
+  const detailGallery = gallery;
   const detailCover = detailGallery[0];
   const area = areaRange(building);
   const floors = building.specifications.find(([label]) => label === "Total floors")?.[1];
@@ -218,13 +166,4 @@ export const projects: Project[] = buildingResearch.map((building) => {
 
 export function getProject(slugOrId: string): Project | undefined {
   return projects.find((project) => project.slug === slugOrId || project.id === slugOrId || project.aliases?.includes(slugOrId));
-}
-
-export function projectHref(project: Pick<Project, "slug">): string {
-  return `/projects/${project.slug}`;
-}
-
-export function formatProjectPrice(price: number | null): string {
-  if (price === null) return "Price on request";
-  return `₹${new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(price)}`;
 }

@@ -3,7 +3,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { Map as LeafletMap, Marker, TileLayer } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import type { Project } from "../data/projects";
+import type { Project } from "@/lib/project-types";
 import {
   formatDistance, neighbourhoodCategories, placeDirectionsUrl,
   type Coordinates, type NearbyPlace, type NeighbourhoodCategory, type NeighbourhoodData,

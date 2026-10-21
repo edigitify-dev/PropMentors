@@ -1,4 +1,4 @@
-import type { FinishedType, Project } from "../data/projects";
+import type { FinishedType, Project } from "@/lib/project-types";
 
 export type ListingFilters = {
   query: string;

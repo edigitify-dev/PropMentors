@@ -14,7 +14,7 @@ const menuItems = [
   { title: "Contact Us", href: "/contact" },
 ];
 
-export function NavbarMenu({ className = "" }: { className?: string }) {
+export function NavbarMenu({ className = "", spacesHref = "/projects" }: { className?: string; spacesHref?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -92,7 +92,7 @@ export function NavbarMenu({ className = "" }: { className?: string }) {
             <span>PropMentors</span>
           </Link>
           <div className={styles.headerActions}>
-            <Link href="/projects" className={styles.searchButton} aria-label="Search spaces" onClick={closeMenu}><Search /></Link>
+            <Link href={spacesHref} className={styles.searchButton} aria-label="Search spaces" onClick={closeMenu}><Search /></Link>
             <button type="button" className={styles.closeButton} aria-label="Close navigation menu" onClick={closeMenu}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
             </button>
@@ -103,7 +103,7 @@ export function NavbarMenu({ className = "" }: { className?: string }) {
           {menuItems.map((item) => {
             const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
             return (
-              <Link key={item.href} href={item.href} className={styles.menuLink} aria-current={isActive ? "page" : undefined} onClick={closeMenu}>
+              <Link key={item.href} href={item.href === "/projects" ? spacesHref : item.href} className={styles.menuLink} aria-current={isActive ? "page" : undefined} onClick={closeMenu}>
                 <span className={styles.itemTitle}>{item.title}</span>
                 <ChevronRight className={styles.itemArrow} />
               </Link>

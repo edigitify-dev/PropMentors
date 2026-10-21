@@ -9,14 +9,15 @@ import { ClientStories } from "@/components/client-stories";
 import { Insights } from "@/components/insights";
 import { SiteFooter } from "@/components/site-footer";
 import styles from "./page.module.css";
+import { getPublishedProjects } from "@/lib/project-repository";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <main>
         <Hero />
         <AtAGlance />
-        <ExploreSpaces />
+        <ExploreSpaces projects={await getPublishedProjects()} />
         <PropertyOwners />
         <WorkspaceOffers />
         <div className={styles.desktopGuidance}>

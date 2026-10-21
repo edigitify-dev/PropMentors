@@ -6,14 +6,14 @@ import { useRef, useState } from "react";
 import { ChevronLeft, Search } from "./icons";
 import { PropertyCard } from "./property-card";
 import { projectSpaceType } from "@/lib/project-listing-filters";
-import { projects } from "../data/projects";
+import type { Project } from "@/lib/project-types";
 
 type Filters = { location: string; propertyType: string; budget: string };
 const initialFilters: Filters = { location: "noida", propertyType: "all", budget: "30k-80k" };
 const allFilters: Filters = { location: "all", propertyType: "all", budget: "all" };
 const budgets: Record<string, [number, number]> = { "30k-80k": [30000, 80000], "40l-60l": [4000000, 6000000], "60l-plus": [6000000, Infinity] };
 
-export function ExploreSpaces() {
+export function ExploreSpaces({ projects }: { projects: Project[] }) {
   const [filters, setFilters] = useState(initialFilters);
   const [appliedFilters, setAppliedFilters] = useState<Filters | null>(null);
   const [status, setStatus] = useState("");

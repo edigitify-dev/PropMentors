@@ -54,6 +54,7 @@ export function ProjectHero({
   function applyFilters(overrideFilters?: ProjectFilters) {
     const f = overrideFilters || filters;
     const url = new URL(window.location.href);
+    url.searchParams.delete("page");
     if (f.spaceType && f.spaceType !== "All space types") {
       url.searchParams.set("spaceType", f.spaceType);
     } else {

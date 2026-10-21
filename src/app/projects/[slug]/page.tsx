@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProjectDetail } from "../../../components/project-detail";
-import { getProject, projects } from "../../../data/projects";
+import { findPublishedProject, getPublishedProjects } from "@/lib/project-repository";
 
-type RouteProps = { params: Promise<{ slug: string }> };
+type RouteProps = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
 
 export async function generateMetadata({ params }: RouteProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await findPublishedProject(slug);
   if (!project) notFound();
   return {
     title: `${project.name} | PropMentors`,
@@ -15,13 +18,16 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
   };
 }
 
-export function generateStaticParams() {
-  return projects.flatMap((project) => [project.slug, project.id, ...(project.aliases ?? [])].map((slug) => ({ slug })));
-}
-
-export default async function ProjectDetailPage({ params }: RouteProps) {
+export default async function ProjectDetailPage({ params, searchParams }: RouteProps) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const { returnTo } = await searchParams;
+  const listingHref = typeof returnTo === "string" && /^\/projects(?:[?#]|$)/.test(returnTo) ? returnTo : "/projects";
+  const project = await findPublishedProject(slug);
   if (!project) notFound();
-  return <ProjectDetail key={project.id} project={project} />;
+  const published = await getPublishedProjects();
+  const similarProjects = project.detail.similarProjectIds.flatMap((id) => {
+    const related = published.find((item) => item.id === id && item.id !== project.id);
+    return related ? [related] : [];
+  });
+  return <ProjectDetail key={project.id} project={project} similarProjects={similarProjects} listingHref={listingHref} />;
 }

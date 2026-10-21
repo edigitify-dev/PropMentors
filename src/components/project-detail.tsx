@@ -7,10 +7,12 @@ import { ChevronLeft, ChevronRight } from "./icons";
 import { ProjectHeader } from "./project-header";
 import { ProjectEnquiries } from "./project-enquiries";
 import { PropertyCard } from "./property-card";
-import { getProject, formatProjectPrice, type Project, type ProjectImage, type ProjectFact } from "../data/projects";
+import { formatProjectPrice, type Project, type ProjectImage, type ProjectFact } from "@/lib/project-types";
 import { SiteFooter } from "./site-footer";
 import { ProjectMap } from "./project-map";
 import styles from "./project-detail.module.css";
+import { submitEnquiry } from "@/lib/submit-enquiry";
+import { useContactDetails } from "./contact-provider";
 
 type GalleryTab = "FLOOR PLAN" | "INTERIOR" | "EXTERIOR" | "PHOTOS";
 const defaultGalleryTabs: GalleryTab[] = ["FLOOR PLAN", "INTERIOR", "EXTERIOR"];
@@ -31,11 +33,10 @@ function SpacePhoto({ image, preload = false }: { image: ProjectImage; preload?:
   return <Image src={image.src} data-space-id={image.id} alt={image.alt} width={image.width} height={image.height} unoptimized preload={preload} />;
 }
 
-export function ProjectDetail({ project }: { project: Project }) {
+export function ProjectDetail({ project, similarProjects, listingHref = "/projects" }: { project: Project; similarProjects: Project[]; listingHref?: string }) {
   const detail = project.detail;
   const gallery = detail.gallery.length ? detail.gallery : [project.cover];
   const galleryTabs: GalleryTab[] = detail.photoViewsOnly ? ["PHOTOS", "FLOOR PLAN"] : defaultGalleryTabs;
-  const similarProjects = detail.similarProjectIds.map(getProject).filter((item): item is Project => Boolean(item) && item?.id !== project.id);
   const [activePhoto, setActivePhoto] = useState(0);
   const [previewPhotos, setPreviewPhotos] = useState(gallery);
   const [activeSection, setActiveSection] = useState<PropertySection>("detail-overview");
@@ -43,6 +44,8 @@ export function ProjectDetail({ project }: { project: Project }) {
   const [request, setRequest] = useState("Schedule a visit");
   const [shareStatus, setShareStatus] = useState("");
   const [draft, setDraft] = useState("");
+  const [sending, setSending] = useState(false);
+  const contact = useContactDetails();
   const enquiry = useRef<HTMLDialogElement>(null);
   const lightbox = useRef<HTMLDialogElement>(null);
   const pageRef = useRef<HTMLElement>(null);
@@ -130,31 +133,26 @@ export function ProjectDetail({ project }: { project: Project }) {
   }
 
   async function prepareEnquiry(form: HTMLFormElement) {
+    if (sending) return;
     const data = new FormData(form);
     const text = `${request}\nProperty: ${project.name}\nLocation: ${project.locationLabel}\nReference: ${project.id}\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nMobile: ${data.get("mobile")}\nPreferred visit date: ${data.get("date") || "To be arranged"}\nRequirements: ${data.get("requirements") || "Please contact me with more details."}`;
-    setDraft(text);
+    setSending(true); setShareStatus("");
     try {
-      await navigator.clipboard.writeText(text);
-      setShareStatus("Your enquiry is copied and ready to share.");
-    } catch {
-      const url = URL.createObjectURL(new Blob([text], { type: "text/plain" }));
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "propmentors-property-enquiry.txt";
-      link.click();
-      URL.revokeObjectURL(url);
-      setShareStatus("Your enquiry is downloaded and ready to share.");
-    }
+      await submitEnquiry({ name: String(data.get("name")), email: String(data.get("email")), phone: String(data.get("mobile")), subject: `${request} — ${project.name}`.slice(0, 180), message: text, source: "project", projectId: project.id });
+      setDraft(text); setShareStatus("Your enquiry has been received. Our team will contact you to confirm the details.");
+      form.reset();
+    } catch (error) { setShareStatus((error as Error).message); }
+    finally { setSending(false); }
   }
 
   const visual = activeTab === "INTERIOR" ? detail.views.interior : activeTab === "EXTERIOR" ? detail.views.exterior : activeTab === "PHOTOS" ? gallery[0] : detail.views.floorPlan ?? gallery[0];
 
   return <>
     <main className={styles.page} ref={pageRef}>
-      <ProjectHeader revealOnScrollUp={false} onSearch={() => scrollTo("detail-spaces")} onContact={() => openEnquiry("Property enquiry")} />
+      <ProjectHeader spacesHref={listingHref} revealOnScrollUp={false} onSearch={() => scrollTo("detail-spaces")} onContact={() => openEnquiry("Property enquiry")} />
       <div className={styles.container}>
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link href="/">Home</Link><span>/</span><Link href="/projects">Spaces</Link><span>/</span><span>{project.name}</span>
+          <Link href="/">Home</Link><span>/</span><Link href={listingHref}>Spaces</Link><span>/</span><span>{project.name}</span>
         </nav>
         <div className={styles.titleRow}>
           <div>
@@ -259,8 +257,8 @@ export function ProjectDetail({ project }: { project: Project }) {
         </div>
 
         <section className={styles.similar} id="similar-spaces" aria-labelledby="similar-heading">
-          <div className={styles.sectionHeading}><h2 id="similar-heading">Looking for something similar?</h2><Link href="/projects" className={styles.textLink}>View all spaces <ChevronRight /></Link></div>
-          <div className={styles.similarGrid}>{similarProjects.map((item) => <PropertyCard key={item.id} property={item} />)}</div>
+          <div className={styles.sectionHeading}><h2 id="similar-heading">Looking for something similar?</h2><Link href={listingHref} className={styles.textLink}>View all spaces <ChevronRight /></Link></div>
+          <div className={styles.similarGrid}>{similarProjects.map((item) => <PropertyCard key={item.id} property={item} returnTo={listingHref} />)}</div>
         </section>
       </div>
       <ProjectEnquiries showOwners={false} />
@@ -272,8 +270,8 @@ export function ProjectDetail({ project }: { project: Project }) {
         <form className="enquiry-form" onSubmit={(event) => { event.preventDefault(); void prepareEnquiry(event.currentTarget); }}>
           <label>Your name<input name="name" autoComplete="name" required /></label><label>Email address<input name="email" type="email" autoComplete="email" required /></label><label>Mobile number<input name="mobile" type="tel" autoComplete="tel" required /></label>
           <label>Preferred visit date<input name="date" type="date" /></label><label>Tell us what you need<textarea name="requirements" rows={2} placeholder="Team size, preferred workspace and move-in date" /></label>
-          <p className="form-note">Prepare your enquiry to share with PropMentors. Availability and visits are confirmed by the team.</p><button type="submit" className="dialog-primary">Copy enquiry</button>
-          {draft && <a className={styles.email} href={`mailto:hello@propmentors.in?subject=${encodeURIComponent(`${request} — ${project.name}`)}&body=${encodeURIComponent(draft)}`}>Share by email</a>}<p className="copy-status" role="status">{shareStatus}</p>
+          <p className="form-note">Send your enquiry to PropMentors. Availability and visits are confirmed by the team.</p><button type="submit" className="dialog-primary" disabled={sending}>{sending ? "Sending…" : "Send enquiry"}</button>
+          {draft && <a className={styles.email} href={`mailto:${contact.email}?subject=${encodeURIComponent(`${request} — ${project.name}`)}&body=${encodeURIComponent(draft)}`}>Also share by email</a>}<p className="copy-status" role="status">{shareStatus}</p>
         </form>
       </div>
     </dialog>

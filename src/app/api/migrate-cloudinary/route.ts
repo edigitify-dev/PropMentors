@@ -1,11 +1,12 @@
+import { adminMutation, apiResponse, ApiError } from "@/lib/api-utils";
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
 
-const cloudName = process.env.CLOUDINARY_CLOUD_NAME || "jkcxw0xq";
-const apiKey = process.env.CLOUDINARY_API_KEY || "947729994467911";
-const apiSecret = process.env.CLOUDINARY_API_SECRET || "QWrtjiu6M9K-5XuBqUGyYMx9M9w";
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const apiKey = process.env.CLOUDINARY_API_KEY;
+const apiSecret = process.env.CLOUDINARY_API_SECRET;
 
 const MAP_FILE = path.join(process.cwd(), "cloudinary-map.json");
 
@@ -25,6 +26,7 @@ function saveMap(map: Record<string, string>) {
 }
 
 async function uploadFile(filePath: string, folderName: string, fileName: string) {
+  if (!cloudName || !apiKey || !apiSecret) throw new ApiError(503, "Configure Cloudinary credentials first.");
   const nameWithoutExt = fileName.replace(/\.[^/.]+$/, "").replace(/[^a-zA-Z0-9_-]/g, "_");
   const folderPath = `propmentors/${folderName.trim().replace(/[^a-zA-Z0-9_-]/g, "_")}`;
   const timestamp = Math.floor(Date.now() / 1000);
@@ -61,7 +63,9 @@ async function uploadFile(filePath: string, folderName: string, fileName: string
   return result.secure_url as string;
 }
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
+  return apiResponse(async () => {
+  await adminMutation(request);
   const { searchParams } = new URL(request.url);
   const limitParam = searchParams.get("limit");
   const limit = limitParam ? parseInt(limitParam, 10) : Infinity;
@@ -126,5 +130,6 @@ export async function GET(request: Request) {
     uploadedCount: uploaded.length,
     uploaded,
     errors,
+  });
   });
 }
