@@ -48,7 +48,6 @@ export function ProjectMap({ project }: { project: Project }) {
   const visiblePlaces = useMemo(() => places.slice(placeOffset, placeOffset + nearbyPageSize), [places, placeOffset]);
   const searchTerm = category === "dining" ? "restaurants and cafes" : category === "connectivity" ? "metro stations and bus stops" : category === "hospitality" ? "hotels" : category === "business" ? "offices and banks" : "shopping malls and supermarkets";
   const searchQuery = `${type === "All" ? searchTerm : type} near ${project.detail.location.directionsQuery}`;
-  const searchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchQuery)}`;
   const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(project.detail.location.directionsQuery)}`;
 
   useEffect(() => {
@@ -87,17 +86,28 @@ export function ProjectMap({ project }: { project: Project }) {
   }
 
   return <div className={styles.explorer} ref={root}>
-    <div className={styles.explorerIntro}><span>EXPLORE THE NEIGHBOURHOOD</span><p>A closer look at life around your workspace.</p></div>
     {coords
       ? <CoordinateProjectMap project={project} coords={coords} places={visiblePlaces} placeOffset={placeOffset} selected={selected} onSelect={setSelected} directionsUrl={directionsUrl} />
       : <div className={styles.mapWrapper}><iframe className={styles.mapEmbed} title={`Explore ${activeCategory.label.toLowerCase()} near ${project.name}`} src={`https://www.google.com/maps?q=${encodeURIComponent(searchQuery)}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div>}
 
     <div className={styles.explorerBody}>
-      <div className={styles.categories} role="group" aria-label="Neighbourhood categories">
-        {neighbourhoodCategories.map(item => <button type="button" key={item.id} aria-pressed={category === item.id} onClick={() => selectCategory(item.id)}><span><CategoryIcon category={item.id} /></span>{item.label}</button>)}
-      </div>
-      <div className={styles.filters} role="group" aria-label={`${activeCategory.label} filters`}>
-        {["All", ...activeCategory.types].map(item => <button type="button" key={item} aria-pressed={type === item} onClick={() => { setType(item); setSelected(null); setExpanded(true); setPlacePage(0); }}>{item}</button>)}
+      <div className={styles.filterControls}>
+        <label className={styles.filterField}>
+          <span>Category</span>
+          <span className={styles.selectWrap}>
+            <select value={category} onChange={(event) => selectCategory(event.target.value as NeighbourhoodCategory)} aria-controls={resultsId}>
+              {neighbourhoodCategories.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}
+            </select>
+          </span>
+        </label>
+        <label className={styles.filterField}>
+          <span>Place type</span>
+          <span className={styles.selectWrap}>
+            <select value={type} onChange={(event) => { setType(event.target.value); setSelected(null); setExpanded(true); setPlacePage(0); }} aria-controls={resultsId}>
+              {["All", ...activeCategory.types].map(item => <option key={item} value={item}>{item === "All" ? "All places" : item}</option>)}
+            </select>
+          </span>
+        </label>
       </div>
       <div className={styles.results}>
         <button type="button" className={styles.resultsHeading} aria-expanded={expanded} aria-controls={resultsId} onClick={() => setExpanded(value => !value)}>
@@ -118,13 +128,11 @@ export function ProjectMap({ project }: { project: Project }) {
               <button type="button" aria-label="Next nearby places" aria-controls={resultsId} disabled={currentPage === pageCount - 1} onClick={() => changePlacePage(currentPage + 1)}><ChevronRight /></button>
             </div>
           </nav>}
-          {!coords && <p className={styles.emptyState}>Explore nearby {activeCategory.label.toLowerCase()} on Google Maps. Exact distances will be available once this property’s map pin is confirmed.</p>}
-          {coords && !loading && !visiblePlaces.length && <p className={styles.emptyState}>{data?.availability === "unavailable" ? "Nearby places couldn’t be loaded right now." : `No ${type === "All" ? activeCategory.label.toLowerCase() + " places" : type.toLowerCase()} are listed within 5 km. Try another filter or explore on Google Maps.`}</p>}
+          {!coords && <p className={styles.emptyState}>Nearby places and distances will be available once this property’s map pin is confirmed.</p>}
+          {coords && !loading && !visiblePlaces.length && <p className={styles.emptyState}>{data?.availability === "unavailable" ? "Nearby places couldn’t be loaded right now." : `No ${type === "All" ? activeCategory.label.toLowerCase() + " places" : type.toLowerCase()} are listed within 5 km. Try another filter.`}</p>}
           {coords && !loading && data?.availability === "unavailable" && <div className={styles.retryRow}><span>{visiblePlaces.length ? "Showing catalogue properties. More nearby places are temporarily unavailable." : "Try again to refresh nearby places."}</span><button type="button" onClick={() => { setLoading(true); setAttempt(value => value + 1); }}>Try again</button></div>}
-          <a className={styles.exploreLink} href={searchUrl} target="_blank" rel="noopener noreferrer">Explore {type === "All" ? activeCategory.label.toLowerCase() : type.toLowerCase()} on Google Maps <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      {coords && <p className={styles.sourceNote}>Approximate straight-line distances within 5 km. Routes may be longer.</p>}
     </div>
   </div>;
 }

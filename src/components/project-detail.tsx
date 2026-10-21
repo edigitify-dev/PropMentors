@@ -224,7 +224,6 @@ export function ProjectDetail({ project, similarProjects, listingHref = "/projec
                 <div className={styles.panelHeading}><h2 id="location-heading">Location</h2><a className={styles.textLink} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(detail.location.directionsQuery)}`} target="_blank" rel="noopener noreferrer">Get Directions <ChevronRight /></a></div>
                 <p className={styles.locationCaption}>{detail.location.caption}</p>
                 <div className={styles.locationMap}><ProjectMap project={project} /></div>
-                <Facts items={detail.location.nearby} />
               </section>
               <section className={styles.infoPanel} id="detail-explore" aria-labelledby="explore-heading" tabIndex={-1}>
                 <div className={styles.panelHeading}><h2 id="explore-heading">Explore the Space</h2></div>

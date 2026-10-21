@@ -163,27 +163,31 @@
   .cityTabs { flex-wrap: wrap; gap: 8px; margin: 24px 24px 0; }
   .cityTabs button { padding-inline: 12px; font-size: 11px; }
   .marketMap { height: 560px; margin-top: 24px; }
-  .team { min-height: max(880px, 100svh); padding-top: 28px; background: #000; }
+  .team { height: 100svh; min-height: 0; padding-block: clamp(16px, 3svh, 24px); background: #000; }
+  .team > .sectionHeading { flex: none; }
   .teamPortrait { top: 0; }
   .teamPortrait img { object-position: center; }
-  .team .headingRow { max-width: none; gap: 14px; margin-top: 20px; }
-  .team .headingRow h2 { color: var(--background); font-size: 34px; line-height: 1.08; }
+  .team .headingRow { max-width: none; gap: 14px; margin-top: clamp(10px, 2svh, 18px); }
+  .team .headingRow h2 { color: var(--background); font-size: clamp(26px, 4.5svh, 34px); line-height: 1.08; }
   .team .headingRow > p { display: none; }
-  .teamIdentity { margin-inline: 24px; margin-bottom: 48px; }
-  .teamIdentity h3 { font-size: 30px; }
+  .teamIdentity { flex: none; margin-inline: 24px; margin-bottom: clamp(12px, 2svh, 18px); padding-top: 16px; }
+  .teamIdentity h3 { font-size: clamp(24px, 3.8svh, 30px); }
   .teamIdentity p { margin-top: 6px; font-size: 13px; }
   .teamThumbnail img { object-position: center 40%; }
   .team::after { background: linear-gradient(#000 0%, #000000e6 14%, #0008 28%, transparent 44%, transparent 58%, #0008 74%, #000 100%); }
   .team[data-dark-portrait="true"] .headingRow > :is(h2, p) { color: var(--background); }
   .team[data-dark-portrait="false"] .teamIdentity { color: var(--background); text-shadow: 0 2px 16px #0006; }
-  .teamBottom { margin-left: 24px; flex-direction: column; align-items: flex-start; gap: 20px; width: calc(100% - 24px); }
+  .teamBottom { flex: none; margin-left: 24px; flex-direction: column; align-items: flex-start; gap: 10px; width: calc(100% - 24px); }
   .teamControls { width: auto; padding-bottom: 0; }
   .teamThumbnails { width: 100%; padding-right: 24px; }
-  .teamThumbnail { flex-basis: 200px; height: 190px; }
+  .teamThumbnail { flex-basis: clamp(112px, 32vw, 150px); height: clamp(88px, 16svh, 136px); }
+  .team .adviserCaption { left: 10px; right: 10px; bottom: 10px; }
+  .team .adviserCaption strong { font-size: 11px; }
+  .team .adviserCaption > span { margin-top: 2px; font-size: 9px; }
 }
 
 @media (max-width: 360px) {
-  .team .headingRow h2 { font-size: 30px; }
+  .team .headingRow h2 { font-size: clamp(26px, 4.5svh, 30px); }
 }
 
 @media (max-height: 520px) {
