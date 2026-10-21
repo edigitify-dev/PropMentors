@@ -13,6 +13,36 @@ import styles from "./list-your-space-page.module.css";
 
 const heroImage = "/why/10a08bb92e1114da01c5df205cac22e266a1eea0.jpg";
 
+const approachSteps = [
+  {
+    id: "understand",
+    title: "Understand",
+    description: "We start with your business needs, priorities and plans for growth.",
+    image: "/images/glance/clients.png",
+    width: 586,
+    height: 1024,
+    alt: "A team discussing their workspace requirements",
+  },
+  {
+    id: "curate",
+    title: "Curate",
+    description: "We identify spaces aligned with your goals, budget and preferred locations.",
+    image: "/images/offers/managed-offices.png",
+    width: 736,
+    height: 1008,
+    alt: "Commercial property options being reviewed",
+  },
+  {
+    id: "guide",
+    title: "Guide",
+    description: "We help you compare, evaluate and move forward with confidence.",
+    image: "/images/guidance/experience.png",
+    width: 1024,
+    height: 683,
+    alt: "An adviser reviewing plans and workspace details",
+  },
+];
+
 function Badge({ children }: { children: React.ReactNode }) {
   return (
     <div className="section-badge">
@@ -29,6 +59,7 @@ export function ListYourSpacePage() {
   const enquiry = useRef<HTMLDialogElement>(null);
   const [shareStatus, setShareStatus] = useState("");
   const [draft, setDraft] = useState("");
+  const [activeApproach, setActiveApproach] = useState(0);
 
   function openEnquiry() {
     setShareStatus("");
@@ -111,7 +142,7 @@ export function ListYourSpacePage() {
               </p>
             </div>
           </div>
-          <div className={aboutStyles.decisionGrid}>
+          <div className={`${aboutStyles.decisionGrid} ${styles.desktopDecisions}`}>
             <article className={aboutStyles.decisionColumn}>
               <div className={aboutStyles.decisionText}>
                 <h3><span className={styles.decisionNumber}>01</span> - Understand</h3>
@@ -139,6 +170,42 @@ export function ListYourSpacePage() {
                 <Image src="/images/guidance/experience.png" width={1024} height={683} alt="An adviser reviewing plans and workspace details" unoptimized />
               </div>
             </article>
+          </div>
+          <div className={`${styles.mobileDecisions} offers-content`}>
+            <div className="offers-cards" aria-label="Our approach options">
+              {approachSteps.map((step, index) => {
+                const isActive = activeApproach === index;
+                return (
+                  <button
+                    key={step.id}
+                    type="button"
+                    className={`offer-card${isActive ? " is-active" : ""}`}
+                    aria-pressed={isActive}
+                    aria-controls="lys-approach-preview"
+                    aria-labelledby={`lys-approach-${step.id}-title`}
+                    aria-describedby={isActive ? `lys-approach-${step.id}-description` : undefined}
+                    onPointerEnter={(event) => { if (event.pointerType !== "touch") setActiveApproach(index); }}
+                    onFocus={() => setActiveApproach(index)}
+                    onClick={() => setActiveApproach(index)}
+                  >
+                    <span className="offer-card-heading" id={`lys-approach-${step.id}-title`}>
+                      <span className={styles.mobileDecisionNumber}>{String(index + 1).padStart(2, "0")}</span>
+                      <span>{step.title}</span>
+                    </span>
+                    <span className="offer-description" id={`lys-approach-${step.id}-description`} aria-hidden={!isActive}>
+                      <span>{step.description}</span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="offer-preview" id="lys-approach-preview" data-active-approach={approachSteps[activeApproach].id}>
+              {approachSteps.map((step, index) => (
+                <div key={step.id} className={`offer-image${activeApproach === index ? " is-active" : ""}`} aria-hidden={activeApproach !== index}>
+                  <Image src={step.image} alt={step.alt} width={step.width} height={step.height} unoptimized />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

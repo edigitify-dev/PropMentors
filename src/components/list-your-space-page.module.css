@@ -1,6 +1,7 @@
 /* ── Page shell ── */
 .page { width: 100%; container-type: inline-size; color: var(--foreground); }
 .decisionNumber, .page :global(.approach-step-number) { color: var(--accent); }
+.mobileDecisions { display: none; }
 
 /* ── Hero ── */
 .hero {
@@ -204,6 +205,9 @@
 }
 
 @media (max-width: 640px) {
+  .desktopDecisions { display: none; }
+  .mobileDecisions { display: grid; }
+  .mobileDecisionNumber { flex: none; color: var(--accent); font-variant-numeric: tabular-nums; }
   .heroIntro h1 { font-size: clamp(24px, 5.8vw, 40px); white-space: normal; }
   .desktopBr { display: none; }
   .heroSubtitle { font-size: 14px; }
