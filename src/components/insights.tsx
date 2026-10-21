@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, type KeyboardEvent } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { ChevronLeft, PlayCircle } from "@/components/icons";
 
 const insights = [
@@ -14,6 +15,8 @@ const insights = [
 
 export function Insights() {
   const windowRef = useRef<HTMLDivElement>(null);
+  const [expandedIdx, setExpandedIdx] = useState(1);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const viewport = windowRef.current;
@@ -63,10 +66,26 @@ export function Insights() {
   const move = (direction: number) => {
     const viewport = windowRef.current;
     const rail = viewport?.querySelector<HTMLOListElement>(".insights-rail");
-    const card = rail?.querySelector<HTMLElement>(".insight-card");
-    if (!viewport || !rail || !card) return;
-    const distance = card.getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap);
-    viewport.scrollBy({ left: direction * distance, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+    if (!viewport || !rail) return;
+    const cards = Array.from(rail.querySelectorAll<HTMLElement>(".insight-card"));
+    const railStyle = getComputedStyle(rail);
+    const padding = parseFloat(railStyle.paddingLeft);
+    const cardWidth = parseFloat(railStyle.getPropertyValue("--insight-card-width"));
+    const gap = parseFloat(railStyle.columnGap);
+    let nearest = 0;
+    cards.forEach((card, index) => {
+      if (Math.abs(card.offsetLeft - padding - viewport.scrollLeft) < Math.abs(cards[nearest].offsetLeft - padding - viewport.scrollLeft)) nearest = index;
+    });
+    const target = cards[(nearest + direction + cards.length) % cards.length];
+    const index = Number(target.dataset.index);
+    const copy = Number(target.dataset.copy);
+    const first = cards[0];
+    const middle = cards[insights.length];
+    const cycleWidth = middle.offsetLeft - first.offsetLeft;
+    setExpandedIdx(index);
+    // Each copy has one expanded card. Use the destination's final position
+    // so the smooth scroll and width transition finish at the same card.
+    viewport.scrollTo({ left: copy * cycleWidth + index * (cardWidth + gap), behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   };
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -78,7 +97,13 @@ export function Insights() {
 
   return (
     <section className="insights" id="insights" aria-labelledby="insights-heading" data-node-id="352:2412">
-      <div className="insights-heading">
+      <motion.div
+        className="insights-heading"
+        initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: reducedMotion ? 0 : 0.7 }}
+      >
         <div className="section-badge" data-node-id="353:2453">
           <span className="section-badge-icon" aria-hidden="true"><Image src="/images/glance/badge-star.svg" alt="" width={17} height={17} unoptimized /></span>
           <span>FROM THE PROPMENTORS DESK</span>
@@ -87,15 +112,22 @@ export function Insights() {
           <h2 id="insights-heading"><span>Know more.</span><span>Lease smarter</span></h2>
           <p>Practical insights to help you understand commercial real estate and make better leasing decisions.</p>
         </div>
-      </div>
+      </motion.div>
 
       <div className="insights-carousel" onKeyDown={onKeyDown}>
         <div className="insights-window" ref={windowRef} tabIndex={0} role="region" aria-label="Leasing insights. Use the left and right arrow keys to browse.">
           <ol className="insights-rail" data-node-id="352:2416">
-            {[0, 1, 2].flatMap(copy => insights.map(insight => (
-              <li className={`insight-card insight-card-${insight.id}`} key={`${copy}-${insight.id}`} data-copy={copy} aria-hidden={copy !== 1 ? true : undefined} data-node-id={copy === 1 ? insight.node : undefined}>
+            {[0, 1, 2].flatMap(copy => insights.map((insight, index) => (
+              <li
+                className={`insight-card insight-card-${insight.id}`}
+                key={`${copy}-${insight.id}`}
+                data-copy={copy}
+                data-index={index}
+                data-expanded={expandedIdx === index}
+                aria-hidden={copy !== 1 ? true : undefined}
+                data-node-id={copy === 1 ? insight.node : undefined}
+              >
                 <div className="insight-image">
-                  {insight.id === "cover-two" && <Image className="insight-cover-background" src="/images/spaces/space-06.png" alt="" width={736} height={1104} unoptimized />}
                   <Image src={insight.image} alt={insight.alt} width={insight.width} height={insight.height} unoptimized />
                   {insight.id === "featured" && <div className="insight-shade" />}
                 </div>
@@ -104,6 +136,15 @@ export function Insights() {
                   <p>What&apos;s actually included in your office super area?</p>
                 </div>}
                 {insight.id === "office" && <span className="insight-play" aria-hidden="true"><PlayCircle /></span>}
+                <button
+                  type="button"
+                  className="insight-card-trigger"
+                  aria-label={`Expand insight: ${insight.alt}`}
+                  aria-pressed={expandedIdx === index}
+                  tabIndex={copy === 1 ? 0 : -1}
+                  onFocus={() => setExpandedIdx(index)}
+                  onClick={() => setExpandedIdx(index)}
+                />
               </li>
             )))}
           </ol>
