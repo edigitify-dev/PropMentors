@@ -9,6 +9,9 @@ import {
   type Coordinates, type NearbyPlace, type NeighbourhoodCategory, type NeighbourhoodData,
 } from "../lib/neighbourhood";
 import styles from "./project-map.module.css";
+import { ChevronLeft, ChevronRight } from "./icons";
+
+const nearbyPageSize = 3;
 
 function CategoryIcon({ category }: { category: NeighbourhoodCategory }) {
   const paths = {
@@ -36,9 +39,13 @@ export function ProjectMap({ project }: { project: Project }) {
   const [attempt, setAttempt] = useState(0);
   const [expanded, setExpanded] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
+  const [placePage, setPlacePage] = useState(0);
   const activeCategory = neighbourhoodCategories.find(item => item.id === category)!;
   const places = useMemo(() => (data?.places ?? []).filter(place => place.category === category && (type === "All" || place.type === type)), [data, category, type]);
-  const visiblePlaces = useMemo(() => places.slice(0, 12), [places]);
+  const pageCount = Math.ceil(places.length / nearbyPageSize);
+  const currentPage = Math.min(placePage, Math.max(0, pageCount - 1));
+  const placeOffset = currentPage * nearbyPageSize;
+  const visiblePlaces = useMemo(() => places.slice(placeOffset, placeOffset + nearbyPageSize), [places, placeOffset]);
   const searchTerm = category === "dining" ? "restaurants and cafes" : category === "connectivity" ? "metro stations and bus stops" : category === "hospitality" ? "hotels" : category === "business" ? "offices and banks" : "shopping malls and supermarkets";
   const searchQuery = `${type === "All" ? searchTerm : type} near ${project.detail.location.directionsQuery}`;
   const searchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchQuery)}`;
@@ -71,13 +78,18 @@ export function ProjectMap({ project }: { project: Project }) {
   }, [project.slug, coords, attempt]);
 
   function selectCategory(next: NeighbourhoodCategory) {
-    setCategory(next); setType("All"); setSelected(null); setExpanded(true);
+    setCategory(next); setType("All"); setSelected(null); setExpanded(true); setPlacePage(0);
+  }
+
+  function changePlacePage(next: number) {
+    setPlacePage(next);
+    setSelected(null);
   }
 
   return <div className={styles.explorer} ref={root}>
     <div className={styles.explorerIntro}><span>EXPLORE THE NEIGHBOURHOOD</span><p>A closer look at life around your workspace.</p></div>
     {coords
-      ? <CoordinateProjectMap project={project} coords={coords} places={visiblePlaces} selected={selected} onSelect={setSelected} directionsUrl={directionsUrl} />
+      ? <CoordinateProjectMap project={project} coords={coords} places={visiblePlaces} placeOffset={placeOffset} selected={selected} onSelect={setSelected} directionsUrl={directionsUrl} />
       : <div className={styles.mapWrapper}><iframe className={styles.mapEmbed} title={`Explore ${activeCategory.label.toLowerCase()} near ${project.name}`} src={`https://www.google.com/maps?q=${encodeURIComponent(searchQuery)}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div>}
 
     <div className={styles.explorerBody}>
@@ -85,7 +97,7 @@ export function ProjectMap({ project }: { project: Project }) {
         {neighbourhoodCategories.map(item => <button type="button" key={item.id} aria-pressed={category === item.id} onClick={() => selectCategory(item.id)}><span><CategoryIcon category={item.id} /></span>{item.label}</button>)}
       </div>
       <div className={styles.filters} role="group" aria-label={`${activeCategory.label} filters`}>
-        {["All", ...activeCategory.types].map(item => <button type="button" key={item} aria-pressed={type === item} onClick={() => { setType(item); setSelected(null); setExpanded(true); }}>{item}</button>)}
+        {["All", ...activeCategory.types].map(item => <button type="button" key={item} aria-pressed={type === item} onClick={() => { setType(item); setSelected(null); setExpanded(true); setPlacePage(0); }}>{item}</button>)}
       </div>
       <div className={styles.results}>
         <button type="button" className={styles.resultsHeading} aria-expanded={expanded} aria-controls={resultsId} onClick={() => setExpanded(value => !value)}>
@@ -93,16 +105,22 @@ export function ProjectMap({ project }: { project: Project }) {
         </button>
         <div id={resultsId} hidden={!expanded}>
           {coords && loading && <div className={styles.loadingState} role="status"><span />Discovering what’s around {project.name}…</div>}
-          {coords && !loading && visiblePlaces.length > 0 && <ol className={styles.placeList} aria-label={`Nearby ${activeCategory.label.toLowerCase()}`}>
+          {coords && !loading && visiblePlaces.length > 0 && <ol className={styles.placeList} start={placeOffset + 1} aria-label={`Nearby ${activeCategory.label.toLowerCase()}`}>
             {visiblePlaces.map((place, index) => <li key={place.id} data-selected={selected === place.id}>
-              <button type="button" className={styles.placeButton} onClick={() => setSelected(place.id)} aria-pressed={selected === place.id} aria-label={`Show ${place.name} on map`}><span className={styles.placeNumber}>{index + 1}</span><span className={styles.placeName}>{place.name}<small>{place.type}</small></span><span className={styles.distance}>{formatDistance(place.distance)}</span></button>
+              <button type="button" className={styles.placeButton} onClick={() => setSelected(place.id)} aria-pressed={selected === place.id} aria-label={`Show ${place.name} on map`}><span className={styles.placeNumber}>{placeOffset + index + 1}</span><span className={styles.placeName}>{place.name}<small>{place.type}</small></span><span className={styles.distance}>{formatDistance(place.distance)}</span></button>
               <a className={styles.placeDirections} href={placeDirectionsUrl(place, coords)} target="_blank" rel="noopener noreferrer" aria-label={`Get directions from ${project.name} to ${place.name}`}><DirectionIcon /></a>
             </li>)}
           </ol>}
+          {coords && !loading && pageCount > 1 && <nav className={styles.placePagination} aria-label="Nearby places pages">
+            <span role="status" aria-live="polite">{placeOffset + 1}–{Math.min(placeOffset + nearbyPageSize, places.length)} of {places.length} places</span>
+            <div>
+              <button type="button" aria-label="Previous nearby places" aria-controls={resultsId} disabled={currentPage === 0} onClick={() => changePlacePage(currentPage - 1)}><ChevronLeft /></button>
+              <button type="button" aria-label="Next nearby places" aria-controls={resultsId} disabled={currentPage === pageCount - 1} onClick={() => changePlacePage(currentPage + 1)}><ChevronRight /></button>
+            </div>
+          </nav>}
           {!coords && <p className={styles.emptyState}>Explore nearby {activeCategory.label.toLowerCase()} on Google Maps. Exact distances will be available once this property’s map pin is confirmed.</p>}
           {coords && !loading && !visiblePlaces.length && <p className={styles.emptyState}>{data?.availability === "unavailable" ? "Nearby places couldn’t be loaded right now." : `No ${type === "All" ? activeCategory.label.toLowerCase() + " places" : type.toLowerCase()} are listed within 5 km. Try another filter or explore on Google Maps.`}</p>}
           {coords && !loading && data?.availability === "unavailable" && <div className={styles.retryRow}><span>{visiblePlaces.length ? "Showing catalogue properties. More nearby places are temporarily unavailable." : "Try again to refresh nearby places."}</span><button type="button" onClick={() => { setLoading(true); setAttempt(value => value + 1); }}>Try again</button></div>}
-          {places.length > 12 && <p className={styles.resultLimit}>Showing the 12 closest places.</p>}
           <a className={styles.exploreLink} href={searchUrl} target="_blank" rel="noopener noreferrer">Explore {type === "All" ? activeCategory.label.toLowerCase() : type.toLowerCase()} on Google Maps <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -111,8 +129,8 @@ export function ProjectMap({ project }: { project: Project }) {
   </div>;
 }
 
-function CoordinateProjectMap({ project, coords, places, selected, onSelect, directionsUrl }: {
-  project: Project; coords: Coordinates; places: NearbyPlace[]; selected: string | null;
+function CoordinateProjectMap({ project, coords, places, placeOffset, selected, onSelect, directionsUrl }: {
+  project: Project; coords: Coordinates; places: NearbyPlace[]; placeOffset: number; selected: string | null;
   onSelect: (id: string) => void; directionsUrl: string;
 }) {
   const container = useRef<HTMLDivElement>(null);
@@ -173,7 +191,7 @@ function CoordinateProjectMap({ project, coords, places, selected, onSelect, dir
       if (disposed) return;
       currentMarkers.forEach(marker => marker.remove()); currentMarkers.clear();
       for (const [index, place] of places.entries()) {
-        const number = document.createElement("span"); number.textContent = String(index + 1); number.className = styles.poiNumber;
+        const number = document.createElement("span"); number.textContent = String(placeOffset + index + 1); number.className = styles.poiNumber;
         const marker = L.marker([place.lat, place.lng], { title: place.name, alt: place.name, icon: L.divIcon({ className: styles.poiMarker, html: number, iconSize: [34, 40], iconAnchor: [17, 36] }) }).addTo(instance);
         const popup = document.createElement("div"); popup.className = styles.popupCard;
         const name = document.createElement("strong"); name.textContent = place.name;
@@ -188,7 +206,7 @@ function CoordinateProjectMap({ project, coords, places, selected, onSelect, dir
     }
     void update();
     return () => { disposed = true; currentMarkers.forEach(marker => marker.remove()); currentMarkers.clear(); };
-  }, [ready, places, coords, onSelect]);
+  }, [ready, places, placeOffset, coords, onSelect]);
 
   useEffect(() => {
     if (!ready || !map.current) return;

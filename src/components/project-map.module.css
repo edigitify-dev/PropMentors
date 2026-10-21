@@ -2,7 +2,7 @@
 .explorerIntro { padding: 20px 20px 18px; }
 .explorerIntro > span { color: #4a7097; font-size: 9px; font-weight: 600; letter-spacing: .14em; line-height: 1.6; }
 .explorerIntro > p { margin: 6px 0 0; color: #607083; font-size: 12px; line-height: 1.7; }
-.mapWrapper { position: relative; isolation: isolate; width: 100%; height: 340px; overflow: hidden; background: #e8e7df; border-block: 1px solid #122c4f14; }
+.mapWrapper { position: relative; isolation: isolate; width: 100%; height: 300px; overflow: hidden; background: #e8e7df; border-block: 1px solid #122c4f14; }
 .mapEmbed, .mapCanvas { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .mapCanvas { z-index: 0; font-family: var(--body-font); background: #e8e7df; }
 .mapCanvas :global(.leaflet-tile-pane) { filter: saturate(.45) contrast(.95) brightness(1.03); }
@@ -31,14 +31,14 @@
 .mapNotice { position: absolute; z-index: 3; top: 64px; left: 12px; right: 12px; padding: 10px 12px; border: 1px solid #122c4f18; border-radius: 8px; background: #fcf7e4f5; color: #607083; font-size: 11px; line-height: 1.6; }
 .mapNotice a { color: var(--foreground); }
 .explorerBody { padding: 18px; }
-.categories { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
-.categories > button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-width: 0; min-height: 84px; padding: 12px 2px; border: 1px solid #122c4f16; border-radius: 10px; background: #ffffff40; color: #607083; font: inherit; font-size: 10px; font-weight: 500; cursor: pointer; transition: background 150ms ease, border-color 150ms ease; }
-.categories > button > span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #122c4f06; }
-.categories svg { width: 18px; height: 18px; }
+.categories { display: flex; flex-wrap: wrap; gap: 6px; }
+.categories > button { display: flex; flex: 1 0 auto; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: 44px; padding: 8px 10px; border: 1px solid #122c4f16; border-radius: 8px; background: #ffffff40; color: #607083; font: inherit; font-size: 10px; font-weight: 500; cursor: pointer; transition: background 150ms ease, border-color 150ms ease; }
+.categories > button > span { display: grid; flex: none; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #122c4f06; }
+.categories svg { width: 16px; height: 16px; }
 .categories > button:hover { border-color: #5d87b580; background: #becfe122; }
 .categories > button[aria-pressed="true"] { border-color: #5d87b5; background: #becfe133; color: var(--foreground); box-shadow: inset 0 0 0 1px #5d87b5; }
 .categories > button[aria-pressed="true"] > span { background: #5d87b51a; color: #4a7097; }
-.filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .filters button { min-height: 36px; padding: 8px 12px; border: 1px solid #122c4f20; border-radius: 24px; background: transparent; color: #607083; font: inherit; font-size: 10px; line-height: 1.5; cursor: pointer; }
 .filters button[aria-pressed="true"] { border-color: var(--foreground); background: var(--foreground); color: var(--background); }
 .results { margin-top: 14px; overflow: hidden; border: 1px solid #122c4f16; border-radius: 12px; background: #ffffff40; }
@@ -48,7 +48,7 @@
 .resultsHeading small { display: block; margin-top: 4px; color: #607083; font-size: 10px; font-weight: 400; line-height: 1.5; }
 .chevron { flex: none; width: 17px; height: 17px; }
 .chevron[data-expanded="true"] { transform: rotate(180deg); }
-.placeList { max-height: 300px; margin: 0; padding: 0 12px; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-width: thin; scrollbar-color: #5d87b580 transparent; list-style: none; }
+.placeList { margin: 0; padding: 0 12px; list-style: none; }
 .placeList > li { display: flex; align-items: center; min-width: 0; gap: 4px; border-top: 1px solid #122c4f0d; border-radius: 6px; }
 .placeList > li[data-selected="true"] { background: #becfe133; }
 .placeButton { display: flex; flex: 1; align-items: center; gap: 10px; min-width: 0; min-height: 64px; padding: 10px 4px; border: 0; background: transparent; color: var(--foreground); font: inherit; text-align: left; cursor: pointer; }
@@ -65,7 +65,13 @@
 .retryRow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 10px 16px 16px; color: #607083; font-size: 11px; line-height: 1.7; }
 .retryRow > span { flex: 1 1 160px; }
 .retryRow > button { min-height: 36px; padding: 6px 12px; border: 1px solid #122c4f25; border-radius: 6px; background: transparent; color: var(--foreground); font: inherit; font-size: 11px; cursor: pointer; }
-.resultLimit { margin: 10px 16px; color: #607083; font-size: 10px; }
+.placePagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 12px 10px 16px; border-top: 1px solid #122c4f0d; }
+.placePagination > span { color: #607083; font-size: 10px; font-variant-numeric: tabular-nums; }
+.placePagination > div { display: flex; gap: 6px; }
+.placePagination button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid #122c4f20; border-radius: 8px; background: transparent; color: var(--foreground); cursor: pointer; }
+.placePagination button:hover:not(:disabled) { background: #becfe133; border-color: #5d87b5; }
+.placePagination button:disabled { opacity: .35; cursor: default; }
+.placePagination svg { width: 16px; height: 16px; }
 .sourceNote { margin: 14px 0 0; color: #607083; font-size: 9px; line-height: 1.8; }
 .sourceNote a { color: inherit; text-underline-offset: 2px; }
 .loadingState { display: flex; align-items: center; gap: 10px; padding: 12px 16px 24px; color: #607083; font-size: 12px; line-height: 1.8; }
@@ -76,20 +82,17 @@
   .explorerIntro { padding: 18px 14px; }
   .explorerIntro > span { font-size: 8px; }
   .explorerIntro > p { font-size: 11px; }
-  .mapWrapper { height: 280px; }
+  .mapWrapper { height: 240px; }
   .propertyLabel { top: 10px; left: 10px; padding: 7px 10px; font-size: 10px; }
   .mapFloatingBar { gap: 6px; bottom: 24px; left: 10px; }
   .floatingBtn { min-height: 44px; padding: 8px 10px; font-size: 10px; }
   .explorerBody { padding: 12px; }
-  .categories { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
-  .categories > button { grid-column: span 2; min-height: 76px; padding: 10px 2px; gap: 5px; font-size: 10px; }
-  .categories > button:nth-last-child(-n + 2) { grid-column: span 3; }
-  .categories > button > span { width: 28px; height: 28px; }
-  .filters { gap: 6px; margin-top: 14px; }
+  .categories > button { padding: 7px 8px; }
+  .filters { gap: 6px; margin-top: 10px; }
   .filters button { min-height: 40px; padding: 8px 10px; font-size: 10px; }
   .resultsHeading { padding: 14px 12px; gap: 10px; }
-  .placeList { max-height: 264px; padding-inline: 8px; }
-  .placeButton { gap: 7px; min-height: 68px; }
+  .placeList { padding-inline: 8px; }
+  .placeButton { gap: 7px; min-height: 60px; }
   .placeNumber { width: 22px; height: 22px; font-size: 9px; }
   .placeName { font-size: 11px; }
   .distance { font-size: 10px; }
