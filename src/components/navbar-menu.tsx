@@ -93,7 +93,7 @@ export function NavbarMenu({ className = "", spacesHref = "/projects" }: { class
           </Link>
           <div className={styles.headerActions}>
             <Link href={spacesHref} className={styles.searchButton} aria-label="Search spaces" onClick={closeMenu}><Search /></Link>
-            <button type="button" className={styles.closeButton} aria-label="Close navigation menu" onClick={closeMenu}>
+            <button type="button" className={styles.closeButton} aria-label="Close navigation menu" onClick={closeMenu} autoFocus>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
             </button>
           </div>
