@@ -20,7 +20,10 @@ export const emptyListingFilters: ListingFilters = {
 export const finishedTypeOptions: FinishedType[] = ["Bare shell", "Semi-Furnished", "Ready-to-move"];
 
 export const locationNames: Record<string, string> = {
-  noida: "Noida", gurgaon: "Gurugram", delhi: "Delhi", "greater-noida": "Greater Noida", bengaluru: "Bengaluru", mumbai: "Mumbai",
+  noida: "Noida",
+  "greater-noida": "GNoida",
+  gnoida: "GNoida",
+  delhi: "Delhi",
 };
 
 export const heroBudgetRanges: Record<string, [number, number]> = {

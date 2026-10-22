@@ -69,7 +69,7 @@ export function ExploreSpaces({ projects }: { projects: Project[] }) {
               <span className="space-select">
                 {filters.location === "all" && <span className="space-filter-placeholder" aria-hidden="true">Location</span>}
                 <select id="space-location" name="location" value={filters.location} data-unfiltered={filters.location === "all"} onChange={(event) => setFilters({ ...filters, location: event.target.value })}>
-                  <option value="noida">Noida</option><option value="greater-noida">GNoida</option><option value="all">All locations</option>
+                  <option value="noida">Noida</option><option value="greater-noida">GNoida</option><option value="delhi">Delhi</option><option value="all">All locations</option>
                 </select><ChevronLeft />
               </span>
             </div>

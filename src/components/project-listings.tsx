@@ -42,7 +42,16 @@ function initialSelection(search: ProjectFilters | null): ListingFilters {
     "Managed Office": "Commercial",
     "Conventional Leasing": "Conventional Leasing",
   };
-  const locations: Record<string, string> = { Noida: "noida", Gurgaon: "gurgaon", Delhi: "delhi", Bengaluru: "bengaluru", Mumbai: "mumbai" };
+  const locations: Record<string, string> = {
+    Noida: "noida",
+    noida: "noida",
+    GNoida: "greater-noida",
+    gnoida: "greater-noida",
+    "Greater Noida": "greater-noida",
+    "greater-noida": "greater-noida",
+    Delhi: "delhi",
+    delhi: "delhi",
+  };
   const range = heroBudgetRanges[search.budget];
   return { ...emptyListingFilters, query: search.query?.trim() ?? "", spaceType: spaceTypes[search.spaceType] ? [spaceTypes[search.spaceType]] : [], location: locations[search.location] ? [locations[search.location]] : [], minPrice: range ? String(range[0]) : "", maxPrice: range && Number.isFinite(range[1]) ? String(range[1]) : "" };
 }
@@ -67,10 +76,11 @@ export function ProjectListings({ search, projects }: { search: ProjectFilters |
   const activeCount = filters.spaceType.length + filters.finishedType.length + filters.location.length + filters.amenities.length + Number(Boolean(filters.minPrice || filters.maxPrice)) + Number(filters.hideSoldOut) + Number(Boolean(filters.query));
   const budgetInvalid = Boolean(filters.minPrice && filters.maxPrice && Number(filters.minPrice) > Number(filters.maxPrice));
   const sortLabel = sortOptions.find((option) => option.value === sort)!.label;
+  const allowedLocations = ["noida", "greater-noida", "delhi"];
   const groups = [
     { key: "spaceType" as const, title: "Space type", options: [...new Set([...projects.map(projectSpaceType), ...filters.spaceType])].map((value) => ({ value, label: value, count: projects.filter((project) => matchesListing(project, { ...filters, spaceType: [value] })).length })) },
     { key: "finishedType" as const, title: "Finished Type", options: finishedTypeOptions.map((value) => ({ value, label: value, count: projects.filter((project) => matchesListing(project, { ...filters, finishedType: [value] })).length })) },
-    { key: "location" as const, title: "Location", options: [...new Set([...projects.map((project) => project.location), ...filters.location])].map((value) => ({ value, label: locationNames[value] ?? value, count: projects.filter((project) => matchesListing(project, { ...filters, location: [value] })).length })) },
+    { key: "location" as const, title: "Location", options: allowedLocations.map((value) => ({ value, label: locationNames[value] ?? value, count: projects.filter((project) => matchesListing(project, { ...filters, location: [value] })).length })) },
     { key: "amenities" as const, title: "Amenities", options: amenityOptions.filter((value) => projects.some((project) => hasProjectAmenity(project, value)) || filters.amenities.includes(value)).map((value) => ({ value, label: value, count: projects.filter((project) => matchesListing(project, { ...filters, amenities: [...new Set([...filters.amenities, value])] })).length })) },
   ];
 
