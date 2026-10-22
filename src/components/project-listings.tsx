@@ -34,7 +34,14 @@ function CloseIcon() {
 
 function initialSelection(search: ProjectFilters | null): ListingFilters {
   if (!search) return emptyListingFilters;
-  const spaceTypes: Record<string, string> = { Coworking: "Co-Working", "Managed Offices": "Managed Office", "Conventional Leasing": "Conventional Leasing" };
+  const spaceTypes: Record<string, string> = {
+    Coworking: "Co-Working",
+    "Co-Working": "Co-Working",
+    Commercial: "Commercial",
+    "Managed Offices": "Commercial",
+    "Managed Office": "Commercial",
+    "Conventional Leasing": "Conventional Leasing",
+  };
   const locations: Record<string, string> = { Noida: "noida", Gurgaon: "gurgaon", Delhi: "delhi", Bengaluru: "bengaluru", Mumbai: "mumbai" };
   const range = heroBudgetRanges[search.budget];
   return { ...emptyListingFilters, query: search.query?.trim() ?? "", spaceType: spaceTypes[search.spaceType] ? [spaceTypes[search.spaceType]] : [], location: locations[search.location] ? [locations[search.location]] : [], minPrice: range ? String(range[0]) : "", maxPrice: range && Number.isFinite(range[1]) ? String(range[1]) : "" };

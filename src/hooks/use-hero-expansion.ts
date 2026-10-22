@@ -68,6 +68,7 @@ export function useHeroExpansion() {
       distance = viewportHeight * (isMobile ? 0.45 : 0.6);
       track!.style.setProperty("--hero-scroll-distance", `${viewportHeight * (isMobile ? 0.55 : 0.8)}px`);
       start = trackTop + overflow;
+      pin!.dataset.expansionEnd = String(start + distance);
 
       const elements = Array.from(hero!.querySelectorAll<HTMLElement>(
         ".brand, .primary-nav, .header-actions, .workspace-nav, .hero-title, .hero-tagline, .hero-search-filters",

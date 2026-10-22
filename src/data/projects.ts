@@ -24,7 +24,7 @@ const legacyAliases: Record<string, string[]> = {
   "aykon-tower": ["noida-exp-17"],
   "assotech-business-cresterra": ["noida-exp-18"],
   "tech-boulevard": ["boulevard"],
-  "jask-tower-sector-127": ["jask"],
+  "jask-tower-sector-125": ["jask"],
 };
 
 function locationLabel(building: BuildingRecord) {

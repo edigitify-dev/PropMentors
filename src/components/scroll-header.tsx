@@ -4,7 +4,15 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import styles from "./scroll-header.module.css";
 
-export function ScrollHeader({ className, children }: { className: string; children: ReactNode }) {
+export function ScrollHeader({
+  className,
+  children,
+  minHideScroll,
+}: {
+  className: string;
+  children: ReactNode;
+  minHideScroll?: number;
+}) {
   const headerRef = useRef<HTMLElement>(null);
   const floatingRef = useRef<HTMLElement>(null);
   const [visibility, setVisibility] = useState({ ready: false, hidden: false, floating: false });
@@ -28,7 +36,22 @@ export function ScrollHeader({ className, children }: { className: string; child
         direction = nextDirection;
         if (distance >= 8) hidden = direction > 0;
       }
-      if (currentY <= 80) hidden = false;
+
+      // Check if header is inside a hero expansion container
+      const heroPin = headerRef.current?.closest<HTMLElement>(".hero-pin");
+      let minThreshold = minHideScroll ?? 80;
+      if (heroPin) {
+        const end = Number(heroPin.dataset.expansionEnd);
+        if (Number.isFinite(end) && end > 0) {
+          minThreshold = end;
+        } else {
+          const isMobile = window.innerWidth <= 820;
+          minThreshold = window.innerHeight * (isMobile ? 0.45 : 0.6);
+        }
+      }
+
+      // Do not hide the header while the hero background image is expanding
+      if (currentY <= minThreshold) hidden = false;
       if (headerRef.current?.querySelector(":focus-visible") || floatingRef.current?.querySelector(":focus-visible")) hidden = false;
       previousY = currentY;
 

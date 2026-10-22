@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { ChevronLeft, Search } from "./icons";
 import { PropertyCard } from "./property-card";
-import { projectSpaceType } from "@/lib/project-listing-filters";
+import { hasCloudinaryPhotos, projectSpaceType } from "@/lib/project-listing-filters";
 import type { Project } from "@/lib/project-types";
 
 type Filters = { location: string; propertyType: string; budget: string };
@@ -27,7 +27,10 @@ export function ExploreSpaces({ projects }: { projects: Project[] }) {
       && (appliedFilters.propertyType === "all" || projectSpaceType(property) === appliedFilters.propertyType)
       && (!budget || property.price !== null && property.price >= budget[0] && property.price <= budget[1]);
   });
-  const visibleProperties = filteredProperties.slice(0, 6);
+  const sortedProperties = filteredProperties.toSorted((a, b) => {
+    return Number(hasCloudinaryPhotos(b)) - Number(hasCloudinaryPhotos(a));
+  });
+  const visibleProperties = sortedProperties.slice(0, 6);
 
   function showAllSpaces() {
     setFilters(allFilters);
@@ -74,7 +77,7 @@ export function ExploreSpaces({ projects }: { projects: Project[] }) {
               <span className="space-select">
                 {filters.propertyType === "all" && <span className="space-filter-placeholder" aria-hidden="true">Type</span>}
                 <select id="space-property-type" name="property-type" value={filters.propertyType} data-unfiltered={filters.propertyType === "all"} onChange={(event) => setFilters({ ...filters, propertyType: event.target.value })}>
-                  <option value="Co-Working">Co-working</option><option value="Conventional Leasing">Conventional spaces</option><option value="Managed Office">Managed spaces</option><option value="all">All space types</option>
+                  <option value="Commercial">Commercial</option><option value="Co-Working">Co-working</option><option value="Conventional Leasing">Conventional spaces</option><option value="all">All space types</option>
                 </select><ChevronLeft />
               </span>
             </div>

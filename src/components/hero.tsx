@@ -9,9 +9,18 @@ import { HeroSearchFilters } from "./hero-search-filters";
 import { useHeroExpansion } from "@/hooks/use-hero-expansion";
 
 const workspaces = [
-  "MANAGED OFFICES",
-  "CO-WORKING",
-  "CONVENTIONAL LEASING",
+  {
+    label: "COMMERCIAL",
+    href: "/projects?spaceType=Commercial#project-listings",
+  },
+  {
+    label: "CO-WORKING",
+    href: "/projects?spaceType=Coworking#project-listings",
+  },
+  {
+    label: "CONVENTIONAL LEASING",
+    href: "/projects?spaceType=Conventional+Leasing#project-listings",
+  },
 ];
 
 export function Hero() {
@@ -40,8 +49,20 @@ export function Hero() {
         </div>
       </ScrollHeader>
       <div className="hero-copy">
-        <p className="hero-copy-eyebrow">{workspaces.map((space) => <span key={space}>{space}</span>)}</p>
-        <div className="workspace-nav">{workspaces.map((space) => <span key={space}>{space}</span>)}</div>
+        <p className="hero-copy-eyebrow">
+          {workspaces.map((space) => (
+            <Link key={space.label} href={space.href}>
+              <span>{space.label}</span>
+            </Link>
+          ))}
+        </p>
+        <div className="workspace-nav">
+          {workspaces.map((space) => (
+            <Link key={space.label} href={space.href}>
+              <span>{space.label}</span>
+            </Link>
+          ))}
+        </div>
         <h1 className="hero-title" id="hero-heading"><span>The right</span>{" "}<span>space</span></h1>
         <p className="hero-tagline">Can Change Everything</p>
       </div>

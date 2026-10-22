@@ -166,8 +166,8 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
             </label>
             <label>
               Space type / Requirement
-              <select name="spaceType" defaultValue="Managed Offices">
-                <option value="Managed Offices">Managed Offices</option>
+              <select name="spaceType" defaultValue="Commercial">
+                <option value="Commercial">Commercial</option>
                 <option value="Co-Working">Co-Working</option>
                 <option value="Conventional Leasing">Conventional Leasing</option>
                 <option value="Commercial Advisory">Commercial Advisory</option>

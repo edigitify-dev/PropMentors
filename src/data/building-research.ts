@@ -1,4 +1,5 @@
 import catalog from "./building-catalog.json";
+import duplicateProjects from "./project-duplicates.json";
 
 export type BuildingRecord = {
   sheetRow: number;
@@ -26,6 +27,16 @@ export type BuildingRecord = {
   coordinates: { lat: number; lng: number } | null;
 };
 
-// Authoritative inventory/order: public/Building sheet.xlsx. See the import report
-// for matched EstateLion pages and rows still awaiting building-specific facts.
-export const buildingResearch: BuildingRecord[] = catalog;
+// Keep the source spreadsheet intact; reviewed duplicates are excluded from the
+// inventory and their old URLs remain aliases of the complete building record.
+const duplicates: Record<string, string> = duplicateProjects;
+export const buildingResearch: BuildingRecord[] = catalog
+  .filter((building) => !duplicates[building.slug])
+  .map((building) => ({
+    ...building,
+    aliases: [...new Set([
+      ...building.aliases,
+      ...catalog.filter((item) => duplicates[item.slug] === building.slug)
+        .flatMap((item) => [item.slug, ...item.aliases]),
+    ])],
+  }));

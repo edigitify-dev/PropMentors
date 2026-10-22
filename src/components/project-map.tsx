@@ -37,7 +37,7 @@ export function ProjectMap({ project }: { project: Project }) {
   const [data, setData] = useState<NeighbourhoodData | null>(null);
   const [loading, setLoading] = useState(true);
   const [attempt, setAttempt] = useState(0);
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [placePage, setPlacePage] = useState(0);
   const activeCategory = neighbourhoodCategories.find(item => item.id === category)!;
@@ -77,7 +77,7 @@ export function ProjectMap({ project }: { project: Project }) {
   }, [project.slug, coords, attempt]);
 
   function selectCategory(next: NeighbourhoodCategory) {
-    setCategory(next); setType("All"); setSelected(null); setExpanded(true); setPlacePage(0);
+    setCategory(next); setType("All"); setSelected(null); setPlacePage(0);
   }
 
   function changePlacePage(next: number) {
@@ -103,7 +103,7 @@ export function ProjectMap({ project }: { project: Project }) {
         <label className={styles.filterField}>
           <span>Place type</span>
           <span className={styles.selectWrap}>
-            <select value={type} onChange={(event) => { setType(event.target.value); setSelected(null); setExpanded(true); setPlacePage(0); }} aria-controls={resultsId}>
+            <select value={type} onChange={(event) => { setType(event.target.value); setSelected(null); setPlacePage(0); }} aria-controls={resultsId}>
               {["All", ...activeCategory.types].map(item => <option key={item} value={item}>{item === "All" ? "All places" : item}</option>)}
             </select>
           </span>

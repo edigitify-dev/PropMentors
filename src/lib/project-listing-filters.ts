@@ -47,7 +47,12 @@ function normalise(value: string) {
 export function projectSpaceType(project: Project) {
   const value = project.spaceType ?? project.category;
   const names: Record<string, string> = {
-    coworking: "Co-Working", managedoffice: "Managed Office", managedoffices: "Managed Office", conventional: "Conventional Leasing", conventionalleasing: "Conventional Leasing",
+    coworking: "Co-Working",
+    managedoffice: "Commercial",
+    managedoffices: "Commercial",
+    conventional: "Conventional Leasing",
+    conventionalleasing: "Conventional Leasing",
+    commercial: "Commercial",
   };
   return names[normalise(value)] ?? value;
 }
@@ -70,6 +75,16 @@ export function matchesListing(project: Project, filters: ListingFilters) {
     && (!filters.hideSoldOut || normalise(project.badge) !== "soldout");
 }
 
+export function hasCloudinaryPhotos(project: Project) {
+  const images = [
+    project.cover,
+    ...(project.detail?.gallery ?? []),
+    project.detail?.views?.exterior,
+    project.detail?.views?.interior,
+  ].filter(Boolean);
+  return images.some((image) => typeof image?.src === "string" && /^https:\/\/res\.cloudinary\.com\//i.test(image.src));
+}
+
 export function sortListings(listings: Project[], sort: ListingSort) {
   return listings.toSorted((a, b) => {
     if (sort === "price-low" || sort === "price-high") {
@@ -78,6 +93,6 @@ export function sortListings(listings: Project[], sort: ListingSort) {
       return sort === "price-low" ? a.price - b.price : b.price - a.price;
     }
     if (sort === "name") return a.name.localeCompare(b.name, "en-IN");
-    return 0;
+    return Number(hasCloudinaryPhotos(b)) - Number(hasCloudinaryPhotos(a));
   });
 }

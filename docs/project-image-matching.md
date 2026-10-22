@@ -56,7 +56,7 @@ The archive collections for Boulevard, Express Trade Tower, and JASK include the
 - `Jask sec 125/g6ujyf.webp` is also in the previous Aykon collection and shows that building's distinctive facade; it is excluded from JASK.
 - Two exact duplicate interiors were filed under different projects: `Add India Heights/3.webp` and `Jask sec 125/3ee6t2.webp`; `Boulevard/1769768760_12.jpg.webp` and `Jask sec 125/1770367019_12.jpg.webp`. Both copies of each ambiguous image are excluded.
 - Watermarked copies are omitted where the archive supplies the same exterior photograph without that watermark (Boulevard, Express Trade Tower, and JASK).
-- Sector 127 entries for JASK and Lucerna stay separate from the supplied Sector 125 buildings. ATS Bouquet, Bhutani Cyberthum, and Sovereign Corporate Towers are not assigned to similarly named but different catalogue buildings.
+- The placeholder Sector 127 entries for JASK and Lucerna were merged into their complete Sector 125 records during the [duplicate review](project-deduplication.md). ATS Bouquet, Bhutani Cyberthum, and Sovereign Corporate Towers are not assigned to similarly named but different catalogue buildings.
 
 ## Existing database records
 
