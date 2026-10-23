@@ -46,13 +46,14 @@
 .mapCta { display: flex; align-items: center; justify-content: center; gap: .694444cqw; margin-top: .833333cqw; min-height: 2.5cqw; padding: .416667cqw; border-radius: 4px; background: var(--accent); color: var(--background); text-decoration: none; font-size: .833333cqw; }
 .mapCta:hover { background: #4874a5; }
 .mapCta svg { width: 1.111111cqw; height: 1.111111cqw; transform: rotate(180deg); }
-.team { position: relative; isolation: isolate; display: flex; flex-direction: column; width: 100%; min-height: clamp(680px, 90svh, 860px); padding: 48px 0 2.222222cqw; background: #b8c5c9; }
+.team { position: relative; isolation: isolate; display: flex; flex-direction: column; width: 100%; min-height: 100svh; padding: 48px 0 2.222222cqw; background: #b8c5c9; }
 .team::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(#becfe133, transparent 40%, #0004 72%, #000e); pointer-events: none; }
 .teamPortrait { position: absolute; z-index: -2; inset: 0; overflow: hidden; }
 .teamSlide { position: absolute; inset: 0; opacity: 0; transition: opacity 450ms ease; }
 .teamSlide[data-active="true"] { opacity: 1; }
 .teamPortrait picture, .teamThumbnail picture { display: block; width: 100%; height: 100%; }
 .teamPortrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.team[data-adviser="ishan-mittal"] .teamPortrait img { object-position: center 35%; }
 .team .headingRow { grid-template-columns: minmax(0, 1fr); max-width: 46%; gap: 20px; }
 .team .headingRow > p { font-size: clamp(15px, 1.3vw, 18px); line-height: 1.6; }
 .team[data-dark-portrait="true"] .headingRow > :is(h2, p) { color: var(--background); }
@@ -123,7 +124,7 @@
   .mapCard :global(.property-amenities li) { gap: 4px; }
   .mapCta { margin-top: 12px; min-height: 36px; padding: 6px; gap: 10px; font-size: 12px; }
   .mapCta svg { width: 16px; height: 16px; }
-  .team { min-height: 760px; padding-block: 40px 24px; }
+  .team { padding-block: 40px 24px; }
   .team .headingRow { max-width: 48%; }
   .teamIdentity { margin-inline: 32px; }
   .teamBottom { margin-left: 32px; gap: 24px; }
