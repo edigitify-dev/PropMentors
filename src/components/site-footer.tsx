@@ -8,10 +8,11 @@ import { useContactDetails } from "./contact-provider";
 import { submitEnquiry } from "@/lib/submit-enquiry";
 
 const experts = [
-  { id: "one", width: 736, height: 1111 },
-  { id: "two", width: 736, height: 1308 },
-  { id: "three", width: 736, height: 736 },
-  { id: "four", width: 736, height: 1104 },
+  { id: "one", image: "/images/footer/expert-one.png", width: 736, height: 1111 },
+  { id: "two", image: "/images/footer/expert-two.png", width: 736, height: 1308 },
+  { id: "three", image: "/images/footer/expert-three.png", width: 736, height: 736 },
+  // Photo by Tony Luginsland: https://unsplash.com/photos/bbOOTiq-EPA
+  { id: "four", image: "/images/footer/expert-four-unsplash.jpg", width: 256, height: 256 },
 ];
 
 const explore = [
@@ -73,7 +74,7 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
               <span>25+ Experts</span>
               <div className="cta-portraits" aria-hidden="true">
                 {experts.map(expert => <div className={`cta-avatar cta-avatar-${expert.id}`} key={expert.id}>
-                  <Image src={`/images/footer/expert-${expert.id}.png`} alt="" width={expert.width} height={expert.height} unoptimized />
+                  <Image src={expert.image} alt="" width={expert.width} height={expert.height} unoptimized />
                 </div>)}
               </div>
             </div>

@@ -121,15 +121,15 @@ function AboutMarkets({ projects }: { projects: Project[] }) {
 
 const teamImagePath = (file: string) => encodeURI(`/About page/Team/${file}`);
 const advisers = [
+  { id: "rakesh-chand", darkPortrait: true, name: "Rakesh Chand", role: "Managing Director", image: teamImagePath("Team Rakesh Chand Managing director.JPG.png"), mobileImage: teamImagePath("8.png"), width: 1227, height: 920 },
   { id: "nikhlesh-chand", darkPortrait: false, name: "Nikhlesh Chand", role: "VP, Leasing", image: teamImagePath("Team Nikhlesh Chand VP leasing 2.jpeg.jpg"), mobileImage: teamImagePath("1.jpg"), width: 1227, height: 920 },
+  { id: "shobhit-chand", darkPortrait: false, name: "Shobhit Chand", role: "Head of Leasing", image: teamImagePath("Team Shobhit Chand head  of leasing 2.JPG.jpg"), mobileImage: teamImagePath("5.jpg"), width: 1440, height: 920 },
+  { id: "prashant-tyagi", darkPortrait: true, name: "Prashant Tyagi", role: "General Manager", image: teamImagePath("Team Prashant tyagi General manager 2.jpeg.jpg"), mobileImage: teamImagePath("4.jpg"), width: 1227, height: 920 },
   { id: "dharmveer", darkPortrait: true, name: "Dharmveer", role: "Advisory Board Member", image: teamImagePath("Team Dharmveer Adviosry board member 2.jpg"), mobileImage: teamImagePath("2.jpg"), width: 1227, height: 920 },
   { id: "prabhat-asthana", darkPortrait: true, name: "Prabhat Asthana", role: "Leasing Manager", image: teamImagePath("Team Prabhat Asthana leasing manager 2.jpeg.png"), mobileImage: teamImagePath("3 copy.jpg"), width: 1227, height: 920 },
-  { id: "prashant-tyagi", darkPortrait: true, name: "Prashant Tyagi", role: "General Manager", image: teamImagePath("Team Prashant tyagi General manager 2.jpeg.jpg"), mobileImage: teamImagePath("4.jpg"), width: 1227, height: 920 },
-  { id: "shobhit-chand", darkPortrait: false, name: "Shobhit Chand", role: "Head of Leasing", image: teamImagePath("Team Shobhit Chand head  of leasing 2.JPG.jpg"), mobileImage: teamImagePath("5.jpg"), width: 1440, height: 920 },
-  { id: "janvi-sharma", darkPortrait: true, name: "Janvi Sharma", role: "Creative Associate", image: teamImagePath("Janvi Sharma Creative Associate.png"), mobileImage: teamImagePath("6.png"), width: 1227, height: 920 },
   { id: "pankaj-chauhan", darkPortrait: true, name: "Pankaj Chauhan", role: "Leasing Manager", image: teamImagePath("Team Pankaj Chauhan leasing manager 2.jpeg.png"), mobileImage: teamImagePath("7.png"), width: 1227, height: 920 },
-  { id: "rakesh-chand", darkPortrait: true, name: "Rakesh Chand", role: "Managing Director", image: teamImagePath("Team Rakesh Chand Managing director.JPG.png"), mobileImage: teamImagePath("8.png"), width: 1227, height: 920 },
   { id: "ishan-mittal", darkPortrait: true, name: "Ishan Mittal", role: "Marketing Consultant", image: teamImagePath("Ishan Mittal Marketing Consultant.png"), mobileImage: teamImagePath("9.png"), width: 1227, height: 920 },
+  { id: "janvi-sharma", darkPortrait: true, name: "Janvi Sharma", role: "Creative Associate", image: teamImagePath("Janvi Sharma Creative Associate.png"), mobileImage: teamImagePath("6.png"), width: 1227, height: 920 },
 ];
 
 function TeamPhoto({ adviser, decorative = false }: { adviser: (typeof advisers)[number]; decorative?: boolean }) {
