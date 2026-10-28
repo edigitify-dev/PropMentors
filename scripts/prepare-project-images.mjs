@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const imageMap = JSON.parse(await fs.readFile(path.join(root, "r2-map.json"), "utf8"));
 let sourceBackup = [];
 try { sourceBackup = JSON.parse(await fs.readFile(path.join(root, "src/data/archive-cloudinary-backup.json"), "utf8")); }
 catch (error) { if (error.code !== "ENOENT") throw error; }
@@ -25,7 +26,7 @@ async function readSource(folder, file) {
     if (error.code !== "ENOENT") throw error;
     const source = sourceBackup.find((entry) => entry.path === `${folder}/${file}`);
     if (!source) throw new Error(`No hosted source photograph for ${folder}/${file}`);
-    const response = await fetch(source.url, { signal: AbortSignal.timeout(60000) });
+    const response = await fetch(imageMap[source.url] ?? source.url, { signal: AbortSignal.timeout(60000) });
     if (!response.ok) throw new Error(`Source photograph HTTP ${response.status}: ${folder}/${file}`);
     const buffer = Buffer.from(await response.arrayBuffer());
     if (createHash("sha256").update(buffer).digest("hex") !== source.sha256) throw new Error(`Source photograph hash mismatch: ${folder}/${file}`);

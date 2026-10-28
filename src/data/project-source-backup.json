@@ -1,0 +1,3285 @@
+{
+  "sourceDirectory": "public/All Projects Images",
+  "bucket": "propmentors",
+  "publicUrl": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev",
+  "verifiedAt": "2026-10-28T08:50:48.927Z",
+  "totalBytes": 4291468551,
+  "assets": [
+    {
+      "path": "8 Square /1.png",
+      "sha256": "ea91b080749238d882930c2d0e310be96684b30991dc859fc556f7d33e109055",
+      "bytes": 2218708,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ea91b080749238d882930c2d0e310be96684b30991dc859fc556f7d33e109055.png"
+    },
+    {
+      "path": "8 Square /2.png",
+      "sha256": "a1066b5b3c39ebb81a88dbd5bc5282bfde88e2fd5d145c23883954cb2b8a03f0",
+      "bytes": 2067615,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a1066b5b3c39ebb81a88dbd5bc5282bfde88e2fd5d145c23883954cb2b8a03f0.png"
+    },
+    {
+      "path": "8 Square /3.png",
+      "sha256": "5b7fded62d1e973dffae2942d8f2e4c41b9ec5600deb50e75d6f12869a7d3282",
+      "bytes": 1813892,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5b7fded62d1e973dffae2942d8f2e4c41b9ec5600deb50e75d6f12869a7d3282.png"
+    },
+    {
+      "path": "8 Square /4.png",
+      "sha256": "f07aa92b795cc88b386676c78a34334f7dc675a9f760522a20fab5b95144391b",
+      "bytes": 1039105,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f07aa92b795cc88b386676c78a34334f7dc675a9f760522a20fab5b95144391b.png"
+    },
+    {
+      "path": "8 Square Zen/1.png",
+      "sha256": "a385c3533444b5a8496c4a646bc24836dce0fd929da1d2129ccc08c16fbcad7d",
+      "bytes": 1300677,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a385c3533444b5a8496c4a646bc24836dce0fd929da1d2129ccc08c16fbcad7d.png"
+    },
+    {
+      "path": "8 Square Zen/2.png",
+      "sha256": "a3e29c943df8402ce91e1a92d017345a7921da69a8a73bb288fedc45d4032f60",
+      "bytes": 1856671,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a3e29c943df8402ce91e1a92d017345a7921da69a8a73bb288fedc45d4032f60.png"
+    },
+    {
+      "path": "8 Square Zen/3.png",
+      "sha256": "3744c6ee353127526b31c309abc1c3b2d1a92b9f080cd19ced3725b0096f7512",
+      "bytes": 2164072,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3744c6ee353127526b31c309abc1c3b2d1a92b9f080cd19ced3725b0096f7512.png"
+    },
+    {
+      "path": "8 Square Zen/4.png",
+      "sha256": "17fcee63ff03afe4303a3bfea362d268d6ae04e3277e97fec9d5937c28219428",
+      "bytes": 1916135,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/17fcee63ff03afe4303a3bfea362d268d6ae04e3277e97fec9d5937c28219428.png"
+    },
+    {
+      "path": "Ace Capitol/1.png",
+      "sha256": "e4ab9849aff1df0912cd8e61875ebbbdd11459448b6d91b12ffcea74b8049907",
+      "bytes": 1767038,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e4ab9849aff1df0912cd8e61875ebbbdd11459448b6d91b12ffcea74b8049907.png"
+    },
+    {
+      "path": "Ace Capitol/2.png",
+      "sha256": "52c62ca47f33b68d11830e03e6742474481a170058d9c04ac6dd33bcd543a84a",
+      "bytes": 1637824,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/52c62ca47f33b68d11830e03e6742474481a170058d9c04ac6dd33bcd543a84a.png"
+    },
+    {
+      "path": "Ace Capitol/3.png",
+      "sha256": "dc4d46b8cd1a68dd742db9df0b9b72d22a2a4dc67484088a2135d05d46f73781",
+      "bytes": 1287688,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/dc4d46b8cd1a68dd742db9df0b9b72d22a2a4dc67484088a2135d05d46f73781.png"
+    },
+    {
+      "path": "Ace Capitol/4.png",
+      "sha256": "80e8bfe7047c24bfd62f1b714201b79f59c5314b548717fef612f9c4cc036890",
+      "bytes": 1235377,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/80e8bfe7047c24bfd62f1b714201b79f59c5314b548717fef612f9c4cc036890.png"
+    },
+    {
+      "path": "Ace Capitol/5.png",
+      "sha256": "65535b1960bceb439144200f721b1f90651433f579eb50997e6ddd2067ca8da0",
+      "bytes": 1307469,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/65535b1960bceb439144200f721b1f90651433f579eb50997e6ddd2067ca8da0.png"
+    },
+    {
+      "path": "Ace Studio/1.png",
+      "sha256": "4712d43be9418c41198d25f889bd67a01acd43ec25006f643fc44ba6a66fede1",
+      "bytes": 1446572,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4712d43be9418c41198d25f889bd67a01acd43ec25006f643fc44ba6a66fede1.png"
+    },
+    {
+      "path": "Ace Studio/2.png",
+      "sha256": "56f27c021b5ca76bab8fedac104d4941697d71a7f02eb7399ec43a96cf65bd2f",
+      "bytes": 1562751,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/56f27c021b5ca76bab8fedac104d4941697d71a7f02eb7399ec43a96cf65bd2f.png"
+    },
+    {
+      "path": "Ace Studio/3.png",
+      "sha256": "5684f7e2596c0d80ca866c4952195a3c04bb6b97c632969d147a986d8788e616",
+      "bytes": 1257478,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5684f7e2596c0d80ca866c4952195a3c04bb6b97c632969d147a986d8788e616.png"
+    },
+    {
+      "path": "Ace Studio/4.png",
+      "sha256": "a4c984bccd14ebd5375a3b1b2fd32e3205602994ccc6d133324b1c159ebc4546",
+      "bytes": 1568523,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a4c984bccd14ebd5375a3b1b2fd32e3205602994ccc6d133324b1c159ebc4546.png"
+    },
+    {
+      "path": "Add India Centre/1.png",
+      "sha256": "7946d5e6a57659f582ccb6c99e2015d216fa65343fa97b76941b99c2d2cee2c2",
+      "bytes": 1452967,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7946d5e6a57659f582ccb6c99e2015d216fa65343fa97b76941b99c2d2cee2c2.png"
+    },
+    {
+      "path": "Add India Heights/1.png",
+      "sha256": "b77f7238fc3b80be422e7f035b10d25f2fffac12f165c0f9e15680aaae4fdfc5",
+      "bytes": 1965955,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b77f7238fc3b80be422e7f035b10d25f2fffac12f165c0f9e15680aaae4fdfc5.png"
+    },
+    {
+      "path": "Add India Heights/2.png",
+      "sha256": "7e9b0cb55dbc0f9341378626d772a8d71c27e0776d3f17c41d4ba50b2cc4eb31",
+      "bytes": 1418898,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7e9b0cb55dbc0f9341378626d772a8d71c27e0776d3f17c41d4ba50b2cc4eb31.png"
+    },
+    {
+      "path": "Add India Heights/3.webp",
+      "sha256": "f08f559d3d6c0897140061c4ed4ba2212a1ce8a3cbe9aadd8c16dc3928b40079",
+      "bytes": 105790,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f08f559d3d6c0897140061c4ed4ba2212a1ce8a3cbe9aadd8c16dc3928b40079.webp"
+    },
+    {
+      "path": "Add India Heights/4.png",
+      "sha256": "b31b60b10bcf1d41b7ddb031173d4ca5d14805b34f21e850ec94b43109530359",
+      "bytes": 1422354,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b31b60b10bcf1d41b7ddb031173d4ca5d14805b34f21e850ec94b43109530359.png"
+    },
+    {
+      "path": "ADD India Tower/1.jpg",
+      "sha256": "82a05e95eada0c0d40d40689eaf63c1d5ac4e3a97b73a45ad3ff78c386eec071",
+      "bytes": 622809,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/82a05e95eada0c0d40d40689eaf63c1d5ac4e3a97b73a45ad3ff78c386eec071.jpg"
+    },
+    {
+      "path": "ADD India Tower/3.jpg",
+      "sha256": "2dbb2b36ab0797af6fd8ea4225f16248dcb7fd73f2388bb0c3b9e4e983b75969",
+      "bytes": 429245,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2dbb2b36ab0797af6fd8ea4225f16248dcb7fd73f2388bb0c3b9e4e983b75969.jpg"
+    },
+    {
+      "path": "ADD India Tower/Untitled-3.jpg",
+      "sha256": "206b51c29fb90e3c0d287a3dcc5601da025b14ba0c73c1005547d5f2defee416",
+      "bytes": 515888,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/206b51c29fb90e3c0d287a3dcc5601da025b14ba0c73c1005547d5f2defee416.jpg"
+    },
+    {
+      "path": "Advant navis/8540303Advant Navis-Sector-142.png",
+      "sha256": "8ecf3ec8347c44bfea87113f1e49d46d650cce93a5e899001c1413da149d5dc1",
+      "bytes": 4116688,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8ecf3ec8347c44bfea87113f1e49d46d650cce93a5e899001c1413da149d5dc1.png"
+    },
+    {
+      "path": "Advant navis/advant-navis-1.jpg",
+      "sha256": "2ea388011f3e1fbf9b01cfdf5e320d67aa45bde6febee374c368de9a67f4c58b",
+      "bytes": 234904,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2ea388011f3e1fbf9b01cfdf5e320d67aa45bde6febee374c368de9a67f4c58b.jpg"
+    },
+    {
+      "path": "Advant navis/advant-navis-business-park-noida-sector-142-noida-business-centres-2n87tet7z8.jpg.avif",
+      "sha256": "a222176157d1ee21cc8944759d91de1779ea7485f6581c4a7a9fffc5eaa8d93d",
+      "bytes": 72047,
+      "contentType": "image/avif",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a222176157d1ee21cc8944759d91de1779ea7485f6581c4a7a9fffc5eaa8d93d.avif"
+    },
+    {
+      "path": "Advant navis/ai0i1080.jpg",
+      "sha256": "0e290e01c648ca48825f63afc16882ddd2dd68feb0482323bf765268d4a15ba4",
+      "bytes": 327282,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0e290e01c648ca48825f63afc16882ddd2dd68feb0482323bf765268d4a15ba4.jpg"
+    },
+    {
+      "path": "Advant navis/images 1.jpeg",
+      "sha256": "e22aae81380e73f751e7fdf93b0c7c9d77e49e05bcfd533fbee3a4b7501a97ec",
+      "bytes": 39295,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e22aae81380e73f751e7fdf93b0c7c9d77e49e05bcfd533fbee3a4b7501a97ec.jpg"
+    },
+    {
+      "path": "Advant navis/images.jpeg",
+      "sha256": "c97f9e8f3d45e3650f44654cc03432345cf2009a7fac0906f6841f18616e7583",
+      "bytes": 41806,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c97f9e8f3d45e3650f44654cc03432345cf2009a7fac0906f6841f18616e7583.jpg"
+    },
+    {
+      "path": "Advant navis/Magnificent-view-of-Advant-Navis-Business-Park_0_1200.jpeg",
+      "sha256": "dc8641d5cbe237c01a788734a7fb43e42bd7f28b2312d4752086492940dbfbfb",
+      "bytes": 62561,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/dc8641d5cbe237c01a788734a7fb43e42bd7f28b2312d4752086492940dbfbfb.jpg"
+    },
+    {
+      "path": "Advant navis/rb88k9.jpg",
+      "sha256": "3d55e24d6801697a002ca2a08133b29dd03b9e1759bdbe88d82cdda81351e740",
+      "bytes": 264136,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3d55e24d6801697a002ca2a08133b29dd03b9e1759bdbe88d82cdda81351e740.jpg"
+    },
+    {
+      "path": "Advant navis/zrnqtg.webp",
+      "sha256": "ea91959bc08fa09f530ed57e8e7a41190b44d03621950a1e23d182a3106e5efd",
+      "bytes": 230122,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ea91959bc08fa09f530ed57e8e7a41190b44d03621950a1e23d182a3106e5efd.webp"
+    },
+    {
+      "path": "AltF Coworking/1.png",
+      "sha256": "dae53e8b2e9f5330c7df1dfd33dd1f3e8200a3aa3157692952fb046dfe76e643",
+      "bytes": 1402803,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/dae53e8b2e9f5330c7df1dfd33dd1f3e8200a3aa3157692952fb046dfe76e643.png"
+    },
+    {
+      "path": "AltF Coworking/2.png",
+      "sha256": "ae263c2828158a84d063f679906b9e2853b652374ef9261c41eaaff6bd036621",
+      "bytes": 1513933,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ae263c2828158a84d063f679906b9e2853b652374ef9261c41eaaff6bd036621.png"
+    },
+    {
+      "path": "AltF Coworking/3.png",
+      "sha256": "efa45b447c6fe71e33704dbd297d5cf64f56aad04b3cbdce7def2b0ddc7e9cd4",
+      "bytes": 1588759,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/efa45b447c6fe71e33704dbd297d5cf64f56aad04b3cbdce7def2b0ddc7e9cd4.png"
+    },
+    {
+      "path": "AltF Coworking/4.png",
+      "sha256": "c6886723ea25412ec2c8af46b1232ee693acf40fcd3a504ec9cc97f457688076",
+      "bytes": 1535647,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c6886723ea25412ec2c8af46b1232ee693acf40fcd3a504ec9cc97f457688076.png"
+    },
+    {
+      "path": "Assotech Business Cresterra/1773212177_Office Space Near Noida Electronic City Metro Station.webp",
+      "sha256": "d2fd5f2617c97800cf5a5142e1373358a789604af43d40c86963dde751831d67",
+      "bytes": 32408,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d2fd5f2617c97800cf5a5142e1373358a789604af43d40c86963dde751831d67.webp"
+    },
+    {
+      "path": "Assotech Business Cresterra/2njj2q.webp",
+      "sha256": "448c9e5e317b0b11591ec9962b0d38a6315e696d5677e2a22a6929f15473f80c",
+      "bytes": 130164,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/448c9e5e317b0b11591ec9962b0d38a6315e696d5677e2a22a6929f15473f80c.webp"
+    },
+    {
+      "path": "Assotech Business Cresterra/8jex87.webp",
+      "sha256": "a5dfa848f9ace719895d5fa20c014534a02cfcb3033bbb33c1daa0a444d105b5",
+      "bytes": 146304,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a5dfa848f9ace719895d5fa20c014534a02cfcb3033bbb33c1daa0a444d105b5.webp"
+    },
+    {
+      "path": "Assotech Business Cresterra/DJI_0953.MP4",
+      "sha256": "86b5376e914f825d0a835cf7f6d060dfb23be07e886f1cafd05f3b98f9c44d35",
+      "bytes": 192873801,
+      "contentType": "video/mp4",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/videos/86b5376e914f825d0a835cf7f6d060dfb23be07e886f1cafd05f3b98f9c44d35.mp4"
+    },
+    {
+      "path": "Assotech Business Cresterra/DJI_0954.MP4",
+      "sha256": "ce1e2d8c47764cb480f3f04aa70cadcd4c8b540d6ad46bbd0cbf97e1515b75ef",
+      "bytes": 923850797,
+      "contentType": "video/mp4",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/videos/ce1e2d8c47764cb480f3f04aa70cadcd4c8b540d6ad46bbd0cbf97e1515b75ef.mp4"
+    },
+    {
+      "path": "Assotech Business Cresterra/images-1664215258463.jpg",
+      "sha256": "487a56107f87bf6e564f178b769730a5b1dd808999f8a8a2a6453863369c8007",
+      "bytes": 222018,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/487a56107f87bf6e564f178b769730a5b1dd808999f8a8a2a6453863369c8007.jpg"
+    },
+    {
+      "path": "Assotech Business Cresterra/images.jpeg",
+      "sha256": "f985fba997c2ff9e1fc422f6e0662cede1249cc88d7612b4a491266ffbd29f78",
+      "bytes": 33526,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f985fba997c2ff9e1fc422f6e0662cede1249cc88d7612b4a491266ffbd29f78.jpg"
+    },
+    {
+      "path": "Assotech Business Cresterra/serviced-offices-assotech-business-cresterra-tower-2-plot-no-22-sector-135--0-hero.jpg",
+      "sha256": "73976246f60a871120ffebcf0bc8966205014312af83b52bfac53b3387c4b881",
+      "bytes": 223688,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/73976246f60a871120ffebcf0bc8966205014312af83b52bfac53b3387c4b881.jpg"
+    },
+    {
+      "path": "Assotech Business Cresterra/uzsf83.webp",
+      "sha256": "a3039cc567bb8f34f3a2aa1619aee1bc03241414632be71ba14fda0281053ddc",
+      "bytes": 137928,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a3039cc567bb8f34f3a2aa1619aee1bc03241414632be71ba14fda0281053ddc.webp"
+    },
+    {
+      "path": "Assotech Business Cresterra/v9qj7d.webp",
+      "sha256": "e191063639c821c7f0e7d52e46813c1c680c1ed167932a0c81c9cc85b2014dbf",
+      "bytes": 107992,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e191063639c821c7f0e7d52e46813c1c680c1ed167932a0c81c9cc85b2014dbf.webp"
+    },
+    {
+      "path": "ATS Bouquet/597gqv.webp",
+      "sha256": "6694bab510a6a6a9bd112cd3033108c8e3776f04a8302477b26cc70157e5bf59",
+      "bytes": 138500,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6694bab510a6a6a9bd112cd3033108c8e3776f04a8302477b26cc70157e5bf59.webp"
+    },
+    {
+      "path": "ATS Bouquet/63b950de944baf1d5d8eb2bc_WhatsApp Image 2022-12-28 at 21.20.28 (3).jpeg",
+      "sha256": "322223f7f260a1e06996949dfba2eaf7bdf75a76edcead817b46652bdb9ebd64",
+      "bytes": 1173730,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/322223f7f260a1e06996949dfba2eaf7bdf75a76edcead817b46652bdb9ebd64.jpg"
+    },
+    {
+      "path": "ATS Bouquet/63k5tx.webp",
+      "sha256": "01d6b3977abc45451c9679cde7808beb2b152f02f73d5a2fc207f01ef8f27c98",
+      "bytes": 100698,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/01d6b3977abc45451c9679cde7808beb2b152f02f73d5a2fc207f01ef8f27c98.webp"
+    },
+    {
+      "path": "ATS Bouquet/e6gvp8.webp",
+      "sha256": "db0ec3385df1b7299152fe2c369caf511a8f654c0e5941bfb71e1892705be64b",
+      "bytes": 250030,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/db0ec3385df1b7299152fe2c369caf511a8f654c0e5941bfb71e1892705be64b.webp"
+    },
+    {
+      "path": "ATS Bouquet/images 2.jpeg",
+      "sha256": "804282c919409e2f405ebbae11be78353981010563c50849eb5b9cdd12e0e119",
+      "bytes": 28261,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/804282c919409e2f405ebbae11be78353981010563c50849eb5b9cdd12e0e119.jpg"
+    },
+    {
+      "path": "ATS Bouquet/images.jpeg",
+      "sha256": "4374fb133c1d9334fc541c74f1786e5cddbeb9cb8ec5030993bf6e1c49a69593",
+      "bytes": 51642,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4374fb133c1d9334fc541c74f1786e5cddbeb9cb8ec5030993bf6e1c49a69593.jpg"
+    },
+    {
+      "path": "ATS Bouquet/m8csrd.webp",
+      "sha256": "5f119076537b574822bc1d4d1fe948ff32d237ae4f91aaa573c208f2fe6f759f",
+      "bytes": 113160,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5f119076537b574822bc1d4d1fe948ff32d237ae4f91aaa573c208f2fe6f759f.webp"
+    },
+    {
+      "path": "ATS Bouquet/rbfaek.webp",
+      "sha256": "0bfc0bfefb44eb1837d3f051d450d57f5b253aefd96a330499fc25f7c2a99d33",
+      "bytes": 217224,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0bfc0bfefb44eb1837d3f051d450d57f5b253aefd96a330499fc25f7c2a99d33.webp"
+    },
+    {
+      "path": "Aykon Tower/1.jpg",
+      "sha256": "d49ad4640a8c2f0b8e2af5434a3e860fd94a73bb042f013acc6f39ba109ec183",
+      "bytes": 192412,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d49ad4640a8c2f0b8e2af5434a3e860fd94a73bb042f013acc6f39ba109ec183.jpg"
+    },
+    {
+      "path": "Aykon Tower/3twaay.webp",
+      "sha256": "edc6e75ca3a95b96e179ce31578de6c2ffa560ebb7ed0dd770d1d34b9f268f90",
+      "bytes": 116268,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/edc6e75ca3a95b96e179ce31578de6c2ffa560ebb7ed0dd770d1d34b9f268f90.webp"
+    },
+    {
+      "path": "Aykon Tower/ctmndh.webp",
+      "sha256": "c87988954e7ef7587d47229192e8c268d49b03c94a15c2fd9b140831dc832a7a",
+      "bytes": 148008,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c87988954e7ef7587d47229192e8c268d49b03c94a15c2fd9b140831dc832a7a.webp"
+    },
+    {
+      "path": "Aykon Tower/g6ujyf.webp",
+      "sha256": "3bc1dec96a805d37e626c68510310d54b4f0af51a499ea2e6cbc09103d6b24f9",
+      "bytes": 267346,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3bc1dec96a805d37e626c68510310d54b4f0af51a499ea2e6cbc09103d6b24f9.webp"
+    },
+    {
+      "path": "Aykon Tower/images.jpeg",
+      "sha256": "8bf74184d2fd9d4a595b6ab149db53d0479260387305f764e4f7ea766c43f156",
+      "bytes": 28000,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8bf74184d2fd9d4a595b6ab149db53d0479260387305f764e4f7ea766c43f156.jpg"
+    },
+    {
+      "path": "Aykon Tower/nqttf7.jpg",
+      "sha256": "7f3761cc60374568cb054bc2de301875991baa22048d20562fe764104f8988b1",
+      "bytes": 236995,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7f3761cc60374568cb054bc2de301875991baa22048d20562fe764104f8988b1.jpg"
+    },
+    {
+      "path": "Aykon Tower/u629bc.webp",
+      "sha256": "5fff8cca55896d29e6ddd63f94d68e59c714c6f73b175abb280f71409c0d03c5",
+      "bytes": 114218,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5fff8cca55896d29e6ddd63f94d68e59c714c6f73b175abb280f71409c0d03c5.webp"
+    },
+    {
+      "path": "Bajaj Bhawan/1.png",
+      "sha256": "07661b4dbdfa6ac2077a24e70a179590ecd9791ed944fc5c8d41a1d278435933",
+      "bytes": 1637986,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/07661b4dbdfa6ac2077a24e70a179590ecd9791ed944fc5c8d41a1d278435933.png"
+    },
+    {
+      "path": "Bajaj Bhawan/2.png",
+      "sha256": "d7865d6cea6f8b1ae03a96230e7ff6bc5bcfdfe0529503f0c72e67539d1abdf3",
+      "bytes": 1200160,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d7865d6cea6f8b1ae03a96230e7ff6bc5bcfdfe0529503f0c72e67539d1abdf3.png"
+    },
+    {
+      "path": "Bajaj Bhawan/3.png",
+      "sha256": "6db8327ed9980405f7ca013c7ea7b0da933b8e02eb33ea87a76615548abe9969",
+      "bytes": 1134264,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6db8327ed9980405f7ca013c7ea7b0da933b8e02eb33ea87a76615548abe9969.png"
+    },
+    {
+      "path": "Bajaj Bhawan/4.png",
+      "sha256": "c54622b06b39fac1f08670ae986839bc8e70c4681f751d116c24550e8f183c64",
+      "bytes": 1174578,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c54622b06b39fac1f08670ae986839bc8e70c4681f751d116c24550e8f183c64.png"
+    },
+    {
+      "path": "Berger Tower/1.png",
+      "sha256": "10102401a34235c784a2a1c0cb7de17336b04d9add47b33e78d9e6e0f78a160a",
+      "bytes": 1267379,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/10102401a34235c784a2a1c0cb7de17336b04d9add47b33e78d9e6e0f78a160a.png"
+    },
+    {
+      "path": "Berger Tower/2.png",
+      "sha256": "edbff0271622f379a63ca7706b4e67ebe44e3666a2aa318e59e5580730c8b25f",
+      "bytes": 1598190,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/edbff0271622f379a63ca7706b4e67ebe44e3666a2aa318e59e5580730c8b25f.png"
+    },
+    {
+      "path": "Berger Tower/3.png",
+      "sha256": "0fe7dc9902dd7771516ed5ebaeee2df6a05d48640f91fa5df31dea4839531004",
+      "bytes": 1729856,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0fe7dc9902dd7771516ed5ebaeee2df6a05d48640f91fa5df31dea4839531004.png"
+    },
+    {
+      "path": "Berger Tower/4.png",
+      "sha256": "036583a3656e65c808acbce26dbaa57ecdfcfe236f7b1f59e4b039527a1f8c3b",
+      "bytes": 1805198,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/036583a3656e65c808acbce26dbaa57ecdfcfe236f7b1f59e4b039527a1f8c3b.png"
+    },
+    {
+      "path": "BGR Tower/1.png",
+      "sha256": "a9528d46c4071bc0fc4fd00f89bcbff71250283718bcf4d17333be6e61cd7886",
+      "bytes": 1271689,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a9528d46c4071bc0fc4fd00f89bcbff71250283718bcf4d17333be6e61cd7886.png"
+    },
+    {
+      "path": "BGR Tower/2.png",
+      "sha256": "9c5ebf61feef2f7f97e7d716a120393b37c592ea024e15c59f9701fec3c71a35",
+      "bytes": 1673056,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/9c5ebf61feef2f7f97e7d716a120393b37c592ea024e15c59f9701fec3c71a35.png"
+    },
+    {
+      "path": "BGR Tower/3.png",
+      "sha256": "5147df63b8b98a3827cb76f1b378e3e933984ca533573402b63ff7e4ffa9408c",
+      "bytes": 1302625,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5147df63b8b98a3827cb76f1b378e3e933984ca533573402b63ff7e4ffa9408c.png"
+    },
+    {
+      "path": "BGR Tower/4.png",
+      "sha256": "81564140d9db396f6f9a6beae3c47b52e8f6d11167e420f462cdae8d3a64dd6e",
+      "bytes": 1912849,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/81564140d9db396f6f9a6beae3c47b52e8f6d11167e420f462cdae8d3a64dd6e.png"
+    },
+    {
+      "path": "Bhutani Cyberthum/131d8f61fc8ede5f369cd69d7e0c01c1.webp",
+      "sha256": "d177f0034c71a3956cbadcd7896c0596f064632c0deb45b09ed73903c79e0a6c",
+      "bytes": 378268,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d177f0034c71a3956cbadcd7896c0596f064632c0deb45b09ed73903c79e0a6c.webp"
+    },
+    {
+      "path": "Bhutani Cyberthum/cyberthum-1.jpg.webp",
+      "sha256": "be556defa7d3ec3aabadd3e792530a825e6ea2142feecd0df38f82a7da020a1b",
+      "bytes": 171532,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/be556defa7d3ec3aabadd3e792530a825e6ea2142feecd0df38f82a7da020a1b.webp"
+    },
+    {
+      "path": "Bhutani Cyberthum/images 2.jpeg",
+      "sha256": "ad423553a6a7da86d1d634d3e80dc8bfd13f6904ed14c93855eb28c279d21355",
+      "bytes": 41364,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ad423553a6a7da86d1d634d3e80dc8bfd13f6904ed14c93855eb28c279d21355.jpg"
+    },
+    {
+      "path": "Bhutani Cyberthum/images.jpeg",
+      "sha256": "b3eff45b59495410c0148f866131b26709977745423d860b411cee6eb8cfee85",
+      "bytes": 33021,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b3eff45b59495410c0148f866131b26709977745423d860b411cee6eb8cfee85.jpg"
+    },
+    {
+      "path": "Boulevard/1764935888181-9bke1fwqpr.jpeg",
+      "sha256": "de48ffc1e551392db21fb0ced88755e3edb5f75329bc638b10dca8bd4a76d232",
+      "bytes": 324351,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/de48ffc1e551392db21fb0ced88755e3edb5f75329bc638b10dca8bd4a76d232.jpg"
+    },
+    {
+      "path": "Boulevard/1769768760_12.jpg.webp",
+      "sha256": "24f67becbe50c1f09a21c249840e97f91cd2267c13c0b6fef1eea8399e6eafaf",
+      "bytes": 267250,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/24f67becbe50c1f09a21c249840e97f91cd2267c13c0b6fef1eea8399e6eafaf.webp"
+    },
+    {
+      "path": "Boulevard/1782118402_2qa.jpg.webp",
+      "sha256": "4aba12edae35cfa7362e225485ce6bc764b5a5711fd9f801b79ebbd429897c3c",
+      "bytes": 330448,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4aba12edae35cfa7362e225485ce6bc764b5a5711fd9f801b79ebbd429897c3c.webp"
+    },
+    {
+      "path": "Boulevard/d6gfxz.webp",
+      "sha256": "e2470848d62f1b7a76f274bfe13379a073209ce77d74c80785f6ebb83570df80",
+      "bytes": 67710,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e2470848d62f1b7a76f274bfe13379a073209ce77d74c80785f6ebb83570df80.webp"
+    },
+    {
+      "path": "Boulevard/fxgxqa.webp",
+      "sha256": "4a2f561e222f367d534695603cb9d95e4c65955ea161ec3849b544ad91ac2f41",
+      "bytes": 145558,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4a2f561e222f367d534695603cb9d95e4c65955ea161ec3849b544ad91ac2f41.webp"
+    },
+    {
+      "path": "Boulevard/kc86m8.jpg",
+      "sha256": "88efed20edac7836d22941201a8afca28fffc9ba1345c7b7e5891f4301b9cfeb",
+      "bytes": 143799,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/88efed20edac7836d22941201a8afca28fffc9ba1345c7b7e5891f4301b9cfeb.jpg"
+    },
+    {
+      "path": "Boulevard/preu7a.webp",
+      "sha256": "b1055382cceed6aa9231a363fdab4a2c91bd99b6a16aa1aa6c93ed5ed29844c0",
+      "bytes": 146940,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b1055382cceed6aa9231a363fdab4a2c91bd99b6a16aa1aa6c93ed5ed29844c0.webp"
+    },
+    {
+      "path": "Boulevard/tech-boulevard-noida-sector-127-noida-construction-companies-zdpDrPrqPB.jpg.avif",
+      "sha256": "8a4599a6902e99437506688e1e6e5e1888e88c00d2ce4f57e15e7300087458cc",
+      "bytes": 415826,
+      "contentType": "image/avif",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8a4599a6902e99437506688e1e6e5e1888e88c00d2ce4f57e15e7300087458cc.avif"
+    },
+    {
+      "path": "Boulevard/Untitled-3.png",
+      "sha256": "904b25e9d1acd8800958c6b5650ff629aa814b7c2bf0830b29747e33f4be5a45",
+      "bytes": 1798155,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/904b25e9d1acd8800958c6b5650ff629aa814b7c2bf0830b29747e33f4be5a45.png"
+    },
+    {
+      "path": "BPTP Capital City/1.jpg",
+      "sha256": "c586d5a9366fc55cc17d081bc4e02eee23e70c5531b988038ec885830d95ca49",
+      "bytes": 604365,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c586d5a9366fc55cc17d081bc4e02eee23e70c5531b988038ec885830d95ca49.jpg"
+    },
+    {
+      "path": "BPTP Capital City/2.jpg",
+      "sha256": "c3584cd97552e78b4985aaf4c57c59bd1c5ad4eebef383f796ce223b25b8d63a",
+      "bytes": 624764,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c3584cd97552e78b4985aaf4c57c59bd1c5ad4eebef383f796ce223b25b8d63a.jpg"
+    },
+    {
+      "path": "BPTP Capital City/3.jpg",
+      "sha256": "49fce3e9d68f0bc0dea84e56c8d7cd7adee74d68996ea36264e8cac83f247914",
+      "bytes": 496790,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/49fce3e9d68f0bc0dea84e56c8d7cd7adee74d68996ea36264e8cac83f247914.jpg"
+    },
+    {
+      "path": "BPTP Capital City/4.jpg",
+      "sha256": "4d783e48fa0eeea909e99ddc795dd31969c77f2b8f2235cb9613809fdea6e06b",
+      "bytes": 628346,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4d783e48fa0eeea909e99ddc795dd31969c77f2b8f2235cb9613809fdea6e06b.jpg"
+    },
+    {
+      "path": "Candor TechSpace/1.jpg",
+      "sha256": "ff253c74fdcfbf0f89287356b8537900fb73b9d38243a002013fab73b559a7a3",
+      "bytes": 242185,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ff253c74fdcfbf0f89287356b8537900fb73b9d38243a002013fab73b559a7a3.jpg"
+    },
+    {
+      "path": "Candor TechSpace/3.jpg",
+      "sha256": "2f019c8138dcd4f68cf3acaf62f54d45b9c97320d3dccac790a7c58b7f7c3ba7",
+      "bytes": 267151,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2f019c8138dcd4f68cf3acaf62f54d45b9c97320d3dccac790a7c58b7f7c3ba7.jpg"
+    },
+    {
+      "path": "Candor TechSpace/43059e84c02fdbea4f3d833fe67fd0368ff76e0b69fcfb1d7ed31caeb545a9dd.png",
+      "sha256": "43059e84c02fdbea4f3d833fe67fd0368ff76e0b69fcfb1d7ed31caeb545a9dd",
+      "bytes": 307900,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/43059e84c02fdbea4f3d833fe67fd0368ff76e0b69fcfb1d7ed31caeb545a9dd.png"
+    },
+    {
+      "path": "Candor TechSpace/Amenties_9bda92e24e.jpg",
+      "sha256": "3506a67874613f47654821328844b691cdf7dfaccd5d557622b56552cb8fe971",
+      "bytes": 164057,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3506a67874613f47654821328844b691cdf7dfaccd5d557622b56552cb8fe971.jpg"
+    },
+    {
+      "path": "Candor TechSpace/candor-techspace-noida-corporate-companies-gjbl7b18fs.jpg.avif",
+      "sha256": "1f1df25538b11b7b765aba0906c66a2dd02be624105cf310679b8046ffa15f0c",
+      "bytes": 69633,
+      "contentType": "image/avif",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1f1df25538b11b7b765aba0906c66a2dd02be624105cf310679b8046ffa15f0c.avif"
+    },
+    {
+      "path": "Candor TechSpace/Interior_1_7553bdd46f.jpg",
+      "sha256": "66e9bfbdfd6e0d4d3f60fc23853386ef63abd6b59c945fe4b9aea39565266630",
+      "bytes": 142297,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/66e9bfbdfd6e0d4d3f60fc23853386ef63abd6b59c945fe4b9aea39565266630.jpg"
+    },
+    {
+      "path": "Candor TechSpace/N2_Tower_3_and_4_lobby_bbb1e9eb3f.jpg",
+      "sha256": "c615a81d2f398ac18874f0c58827b21916ff07790496a1fc0da2eba531ffb49e",
+      "bytes": 405013,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c615a81d2f398ac18874f0c58827b21916ff07790496a1fc0da2eba531ffb49e.jpg"
+    },
+    {
+      "path": "Candor TechSpace/Our_Grade_A_Portfolio_2_e619592ae0.png",
+      "sha256": "0f5efc4f43253292cf7a5fd31e2a1754db9507a49b99ef07a0fd58b8408d0231",
+      "bytes": 173536,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0f5efc4f43253292cf7a5fd31e2a1754db9507a49b99ef07a0fd58b8408d0231.png"
+    },
+    {
+      "path": "Candor TechSpace/x8n6ck.webp",
+      "sha256": "a99c61bc6bf6b676125d984b4d5755a307ba72be6a4de697fbe0d08cc9df9149",
+      "bytes": 243804,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a99c61bc6bf6b676125d984b4d5755a307ba72be6a4de697fbe0d08cc9df9149.webp"
+    },
+    {
+      "path": "Carnoustie Tower/1.png",
+      "sha256": "5efd823b49eefbc9191bd7415364101b338c40d81089aa198194d1581f48294f",
+      "bytes": 1447810,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5efd823b49eefbc9191bd7415364101b338c40d81089aa198194d1581f48294f.png"
+    },
+    {
+      "path": "Carnoustie Tower/2.png",
+      "sha256": "fefc0dd20f1cd727e5fdf9af88d89ebc6ede4fd649fe80f38644b230b3c3e31b",
+      "bytes": 1339444,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/fefc0dd20f1cd727e5fdf9af88d89ebc6ede4fd649fe80f38644b230b3c3e31b.png"
+    },
+    {
+      "path": "Carnoustie Tower/3.png",
+      "sha256": "e06031dbe95cc37048c057faba8135cd3174da514a3f538fdce6f4906ebbca76",
+      "bytes": 1381884,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e06031dbe95cc37048c057faba8135cd3174da514a3f538fdce6f4906ebbca76.png"
+    },
+    {
+      "path": "Carnoustie Tower/4.png",
+      "sha256": "bed74d70d1fa1325f6868c233400411802893306bc5eaa671fd67809c389b2bd",
+      "bytes": 1701842,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bed74d70d1fa1325f6868c233400411802893306bc5eaa671fd67809c389b2bd.png"
+    },
+    {
+      "path": "Club 125/1.webp",
+      "sha256": "883e503147111cc6734813cd9b1e424f07655013e13c1f9bac93c368220418e6",
+      "bytes": 311868,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/883e503147111cc6734813cd9b1e424f07655013e13c1f9bac93c368220418e6.webp"
+    },
+    {
+      "path": "Club 125/wmremove-transformed-2.webp",
+      "sha256": "68942cd770190773217ba96b01ef34652ce6676c79453316e2893cd3909724fb",
+      "bytes": 1526582,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/68942cd770190773217ba96b01ef34652ce6676c79453316e2893cd3909724fb.webp"
+    },
+    {
+      "path": "Club 125/wmremove-transformed-3.webp",
+      "sha256": "d576584e94fba0b84b0a761f6275a5f9c60a9ae7d664756e639efd1f63fa2f30",
+      "bytes": 1378154,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d576584e94fba0b84b0a761f6275a5f9c60a9ae7d664756e639efd1f63fa2f30.webp"
+    },
+    {
+      "path": "Club 125/wmremove-transformed-4.webp",
+      "sha256": "7fa702dc4ac682835ad54d49ca4e4d9520bc9207e854b60b0e89496235dfa89a",
+      "bytes": 1686276,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7fa702dc4ac682835ad54d49ca4e4d9520bc9207e854b60b0e89496235dfa89a.webp"
+    },
+    {
+      "path": "County space/1.png",
+      "sha256": "540ae7a09ebe7d92a028a548ad8e77e308adf8b82955c4585ce24cd4677f7a18",
+      "bytes": 1568092,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/540ae7a09ebe7d92a028a548ad8e77e308adf8b82955c4585ce24cd4677f7a18.png"
+    },
+    {
+      "path": "County space/2.png",
+      "sha256": "c149fcc5bf03c30a9f2c7becf73eba4a5b30bfb0eea8e77135f4ccf92519dd18",
+      "bytes": 1043989,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c149fcc5bf03c30a9f2c7becf73eba4a5b30bfb0eea8e77135f4ccf92519dd18.png"
+    },
+    {
+      "path": "County space/3.png",
+      "sha256": "724b205c682667e3156f5a07819c3d6e90b66603dd490b307ee9aff189022875",
+      "bytes": 831254,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/724b205c682667e3156f5a07819c3d6e90b66603dd490b307ee9aff189022875.png"
+    },
+    {
+      "path": "County space/4.png",
+      "sha256": "648336e4d6ce0e165468579ee6a1482094a9779623e5aa5580fa6d878082332a",
+      "bytes": 1138588,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/648336e4d6ce0e165468579ee6a1482094a9779623e5aa5580fa6d878082332a.png"
+    },
+    {
+      "path": "Delphi tower/1.png",
+      "sha256": "9f6def50b4cb49fa18881cfe916933edff8afa4f066b3542ac340bdbba86408a",
+      "bytes": 2021576,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/9f6def50b4cb49fa18881cfe916933edff8afa4f066b3542ac340bdbba86408a.png"
+    },
+    {
+      "path": "Delphi tower/2.png",
+      "sha256": "ed838b9721bfb9ba4bec491eecb5f9f1ca396ea2c4c84ae2ada1817e4cc95f73",
+      "bytes": 1040564,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ed838b9721bfb9ba4bec491eecb5f9f1ca396ea2c4c84ae2ada1817e4cc95f73.png"
+    },
+    {
+      "path": "Discovery Tower/1.png",
+      "sha256": "ad05531f7b4642f709d5b38a4b6e238ff4aa40cb56d858322df36b3c1ba0c352",
+      "bytes": 1243429,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ad05531f7b4642f709d5b38a4b6e238ff4aa40cb56d858322df36b3c1ba0c352.png"
+    },
+    {
+      "path": "Discovery Tower/2.png",
+      "sha256": "833527cd65b4ad57bbd5c123e9c9e4fef6e6e4f9696920462495dd8f726583e9",
+      "bytes": 1527119,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/833527cd65b4ad57bbd5c123e9c9e4fef6e6e4f9696920462495dd8f726583e9.png"
+    },
+    {
+      "path": "Discovery Tower/3.png",
+      "sha256": "833527cd65b4ad57bbd5c123e9c9e4fef6e6e4f9696920462495dd8f726583e9",
+      "bytes": 1527119,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/833527cd65b4ad57bbd5c123e9c9e4fef6e6e4f9696920462495dd8f726583e9.png"
+    },
+    {
+      "path": "DLF Techpark/office_header_1749723408.jpg",
+      "sha256": "feb925a92f6be6133d6fb23223efd8ab9b912dcf7003041af0f9e9aeb346e2ea",
+      "bytes": 160840,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/feb925a92f6be6133d6fb23223efd8ab9b912dcf7003041af0f9e9aeb346e2ea.jpg"
+    },
+    {
+      "path": "DLF Techpark/property_image_6842e7665e56b.jpg",
+      "sha256": "b6d83eb0243a454b6fd2f0e7eb13a5dc649fc41a2b3097e76af47a7f3529bd05",
+      "bytes": 78108,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b6d83eb0243a454b6fd2f0e7eb13a5dc649fc41a2b3097e76af47a7f3529bd05.jpg"
+    },
+    {
+      "path": "DLF Techpark/techpark-noida-reception-waiting-room-160880696.jpeg",
+      "sha256": "2fb4ea4e27818b19d2ac2abe7c5eab350510f0c0aa33951fa824a1c349126023",
+      "bytes": 658612,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2fb4ea4e27818b19d2ac2abe7c5eab350510f0c0aa33951fa824a1c349126023.jpg"
+    },
+    {
+      "path": "DLF Techpark/techpark-noida-reception-waiting-room-160880698.jpeg",
+      "sha256": "1b289bb3fa143b3e82483bca912512aa330bbf0eb12144e6fe6b9e3a8ff3c718",
+      "bytes": 440646,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1b289bb3fa143b3e82483bca912512aa330bbf0eb12144e6fe6b9e3a8ff3c718.jpg"
+    },
+    {
+      "path": "DLF Techpark/v7m7eg.webp",
+      "sha256": "a996b5fbbc20b47eaa653fad3837e94199c1a45a9a19768f44303a6381471fb7",
+      "bytes": 160018,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a996b5fbbc20b47eaa653fad3837e94199c1a45a9a19768f44303a6381471fb7.webp"
+    },
+    {
+      "path": "DLF Techpark/vb59rz.webp",
+      "sha256": "112b97429f2bce138f38e6e66b0c6b2907c6609f067b41ac6bf2e8d05279d93c",
+      "bytes": 136708,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/112b97429f2bce138f38e6e66b0c6b2907c6609f067b41ac6bf2e8d05279d93c.webp"
+    },
+    {
+      "path": "DLF Techpark/whjgtj.webp",
+      "sha256": "6fe314e8f91d1990c5b928a59f6c82bf9edf8b26ecf62bef55fe5175e5d336c0",
+      "bytes": 129674,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6fe314e8f91d1990c5b928a59f6c82bf9edf8b26ecf62bef55fe5175e5d336c0.webp"
+    },
+    {
+      "path": "Elixir business park/1.png",
+      "sha256": "98d2508da05f3504f49b984cc7d5624f4ca272a6767ff725af428d7f9077432a",
+      "bytes": 1227497,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/98d2508da05f3504f49b984cc7d5624f4ca272a6767ff725af428d7f9077432a.png"
+    },
+    {
+      "path": "Elixir business park/2.png",
+      "sha256": "5d59b662946a0744d28e534d945b7634f2c76dbf4b0b2ff6da66be98790d04ea",
+      "bytes": 938248,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5d59b662946a0744d28e534d945b7634f2c76dbf4b0b2ff6da66be98790d04ea.png"
+    },
+    {
+      "path": "Elixir business park/3.png",
+      "sha256": "b21a372cd59b14247b25ad02098b45fd496c101f218f78852e982da306d88bda",
+      "bytes": 1044019,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b21a372cd59b14247b25ad02098b45fd496c101f218f78852e982da306d88bda.png"
+    },
+    {
+      "path": "Elixir business park/Untitled-34.png",
+      "sha256": "b3896fff6c6074b9595eaa8119396d5e4c203f7c4959675e44deeb8f4a9edf06",
+      "bytes": 1730367,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b3896fff6c6074b9595eaa8119396d5e4c203f7c4959675e44deeb8f4a9edf06.png"
+    },
+    {
+      "path": "Embassy Galaxy Business Park/1.png",
+      "sha256": "014414bda5e53f12cdd87fa5a3abdd97149077fa93f7aa737462720234bded89",
+      "bytes": 1888481,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/014414bda5e53f12cdd87fa5a3abdd97149077fa93f7aa737462720234bded89.png"
+    },
+    {
+      "path": "Embassy Galaxy Business Park/2.png",
+      "sha256": "6e4bbbf1783d277cb2c00e597b33611461ee9dc5c50d4274558e85c1ab6817cd",
+      "bytes": 2035785,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6e4bbbf1783d277cb2c00e597b33611461ee9dc5c50d4274558e85c1ab6817cd.png"
+    },
+    {
+      "path": "Embassy Galaxy Business Park/3.png",
+      "sha256": "58497ed1c355fb052505be480b927568aaab0bd9fcadc1ca75592db89c7cc945",
+      "bytes": 1631781,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/58497ed1c355fb052505be480b927568aaab0bd9fcadc1ca75592db89c7cc945.png"
+    },
+    {
+      "path": "Embassy Galaxy Business Park/4.png",
+      "sha256": "846a7983d66309a34acbe339842e34ad83d75a52ee4a59cdf20e5e584aa2c552",
+      "bytes": 1704116,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/846a7983d66309a34acbe339842e34ad83d75a52ee4a59cdf20e5e584aa2c552.png"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/74c53p.webp",
+      "sha256": "7d046fae0f5a8107ade98444763ac13dc1eda97089edfdefdfc8cbf78c57cefa",
+      "bytes": 195160,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7d046fae0f5a8107ade98444763ac13dc1eda97089edfdefdfc8cbf78c57cefa.webp"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/embassy_oxygen_gallery_1.png",
+      "sha256": "75b44ab61595c6a7f67afe5b1bf8ca5be17c6c630fe1c6dafc616477c6f5905b",
+      "bytes": 82858,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/75b44ab61595c6a7f67afe5b1bf8ca5be17c6c630fe1c6dafc616477c6f5905b.png"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/embassy_oxygen_gallery_12.png",
+      "sha256": "a2c05973d453c3dba19dc260a163607fadbcf14994f3ff853663b83a7456e7b9",
+      "bytes": 82638,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a2c05973d453c3dba19dc260a163607fadbcf14994f3ff853663b83a7456e7b9.png"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/images 2.jpeg",
+      "sha256": "45526e0945d34e080e2737a3a6402150a047f48f2b0f819ac7f59a357983e427",
+      "bytes": 30826,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/45526e0945d34e080e2737a3a6402150a047f48f2b0f819ac7f59a357983e427.jpg"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/images 3.jpeg",
+      "sha256": "6407f2a3924268b5d7ea3b219e747680992f1daf014cbdf73273748b6230508b",
+      "bytes": 37666,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6407f2a3924268b5d7ea3b219e747680992f1daf014cbdf73273748b6230508b.jpg"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/images-1673262847125.jpg",
+      "sha256": "54cd0404ad2f5c84d60b5feb67fc0c66c698e3a244b6b3a72bd8eba8b160b9c0",
+      "bytes": 598113,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/54cd0404ad2f5c84d60b5feb67fc0c66c698e3a244b6b3a72bd8eba8b160b9c0.jpg"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/images-1673262847182.jpg",
+      "sha256": "f6b17efe420b06151afbe93779f24c8656f09ba09168c84afb2e682b3544ddfa",
+      "bytes": 245758,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f6b17efe420b06151afbe93779f24c8656f09ba09168c84afb2e682b3544ddfa.jpg"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/images-1673262847282.jpg",
+      "sha256": "1f4d619e61491d7f86f83ae5a630ff1d0646904fd8ca79586efcea107000ae64",
+      "bytes": 583390,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1f4d619e61491d7f86f83ae5a630ff1d0646904fd8ca79586efcea107000ae64.jpg"
+    },
+    {
+      "path": "Embassy Oxygen Business Park/images.jpeg",
+      "sha256": "f1993ef2281279f53821a4fe60da48503092cf350594ed642b1abae2bd024cb6",
+      "bytes": 28574,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f1993ef2281279f53821a4fe60da48503092cf350594ed642b1abae2bd024cb6.jpg"
+    },
+    {
+      "path": "Exotica One32/images 2.jpeg",
+      "sha256": "f04de1ac511dea8f51aa1b1c063b4a18815bc667d308ce8bb7d5ec9ee890b0db",
+      "bytes": 30968,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f04de1ac511dea8f51aa1b1c063b4a18815bc667d308ce8bb7d5ec9ee890b0db.jpg"
+    },
+    {
+      "path": "Exotica One32/images.jpeg",
+      "sha256": "467445b626655b287640d1e9a9adafb414c53ee62dd6d54b29edb1383c6e2ab2",
+      "bytes": 48621,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/467445b626655b287640d1e9a9adafb414c53ee62dd6d54b29edb1383c6e2ab2.jpg"
+    },
+    {
+      "path": "Exotica One32/Offices-0-1024x779.webp",
+      "sha256": "e882736d5ccfe6a2bc920384498d31eeb7e2cade069a10a041c507ea87ba0335",
+      "bytes": 125920,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e882736d5ccfe6a2bc920384498d31eeb7e2cade069a10a041c507ea87ba0335.webp"
+    },
+    {
+      "path": "Exotica One32/Retail-0.webp",
+      "sha256": "415d21ecff72216cef10c564680b9302c51559efd46ab8b3c165acc8c26489b8",
+      "bytes": 199462,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/415d21ecff72216cef10c564680b9302c51559efd46ab8b3c165acc8c26489b8.webp"
+    },
+    {
+      "path": "Exotica One32/zdfqynn_1755318976_633861585_O-scaled.jpg",
+      "sha256": "87931888d11f39fcb1b2b0f90d4aa861fd53fd0587f22060f98d177c2ada9374",
+      "bytes": 573135,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/87931888d11f39fcb1b2b0f90d4aa861fd53fd0587f22060f98d177c2ada9374.jpg"
+    },
+    {
+      "path": "Express Corporate Park/1.png",
+      "sha256": "21b8aec6af7a30ffa19fc7ef97ce2c260bbe2098121001623029331ed0e8470c",
+      "bytes": 1384366,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/21b8aec6af7a30ffa19fc7ef97ce2c260bbe2098121001623029331ed0e8470c.png"
+    },
+    {
+      "path": "Express Corporate Park/2.png",
+      "sha256": "2accabe6b68dd2702ad2c00b06bd7091877bfd22c012dfb934043deb076c0fbc",
+      "bytes": 1696426,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2accabe6b68dd2702ad2c00b06bd7091877bfd22c012dfb934043deb076c0fbc.png"
+    },
+    {
+      "path": "Express Corporate Park/3.png",
+      "sha256": "c1e7aaf7a64856b5f6edf99d75ce33ac9b8eefc79a428d5165722b5a107ddd66",
+      "bytes": 1530334,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c1e7aaf7a64856b5f6edf99d75ce33ac9b8eefc79a428d5165722b5a107ddd66.png"
+    },
+    {
+      "path": "Express Corporate Park/4.png",
+      "sha256": "f82b7a5140ce3f16d6450af1b7e6fdcf2748cff49488047d540441d1d70cce6b",
+      "bytes": 1511399,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f82b7a5140ce3f16d6450af1b7e6fdcf2748cff49488047d540441d1d70cce6b.png"
+    },
+    {
+      "path": "Express Trade Tower/1755066675_express-trade-tower-2-sector-132-noida.webp",
+      "sha256": "9a1c93d395e3938e0f20b202e928a967b714f7df09fd49f266f5da40997d0389",
+      "bytes": 53856,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/9a1c93d395e3938e0f20b202e928a967b714f7df09fd49f266f5da40997d0389.webp"
+    },
+    {
+      "path": "Express Trade Tower/1762853600_cow1.jpg.webp",
+      "sha256": "0a0188482b5b510ba3cbdd4b5971d089f7efd7a1b1272bfa82c90ca0bb9cc129",
+      "bytes": 157866,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0a0188482b5b510ba3cbdd4b5971d089f7efd7a1b1272bfa82c90ca0bb9cc129.webp"
+    },
+    {
+      "path": "Express Trade Tower/1769341992_PHOTO-2026-01-24-17-07-41.jpg.webp",
+      "sha256": "ca56de6eb7830dd713d497adf2e1daa5d564aeaefc0e82fe3134ad75a9f1e72a",
+      "bytes": 74696,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ca56de6eb7830dd713d497adf2e1daa5d564aeaefc0e82fe3134ad75a9f1e72a.webp"
+    },
+    {
+      "path": "Express Trade Tower/704869071M-1769582909794.jpg",
+      "sha256": "800d749e4ce602fe8538eaf50ef36f7980e5c1cfef1d09afc60298f39b43b784",
+      "bytes": 57736,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/800d749e4ce602fe8538eaf50ef36f7980e5c1cfef1d09afc60298f39b43b784.jpg"
+    },
+    {
+      "path": "Express Trade Tower/coworking-express-trade-tower-noida-2-hero.jpg",
+      "sha256": "b1c20478fcfd83f67fa965aa746a00a9d7f190887b61940be77a4ef566ca9ac9",
+      "bytes": 58362,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b1c20478fcfd83f67fa965aa746a00a9d7f190887b61940be77a4ef566ca9ac9.jpg"
+    },
+    {
+      "path": "Express Trade Tower/dzhnm9.webp",
+      "sha256": "7fe687f69f3f22b907408c2d433d2284d7b3c73e322dcfc1b8a737a6e00577b2",
+      "bytes": 101144,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7fe687f69f3f22b907408c2d433d2284d7b3c73e322dcfc1b8a737a6e00577b2.webp"
+    },
+    {
+      "path": "Express Trade Tower/ETT2-01.webp",
+      "sha256": "69c681ff1869e8bda27003921696af5665f21593d0b4b8ff92708df4936772e1",
+      "bytes": 717376,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/69c681ff1869e8bda27003921696af5665f21593d0b4b8ff92708df4936772e1.webp"
+    },
+    {
+      "path": "Express Trade Tower/images-1675882879200.jpg",
+      "sha256": "6c19661d1cf36f8c323be3b4bda429cca433b85cf4393b61e8743bbe16831c50",
+      "bytes": 308061,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6c19661d1cf36f8c323be3b4bda429cca433b85cf4393b61e8743bbe16831c50.jpg"
+    },
+    {
+      "path": "Express Trade Tower/Untitled-3.png",
+      "sha256": "5e582b76a5b2f6f0c9706dc2cd6e624b39e1175a5bc1eaf6a4571364edd6e656",
+      "bytes": 1659762,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5e582b76a5b2f6f0c9706dc2cd6e624b39e1175a5bc1eaf6a4571364edd6e656.png"
+    },
+    {
+      "path": "Fairfox EON/2.jpeg",
+      "sha256": "abd128492591e587e3556196cffd5031f853667603fb4eb4bab7af8df7242bfd",
+      "bytes": 153675,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/abd128492591e587e3556196cffd5031f853667603fb4eb4bab7af8df7242bfd.jpg"
+    },
+    {
+      "path": "Fairfox EON/3.jpeg",
+      "sha256": "455b49db9b51d2957b12942fbeff9af41c8d1e5a5e5baa8c89bf6cbe22b44055",
+      "bytes": 126732,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/455b49db9b51d2957b12942fbeff9af41c8d1e5a5e5baa8c89bf6cbe22b44055.jpg"
+    },
+    {
+      "path": "Fairfox EON/385994578.webp",
+      "sha256": "844ba7b7e2c4c232f70c26fb1f974231ad439ce67459a3023049f25a993bffb9",
+      "bytes": 109476,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/844ba7b7e2c4c232f70c26fb1f974231ad439ce67459a3023049f25a993bffb9.webp"
+    },
+    {
+      "path": "Fairfox EON/DJI_0962.MP4",
+      "sha256": "bc95d66009c90024450e4dcf45a6d6e712f862c93c221c099393e77c1ace4dda",
+      "bytes": 435787598,
+      "contentType": "video/mp4",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/videos/bc95d66009c90024450e4dcf45a6d6e712f862c93c221c099393e77c1ace4dda.mp4"
+    },
+    {
+      "path": "Fairfox EON/DJI_0963.MP4",
+      "sha256": "3fe88b19c06c66e09728e54132aefda5ecb036f386b36e41bf178a583ca8ba7e",
+      "bytes": 226978958,
+      "contentType": "video/mp4",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/videos/3fe88b19c06c66e09728e54132aefda5ecb036f386b36e41bf178a583ca8ba7e.mp4"
+    },
+    {
+      "path": "Fairfox EON/Eon.jpg",
+      "sha256": "8c05dd15b15ba566fb44325739f99665d2db5c3043c836b139defcc90e8a1c59",
+      "bytes": 606232,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8c05dd15b15ba566fb44325739f99665d2db5c3043c836b139defcc90e8a1c59.jpg"
+    },
+    {
+      "path": "Fairfox EON/hero.webp",
+      "sha256": "cfe0d29cf8767f366826c9b24d9ba55acca75a12778abf864d22628cea5bc1c9",
+      "bytes": 205060,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/cfe0d29cf8767f366826c9b24d9ba55acca75a12778abf864d22628cea5bc1c9.webp"
+    },
+    {
+      "path": "Fairfox EON/p1.webp",
+      "sha256": "915f41c701dd7bebbbc584ab09dd43a19b8c196cd41dd1aec532a0d0088f2617",
+      "bytes": 100744,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/915f41c701dd7bebbbc584ab09dd43a19b8c196cd41dd1aec532a0d0088f2617.webp"
+    },
+    {
+      "path": "Fairfox EON/WhatsApp Image 2026-10-15 at 16.52.09 copy.jpeg",
+      "sha256": "1af11639232b79c4e3c1f536f5af0bb0db03da87f444fbc85b91a08bef6f4148",
+      "bytes": 187439,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1af11639232b79c4e3c1f536f5af0bb0db03da87f444fbc85b91a08bef6f4148.jpg"
+    },
+    {
+      "path": "Fairfox EON/WhatsApp Image 2026-10-15 at 16.52.09.jpeg",
+      "sha256": "1765d6b86499f8d489e17966d9e93f9fab3f8ea16dfc037fad603f0f0371501c",
+      "bytes": 117773,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1765d6b86499f8d489e17966d9e93f9fab3f8ea16dfc037fad603f0f0371501c.jpg"
+    },
+    {
+      "path": "Fusion Square/1.png",
+      "sha256": "ab97ab14695595cb4f9dd20a025e52b81e9e528a8c6e87834204a3d281293edb",
+      "bytes": 1338025,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ab97ab14695595cb4f9dd20a025e52b81e9e528a8c6e87834204a3d281293edb.png"
+    },
+    {
+      "path": "Fusion Square/2.png",
+      "sha256": "0e4412973ad22cb55df914802b1ab361c77609f6b265abd2021a34136a78a2dc",
+      "bytes": 1712212,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0e4412973ad22cb55df914802b1ab361c77609f6b265abd2021a34136a78a2dc.png"
+    },
+    {
+      "path": "Fusion Square/3.png",
+      "sha256": "f943b78750124016ebecfbc2c615bcc71ddda1e7debfa8b6307ff166e500d060",
+      "bytes": 1265057,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f943b78750124016ebecfbc2c615bcc71ddda1e7debfa8b6307ff166e500d060.png"
+    },
+    {
+      "path": "Fusion Square/4.png",
+      "sha256": "c9e8b497c27ae8b50852841ad8f3429673d97fa5a3ec8ceca1dc128069dbd6bc",
+      "bytes": 1375287,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c9e8b497c27ae8b50852841ad8f3429673d97fa5a3ec8ceca1dc128069dbd6bc.png"
+    },
+    {
+      "path": "GM IT Park/1.png",
+      "sha256": "8decb0fdedb25899f9fd3a23ec0d0653b5c703f484ecde7a6d0dee126b6ba47a",
+      "bytes": 1900008,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8decb0fdedb25899f9fd3a23ec0d0653b5c703f484ecde7a6d0dee126b6ba47a.png"
+    },
+    {
+      "path": "GM IT Park/2.png",
+      "sha256": "fe9815f17a74838f662243f716ddb90dc36f1b4cf48c66f738b5542e29751d76",
+      "bytes": 1761364,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/fe9815f17a74838f662243f716ddb90dc36f1b4cf48c66f738b5542e29751d76.png"
+    },
+    {
+      "path": "GM IT Park/3.png",
+      "sha256": "b63dc7598232206a7199aa167573c8a85e12fc4a17a3a578e8337776d431ac51",
+      "bytes": 1703385,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b63dc7598232206a7199aa167573c8a85e12fc4a17a3a578e8337776d431ac51.png"
+    },
+    {
+      "path": "GM IT Park/4.png",
+      "sha256": "d6e5ae7c9f4f463f26316718014ff679f4d40c4dc2a80700710b83b56e810131",
+      "bytes": 2239194,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d6e5ae7c9f4f463f26316718014ff679f4d40c4dc2a80700710b83b56e810131.png"
+    },
+    {
+      "path": "Graphix Tower/1.png",
+      "sha256": "73799cff91603684f54903e2334ac5cf7ecf01da85f523cc6ad8345cfe123f58",
+      "bytes": 2025532,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/73799cff91603684f54903e2334ac5cf7ecf01da85f523cc6ad8345cfe123f58.png"
+    },
+    {
+      "path": "Graphix Tower/2.png",
+      "sha256": "d4b2a5d2c3af8df191fda0feb30a38a231047fd9499619d3273da8d496a704d5",
+      "bytes": 1955076,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d4b2a5d2c3af8df191fda0feb30a38a231047fd9499619d3273da8d496a704d5.png"
+    },
+    {
+      "path": "Graphix Tower/3.png",
+      "sha256": "1484ee297530a246eeb4f498f5240713ea6216942794ca515b00fda622aa20cf",
+      "bytes": 2002077,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1484ee297530a246eeb4f498f5240713ea6216942794ca515b00fda622aa20cf.png"
+    },
+    {
+      "path": "Graphix Tower/4.png",
+      "sha256": "52198651c42937e71ccf35a5978c9744386900a86b840f4d497ef76bcd893652",
+      "bytes": 1541418,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/52198651c42937e71ccf35a5978c9744386900a86b840f4d497ef76bcd893652.png"
+    },
+    {
+      "path": "Green Boulevard/1.png",
+      "sha256": "8c573661ba865644b2af496316e54b8b0fa3618e6888ddc858d3cdade86a5c4f",
+      "bytes": 1310693,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8c573661ba865644b2af496316e54b8b0fa3618e6888ddc858d3cdade86a5c4f.png"
+    },
+    {
+      "path": "Green Boulevard/2.png",
+      "sha256": "86c844e7400eaad45f58255bfda20fc2c7d51f362fe6e75e53feff4ee98ff744",
+      "bytes": 1553041,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/86c844e7400eaad45f58255bfda20fc2c7d51f362fe6e75e53feff4ee98ff744.png"
+    },
+    {
+      "path": "Green Boulevard/3.png",
+      "sha256": "f3cae6fda3a1466f65e2660797ea1a93eaf9e220220004777719f6cf5d2e6bea",
+      "bytes": 1993101,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f3cae6fda3a1466f65e2660797ea1a93eaf9e220220004777719f6cf5d2e6bea.png"
+    },
+    {
+      "path": "Gulshan one29 mall/2026-08-19_05-06-27_20241022T115741_gall1.webp",
+      "sha256": "ff1cc86fe186cdb3c226ec958d12bfbf1df04789b5796f3834a7528675c3f9e2",
+      "bytes": 71700,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ff1cc86fe186cdb3c226ec958d12bfbf1df04789b5796f3834a7528675c3f9e2.webp"
+    },
+    {
+      "path": "Gulshan one29 mall/245374035.webp",
+      "sha256": "c1140afc3e308d9bb671872d97589476c80d314b87fb7c6a138e07473e3b0c13",
+      "bytes": 123488,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c1140afc3e308d9bb671872d97589476c80d314b87fb7c6a138e07473e3b0c13.webp"
+    },
+    {
+      "path": "Gulshan one29 mall/entrance_2_1755599379240.jpg.avif",
+      "sha256": "2ab47ed2e21367774c97e9c008a9381e61c676b012e00091b1605d4def1ce7e3",
+      "bytes": 145902,
+      "contentType": "image/avif",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2ab47ed2e21367774c97e9c008a9381e61c676b012e00091b1605d4def1ce7e3.avif"
+    },
+    {
+      "path": "Gulshan one29 mall/images.jpeg",
+      "sha256": "766692e7826e669f1e0a771ee99de49d7ab7d857d2bbe67d46714d1c917deb14",
+      "bytes": 35814,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/766692e7826e669f1e0a771ee99de49d7ab7d857d2bbe67d46714d1c917deb14.jpg"
+    },
+    {
+      "path": "Gulshan one29 mall/overview.webp",
+      "sha256": "b604f569a2c95aad0338aec3124eed036016bcfda040ccbb09f3a3a19b050fe6",
+      "bytes": 270066,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b604f569a2c95aad0338aec3124eed036016bcfda040ccbb09f3a3a19b050fe6.webp"
+    },
+    {
+      "path": "Gulshan one29 mall/Screenshot 2026-10-14 at 2.22.30 PM.png",
+      "sha256": "b69c329d57ad6af79fc1c6d8e5901c0f0270c1729603953272f948a053e9db0c",
+      "bytes": 4079608,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b69c329d57ad6af79fc1c6d8e5901c0f0270c1729603953272f948a053e9db0c.png"
+    },
+    {
+      "path": "IHDP Business Park/1.png",
+      "sha256": "d7362fae84136b7d2471202c552b358d9b86e9858b949720e64b7e543604dac4",
+      "bytes": 1522887,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d7362fae84136b7d2471202c552b358d9b86e9858b949720e64b7e543604dac4.png"
+    },
+    {
+      "path": "IHDP Business Park/2.png",
+      "sha256": "010a41474f8a97208a96a820265a57ac5af69874013d3884449d4341a4c0c3d5",
+      "bytes": 1469610,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/010a41474f8a97208a96a820265a57ac5af69874013d3884449d4341a4c0c3d5.png"
+    },
+    {
+      "path": "IHDP Business Park/3.png",
+      "sha256": "ec0cfaf3ecdf4a821a880dc9ae3fdba85b48ca24cec7926b0f4d771d96aa3049",
+      "bytes": 1509410,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ec0cfaf3ecdf4a821a880dc9ae3fdba85b48ca24cec7926b0f4d771d96aa3049.png"
+    },
+    {
+      "path": "IHDP Business Park/4.png",
+      "sha256": "e963d81f9664db8899e0c524cfbb2d579f6b2460b216849030a6e65825333607",
+      "bytes": 1411425,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e963d81f9664db8899e0c524cfbb2d579f6b2460b216849030a6e65825333607.png"
+    },
+    {
+      "path": "IT Tower/1.png",
+      "sha256": "54d5c4a9d0d86e0ea625f12dd667d4e57ca6ea2f6e298f2a6b05e662ac02375b",
+      "bytes": 1379897,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/54d5c4a9d0d86e0ea625f12dd667d4e57ca6ea2f6e298f2a6b05e662ac02375b.png"
+    },
+    {
+      "path": "IT Tower/2.png",
+      "sha256": "cb997ac50a133430da5ba303d0853b9863283cf8c3e9d28df86ac6ba3569d662",
+      "bytes": 1315798,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/cb997ac50a133430da5ba303d0853b9863283cf8c3e9d28df86ac6ba3569d662.png"
+    },
+    {
+      "path": "IT Tower/3.png",
+      "sha256": "bc587e5666b325d57c37e24eb51ece6c26c84b338f30d50b2517197a97cd68af",
+      "bytes": 1626939,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bc587e5666b325d57c37e24eb51ece6c26c84b338f30d50b2517197a97cd68af.png"
+    },
+    {
+      "path": "IT Tower/4.png",
+      "sha256": "848c60cb1a116f3eb8f3cf7616300e79b44cfd067fc322e2e11f409147528dd0",
+      "bytes": 1549727,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/848c60cb1a116f3eb8f3cf7616300e79b44cfd067fc322e2e11f409147528dd0.png"
+    },
+    {
+      "path": "IThum Tower/1.png",
+      "sha256": "7ca29469ebc09f4e8fa2346bf6d174ec0a279044e6187715896abee5511bb6eb",
+      "bytes": 1422882,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7ca29469ebc09f4e8fa2346bf6d174ec0a279044e6187715896abee5511bb6eb.png"
+    },
+    {
+      "path": "IThum Tower/2.png",
+      "sha256": "2a3fca79a1c926ccb18b4e16acf145bd73d8d7d034ecb347b4f9f1d4cecc3fe0",
+      "bytes": 1387030,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2a3fca79a1c926ccb18b4e16acf145bd73d8d7d034ecb347b4f9f1d4cecc3fe0.png"
+    },
+    {
+      "path": "IThum Tower/3.png",
+      "sha256": "33441b106920e28cfad6338d244325fa0ba879c357536e75a4dd1e6651985ff0",
+      "bytes": 1715530,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/33441b106920e28cfad6338d244325fa0ba879c357536e75a4dd1e6651985ff0.png"
+    },
+    {
+      "path": "IThum Tower/4.png",
+      "sha256": "1788a1b25dc3d7ed092bd7034b6c98689992f0783a1b2a6ffb825b2f23c40e7e",
+      "bytes": 1738528,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1788a1b25dc3d7ed092bd7034b6c98689992f0783a1b2a6ffb825b2f23c40e7e.png"
+    },
+    {
+      "path": "Jask sec 125/1726741157054-1.jpg",
+      "sha256": "d338d91a6de34a1b712e1a28604cb2eba8609f2a945318f50525b7951bfc98fe",
+      "bytes": 617343,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d338d91a6de34a1b712e1a28604cb2eba8609f2a945318f50525b7951bfc98fe.jpg"
+    },
+    {
+      "path": "Jask sec 125/1764662859_1qwsdcv.jpg.webp",
+      "sha256": "79a8c667ab6514279c1ddb5f2b4c09c7853d0484b97910905e064f2646da244b",
+      "bytes": 113154,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/79a8c667ab6514279c1ddb5f2b4c09c7853d0484b97910905e064f2646da244b.webp"
+    },
+    {
+      "path": "Jask sec 125/1770367019_12.jpg.webp",
+      "sha256": "24f67becbe50c1f09a21c249840e97f91cd2267c13c0b6fef1eea8399e6eafaf",
+      "bytes": 267250,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/24f67becbe50c1f09a21c249840e97f91cd2267c13c0b6fef1eea8399e6eafaf.webp"
+    },
+    {
+      "path": "Jask sec 125/3ee6t2.webp",
+      "sha256": "f08f559d3d6c0897140061c4ed4ba2212a1ce8a3cbe9aadd8c16dc3928b40079",
+      "bytes": 105790,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f08f559d3d6c0897140061c4ed4ba2212a1ce8a3cbe9aadd8c16dc3928b40079.webp"
+    },
+    {
+      "path": "Jask sec 125/76373a.webp",
+      "sha256": "f972ad381eec3d5d5637c67648daa0817f1110be39f7f704bd7157053733c7c7",
+      "bytes": 88278,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f972ad381eec3d5d5637c67648daa0817f1110be39f7f704bd7157053733c7c7.webp"
+    },
+    {
+      "path": "Jask sec 125/8479pc.webp",
+      "sha256": "6223d6f554f8808671df23204b1e4b100379db226ff164f51c75f84c7ae04f45",
+      "bytes": 137380,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6223d6f554f8808671df23204b1e4b100379db226ff164f51c75f84c7ae04f45.webp"
+    },
+    {
+      "path": "Jask sec 125/g6ujyf.webp",
+      "sha256": "3bc1dec96a805d37e626c68510310d54b4f0af51a499ea2e6cbc09103d6b24f9",
+      "bytes": 267346,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3bc1dec96a805d37e626c68510310d54b4f0af51a499ea2e6cbc09103d6b24f9.webp"
+    },
+    {
+      "path": "Jask sec 125/images 2.jpeg",
+      "sha256": "c21bee19b4181568eeff389929fb7927cfc4647b21cae3d726f5a2417803d680",
+      "bytes": 38948,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c21bee19b4181568eeff389929fb7927cfc4647b21cae3d726f5a2417803d680.jpg"
+    },
+    {
+      "path": "Jask sec 125/images.jpeg",
+      "sha256": "3d9a3eee9124853cfd4c3441a276da6d655e9b3be0ba1b2210650e3a146ef37f",
+      "bytes": 30172,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3d9a3eee9124853cfd4c3441a276da6d655e9b3be0ba1b2210650e3a146ef37f.jpg"
+    },
+    {
+      "path": "Jask sec 125/Jask tower.png",
+      "sha256": "12263f179ec9873dc3e0b1e23ce3a15bd666a215f75aa56b6dfe4ec272908334",
+      "bytes": 1369359,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/12263f179ec9873dc3e0b1e23ce3a15bd666a215f75aa56b6dfe4ec272908334.png"
+    },
+    {
+      "path": "Joy Tower/1.png",
+      "sha256": "0f2c926bc7c3e58d64674bb3652449e40640a485a4b87548146e6ce3710cec45",
+      "bytes": 1127111,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0f2c926bc7c3e58d64674bb3652449e40640a485a4b87548146e6ce3710cec45.png"
+    },
+    {
+      "path": "Joy Tower/2.png",
+      "sha256": "d1ac37ce87c34937ea226048bf2316e8938838f518c3dd191a8e0b00f3e63c55",
+      "bytes": 1438196,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d1ac37ce87c34937ea226048bf2316e8938838f518c3dd191a8e0b00f3e63c55.png"
+    },
+    {
+      "path": "Joy Tower/3.png",
+      "sha256": "b56e8398409b6510796faf7c6a20a40f17e9b547831a643ac08c1cf0bdaa9257",
+      "bytes": 1451004,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b56e8398409b6510796faf7c6a20a40f17e9b547831a643ac08c1cf0bdaa9257.png"
+    },
+    {
+      "path": "Joy Tower/4.png",
+      "sha256": "4fc160db36166868b193d54e7f60bd6a8dce274c50d6a8578205df2e32344bd4",
+      "bytes": 1350048,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4fc160db36166868b193d54e7f60bd6a8dce274c50d6a8578205df2e32344bd4.png"
+    },
+    {
+      "path": "K P Towers/1.png",
+      "sha256": "3ee933a89077934085285b65f5315ba1a17bff3fdcde6f608062a797e1e98f3e",
+      "bytes": 1595486,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3ee933a89077934085285b65f5315ba1a17bff3fdcde6f608062a797e1e98f3e.png"
+    },
+    {
+      "path": "K P Towers/2.png",
+      "sha256": "31791fd6a0a5a53a44839e4e910e3b8420bdd3217ea9bd5c64945796b1fce6a0",
+      "bytes": 1512326,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/31791fd6a0a5a53a44839e4e910e3b8420bdd3217ea9bd5c64945796b1fce6a0.png"
+    },
+    {
+      "path": "K P Towers/3.png",
+      "sha256": "4f7e3093ab5a1ee1c8c2cdd89814d79c377d44e667ada63036de3d8bbeb1e22f",
+      "bytes": 1974484,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4f7e3093ab5a1ee1c8c2cdd89814d79c377d44e667ada63036de3d8bbeb1e22f.png"
+    },
+    {
+      "path": "K P Towers/4.png",
+      "sha256": "2cdf52ef1aa7df8159700753e2c18147f18993f2bbdb927f50253f1423360c8b",
+      "bytes": 2087340,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2cdf52ef1aa7df8159700753e2c18147f18993f2bbdb927f50253f1423360c8b.png"
+    },
+    {
+      "path": "K S Corporate Tower/1.png",
+      "sha256": "3175f5e4d5e9be3b13bef1f5d7e54a73cd7eca35e7cb2919b02c27081d4de94a",
+      "bytes": 1412062,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3175f5e4d5e9be3b13bef1f5d7e54a73cd7eca35e7cb2919b02c27081d4de94a.png"
+    },
+    {
+      "path": "K S Corporate Tower/2.png",
+      "sha256": "2d483e58f3d726a7e0d5017bc7af1b1f6af23e84a470cf2b7aee163784e45a41",
+      "bytes": 1625994,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2d483e58f3d726a7e0d5017bc7af1b1f6af23e84a470cf2b7aee163784e45a41.png"
+    },
+    {
+      "path": "K S Corporate Tower/3.png",
+      "sha256": "c34d1d674302937389b7a8d196ac83269d5545374ded54430801367e0096adcb",
+      "bytes": 1747036,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c34d1d674302937389b7a8d196ac83269d5545374ded54430801367e0096adcb.png"
+    },
+    {
+      "path": "K S Corporate Tower/4.png",
+      "sha256": "2412f68615e8cbb0e2ca9beed6fc0aa587733451bcdecf3a5d464abef11cbb54",
+      "bytes": 1526641,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2412f68615e8cbb0e2ca9beed6fc0aa587733451bcdecf3a5d464abef11cbb54.png"
+    },
+    {
+      "path": "Keshav IT Park/1.png",
+      "sha256": "8ed3d997190458910debec08d4ab59a33a4c73123e6ae6a65e23732103830800",
+      "bytes": 1684896,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8ed3d997190458910debec08d4ab59a33a4c73123e6ae6a65e23732103830800.png"
+    },
+    {
+      "path": "Keshav IT Park/2.png",
+      "sha256": "39d24192e1b92a079dd4d4eaaa93004f3367fe236c9e4a447581a309927cfaa0",
+      "bytes": 1864772,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/39d24192e1b92a079dd4d4eaaa93004f3367fe236c9e4a447581a309927cfaa0.png"
+    },
+    {
+      "path": "Keshav IT Park/3.png",
+      "sha256": "ae052942f9517a6dcfcefe21da4f7369a093e8675473573393fa6f98b40b8b02",
+      "bytes": 2339108,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ae052942f9517a6dcfcefe21da4f7369a093e8675473573393fa6f98b40b8b02.png"
+    },
+    {
+      "path": "Keshav IT Park/4.png",
+      "sha256": "b573d1976da363ffc30fd56415e11679c53e52607657dc3bbf534e1456a4f8d8",
+      "bytes": 1867308,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b573d1976da363ffc30fd56415e11679c53e52607657dc3bbf534e1456a4f8d8.png"
+    },
+    {
+      "path": "Knowledge Boulevard/1.png",
+      "sha256": "04e34279308fd6bc51e43d38297c843ebdeb7536d94bc43bcb2b2932fa1c20c1",
+      "bytes": 1315195,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/04e34279308fd6bc51e43d38297c843ebdeb7536d94bc43bcb2b2932fa1c20c1.png"
+    },
+    {
+      "path": "Knowledge Boulevard/2.png",
+      "sha256": "d83de74b6c75f45a231ee937f92ea4a87d92aae7b5f19e19495ebe714ae883e5",
+      "bytes": 1604577,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d83de74b6c75f45a231ee937f92ea4a87d92aae7b5f19e19495ebe714ae883e5.png"
+    },
+    {
+      "path": "Knowledge Boulevard/3.png",
+      "sha256": "56c44e562137f49fbefe03af30de40cdc969b9d6473a8283201b9cd4d29bd7e0",
+      "bytes": 1836173,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/56c44e562137f49fbefe03af30de40cdc969b9d6473a8283201b9cd4d29bd7e0.png"
+    },
+    {
+      "path": "Knowledge Boulevard/4.png",
+      "sha256": "9f0be3e2e33dbf9c94ceb48ea732f1142cc8b4350f713bd92c3f324694113e6f",
+      "bytes": 1675482,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/9f0be3e2e33dbf9c94ceb48ea732f1142cc8b4350f713bd92c3f324694113e6f.png"
+    },
+    {
+      "path": "Logix Cyber Park/1.png",
+      "sha256": "17ac7d116e67c316434120371964680bc8d0fe693be20915cdca83ff933258f7",
+      "bytes": 1605557,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/17ac7d116e67c316434120371964680bc8d0fe693be20915cdca83ff933258f7.png"
+    },
+    {
+      "path": "Logix Cyber Park/2.png",
+      "sha256": "59bc874cf0a188531cadd036687d691febe71bfaecb36f70c2e46046c8685ee8",
+      "bytes": 1493727,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/59bc874cf0a188531cadd036687d691febe71bfaecb36f70c2e46046c8685ee8.png"
+    },
+    {
+      "path": "Logix Cyber Park/3.png",
+      "sha256": "d988868168e5c5b96ec30f88880988bd7cc4a1db6ef303d1515fec224c1e7b06",
+      "bytes": 1622614,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d988868168e5c5b96ec30f88880988bd7cc4a1db6ef303d1515fec224c1e7b06.png"
+    },
+    {
+      "path": "Logix Cyber Park/4.png",
+      "sha256": "a5a30b7caeeaa53c98cd4113b37f8df573b4aeae22242456f73bb97e049a165d",
+      "bytes": 1429610,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a5a30b7caeeaa53c98cd4113b37f8df573b4aeae22242456f73bb97e049a165d.png"
+    },
+    {
+      "path": "Logix Park/1.png",
+      "sha256": "042d37b21984e377b73a4c686f95e628b2cbd230bd78530cd398dc81b5121aa3",
+      "bytes": 2143255,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/042d37b21984e377b73a4c686f95e628b2cbd230bd78530cd398dc81b5121aa3.png"
+    },
+    {
+      "path": "Logix Park/2.png",
+      "sha256": "b123931d0dbd548cb3928609b0995e1da3798b1f764e5d9ca2e60e5217ac5ea6",
+      "bytes": 1360845,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b123931d0dbd548cb3928609b0995e1da3798b1f764e5d9ca2e60e5217ac5ea6.png"
+    },
+    {
+      "path": "Logix Park/3.png",
+      "sha256": "22f45f7e469128b7c7f20c9ce6adeea2ade56ecf9f52930a3366082de2b54da1",
+      "bytes": 1219247,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/22f45f7e469128b7c7f20c9ce6adeea2ade56ecf9f52930a3366082de2b54da1.png"
+    },
+    {
+      "path": "Logix Park/4.png",
+      "sha256": "f93825d77c488ba72b66511248fa77cbadb8789f359bfc6745174f8b5be07c18",
+      "bytes": 1146286,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f93825d77c488ba72b66511248fa77cbadb8789f359bfc6745174f8b5be07c18.png"
+    },
+    {
+      "path": "Logix Technova/83csvp.webp",
+      "sha256": "8a2788d9867e4b34d92aa597777453cae35ffd808095a529a999fe7671e4e2ed",
+      "bytes": 79526,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8a2788d9867e4b34d92aa597777453cae35ffd808095a529a999fe7671e4e2ed.webp"
+    },
+    {
+      "path": "Logix Technova/axh758.webp",
+      "sha256": "2b70da685be04805d5afa329766c6d3aa39988865265c9e2d4dd73f7d8d7ad02",
+      "bytes": 103786,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2b70da685be04805d5afa329766c6d3aa39988865265c9e2d4dd73f7d8d7ad02.webp"
+    },
+    {
+      "path": "Logix Technova/Logic technova.webp",
+      "sha256": "4bacedff5a269772ae7596ac66b401a9bddf059ef48c31dffe9f0bb0d7fb9886",
+      "bytes": 85596,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4bacedff5a269772ae7596ac66b401a9bddf059ef48c31dffe9f0bb0d7fb9886.webp"
+    },
+    {
+      "path": "Logix Technova/logix-technova-sector-132-noida-2026-05-19-6a0c2225699bf.webp",
+      "sha256": "efe2119d1308858d6f0c2e383528d579596cd5c565b36527e39b74ee3c4f1cca",
+      "bytes": 655652,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/efe2119d1308858d6f0c2e383528d579596cd5c565b36527e39b74ee3c4f1cca.webp"
+    },
+    {
+      "path": "Logix Technova/technova-others-157912874.jpeg",
+      "sha256": "f366cbf8dc21e6a63ff3ce536f29cf33debd69382ff2d183a52a75b4377cb3ed",
+      "bytes": 820926,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f366cbf8dc21e6a63ff3ce536f29cf33debd69382ff2d183a52a75b4377cb3ed.jpg"
+    },
+    {
+      "path": "Logix Technova/xa43e8.webp",
+      "sha256": "2508269c5aa1b98d128496476a327d07eef2cdd0decdf2e94eddb9e043667858",
+      "bytes": 106760,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2508269c5aa1b98d128496476a327d07eef2cdd0decdf2e94eddb9e043667858.webp"
+    },
+    {
+      "path": "Louts Business park/1.png",
+      "sha256": "504da165f0c7a33c48496be1c51af613bef4d7bc692508f890d397d11f3dc715",
+      "bytes": 1304657,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/504da165f0c7a33c48496be1c51af613bef4d7bc692508f890d397d11f3dc715.png"
+    },
+    {
+      "path": "Louts Business park/2.png",
+      "sha256": "c7d557d6d7ae449e08d791aa3ef63fa47016c0ecdb2873acaf3ecb17b88eb525",
+      "bytes": 1622531,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c7d557d6d7ae449e08d791aa3ef63fa47016c0ecdb2873acaf3ecb17b88eb525.png"
+    },
+    {
+      "path": "Louts Business park/3.png",
+      "sha256": "a2d1bfbb0513b0ed177853e9ed0dcd0d0ab38ee915be7b59e7763fc78ebd7068",
+      "bytes": 1101769,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a2d1bfbb0513b0ed177853e9ed0dcd0d0ab38ee915be7b59e7763fc78ebd7068.png"
+    },
+    {
+      "path": "Louts Business park/4.png",
+      "sha256": "2df24368b77cdfdf765ce6cf2179628804186d37b5a5d0dd9f5e5d8b85450e71",
+      "bytes": 1318142,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2df24368b77cdfdf765ce6cf2179628804186d37b5a5d0dd9f5e5d8b85450e71.png"
+    },
+    {
+      "path": "Lucerna Tower/1.png",
+      "sha256": "f5989597e5d2cb2de396f953660519f36aa04d9711fe724db308a48802bcfb4e",
+      "bytes": 1734363,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f5989597e5d2cb2de396f953660519f36aa04d9711fe724db308a48802bcfb4e.png"
+    },
+    {
+      "path": "Lucerna Tower/2.png",
+      "sha256": "bba067b6d7a97f7c53d7fd069232805bea877b8fd5e9ebe4d7ef5995379ca518",
+      "bytes": 1518690,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bba067b6d7a97f7c53d7fd069232805bea877b8fd5e9ebe4d7ef5995379ca518.png"
+    },
+    {
+      "path": "Lucerna Tower/3.png",
+      "sha256": "00ec973b54aecfbb0ac923f94f5ae5bb54881b0a25cf7171a5527692b3748799",
+      "bytes": 1227212,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/00ec973b54aecfbb0ac923f94f5ae5bb54881b0a25cf7171a5527692b3748799.png"
+    },
+    {
+      "path": "Lucerna Tower/4.png",
+      "sha256": "bec45e3c61bd9c80fe004a25fc2638d8124012393bbf4bf5ffa97b1544967afb",
+      "bytes": 1263175,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bec45e3c61bd9c80fe004a25fc2638d8124012393bbf4bf5ffa97b1544967afb.png"
+    },
+    {
+      "path": "Majestic Signia/1.png",
+      "sha256": "b8cb084146822d39b8f03dadc754f1e14a1a0b81a0ec9beeb48c238cc51637e4",
+      "bytes": 1312926,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b8cb084146822d39b8f03dadc754f1e14a1a0b81a0ec9beeb48c238cc51637e4.png"
+    },
+    {
+      "path": "Majestic Signia/2.png",
+      "sha256": "3a744327bac9f67280310efaba1485cab14594a079f1e2c82a9fd4d7609b7340",
+      "bytes": 1910541,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3a744327bac9f67280310efaba1485cab14594a079f1e2c82a9fd4d7609b7340.png"
+    },
+    {
+      "path": "Majestic Signia/3.png",
+      "sha256": "8d60f3dd2c39779fa65d1b4816ec4966c2dd651a95544b1fb950a0957ec0200b",
+      "bytes": 1754288,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8d60f3dd2c39779fa65d1b4816ec4966c2dd651a95544b1fb950a0957ec0200b.png"
+    },
+    {
+      "path": "Majestic Signia/4.png",
+      "sha256": "d7dcd5dad9b9f85772af20c39d2624b6d10735fa95f36a219e7b43e420fb1803",
+      "bytes": 1539920,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d7dcd5dad9b9f85772af20c39d2624b6d10735fa95f36a219e7b43e420fb1803.png"
+    },
+    {
+      "path": "Maple Corporate Park/1.png",
+      "sha256": "6a170284848360577318219c7f239d12eee89ff4335616dc9d06bdd7427c9811",
+      "bytes": 1123889,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6a170284848360577318219c7f239d12eee89ff4335616dc9d06bdd7427c9811.png"
+    },
+    {
+      "path": "Maple Corporate Park/2.png",
+      "sha256": "27c3083ccffdc6979acb8dc961afda0ba4b28e03d3190a0272fd1b0711ea0cbf",
+      "bytes": 1085364,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/27c3083ccffdc6979acb8dc961afda0ba4b28e03d3190a0272fd1b0711ea0cbf.png"
+    },
+    {
+      "path": "Maple Corporate Park/3.png",
+      "sha256": "2858f222f873481e288210a308b40b6bdfa5932a8ddf89b5ba43a0648b64d4df",
+      "bytes": 1648102,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2858f222f873481e288210a308b40b6bdfa5932a8ddf89b5ba43a0648b64d4df.png"
+    },
+    {
+      "path": "Maple Corporate Park/4.png",
+      "sha256": "eab51a884b067e8a7d713a8cf885450923c91b077a2b756564576a54f1ec78fa",
+      "bytes": 1860222,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/eab51a884b067e8a7d713a8cf885450923c91b077a2b756564576a54f1ec78fa.png"
+    },
+    {
+      "path": "Max towers 129/1746718947865-byr50dkalf.jpeg",
+      "sha256": "c9b65e8c5864423c59efbb05ab0f7bdf327799378e475ca90d3400577d9e9240",
+      "bytes": 229927,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c9b65e8c5864423c59efbb05ab0f7bdf327799378e475ca90d3400577d9e9240.jpg"
+    },
+    {
+      "path": "Max towers 129/1746718948699-c5q8jdpied.jpeg",
+      "sha256": "d0eed522007b4b30cdbd356eba2c54bb750a498c13e3f5c9904f90284511362e",
+      "bytes": 196208,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d0eed522007b4b30cdbd356eba2c54bb750a498c13e3f5c9904f90284511362e.jpg"
+    },
+    {
+      "path": "Max towers 129/1746718949113-lsae2cmwo1.jpeg",
+      "sha256": "f21cbdde61d89c12cc2480f1b989531c8457b99bdd2104d3e4d83d98a873f10c",
+      "bytes": 413582,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f21cbdde61d89c12cc2480f1b989531c8457b99bdd2104d3e4d83d98a873f10c.jpg"
+    },
+    {
+      "path": "Max towers 129/amenities.jpg",
+      "sha256": "518d2382b6b0595b3db254c2f2870a3f7d8471f3c1f359b8589ce36f99b7e06c",
+      "bytes": 175151,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/518d2382b6b0595b3db254c2f2870a3f7d8471f3c1f359b8589ce36f99b7e06c.jpg"
+    },
+    {
+      "path": "Max towers 129/images.jpeg",
+      "sha256": "575d8afc127b14c4512e5ab10d5e30df44c874833f8aefb49fd1ddd8b0f51955",
+      "bytes": 42323,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/575d8afc127b14c4512e5ab10d5e30df44c874833f8aefb49fd1ddd8b0f51955.jpg"
+    },
+    {
+      "path": "Max towers 129/max-towers-spotlight-2.jpg",
+      "sha256": "604a9376835231fb90172d012fc2831bbb38d699d54e3a3b8da9ee682039b4d2",
+      "bytes": 562144,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/604a9376835231fb90172d012fc2831bbb38d699d54e3a3b8da9ee682039b4d2.jpg"
+    },
+    {
+      "path": "Max towers 129/Untitled-3.png",
+      "sha256": "502dc2e852c7ee21dddfedab733f9be4f5dfe48bd4bc1890eac5e4e654828f72",
+      "bytes": 1290122,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/502dc2e852c7ee21dddfedab733f9be4f5dfe48bd4bc1890eac5e4e654828f72.png"
+    },
+    {
+      "path": "Max towers 129/Untitled-4.png",
+      "sha256": "477f7970f07801ec5a847f319331f3c844033efaa774af243299926805713f82",
+      "bytes": 1657548,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/477f7970f07801ec5a847f319331f3c844033efaa774af243299926805713f82.png"
+    },
+    {
+      "path": "Max towers sec 16/images-1658168180709.jpg",
+      "sha256": "eda130404e3a639fac83e783dd2e35b05071df0eb299edb0e50cb11527e7ddf2",
+      "bytes": 211497,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/eda130404e3a639fac83e783dd2e35b05071df0eb299edb0e50cb11527e7ddf2.jpg"
+    },
+    {
+      "path": "Max towers sec 16/images.jpeg",
+      "sha256": "84dea2f725b0f18bf84dda3bc6d50ed8a77e16bc25c0b24504590fc9a0cd9d8b",
+      "bytes": 87327,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/84dea2f725b0f18bf84dda3bc6d50ed8a77e16bc25c0b24504590fc9a0cd9d8b.jpg"
+    },
+    {
+      "path": "Max towers sec 16/max-towers-big-2.jpg",
+      "sha256": "ecc57202f6049bc5be366b82a9c9f54340574775831e538ae2e7301d9d0c3b35",
+      "bytes": 232765,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ecc57202f6049bc5be366b82a9c9f54340574775831e538ae2e7301d9d0c3b35.jpg"
+    },
+    {
+      "path": "Max towers sec 16/max-towers-spotlight-4.jpg",
+      "sha256": "55187dae34aa8c37be2f922c66ce0626f6aebe9f02c2159e86c8ea08ed63402e",
+      "bytes": 341318,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/55187dae34aa8c37be2f922c66ce0626f6aebe9f02c2159e86c8ea08ed63402e.jpg"
+    },
+    {
+      "path": "Max towers sec 16/v9d22d.webp",
+      "sha256": "571e32ea3172ed9ee19f2efef6845d05e23f9835f5e9a1703c9202bb22b97fd7",
+      "bytes": 110078,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/571e32ea3172ed9ee19f2efef6845d05e23f9835f5e9a1703c9202bb22b97fd7.webp"
+    },
+    {
+      "path": "Mindmill Corporate Tower/1.png",
+      "sha256": "5eee6bdede63f506ab9b4ee418cc25dd06aed8fe9cc5e09de1f7a7d6b0690938",
+      "bytes": 1509149,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5eee6bdede63f506ab9b4ee418cc25dd06aed8fe9cc5e09de1f7a7d6b0690938.png"
+    },
+    {
+      "path": "Mindmill Corporate Tower/2.png",
+      "sha256": "ecc7fdff4acd59bf611461990a20cf39588f564a7420acacd24ee6a6f61c1f70",
+      "bytes": 1759017,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ecc7fdff4acd59bf611461990a20cf39588f564a7420acacd24ee6a6f61c1f70.png"
+    },
+    {
+      "path": "Mindmill Corporate Tower/3.png",
+      "sha256": "3e4d450a9e16ece2530bf1d65b239029f9b8bc8481511d8e942b1b3e6f464d92",
+      "bytes": 1588282,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3e4d450a9e16ece2530bf1d65b239029f9b8bc8481511d8e942b1b3e6f464d92.png"
+    },
+    {
+      "path": "Mindmill Corporate Tower/4.png",
+      "sha256": "98032b52213c8a7907e092fcfec7600e95e30942283e1363d39e698f1ea0f864",
+      "bytes": 1688197,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/98032b52213c8a7907e092fcfec7600e95e30942283e1363d39e698f1ea0f864.png"
+    },
+    {
+      "path": "Noida One/1.png",
+      "sha256": "c081c666977275abfc1dea38e1f388aae7f89fce77fd9e38fbd1ce38c3fa4875",
+      "bytes": 1361470,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c081c666977275abfc1dea38e1f388aae7f89fce77fd9e38fbd1ce38c3fa4875.png"
+    },
+    {
+      "path": "Noida One/2.png",
+      "sha256": "2c0def0db46c2de9cd86d4fb860b49f9c670b71d5a18ae9327da7cb06d812ff8",
+      "bytes": 1792648,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2c0def0db46c2de9cd86d4fb860b49f9c670b71d5a18ae9327da7cb06d812ff8.png"
+    },
+    {
+      "path": "Noida One/3.png",
+      "sha256": "6e3960b52aaf862f10998c96d61a6ee352b138bd45c123aca8a39434df48f76b",
+      "bytes": 1720316,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6e3960b52aaf862f10998c96d61a6ee352b138bd45c123aca8a39434df48f76b.png"
+    },
+    {
+      "path": "Noida One/4.png",
+      "sha256": "b68606426afae58b147823c3e7d1b1626f25339a86902fd8cb581f445b4673f6",
+      "bytes": 1500416,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b68606426afae58b147823c3e7d1b1626f25339a86902fd8cb581f445b4673f6.png"
+    },
+    {
+      "path": "NSL TechZone/1.png",
+      "sha256": "39ae9b43049f30cda8698d6bb96fb2a99d390c4d8d860af1b471cf2d1265c620",
+      "bytes": 1726474,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/39ae9b43049f30cda8698d6bb96fb2a99d390c4d8d860af1b471cf2d1265c620.png"
+    },
+    {
+      "path": "NSL TechZone/2.png",
+      "sha256": "bed807ab461062c8b6fa57030db8e15f5321b88d44d4aceee9cdef554441ba47",
+      "bytes": 1607294,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bed807ab461062c8b6fa57030db8e15f5321b88d44d4aceee9cdef554441ba47.png"
+    },
+    {
+      "path": "NSL TechZone/3.png",
+      "sha256": "cb4225ddf0c814b5c16a17095e6f5732884bdcdd28e7788b2154502c5783dd1d",
+      "bytes": 1488488,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/cb4225ddf0c814b5c16a17095e6f5732884bdcdd28e7788b2154502c5783dd1d.png"
+    },
+    {
+      "path": "NSL TechZone/4.png",
+      "sha256": "edac20c97a169948280912f0b3d0cd1e7d5d6ce6308dcdb51c37b3b0677be418",
+      "bytes": 842089,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/edac20c97a169948280912f0b3d0cd1e7d5d6ce6308dcdb51c37b3b0677be418.png"
+    },
+    {
+      "path": "Opulence/1.png",
+      "sha256": "1ea58b6b37309983e9db5be921c6833c72b72f0ccc1a89babf2f643cb8a49879",
+      "bytes": 1497964,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1ea58b6b37309983e9db5be921c6833c72b72f0ccc1a89babf2f643cb8a49879.png"
+    },
+    {
+      "path": "Opulence/2.png",
+      "sha256": "3b5487e77f5653a194b6b1c71758f069262dff4e8b2b6368d20efbeda2feb522",
+      "bytes": 1453760,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3b5487e77f5653a194b6b1c71758f069262dff4e8b2b6368d20efbeda2feb522.png"
+    },
+    {
+      "path": "Opulence/3.png",
+      "sha256": "df317efce4b3d24e7911a2bb9ab347cd8a7bae8c340aea8c0deb168084c09528",
+      "bytes": 2115922,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/df317efce4b3d24e7911a2bb9ab347cd8a7bae8c340aea8c0deb168084c09528.png"
+    },
+    {
+      "path": "Opulence/4.png",
+      "sha256": "cf6803fc1069ca7b09d5cab02ca64ded4603b34c8726c1fccace388a9254df2d",
+      "bytes": 963394,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/cf6803fc1069ca7b09d5cab02ca64ded4603b34c8726c1fccace388a9254df2d.png"
+    },
+    {
+      "path": "Orion Tower/1.png",
+      "sha256": "561b73344dd6cd4c2e00e9cc7b7e784c32d0786342fa337460e64f03512aee47",
+      "bytes": 1359384,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/561b73344dd6cd4c2e00e9cc7b7e784c32d0786342fa337460e64f03512aee47.png"
+    },
+    {
+      "path": "Orion Tower/2.png",
+      "sha256": "1225385047bce013f2059f7d39eb06bb531d93758c53db1e3d0a640c7c7a1ded",
+      "bytes": 1503489,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1225385047bce013f2059f7d39eb06bb531d93758c53db1e3d0a640c7c7a1ded.png"
+    },
+    {
+      "path": "Pinnacle 142/1.png",
+      "sha256": "5fd4a80c273eb3ca083425bcf2ffb19103528164e97293b0b3a93d384d7b7f0a",
+      "bytes": 1769677,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5fd4a80c273eb3ca083425bcf2ffb19103528164e97293b0b3a93d384d7b7f0a.png"
+    },
+    {
+      "path": "Pinnacle 142/2.png",
+      "sha256": "5eae169bb5970edf0352707b94fa58f06f0f12dc637d9837a2a913ba59e95e7d",
+      "bytes": 1445142,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5eae169bb5970edf0352707b94fa58f06f0f12dc637d9837a2a913ba59e95e7d.png"
+    },
+    {
+      "path": "Pinnacle 142/3.png",
+      "sha256": "49bb0b0bf5e7a4a2367b7d599febbd606ac3a7f7fa815b90f678be96e35ab1cf",
+      "bytes": 1420032,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/49bb0b0bf5e7a4a2367b7d599febbd606ac3a7f7fa815b90f678be96e35ab1cf.png"
+    },
+    {
+      "path": "Pinnacle 142/4.png",
+      "sha256": "dc05623a91f39fa297e7c2e8f4348bb17e5a0dedf58461d8554bd93545211c2d",
+      "bytes": 1371879,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/dc05623a91f39fa297e7c2e8f4348bb17e5a0dedf58461d8554bd93545211c2d.png"
+    },
+    {
+      "path": "Pinnacle Business Park/1.png",
+      "sha256": "cb853efb2783db74599dea8bc0efe49c6877ceaba1939c7bdea54a6044db0762",
+      "bytes": 1567129,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/cb853efb2783db74599dea8bc0efe49c6877ceaba1939c7bdea54a6044db0762.png"
+    },
+    {
+      "path": "Pinnacle Business Park/2.png",
+      "sha256": "bea534054be18114c1e82f990aad6dcd1906e60109d5400e3e2acfe60e6115e0",
+      "bytes": 1845294,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bea534054be18114c1e82f990aad6dcd1906e60109d5400e3e2acfe60e6115e0.png"
+    },
+    {
+      "path": "Pinnacle Business Park/3.png",
+      "sha256": "8f402477cae10f5a4fae299bff50e7356097c47d43dc469d50824da1089a57f0",
+      "bytes": 1461539,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8f402477cae10f5a4fae299bff50e7356097c47d43dc469d50824da1089a57f0.png"
+    },
+    {
+      "path": "Pinnacle Tower 132/1.png",
+      "sha256": "e745e5ca4c03d4cf5fe75284ff8fa3bc8587897ba2f3567eb2f25aa1349c21ff",
+      "bytes": 2009015,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e745e5ca4c03d4cf5fe75284ff8fa3bc8587897ba2f3567eb2f25aa1349c21ff.png"
+    },
+    {
+      "path": "Pinnacle Tower 132/2.png",
+      "sha256": "baf764b4c762aa4ea754f624c83c03ad3296cb5802af38c6df9f3f8b2724b777",
+      "bytes": 2228532,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/baf764b4c762aa4ea754f624c83c03ad3296cb5802af38c6df9f3f8b2724b777.png"
+    },
+    {
+      "path": "Pinnacle Tower 132/3.png",
+      "sha256": "748d80cee24660c9e7fab11ee779ec5feb2cb5a8b05667276943c16d3c0bd375",
+      "bytes": 2540295,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/748d80cee24660c9e7fab11ee779ec5feb2cb5a8b05667276943c16d3c0bd375.png"
+    },
+    {
+      "path": "Pinnacle Tower 132/4.png",
+      "sha256": "2fcdb0404cb982141f419fb65a5b304ca81c04f224601cb9e335074fb538d2f3",
+      "bytes": 2368158,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2fcdb0404cb982141f419fb65a5b304ca81c04f224601cb9e335074fb538d2f3.png"
+    },
+    {
+      "path": "Pioneer House/1.png",
+      "sha256": "0bb925f20d7bdbbc51b50cf5f9b667d669adf82038f43eab74efc29cd40c9a83",
+      "bytes": 1555559,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0bb925f20d7bdbbc51b50cf5f9b667d669adf82038f43eab74efc29cd40c9a83.png"
+    },
+    {
+      "path": "Pioneer House/2.png",
+      "sha256": "02b0a39c7720e3de9c12f71b11fa1623732a6ee7e728973dd1f81dd313c581a0",
+      "bytes": 1880621,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/02b0a39c7720e3de9c12f71b11fa1623732a6ee7e728973dd1f81dd313c581a0.png"
+    },
+    {
+      "path": "Pioneer House/3.png",
+      "sha256": "cb4a3c2fda9b62c9bd4fda4375ea61bc9d4e1d1a5eac1b7aa45aae43b7890cf6",
+      "bytes": 1510540,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/cb4a3c2fda9b62c9bd4fda4375ea61bc9d4e1d1a5eac1b7aa45aae43b7890cf6.png"
+    },
+    {
+      "path": "Pioneer House/4.png",
+      "sha256": "801a8741016f8fd65a4c0a74ec53324d2fa8fa2b86aa04333166d02967da7fac",
+      "bytes": 1882833,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/801a8741016f8fd65a4c0a74ec53324d2fa8fa2b86aa04333166d02967da7fac.png"
+    },
+    {
+      "path": "Pride Tower/1.png",
+      "sha256": "6c8b1b5dbc9f402346046255db955a972d77a08bb9c5100064364c9de708bcec",
+      "bytes": 1353522,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6c8b1b5dbc9f402346046255db955a972d77a08bb9c5100064364c9de708bcec.png"
+    },
+    {
+      "path": "Pride Tower/2.png",
+      "sha256": "dc41970df35f465ee64c8af68f0baa839490ca2538306e15c00a111f7b89372f",
+      "bytes": 1625903,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/dc41970df35f465ee64c8af68f0baa839490ca2538306e15c00a111f7b89372f.png"
+    },
+    {
+      "path": "Pride Tower/3.png",
+      "sha256": "a4a176631b59918420745a5aaa1aec9a94805cf5404daa772bf7f64a4135e43e",
+      "bytes": 1687868,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a4a176631b59918420745a5aaa1aec9a94805cf5404daa772bf7f64a4135e43e.png"
+    },
+    {
+      "path": "Pride Tower/4.png",
+      "sha256": "91488513a20feb51ed26ba9853b2a42fc1e65c7bb85c87f17031df5d983289ea",
+      "bytes": 1360657,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/91488513a20feb51ed26ba9853b2a42fc1e65c7bb85c87f17031df5d983289ea.png"
+    },
+    {
+      "path": "Riana/1751091371336-s3h40lpvuv.jpeg",
+      "sha256": "e2b31229814771ecbf0cf4b7570c46c81b855a24489a0f68ee1f7cb1f1dd2482",
+      "bytes": 326317,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e2b31229814771ecbf0cf4b7570c46c81b855a24489a0f68ee1f7cb1f1dd2482.jpg"
+    },
+    {
+      "path": "Riana/1763031089_raina-8.jpg.webp",
+      "sha256": "06488328c879f0151f3d13f747b33970ec748c760c3be5578c8dbf6bff222eb1",
+      "bytes": 126948,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/06488328c879f0151f3d13f747b33970ec748c760c3be5578c8dbf6bff222eb1.webp"
+    },
+    {
+      "path": "Riana/1763980634_1abcdef.jpg.webp",
+      "sha256": "505c8c5c4a6d65c9db658136e255358c9f54e5cdd41803ef211b582bbd096254",
+      "bytes": 75788,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/505c8c5c4a6d65c9db658136e255358c9f54e5cdd41803ef211b582bbd096254.webp"
+    },
+    {
+      "path": "Riana/1777290803824.jpeg",
+      "sha256": "765cb0b45f7c13c103809426906c71bb52a71d1ffac346f31b605f5e38e1b4cc",
+      "bytes": 161806,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/765cb0b45f7c13c103809426906c71bb52a71d1ffac346f31b605f5e38e1b4cc.jpg"
+    },
+    {
+      "path": "Riana/bfycwj.webp",
+      "sha256": "45ef915b79d6c2c4a394fd282617970d69fa1404c3ddf5508b9e43bf7815f524",
+      "bytes": 167204,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/45ef915b79d6c2c4a394fd282617970d69fa1404c3ddf5508b9e43bf7815f524.webp"
+    },
+    {
+      "path": "Riana/DJI_0946.MP4",
+      "sha256": "2bb3f9b4b399cdbb80adedc04821146f8e82d720f012dbcae07f02e1e86c1cbb",
+      "bytes": 288104883,
+      "contentType": "video/mp4",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/videos/2bb3f9b4b399cdbb80adedc04821146f8e82d720f012dbcae07f02e1e86c1cbb.mp4"
+    },
+    {
+      "path": "Riana/DJI_0948.MP4",
+      "sha256": "8e4ba1f663096bad0269a90519523af44329372ac8db596a20b52d944459da5e",
+      "bytes": 785710610,
+      "contentType": "video/mp4",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/videos/8e4ba1f663096bad0269a90519523af44329372ac8db596a20b52d944459da5e.mp4"
+    },
+    {
+      "path": "Riana/g6.jpg.webp",
+      "sha256": "ab99a4059dcc7f384ae33be7b6b23c95d162de17b2a9afe9b1cc571b78f2e7dc",
+      "bytes": 82862,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ab99a4059dcc7f384ae33be7b6b23c95d162de17b2a9afe9b1cc571b78f2e7dc.webp"
+    },
+    {
+      "path": "Riana/images.jpeg",
+      "sha256": "e956109b7db29929f0567107eb829e3ab65f34dd7bc07b4aedb1c9f6ac8f49bd",
+      "bytes": 32098,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e956109b7db29929f0567107eb829e3ab65f34dd7bc07b4aedb1c9f6ac8f49bd.jpg"
+    },
+    {
+      "path": "SB Tower/1.png",
+      "sha256": "0b57ef5b7e9cbd2bf0864509d899f8d6bbef474dd7ed0a5339d61dd57a3a2e85",
+      "bytes": 1588139,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0b57ef5b7e9cbd2bf0864509d899f8d6bbef474dd7ed0a5339d61dd57a3a2e85.png"
+    },
+    {
+      "path": "SB Tower/2.png",
+      "sha256": "3ec1c64407459ea6b2d5a78fa0000362c71a7147e739bdf9c34910cda17914ab",
+      "bytes": 1968866,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3ec1c64407459ea6b2d5a78fa0000362c71a7147e739bdf9c34910cda17914ab.png"
+    },
+    {
+      "path": "SB Tower/3.png",
+      "sha256": "365047c1c3b36130df2ff2defc8b92daad1ffabbcb50bb63aa7371fe29f866fe",
+      "bytes": 1585253,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/365047c1c3b36130df2ff2defc8b92daad1ffabbcb50bb63aa7371fe29f866fe.png"
+    },
+    {
+      "path": "SB Tower/4.png",
+      "sha256": "d82e75fae65b1e5f51a19b5533b8603b58aafabcde907ff2a7c894e3bc25a891",
+      "bytes": 1578504,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d82e75fae65b1e5f51a19b5533b8603b58aafabcde907ff2a7c894e3bc25a891.png"
+    },
+    {
+      "path": "ServSpaces 03/1.png",
+      "sha256": "7aee1679866fc4239e725d84695259ced9e0f354ddfe482eb4bc94e592609d7b",
+      "bytes": 1359165,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7aee1679866fc4239e725d84695259ced9e0f354ddfe482eb4bc94e592609d7b.png"
+    },
+    {
+      "path": "ServSpaces 03/2.png",
+      "sha256": "0225c69579db4399969b086aa3bcd7272d1125894097e0b7f9983b141e521611",
+      "bytes": 1283334,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0225c69579db4399969b086aa3bcd7272d1125894097e0b7f9983b141e521611.png"
+    },
+    {
+      "path": "ServSpaces 03/3.png",
+      "sha256": "c7d54c9d102e1decd46fc011b685201dbfc82188ea4518c9eb2fd944cd6f2907",
+      "bytes": 1109688,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c7d54c9d102e1decd46fc011b685201dbfc82188ea4518c9eb2fd944cd6f2907.png"
+    },
+    {
+      "path": "ServSpaces 03/4.png",
+      "sha256": "4c0a6ed89693932f472fa3f81b8b3d336195468c19b2fce1318a921a9cf7d223",
+      "bytes": 1576875,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4c0a6ed89693932f472fa3f81b8b3d336195468c19b2fce1318a921a9cf7d223.png"
+    },
+    {
+      "path": "Sikka Kapital Grand/1.png",
+      "sha256": "2b1ee34072edc88a019d7aa957110e07c6072330d109d7a17cc17f55f0bf7eab",
+      "bytes": 1886731,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2b1ee34072edc88a019d7aa957110e07c6072330d109d7a17cc17f55f0bf7eab.png"
+    },
+    {
+      "path": "Sikka Kapital Grand/2.png",
+      "sha256": "0200dd183673b4c0449e773898d4866d8b965bd48d650feb2c7aaa9a4729dec9",
+      "bytes": 1726984,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0200dd183673b4c0449e773898d4866d8b965bd48d650feb2c7aaa9a4729dec9.png"
+    },
+    {
+      "path": "Sikka Kapital Grand/3.png",
+      "sha256": "e9b50bb5325d774f690dd4fcc739199dc9c61bba5c77ea81945941fe99bad10e",
+      "bytes": 1592938,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e9b50bb5325d774f690dd4fcc739199dc9c61bba5c77ea81945941fe99bad10e.png"
+    },
+    {
+      "path": "Sikka Kapital Grand/4.png",
+      "sha256": "bcfbc63ee377548b6855477321416e1af0550127d8f50dd910705986ac23bd24",
+      "bytes": 1557053,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bcfbc63ee377548b6855477321416e1af0550127d8f50dd910705986ac23bd24.png"
+    },
+    {
+      "path": "Sikka Mall of Noida/1753603479506-73xy5ghq1m.jpeg",
+      "sha256": "fcd29b8c02788c600efe3cf58918af634e4d1dcbf57260938af8281300e6d60c",
+      "bytes": 334948,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/fcd29b8c02788c600efe3cf58918af634e4d1dcbf57260938af8281300e6d60c.jpg"
+    },
+    {
+      "path": "Sikka Mall of Noida/990991418.webp",
+      "sha256": "6731e142ec0858a7ad4932cacfdd30977d574c12eecf5145131f6602218c333c",
+      "bytes": 63822,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6731e142ec0858a7ad4932cacfdd30977d574c12eecf5145131f6602218c333c.webp"
+    },
+    {
+      "path": "Sikka Mall of Noida/crt-0l-0w-100h-100.webp",
+      "sha256": "705b67e2b69cc279e09a18ea497b8b7ebcdd29123ed444171d87c76f2de36ee6",
+      "bytes": 120474,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/705b67e2b69cc279e09a18ea497b8b7ebcdd29123ed444171d87c76f2de36ee6.webp"
+    },
+    {
+      "path": "Sikka Mall of Noida/sikka-mall-noida-sector-98-noida-malls-n6g24nnbmb.jpg.avif",
+      "sha256": "8e167056102a50f957ed3f7e9d78e5e9495f58071ac065d425e069640f8e5c35",
+      "bytes": 40584,
+      "contentType": "image/avif",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8e167056102a50f957ed3f7e9d78e5e9495f58071ac065d425e069640f8e5c35.avif"
+    },
+    {
+      "path": "Skymark/6nkftb.webp",
+      "sha256": "29fd6baf32bbcda05eab7abde913b36c264f34b3e01656b9cfd0e9ce7e4999ce",
+      "bytes": 153546,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/29fd6baf32bbcda05eab7abde913b36c264f34b3e01656b9cfd0e9ce7e4999ce.webp"
+    },
+    {
+      "path": "Skymark/DJI_0925.MP4",
+      "sha256": "5fb5306a9a2f7e1bed1264a17e3b0344ad13d1b1eb2f8852c7fb4bcc2fc19421",
+      "bytes": 449758899,
+      "contentType": "video/mp4",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/videos/5fb5306a9a2f7e1bed1264a17e3b0344ad13d1b1eb2f8852c7fb4bcc2fc19421.mp4"
+    },
+    {
+      "path": "Skymark/DJI_0927.MP4",
+      "sha256": "94238f187c3710ad6a3b4077650c6d616b77367ae475208f54cd69b1d4c46d53",
+      "bytes": 498895692,
+      "contentType": "video/mp4",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/videos/94238f187c3710ad6a3b4077650c6d616b77367ae475208f54cd69b1d4c46d53.mp4"
+    },
+    {
+      "path": "Skymark/images-1660636297555.jpg",
+      "sha256": "23c29443b603b8a2c53cdff6172563a097628baa634721ff5e3738a3511f6126",
+      "bytes": 230606,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/23c29443b603b8a2c53cdff6172563a097628baa634721ff5e3738a3511f6126.jpg"
+    },
+    {
+      "path": "Skymark/images-1660636297787.jpg",
+      "sha256": "981f8edfa34a33f8aeb25757956bceae2c7de698894277bd769e693cff29261e",
+      "bytes": 268673,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/981f8edfa34a33f8aeb25757956bceae2c7de698894277bd769e693cff29261e.jpg"
+    },
+    {
+      "path": "Skymark/kgtsk8.webp",
+      "sha256": "69bdd083435adf3d24e3427ff42066fe4345255b7fbcff427131bf65304e04d5",
+      "bytes": 135176,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/69bdd083435adf3d24e3427ff42066fe4345255b7fbcff427131bf65304e04d5.webp"
+    },
+    {
+      "path": "Skymark/q6mze7.webp",
+      "sha256": "9b14bef5e2fab07ba0e34d2ecd45a1b06f3b1eb9a0bdda6bb03c57c041c99b1c",
+      "bytes": 150910,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/9b14bef5e2fab07ba0e34d2ecd45a1b06f3b1eb9a0bdda6bb03c57c041c99b1c.webp"
+    },
+    {
+      "path": "Skymark/Screenshot 2026-10-14 at 1.49.36 PM.png",
+      "sha256": "d8aae7ef27c5677e603506f486ff07ece8dc9642202d11dde1a17a6e7bcb6c2e",
+      "bytes": 9866452,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d8aae7ef27c5677e603506f486ff07ece8dc9642202d11dde1a17a6e7bcb6c2e.png"
+    },
+    {
+      "path": "Skymark/Skymark one 1.webp",
+      "sha256": "c8604a25b36f6f41f277c56c47bd548a02de0c2203fd102c544bac1bf01c7309",
+      "bytes": 382884,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c8604a25b36f6f41f277c56c47bd548a02de0c2203fd102c544bac1bf01c7309.webp"
+    },
+    {
+      "path": "Skymark/Skymark one 2.jpeg",
+      "sha256": "f0fb317e18dbf4554802f296cd372dc55619b1a89e17ac66c99421a084d7a893",
+      "bytes": 944511,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f0fb317e18dbf4554802f296cd372dc55619b1a89e17ac66c99421a084d7a893.jpg"
+    },
+    {
+      "path": "Skymark/Skymark one 3.jpeg",
+      "sha256": "80ced839e2b63534fa00a04672055426b4bcf6f46fde3f1da89f4ffd69f73f92",
+      "bytes": 166948,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/80ced839e2b63534fa00a04672055426b4bcf6f46fde3f1da89f4ffd69f73f92.jpg"
+    },
+    {
+      "path": "Skymark/Skymark one 4.jpeg",
+      "sha256": "971a6c8207d1533d1a4dabdb97e35b026a74db784de2e9422f23aa5335f0ab36",
+      "bytes": 777913,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/971a6c8207d1533d1a4dabdb97e35b026a74db784de2e9422f23aa5335f0ab36.jpg"
+    },
+    {
+      "path": "Skymark/tb3259.webp",
+      "sha256": "ebc9bd103a9cc7bd4ab61a42ec4bab8b070571d9f020ca6a75640f623ba1df9f",
+      "bytes": 111792,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ebc9bd103a9cc7bd4ab61a42ec4bab8b070571d9f020ca6a75640f623ba1df9f.webp"
+    },
+    {
+      "path": "Sovereign Capital Gate/1.png",
+      "sha256": "8881c1e4c4c95026d2687f0a90e342b8ec15bb0e07f2d30c85069ff6d3e59367",
+      "bytes": 1967029,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8881c1e4c4c95026d2687f0a90e342b8ec15bb0e07f2d30c85069ff6d3e59367.png"
+    },
+    {
+      "path": "Sovereign Capital Gate/2.png",
+      "sha256": "df378a59c3411abd4b385ea56a6f1bddb17376a469ba07cd72c32d106134263c",
+      "bytes": 1647676,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/df378a59c3411abd4b385ea56a6f1bddb17376a469ba07cd72c32d106134263c.png"
+    },
+    {
+      "path": "Sovereign Capital Gate/3.png",
+      "sha256": "14f0bf76cdc6d6a16ec50e5fd46ac4642a08999995071ced649c4fa34ee1accb",
+      "bytes": 1681661,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/14f0bf76cdc6d6a16ec50e5fd46ac4642a08999995071ced649c4fa34ee1accb.png"
+    },
+    {
+      "path": "Sovereign Capital Gate/4.png",
+      "sha256": "e2cd2c87bd9e9e1e4e6688058a0fc15d6f760ca8ace82f72c9356c22c0795a51",
+      "bytes": 1636292,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e2cd2c87bd9e9e1e4e6688058a0fc15d6f760ca8ace82f72c9356c22c0795a51.png"
+    },
+    {
+      "path": "Sovereign Corporate Towers/1763639136640-ahpfqn5io6.jpeg",
+      "sha256": "67991329ea3d927ec06d08d2d2787a249894347c2cbcf41e112a540aef366b1e",
+      "bytes": 502080,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/67991329ea3d927ec06d08d2d2787a249894347c2cbcf41e112a540aef366b1e.jpg"
+    },
+    {
+      "path": "Sovereign Corporate Towers/1773123066_office space for rent in sector 142 noida.webp",
+      "sha256": "c5cc675111d1f2da3520a6c01f65b527b2b117dfa60bcb58bce2b046c7a35116",
+      "bytes": 93882,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c5cc675111d1f2da3520a6c01f65b527b2b117dfa60bcb58bce2b046c7a35116.webp"
+    },
+    {
+      "path": "Sovereign Corporate Towers/1784042-sovereign-corporate-tower-11th-floor-a-143-sec-136-noida-expressway.jpg.webp",
+      "sha256": "d756faf5e84ad115c0234d05a78b3a54c89d6eb147328c98d38e2dfc6e026448",
+      "bytes": 147124,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d756faf5e84ad115c0234d05a78b3a54c89d6eb147328c98d38e2dfc6e026448.webp"
+    },
+    {
+      "path": "Sovereign Corporate Towers/2612002-sovereign-corporate-tower-11th-floor-a-143-sec-136-noida-expressway.jpg.webp",
+      "sha256": "0af8c5911d80a5c359047c1b90b46f06f823186a82018c1d6c48cf7a82f4c866",
+      "bytes": 153814,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0af8c5911d80a5c359047c1b90b46f06f823186a82018c1d6c48cf7a82f4c866.webp"
+    },
+    {
+      "path": "Sovereign Corporate Towers/2rmkrz.webp",
+      "sha256": "2f1bd7cb78d5d9b37a4f907416212a003d947e22d686fb69c8e43109b59dd35b",
+      "bytes": 173634,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2f1bd7cb78d5d9b37a4f907416212a003d947e22d686fb69c8e43109b59dd35b.webp"
+    },
+    {
+      "path": "Sovereign Corporate Towers/8854862-sovereign-corporate-tower-11th-floor-a-143-sec-136-noida-expressway.jpg",
+      "sha256": "2f2a7be028cd9fcc27ffe811a90bc28815f46ca7c2f9edbf5decd737c7a2afaa",
+      "bytes": 117862,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2f2a7be028cd9fcc27ffe811a90bc28815f46ca7c2f9edbf5decd737c7a2afaa.jpg"
+    },
+    {
+      "path": "Sovereign Corporate Towers/image-95835e1709665aecd2a9843f20f06f9d20fab7a6-D-Ddx10f.avif",
+      "sha256": "67789eec7ce91efc2314e7caab174dc35eef62c0f80aa35ee73f420d9749842e",
+      "bytes": 20592,
+      "contentType": "image/avif",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/67789eec7ce91efc2314e7caab174dc35eef62c0f80aa35ee73f420d9749842e.avif"
+    },
+    {
+      "path": "Sovereign Corporate Towers/images.jpeg",
+      "sha256": "35560b25d331bc1211c1ecf8a1df336aea98af537552f11a2e0efbcaed6c905b",
+      "bytes": 33449,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/35560b25d331bc1211c1ecf8a1df336aea98af537552f11a2e0efbcaed6c905b.jpg"
+    },
+    {
+      "path": "Sovereign Corporate Towers/jocptsf_1705320010_467404784.jpg",
+      "sha256": "e2138a2f385c461b17bb3a86484ad4fcb2df62bb819b833a4e765b2c84820d19",
+      "bytes": 1150005,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e2138a2f385c461b17bb3a86484ad4fcb2df62bb819b833a4e765b2c84820d19.jpg"
+    },
+    {
+      "path": "SPG Nexus/1.png",
+      "sha256": "66f24ad4e238ac2e3579008e06b1ead8b68a6cbcda653b9b113d6c572be3c755",
+      "bytes": 1848928,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/66f24ad4e238ac2e3579008e06b1ead8b68a6cbcda653b9b113d6c572be3c755.png"
+    },
+    {
+      "path": "SPG Nexus/2.png",
+      "sha256": "ae81b63720359886438316a848d6e128a8783058f5ea2d3867f580c677cd450b",
+      "bytes": 1202943,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ae81b63720359886438316a848d6e128a8783058f5ea2d3867f580c677cd450b.png"
+    },
+    {
+      "path": "SPG Nexus/3.png",
+      "sha256": "7fab0925f9ea561a6bb9e46afd8009aff8de3d73821e21fad45ee3e5f971c927",
+      "bytes": 1173146,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7fab0925f9ea561a6bb9e46afd8009aff8de3d73821e21fad45ee3e5f971c927.png"
+    },
+    {
+      "path": "SPG Nexus/4.png",
+      "sha256": "f0669f7ffa9713c7819f9316f10be448e56604b0508aa7eebd114f2d0d84a611",
+      "bytes": 1229413,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f0669f7ffa9713c7819f9316f10be448e56604b0508aa7eebd114f2d0d84a611.png"
+    },
+    {
+      "path": "Stellar 127/1.png",
+      "sha256": "652ec3e64116c24d907648b248c58e8d274bf9d6aaced5635ba232bb5fa1ebfd",
+      "bytes": 1359034,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/652ec3e64116c24d907648b248c58e8d274bf9d6aaced5635ba232bb5fa1ebfd.png"
+    },
+    {
+      "path": "Stellar 127/2.png",
+      "sha256": "bae87dd72d7eba1f5f1436a9e3b5ab9d483439eca418f013e34497c7b356c353",
+      "bytes": 1735410,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bae87dd72d7eba1f5f1436a9e3b5ab9d483439eca418f013e34497c7b356c353.png"
+    },
+    {
+      "path": "Stellar 127/3.png",
+      "sha256": "788967f3126a09f6845a322fa9388cd7e0c5320a917759551313131cd4a8ed19",
+      "bytes": 1472762,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/788967f3126a09f6845a322fa9388cd7e0c5320a917759551313131cd4a8ed19.png"
+    },
+    {
+      "path": "Stellar 127/4.png",
+      "sha256": "9f7c8d3a1490539bac571a27daa1dbdc5f2b1dec321a6520cb7943515d382f74",
+      "bytes": 1668382,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/9f7c8d3a1490539bac571a27daa1dbdc5f2b1dec321a6520cb7943515d382f74.png"
+    },
+    {
+      "path": "Stellar 135/1776842959_office space  for rent in sector 62 noida.webp",
+      "sha256": "49fbdc192bba750ecc2bd09ba01db6653b1a569f4f556fc492cbb731f99d3184",
+      "bytes": 30422,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/49fbdc192bba750ecc2bd09ba01db6653b1a569f4f556fc492cbb731f99d3184.webp"
+    },
+    {
+      "path": "Stellar 135/38rdmx.webp",
+      "sha256": "52a6315596038dd36ffd8772ab53897a499b4f548f26ee2f8afc44deafd5fe09",
+      "bytes": 108674,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/52a6315596038dd36ffd8772ab53897a499b4f548f26ee2f8afc44deafd5fe09.webp"
+    },
+    {
+      "path": "Stellar 135/6ev887.webp",
+      "sha256": "a73e201996abee7dad617a0df0c9d16cda7159963eb73a5ffbb54e5fb083373c",
+      "bytes": 156178,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a73e201996abee7dad617a0df0c9d16cda7159963eb73a5ffbb54e5fb083373c.webp"
+    },
+    {
+      "path": "Stellar 135/8uxw3e.webp",
+      "sha256": "354bb3a00d4a01e8eec2d6ff89fa70f9595cf650eb71faa4358f3f31243b525c",
+      "bytes": 200902,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/354bb3a00d4a01e8eec2d6ff89fa70f9595cf650eb71faa4358f3f31243b525c.webp"
+    },
+    {
+      "path": "Stellar 135/b5ws2k.jpg",
+      "sha256": "34c03d5774209314db6bbffc3858728925d0c0178265f02bb32dd35bdb56860d",
+      "bytes": 202713,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/34c03d5774209314db6bbffc3858728925d0c0178265f02bb32dd35bdb56860d.jpg"
+    },
+    {
+      "path": "Stellar 135/int4owxb.jpg",
+      "sha256": "0db51c299bbc755dee968b890a0adba2bb8fc1458a6fe437a191efe9a48cf79c",
+      "bytes": 356383,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/0db51c299bbc755dee968b890a0adba2bb8fc1458a6fe437a191efe9a48cf79c.jpg"
+    },
+    {
+      "path": "Stellar 135/office-space-rent-stellar-135-300x201.png.webp",
+      "sha256": "04162f064abf083e74d4c7e4c0fe680255254f576df567cb412d6b07c234c383",
+      "bytes": 11204,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/04162f064abf083e74d4c7e4c0fe680255254f576df567cb412d6b07c234c383.webp"
+    },
+    {
+      "path": "Stellar 135/stellar-135-noida-sector-135-noida-corporate-companies-iw0v9tyuy9.jpg.avif",
+      "sha256": "059cd05023340ad4ccdbee3f1706abcf25c17cf5585e807f3f7bf42a2c58034a",
+      "bytes": 297507,
+      "contentType": "image/avif",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/059cd05023340ad4ccdbee3f1706abcf25c17cf5585e807f3f7bf42a2c58034a.avif"
+    },
+    {
+      "path": "Stellar IT Park/1.png",
+      "sha256": "02ae1791842e1990adc8e16e880fdc1472d511bbe4fe654488ed505c381ae113",
+      "bytes": 1223858,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/02ae1791842e1990adc8e16e880fdc1472d511bbe4fe654488ed505c381ae113.png"
+    },
+    {
+      "path": "Stellar IT Park/2.png",
+      "sha256": "4e14bab418ae7c4323dd73cff1a8d4efd2448e0c70b9ecd2425132ee76747bd2",
+      "bytes": 1362814,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/4e14bab418ae7c4323dd73cff1a8d4efd2448e0c70b9ecd2425132ee76747bd2.png"
+    },
+    {
+      "path": "Stellar IT Park/3.png",
+      "sha256": "042358cfa346ecd1291659bd05162699b096a702cbee6ef3774061a7d92af0b7",
+      "bytes": 1409935,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/042358cfa346ecd1291659bd05162699b096a702cbee6ef3774061a7d92af0b7.png"
+    },
+    {
+      "path": "Stellar IT Park/4.png",
+      "sha256": "fcd0a56350077b6551e8f7ba24ab8f53b1751ebfbf9c72cdd80e5c11c34de6d3",
+      "bytes": 1707554,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/fcd0a56350077b6551e8f7ba24ab8f53b1751ebfbf9c72cdd80e5c11c34de6d3.png"
+    },
+    {
+      "path": "Stellar OKAS 1425/1.png",
+      "sha256": "38d0889d49977742e11d3ff146af1350556a331a0bc7fb0bda4ce494edd70399",
+      "bytes": 1452365,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/38d0889d49977742e11d3ff146af1350556a331a0bc7fb0bda4ce494edd70399.png"
+    },
+    {
+      "path": "Stellar OKAS 1425/2.png",
+      "sha256": "e0ef9a0ff78272841e633e1ef1bcf5b738f2a33fae8fcdf3472ce8a0f3e4f0dc",
+      "bytes": 1458300,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e0ef9a0ff78272841e633e1ef1bcf5b738f2a33fae8fcdf3472ce8a0f3e4f0dc.png"
+    },
+    {
+      "path": "Stellar OKAS 1425/3.png",
+      "sha256": "d2910bb96160c13a86fa48e5890251281928db28faac7adfb164924941fa9432",
+      "bytes": 1401239,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d2910bb96160c13a86fa48e5890251281928db28faac7adfb164924941fa9432.png"
+    },
+    {
+      "path": "Stellar OKAS 1425/4.png",
+      "sha256": "e16c1f27ff07ba68f7fd24caab4923452de26dc32d0db1f3cee20164374db166",
+      "bytes": 1302706,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e16c1f27ff07ba68f7fd24caab4923452de26dc32d0db1f3cee20164374db166.png"
+    },
+    {
+      "path": "Supertech Astralis/1.webp.jpg",
+      "sha256": "c6111290845a7cf8523fdba81cb796596526ec2029f8238d627b21fca5ea400c",
+      "bytes": 789854,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c6111290845a7cf8523fdba81cb796596526ec2029f8238d627b21fca5ea400c.jpg"
+    },
+    {
+      "path": "Supertech Astralis/2.webp.jpg",
+      "sha256": "b17f8fd474caaa9085340b257721f8d5c1d2d4f25f0b71318578df56b0091c76",
+      "bytes": 811742,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b17f8fd474caaa9085340b257721f8d5c1d2d4f25f0b71318578df56b0091c76.jpg"
+    },
+    {
+      "path": "Supertech Astralis/3.webp.jpg",
+      "sha256": "fef4ea26e26be98f07be7105dc9b608e325e9f8dccb5a2627a8daf75725f8aeb",
+      "bytes": 899804,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/fef4ea26e26be98f07be7105dc9b608e325e9f8dccb5a2627a8daf75725f8aeb.jpg"
+    },
+    {
+      "path": "Supertech Astralis/4.webp.jpg",
+      "sha256": "682282d4cb275ba9d660088c11d99707fccfcd4ca0772cb5486eb59718c7bdc8",
+      "bytes": 648140,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/682282d4cb275ba9d660088c11d99707fccfcd4ca0772cb5486eb59718c7bdc8.jpg"
+    },
+    {
+      "path": "Tapasya Corp Heights/1.png",
+      "sha256": "46249049af2d7afa62a9cd9c16c73e402fcd1f3abd47f82302cab8be32825af9",
+      "bytes": 1394968,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/46249049af2d7afa62a9cd9c16c73e402fcd1f3abd47f82302cab8be32825af9.png"
+    },
+    {
+      "path": "Tapasya Corp Heights/2.png",
+      "sha256": "5635cd921b716d70dc5fd662670ef30de7947e13a863daa9ffbca18c0b1a3661",
+      "bytes": 1834088,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5635cd921b716d70dc5fd662670ef30de7947e13a863daa9ffbca18c0b1a3661.png"
+    },
+    {
+      "path": "Tapasya Corp Heights/3.png",
+      "sha256": "8b70f58f2dc20345c5f7b4c9acce70d929423a9f7de7f02f7fc302ba9fd1095e",
+      "bytes": 1719769,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/8b70f58f2dc20345c5f7b4c9acce70d929423a9f7de7f02f7fc302ba9fd1095e.png"
+    },
+    {
+      "path": "Tapasya Corp Heights/4.png",
+      "sha256": "5baee4f29ebb423b1a74fb6653deda3569f7dd33afdd6ef55bc3d0453ee4ef5d",
+      "bytes": 1707725,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5baee4f29ebb423b1a74fb6653deda3569f7dd33afdd6ef55bc3d0453ee4ef5d.png"
+    },
+    {
+      "path": "The Berry Coworks/1.png",
+      "sha256": "dae2b4ef13b9eab71e2128b19892adab4f27eb8663f1ad382c206719a50a9f01",
+      "bytes": 1797791,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/dae2b4ef13b9eab71e2128b19892adab4f27eb8663f1ad382c206719a50a9f01.png"
+    },
+    {
+      "path": "The Berry Coworks/2.png",
+      "sha256": "098c5ebf2fe9d0b6aabcbc73fe646803e9bc24c59f0e7944f6c92f2f4dfa86c6",
+      "bytes": 1496124,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/098c5ebf2fe9d0b6aabcbc73fe646803e9bc24c59f0e7944f6c92f2f4dfa86c6.png"
+    },
+    {
+      "path": "The Berry Coworks/3.png",
+      "sha256": "b1cb6096e8693953cc8a732ea0d283fe807445e085daa5024ca9f975a1aa1c0f",
+      "bytes": 1660332,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b1cb6096e8693953cc8a732ea0d283fe807445e085daa5024ca9f975a1aa1c0f.png"
+    },
+    {
+      "path": "The Berry Coworks/4.png",
+      "sha256": "89ef2281aec43bb9dc9833f37178a29e8cdc5ced29b94c286248ae278c7c1244",
+      "bytes": 1810279,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/89ef2281aec43bb9dc9833f37178a29e8cdc5ced29b94c286248ae278c7c1244.png"
+    },
+    {
+      "path": "The Corenthum/1.png",
+      "sha256": "09ae421a3dce5d679a59103c1b3e97e66a483090daa6cb0a33f6214dcdab2534",
+      "bytes": 1978332,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/09ae421a3dce5d679a59103c1b3e97e66a483090daa6cb0a33f6214dcdab2534.png"
+    },
+    {
+      "path": "The Corenthum/2.png",
+      "sha256": "c33d2c1aba2af5f79be91bbdd55f76096baf9bc90499466b3d30b43aa07d7dd7",
+      "bytes": 1282601,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c33d2c1aba2af5f79be91bbdd55f76096baf9bc90499466b3d30b43aa07d7dd7.png"
+    },
+    {
+      "path": "The Corenthum/3.png",
+      "sha256": "07b39c476964010dfe75d6bb25e786cd742bc8d2e7418ecd29b23f709593614e",
+      "bytes": 1892698,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/07b39c476964010dfe75d6bb25e786cd742bc8d2e7418ecd29b23f709593614e.png"
+    },
+    {
+      "path": "The Corenthum/4.png",
+      "sha256": "6abc4443c762d93a62888155cc5815d93ef95f36cd6a872eb66d6f5bbfaace01",
+      "bytes": 1709902,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6abc4443c762d93a62888155cc5815d93ef95f36cd6a872eb66d6f5bbfaace01.png"
+    },
+    {
+      "path": "The Ikon Tower/1.png",
+      "sha256": "3b692c9a431fc40e163530c932e7a182b7d365f40e3d2e8e6de33c5e8780c574",
+      "bytes": 1341551,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3b692c9a431fc40e163530c932e7a182b7d365f40e3d2e8e6de33c5e8780c574.png"
+    },
+    {
+      "path": "The Ikon Tower/2.png",
+      "sha256": "9197c56b328bcc92e7ee91410b90ffdc0eb054c470fc9a5adba404c538110abb",
+      "bytes": 1451226,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/9197c56b328bcc92e7ee91410b90ffdc0eb054c470fc9a5adba404c538110abb.png"
+    },
+    {
+      "path": "The Ikon Tower/3.png",
+      "sha256": "931c3c1dcfbe9c26ac5cc4eaca4d8c0d85dc79819ddc4514f6e29e94797c1953",
+      "bytes": 1420465,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/931c3c1dcfbe9c26ac5cc4eaca4d8c0d85dc79819ddc4514f6e29e94797c1953.png"
+    },
+    {
+      "path": "The Ikon Tower/4.png",
+      "sha256": "f86fc74269bed9b67bcc575cf1f4d663270511e51213a9feddf206564c7b1688",
+      "bytes": 1639840,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f86fc74269bed9b67bcc575cf1f4d663270511e51213a9feddf206564c7b1688.png"
+    },
+    {
+      "path": "The Opus 132/1.png",
+      "sha256": "a1ae526dc05012bd48aab5e639e8c7f427e9aaa8b361444818ad2e81c07039c7",
+      "bytes": 1323792,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a1ae526dc05012bd48aab5e639e8c7f427e9aaa8b361444818ad2e81c07039c7.png"
+    },
+    {
+      "path": "The Opus 132/2.png",
+      "sha256": "e692af8966c4cdcb9f1225381d79f52847e50be3d6a2b548a72e3a0fa1b81d34",
+      "bytes": 1932171,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e692af8966c4cdcb9f1225381d79f52847e50be3d6a2b548a72e3a0fa1b81d34.png"
+    },
+    {
+      "path": "The Opus 132/3.png",
+      "sha256": "724f0a06326e9a6bac2f512d97ff61926a9446bb7c07632c724f66aebf2d828c",
+      "bytes": 1107059,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/724f0a06326e9a6bac2f512d97ff61926a9446bb7c07632c724f66aebf2d828c.png"
+    },
+    {
+      "path": "The Opus 132/4.png",
+      "sha256": "af3efff093c12ef0431282bbec6490615b279b09a666b39e5e13743bd2107e00",
+      "bytes": 1351786,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/af3efff093c12ef0431282bbec6490615b279b09a666b39e5e13743bd2107e00.png"
+    },
+    {
+      "path": "The Rise/1.png",
+      "sha256": "814b7261bcda21ac24487197b93cfe27042d4e9474dfc4d61a187498a011d95f",
+      "bytes": 1972832,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/814b7261bcda21ac24487197b93cfe27042d4e9474dfc4d61a187498a011d95f.png"
+    },
+    {
+      "path": "The Rise/2.png",
+      "sha256": "96803fcd3d99cfaca134804c6aec026ef1083512a2eb548ba4024ec3ec201570",
+      "bytes": 2083432,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/96803fcd3d99cfaca134804c6aec026ef1083512a2eb548ba4024ec3ec201570.png"
+    },
+    {
+      "path": "The Rise/3.png",
+      "sha256": "c586bbd87e7bd54bf82994ee2daaa767c4622b05cb1daa8c65a5b4d57eb6c11e",
+      "bytes": 1972493,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c586bbd87e7bd54bf82994ee2daaa767c4622b05cb1daa8c65a5b4d57eb6c11e.png"
+    },
+    {
+      "path": "The Rise/4.png",
+      "sha256": "2eaf8de7313ac650c2e215130ce9dc69ba90f9ebc7f8f35b039c55b2728f7612",
+      "bytes": 2352894,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2eaf8de7313ac650c2e215130ce9dc69ba90f9ebc7f8f35b039c55b2728f7612.png"
+    },
+    {
+      "path": "Tirupati AKC/1.png",
+      "sha256": "c72416dbf3db1c43a176004750478c7a370f5370aff7d6a893d23a44ba1957f3",
+      "bytes": 1574970,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c72416dbf3db1c43a176004750478c7a370f5370aff7d6a893d23a44ba1957f3.png"
+    },
+    {
+      "path": "Tirupati AKC/2.png",
+      "sha256": "00fb391d69adfc906eb318c36e38ec311a808736f349df6c34e35a429889c03f",
+      "bytes": 1658006,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/00fb391d69adfc906eb318c36e38ec311a808736f349df6c34e35a429889c03f.png"
+    },
+    {
+      "path": "Tirupati AKC/3.png",
+      "sha256": "146cd4912c8d0377b23bbc7ec98c4c84da8a5107f73b1e0187608ff23eee5dd4",
+      "bytes": 1809808,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/146cd4912c8d0377b23bbc7ec98c4c84da8a5107f73b1e0187608ff23eee5dd4.png"
+    },
+    {
+      "path": "Tirupati AKC/4.png",
+      "sha256": "e6c1d49074cb53f8d29ec4377e81bf4022af5b161618cbddff722ef9a4ff9003",
+      "bytes": 1778936,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e6c1d49074cb53f8d29ec4377e81bf4022af5b161618cbddff722ef9a4ff9003.png"
+    },
+    {
+      "path": "Tradex Tower/1.png",
+      "sha256": "c3b2fcebadc3d6298c82f7ff721f86af6bc9ee90d7559eb2eef98965f0299096",
+      "bytes": 1426434,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c3b2fcebadc3d6298c82f7ff721f86af6bc9ee90d7559eb2eef98965f0299096.png"
+    },
+    {
+      "path": "Tradex Tower/2.png",
+      "sha256": "61e7c4c5381bb17d7cd74273c51ba53538c2c32dcacc297fb0ee12fda7ef4962",
+      "bytes": 1668349,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/61e7c4c5381bb17d7cd74273c51ba53538c2c32dcacc297fb0ee12fda7ef4962.png"
+    },
+    {
+      "path": "Tradex Tower/3.png",
+      "sha256": "bccd977dfade13840e6971d31675157ae017d1cbd1731dd834ed8bb91027ccb5",
+      "bytes": 1384563,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/bccd977dfade13840e6971d31675157ae017d1cbd1731dd834ed8bb91027ccb5.png"
+    },
+    {
+      "path": "Tradex Tower/4.png",
+      "sha256": "600886adfff3e3582be33519d70a26b743a0dd09450c74984116eae32fea1a4c",
+      "bytes": 1367471,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/600886adfff3e3582be33519d70a26b743a0dd09450c74984116eae32fea1a4c.png"
+    },
+    {
+      "path": "Trapezoid IT Park/1.png",
+      "sha256": "a4650b385da46b7e383394f076760039d552cda5adcadb9eddb6215eaeed198d",
+      "bytes": 1963157,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a4650b385da46b7e383394f076760039d552cda5adcadb9eddb6215eaeed198d.png"
+    },
+    {
+      "path": "Trapezoid IT Park/2.png",
+      "sha256": "680fc961d71b10013abd337de41f83d354c9f1f45fc9c458407850b01f0803b6",
+      "bytes": 2135953,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/680fc961d71b10013abd337de41f83d354c9f1f45fc9c458407850b01f0803b6.png"
+    },
+    {
+      "path": "Trapezoid IT Park/3.png",
+      "sha256": "e4d520fbd2c4a4eb3c8d0f474c501c584e0f06d98b305d4fc93e41cee97066f1",
+      "bytes": 2129265,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e4d520fbd2c4a4eb3c8d0f474c501c584e0f06d98b305d4fc93e41cee97066f1.png"
+    },
+    {
+      "path": "Trapezoid IT Park/4.png",
+      "sha256": "7c7a86e4b4b2faea2a2b2c0822b0de5f89acfc423f597b509be18884684d376c",
+      "bytes": 1629185,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/7c7a86e4b4b2faea2a2b2c0822b0de5f89acfc423f597b509be18884684d376c.png"
+    },
+    {
+      "path": "Urbtech One 27/1.png",
+      "sha256": "15673ddcbd913b0bc688c4aca1763e505cfe0546e9321f1133f9569b0c97fce4",
+      "bytes": 1536363,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/15673ddcbd913b0bc688c4aca1763e505cfe0546e9321f1133f9569b0c97fce4.png"
+    },
+    {
+      "path": "Urbtech One 27/2.png",
+      "sha256": "be57757d1a0e02477e996530b82ae4d8dc04e4819a3ad85cc17f5b2913d8df2b",
+      "bytes": 1112742,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/be57757d1a0e02477e996530b82ae4d8dc04e4819a3ad85cc17f5b2913d8df2b.png"
+    },
+    {
+      "path": "Urbtech One 27/3.png",
+      "sha256": "b2541b1058ece574c7872fa58159a375f8cc4aea6405f3297a6aaacb8b4fa04f",
+      "bytes": 1958621,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/b2541b1058ece574c7872fa58159a375f8cc4aea6405f3297a6aaacb8b4fa04f.png"
+    },
+    {
+      "path": "Urbtech One 27/4.png",
+      "sha256": "c5264d71365cc4b505d2a14a561dc126e1e66f9cd693351984ec22d7b7a64940",
+      "bytes": 1686356,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c5264d71365cc4b505d2a14a561dc126e1e66f9cd693351984ec22d7b7a64940.png"
+    },
+    {
+      "path": "Urbtech Trade Centre/1.png",
+      "sha256": "9a920010840368424f14a9813e41e195445b1d9ffa3dc492c9cc18508ba6684b",
+      "bytes": 1721539,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/9a920010840368424f14a9813e41e195445b1d9ffa3dc492c9cc18508ba6684b.png"
+    },
+    {
+      "path": "Urbtech Trade Centre/2.png",
+      "sha256": "2ae3d867c6d1db0f531a4403703e93cd8e1b94322544b056c655bb950480bdfd",
+      "bytes": 1778602,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/2ae3d867c6d1db0f531a4403703e93cd8e1b94322544b056c655bb950480bdfd.png"
+    },
+    {
+      "path": "Urbtech Trade Centre/3.png",
+      "sha256": "c87af933961ce76fbc6b7e6585f6377900fc01b09fd13a433043f72e12f0950a",
+      "bytes": 1594121,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c87af933961ce76fbc6b7e6585f6377900fc01b09fd13a433043f72e12f0950a.png"
+    },
+    {
+      "path": "Urbtech Trade Centre/4.png",
+      "sha256": "832788e07b5b8ac79b62e4a0a4a97ddec2872ffd82ba685e758e46ba7589af25",
+      "bytes": 2051413,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/832788e07b5b8ac79b62e4a0a4a97ddec2872ffd82ba685e758e46ba7589af25.png"
+    },
+    {
+      "path": "UTC /1.jpg",
+      "sha256": "d0aed890275d856990492ea33428046e097449f465b0265c596e18880de53773",
+      "bytes": 241664,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d0aed890275d856990492ea33428046e097449f465b0265c596e18880de53773.jpg"
+    },
+    {
+      "path": "UTC /gnh3kw.webp",
+      "sha256": "3385adafb25fb9bfdab8a6d3f8a0bb54338a1183116f8d42a3423500ce0d7edc",
+      "bytes": 83940,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3385adafb25fb9bfdab8a6d3f8a0bb54338a1183116f8d42a3423500ce0d7edc.webp"
+    },
+    {
+      "path": "UTC /images 2.jpeg",
+      "sha256": "ac5340c0646281ba14fdae287187aa1aa1d9ed9fb3f3727ff2ad178047ac44f3",
+      "bytes": 33016,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ac5340c0646281ba14fdae287187aa1aa1d9ed9fb3f3727ff2ad178047ac44f3.jpg"
+    },
+    {
+      "path": "UTC /images 3.jpeg",
+      "sha256": "1002c24537beb3b0829487c93b42cc88a74e643a68c9da8c451708dd8171f492",
+      "bytes": 41075,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/1002c24537beb3b0829487c93b42cc88a74e643a68c9da8c451708dd8171f492.jpg"
+    },
+    {
+      "path": "UTC /images 4.jpeg",
+      "sha256": "04cdccf491729ebc66ff8aacb41feb74dc4d459fae27b783ad1c5ba4b7ca8a00",
+      "bytes": 39089,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/04cdccf491729ebc66ff8aacb41feb74dc4d459fae27b783ad1c5ba4b7ca8a00.jpg"
+    },
+    {
+      "path": "UTC /images.jpeg",
+      "sha256": "fe2b7a4429585a0b9c98b61415d99e982d29369207e514484c943736c0d8a89d",
+      "bytes": 54229,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/fe2b7a4429585a0b9c98b61415d99e982d29369207e514484c943736c0d8a89d.jpg"
+    },
+    {
+      "path": "UTC /NPX-1.jpg",
+      "sha256": "d0fe0a07ea34805e15e650f1941d3ab283def1a4c842d8a88a906360123f57bc",
+      "bytes": 400949,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d0fe0a07ea34805e15e650f1941d3ab283def1a4c842d8a88a906360123f57bc.jpg"
+    },
+    {
+      "path": "UTC /UTC-Banner.jpg",
+      "sha256": "415cf19b7125d578b5a5a46a96e24c2b646923016c52feda3bc51c18ec47c991",
+      "bytes": 769469,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/415cf19b7125d578b5a5a46a96e24c2b646923016c52feda3bc51c18ec47c991.jpg"
+    },
+    {
+      "path": "UTC /UTP-project-11.jpg",
+      "sha256": "fe46e603559fad2fd8298354420cc6e577a96dab207490eec16734f1283f8de7",
+      "bytes": 246937,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/fe46e603559fad2fd8298354420cc6e577a96dab207490eec16734f1283f8de7.jpg"
+    },
+    {
+      "path": "VJ Business Tower/1.png",
+      "sha256": "cce0590ca8e295cf43a7b497518239dfe706f9cdb9cddd25c071751994109fb5",
+      "bytes": 1576655,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/cce0590ca8e295cf43a7b497518239dfe706f9cdb9cddd25c071751994109fb5.png"
+    },
+    {
+      "path": "VJ Business Tower/2.png",
+      "sha256": "e30100f237456028e9444b61d7efcaff4c634784b3ab91d938daa37bf344d7ca",
+      "bytes": 1798037,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e30100f237456028e9444b61d7efcaff4c634784b3ab91d938daa37bf344d7ca.png"
+    },
+    {
+      "path": "VJ Business Tower/3.png",
+      "sha256": "5dfdb50e66b793c572e7abf6c80aca327e44beb1f58fced01e41e3236ceb9606",
+      "bytes": 1488093,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/5dfdb50e66b793c572e7abf6c80aca327e44beb1f58fced01e41e3236ceb9606.png"
+    },
+    {
+      "path": "VJ Business Tower/4.png",
+      "sha256": "6d042b45967d110d97f6959335feee1b6ffd00cb6309c9552809a2fa9cca0b10",
+      "bytes": 1405321,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6d042b45967d110d97f6959335feee1b6ffd00cb6309c9552809a2fa9cca0b10.png"
+    },
+    {
+      "path": "Wave One/1.png",
+      "sha256": "6104c232285dc5138da0613b79bdf6e6041b798caad2e410b281346f4cce1ad2",
+      "bytes": 1193256,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/6104c232285dc5138da0613b79bdf6e6041b798caad2e410b281346f4cce1ad2.png"
+    },
+    {
+      "path": "Wave One/2.png",
+      "sha256": "a0e2aa36be753705aa68372d1c171556ce3cdb3c748b30d42df5338969382c8d",
+      "bytes": 1551320,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/a0e2aa36be753705aa68372d1c171556ce3cdb3c748b30d42df5338969382c8d.png"
+    },
+    {
+      "path": "Wave One/3.png",
+      "sha256": "ce330d2566285cd1cea1218e3cabb574ca2422a27ac893666b0919c28de69a65",
+      "bytes": 1394170,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/ce330d2566285cd1cea1218e3cabb574ca2422a27ac893666b0919c28de69a65.png"
+    },
+    {
+      "path": "Wave One/4.png",
+      "sha256": "e886b715b0ef5d8c51013362d187cfd2f94d795773434998c42a6544cb2fff59",
+      "bytes": 1283168,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/e886b715b0ef5d8c51013362d187cfd2f94d795773434998c42a6544cb2fff59.png"
+    },
+    {
+      "path": "Windsor IT Park/1.png",
+      "sha256": "c3ed9cd967727f1721db3067a5f10e9fd1ab802e4be0f9bdd9feca256a24bb9b",
+      "bytes": 1685837,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/c3ed9cd967727f1721db3067a5f10e9fd1ab802e4be0f9bdd9feca256a24bb9b.png"
+    },
+    {
+      "path": "Windsor IT Park/2.png",
+      "sha256": "74fe9ff583f2cdc473449afb784fd0c7a63b9f406e222c0ddea78e43d33c56b0",
+      "bytes": 1502420,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/74fe9ff583f2cdc473449afb784fd0c7a63b9f406e222c0ddea78e43d33c56b0.png"
+    },
+    {
+      "path": "Windsor IT Park/3.png",
+      "sha256": "88e2691b3d6b3571b23f491fd5478f8c523f288f1e1897924ab01b3ca9d01f54",
+      "bytes": 2046082,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/88e2691b3d6b3571b23f491fd5478f8c523f288f1e1897924ab01b3ca9d01f54.png"
+    },
+    {
+      "path": "Windsor IT Park/4.png",
+      "sha256": "94f35f7651c1d0f804e09f4be39cddedcc40518575c4e56c8c9463a270daca73",
+      "bytes": 1595740,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/94f35f7651c1d0f804e09f4be39cddedcc40518575c4e56c8c9463a270daca73.png"
+    },
+    {
+      "path": "Windsor/1745321319927.jpeg",
+      "sha256": "3b8bb6ca039966fcbd9d4f2fd7f87f2be227f1d6698f3dd29417d4fed3cc2737",
+      "bytes": 246939,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3b8bb6ca039966fcbd9d4f2fd7f87f2be227f1d6698f3dd29417d4fed3cc2737.jpg"
+    },
+    {
+      "path": "Windsor/5rr2ds.webp",
+      "sha256": "91de8e7e30fa49f778f2717c971c88d4730509fdc32cc9835b178f7aee3acac1",
+      "bytes": 116540,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/91de8e7e30fa49f778f2717c971c88d4730509fdc32cc9835b178f7aee3acac1.webp"
+    },
+    {
+      "path": "Windsor/8c9u37.webp",
+      "sha256": "69daaa1f061c360d2b5bc3bb7f7793330be7e637fc5b6646623c3cf567912b4b",
+      "bytes": 89654,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/69daaa1f061c360d2b5bc3bb7f7793330be7e637fc5b6646623c3cf567912b4b.webp"
+    },
+    {
+      "path": "Windsor/bv5kvv.webp",
+      "sha256": "fc094201b95d3a576168a88963a49ef6535791d50d22e0e288f87c631b6391a7",
+      "bytes": 98062,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/fc094201b95d3a576168a88963a49ef6535791d50d22e0e288f87c631b6391a7.webp"
+    },
+    {
+      "path": "Windsor/images-1663857639831.jpg",
+      "sha256": "55e02b8965cba6182c63f3a81651e72ee58a49dd12f50126a67f675da740fea5",
+      "bytes": 1229129,
+      "contentType": "image/jpeg",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/55e02b8965cba6182c63f3a81651e72ee58a49dd12f50126a67f675da740fea5.jpg"
+    },
+    {
+      "path": "Windsor/n54e2u.webp",
+      "sha256": "f311d04a024762f837b6e0730899282010dd05fa16509316d04f2dd94d227647",
+      "bytes": 133226,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/f311d04a024762f837b6e0730899282010dd05fa16509316d04f2dd94d227647.webp"
+    },
+    {
+      "path": "Windsor/Untitled-3.png",
+      "sha256": "884580502d59793d14d5c1eee9be38cd4dbda08387377dab914d019b287be631",
+      "bytes": 1955841,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/884580502d59793d14d5c1eee9be38cd4dbda08387377dab914d019b287be631.png"
+    },
+    {
+      "path": "Windsor/Windsor-01.webp",
+      "sha256": "3c461ca44d384328b47768687813011ff683911f73d9e1888e1abb3187d5c16e",
+      "bytes": 1111486,
+      "contentType": "image/webp",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/3c461ca44d384328b47768687813011ff683911f73d9e1888e1abb3187d5c16e.webp"
+    },
+    {
+      "path": "World Trade Tower/1.png",
+      "sha256": "14b51600a9ebf238b26af4ec5dc21df241ca9e580d193c1a91453e14eadeb786",
+      "bytes": 1670402,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/14b51600a9ebf238b26af4ec5dc21df241ca9e580d193c1a91453e14eadeb786.png"
+    },
+    {
+      "path": "World Trade Tower/2.png",
+      "sha256": "d25bcae6a10e4347398b5329c503ecdd0c30974166d072c517bce0ee4e016e23",
+      "bytes": 1352319,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/d25bcae6a10e4347398b5329c503ecdd0c30974166d072c517bce0ee4e016e23.png"
+    },
+    {
+      "path": "World Trade Tower/3.png",
+      "sha256": "00253cb217675bac6d2ae49c484f2478ababc51f4244c313df8a24b4ba0b1f13",
+      "bytes": 1030963,
+      "contentType": "image/png",
+      "url": "https://pub-72e43fc9335a4eb6bfba0e0d6ea8b6a6.r2.dev/propmentors/images/00253cb217675bac6d2ae49c484f2478ababc51f4244c313df8a24b4ba0b1f13.png"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import { imageUrl } from "@/lib/image-storage";
 import { useRef, useState } from "react";
 import { ChevronRight, Search } from "./icons";
 import { ProjectHeader } from "./project-header";
@@ -107,7 +108,7 @@ export function ProjectHero({
           {mapBackground && (
             <div
               className={styles.map}
-              style={{ backgroundImage: `url("${mapBackground}")` }}
+              style={{ backgroundImage: `url("${imageUrl(mapBackground)}")` }}
               aria-hidden="true"
             />
           )}

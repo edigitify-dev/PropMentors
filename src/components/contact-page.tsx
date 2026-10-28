@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { ProjectHeader } from "./project-header";

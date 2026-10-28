@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { ChevronLeft, Search } from "./icons";
 import { PropertyCard } from "./property-card";
-import { hasCloudinaryPhotos, projectSpaceType } from "@/lib/project-listing-filters";
+import { hasHostedPhotos, projectSpaceType } from "@/lib/project-listing-filters";
 import type { Project } from "@/lib/project-types";
 
 type Filters = { location: string; propertyType: string; budget: string };
@@ -28,7 +28,7 @@ export function ExploreSpaces({ projects }: { projects: Project[] }) {
       && (!budget || property.price !== null && property.price >= budget[0] && property.price <= budget[1]);
   });
   const sortedProperties = filteredProperties.toSorted((a, b) => {
-    return Number(hasCloudinaryPhotos(b)) - Number(hasCloudinaryPhotos(a));
+    return Number(hasHostedPhotos(b)) - Number(hasHostedPhotos(a));
   });
   const visibleProperties = sortedProperties.slice(0, 6);
 

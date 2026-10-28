@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import Link from "next/link";
 import { useState } from "react";
 import type { AdminProject, ProjectStatus } from "@/lib/admin-types";

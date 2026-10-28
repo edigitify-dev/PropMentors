@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { ProjectHeader } from "./project-header";

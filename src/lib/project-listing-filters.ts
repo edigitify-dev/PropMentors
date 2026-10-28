@@ -1,3 +1,4 @@
+import { imageUrl } from "./image-storage";
 import type { FinishedType, Project } from "@/lib/project-types";
 
 export type ListingFilters = {
@@ -78,14 +79,14 @@ export function matchesListing(project: Project, filters: ListingFilters) {
     && (!filters.hideSoldOut || normalise(project.badge) !== "soldout");
 }
 
-export function hasCloudinaryPhotos(project: Project) {
+export function hasHostedPhotos(project: Project) {
   const images = [
     project.cover,
     ...(project.detail?.gallery ?? []),
     project.detail?.views?.exterior,
     project.detail?.views?.interior,
   ].filter(Boolean);
-  return images.some((image) => typeof image?.src === "string" && /^https:\/\/res\.cloudinary\.com\//i.test(image.src));
+  return images.some((image) => typeof image?.src === "string" && imageUrl(image.src) !== imageUrl("/images/spaces/property-placeholder.svg") && /^https:\/\//i.test(imageUrl(image.src)));
 }
 
 export function sortListings(listings: Project[], sort: ListingSort) {
@@ -96,6 +97,6 @@ export function sortListings(listings: Project[], sort: ListingSort) {
       return sort === "price-low" ? a.price - b.price : b.price - a.price;
     }
     if (sort === "name") return a.name.localeCompare(b.name, "en-IN");
-    return Number(hasCloudinaryPhotos(b)) - Number(hasCloudinaryPhotos(a));
+    return Number(hasHostedPhotos(b)) - Number(hasHostedPhotos(a));
   });
 }

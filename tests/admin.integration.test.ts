@@ -1,10 +1,12 @@
 import assert from "node:assert/strict";
 import { after, before, test } from "node:test";
-import { randomBytes, randomUUID } from "node:crypto";
+import { createHash, randomBytes, randomUUID } from "node:crypto";
+import { createServer, type Server } from "node:http";
 import { readFile } from "node:fs/promises";
 import { spawn, type ChildProcess } from "node:child_process";
 import { userInfo } from "node:os";
 import { Pool } from "pg";
+import sharp from "sharp";
 import { projects } from "../src/data/projects";
 import { defaultContactDetails } from "../src/lib/admin-types";
 import { newProject } from "../src/lib/new-project";
@@ -24,6 +26,8 @@ let server: ChildProcess | undefined;
 let cookie = "";
 let logs = "";
 let created = false;
+let storageServer: Server | undefined;
+const storedImages: { path: string; bytes: Buffer; contentType?: string; cacheControl?: string; authorization?: string }[] = [];
 
 async function request(path: string, method = "GET", body?: unknown, authenticated = true, requestOrigin = origin) {
   return fetch(`${origin}${path}`, {
@@ -33,6 +37,20 @@ async function request(path: string, method = "GET", body?: unknown, authenticat
   });
 }
 
+async function assertLoginRedirect(response: Response) {
+  if (response.status === 307) {
+    assert.equal(response.headers.get("location"), "/admin/login");
+  } else {
+    // Loading boundaries can start streaming before the auth check redirects.
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, /<meta[^>]*id="__next-page-redirect"[^>]*http-equiv="refresh"[^>]*content="[01];url=\/admin\/login"/);
+    // The public loading skeleton also uses admin-shell; authenticated user
+    // details and navigation must never appear in the redirected response.
+    assert(!html.includes('class="admin-user"') && !html.includes('aria-label="Admin navigation"'), "Authenticated workspace must not be rendered.");
+  }
+}
+
 before(async () => {
   await control.query(`CREATE DATABASE "${name}"`); created = true;
   pool = new Pool({ connectionString: testUrl.toString() });
@@ -40,8 +58,20 @@ before(async () => {
   await pool.query("INSERT INTO contact_settings (id, payload) VALUES (1,$1)", [JSON.stringify(defaultContactDetails)]);
   const p = projects[0];
   await pool.query("INSERT INTO projects (id,slug,name,location,space_type,status,payload) VALUES ($1,$2,$3,$4,$5,'published',$6)", [p.id, p.slug, p.name, p.location, p.spaceType || p.category, JSON.stringify(p)]);
+  // Exercise the real S3 client against isolated storage, never the user's bucket.
+  storageServer = createServer(async (request, response) => {
+    if (request.method !== "PUT") { response.writeHead(405).end(); return; }
+    const chunks: Buffer[] = [];
+    for await (const chunk of request) chunks.push(Buffer.from(chunk));
+    storedImages.push({ path: request.url!, bytes: Buffer.concat(chunks), contentType: request.headers["content-type"], cacheControl: request.headers["cache-control"], authorization: request.headers.authorization });
+    response.writeHead(200, { ETag: '"test-image"' }).end();
+  });
+  await new Promise<void>((resolve) => storageServer!.listen(0, "127.0.0.1", resolve));
+  const address = storageServer.address();
+  assert(address && typeof address !== "string");
+  const storageOrigin = `http://127.0.0.1:${address.port}`;
   server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--port", String(port)], {
-    cwd: process.cwd(), env: { ...process.env, NODE_ENV: "production", DATABASE_URL: testUrl.toString(), ADMIN_SETUP_TOKEN: setupKey, APP_URL: origin, CLOUDINARY_API_KEY: "", CLOUDINARY_API_SECRET: "" },
+    cwd: process.cwd(), env: { ...process.env, NODE_ENV: "production", DATABASE_URL: testUrl.toString(), ADMIN_SETUP_TOKEN: setupKey, APP_URL: origin, CLOUDINARY_API_KEY: "", CLOUDINARY_API_SECRET: "", R2_ENDPOINT: storageOrigin, R2_BUCKET_NAME: "test-images", R2_PUBLIC_URL: "https://images.example.test", R2_ACCESS_KEY_ID: "test-access-key", R2_SECRET_ACCESS_KEY: "test-secret-key" },
     stdio: ["ignore", "pipe", "pipe"],
   });
   server.stdout?.on("data", (data) => { logs = (logs + data).slice(-12000); });
@@ -61,6 +91,7 @@ after(async () => {
     await stopped;
   }
   if (pool) await pool.end();
+  if (storageServer) await new Promise<void>((resolve, reject) => storageServer!.close((error) => error ? reject(error) : resolve()));
   if (created) await control.query(`DROP DATABASE "${name}" WITH (FORCE)`);
   await control.end();
 });
@@ -69,7 +100,7 @@ test("PostgreSQL admin and public website workflows", async (t) => {
   await t.test("unauthenticated pages and every mutation are protected", async () => {
     for (const path of ["/admin", "/admin/projects", "/admin/enquiries", "/admin/contact"]) {
       const response = await request(path);
-      assert.equal(response.status, 307); assert.equal(response.headers.get("location"), "/admin/login");
+      await assertLoginRedirect(response);
     }
     for (const [path, method] of [["/api/admin/projects", "POST"], ["/api/admin/projects/unknown", "PUT"], ["/api/admin/contact", "PUT"], [`/api/admin/enquiries/${randomUUID()}`, "PATCH"], ["/api/admin/uploads", "POST"], ["/api/migrate-cloudinary", "POST"]]) {
       assert.equal((await request(path, method, {})).status, 401, path);
@@ -90,6 +121,35 @@ test("PostgreSQL admin and public website workflows", async (t) => {
   await t.test("cross-origin requests and invalid project input are rejected", async () => {
     assert.equal((await request("/api/admin/contact", "PUT", defaultContactDetails, true, "https://untrusted.example")).status, 403);
     assert.equal((await request("/api/admin/projects", "POST", { project: {}, status: "published" })).status, 400);
+  });
+  await t.test("project photographs render from the migrated R2 collection", async () => {
+    const seeded = projects[0];
+    assert.match(seeded.cover.src, /^https:\/\/pub-[a-z0-9]+\.r2\.dev\/propmentors\/images\//);
+    const response = await request(`/projects/${seeded.slug}`);
+    assert.equal(response.status, 200);
+    assert((await response.text()).includes(seeded.cover.src));
+  });
+  await t.test("photo uploads validate images and send bytes and metadata to R2", async () => {
+    const bytes = await sharp({ create: { width: 64, height: 48, channels: 3, background: "#f0ab62" } }).png().toBuffer();
+    async function upload(data: Uint8Array, type: string) {
+      const form = new FormData();
+      form.set("file", new File([new Uint8Array(data)], "photo.png", { type }));
+      return fetch(`${origin}/api/admin/uploads`, { method: "POST", headers: { Origin: origin, Cookie: cookie }, body: form });
+    }
+    const invalid = await upload(Buffer.from("not an image"), "image/png");
+    assert.equal(invalid.status, 400);
+    assert.equal(storedImages.length, 0);
+    const response = await upload(bytes, "image/png");
+    assert.equal(response.status, 201, await response.clone().text());
+    const sha256 = createHash("sha256").update(bytes).digest("hex");
+    assert.deepEqual(await response.json(), { url: `https://images.example.test/propmentors/images/${sha256}.png`, width: 64, height: 48 });
+    assert.equal(storedImages.length, 1);
+    assert.match(storedImages[0].path, new RegExp(`^/test-images/propmentors/images/${sha256}\\.png(?:\\?|$)`));
+    assert.deepEqual(storedImages[0].bytes, bytes);
+    assert.equal(storedImages[0].contentType, "image/png");
+    assert.equal(storedImages[0].cacheControl, "public, max-age=31536000, immutable");
+    assert.match(storedImages[0].authorization!, /^AWS4-HMAC-SHA256 /);
+    assert.equal((await request("/api/migrate-cloudinary", "POST", {})).status, 410);
   });
   const draft = newProject(randomUUID());
   draft.name = "Integration Studio"; draft.slug = "integration-studio"; draft.locationLabel = "Sector 125, Noida";
@@ -152,7 +212,7 @@ test("PostgreSQL admin and public website workflows", async (t) => {
     const newCookie = login.headers.get("set-cookie")!.split(";")[0]; assert.notEqual(newCookie, cookie);
     cookie = newCookie;
     assert.equal((await request("/api/admin/auth", "DELETE")).status, 200);
-    assert.equal((await request("/admin")).status, 307);
+    await assertLoginRedirect(await request("/admin"));
     assert.equal((await request("/api/admin/contact", "PUT", defaultContactDetails)).status, 401);
   });
   await t.test("login and enquiry attempts are rate limited in PostgreSQL", async () => {

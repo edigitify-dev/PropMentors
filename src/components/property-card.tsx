@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import Link from "next/link";
 import { formatProjectPrice, projectHref, type Project } from "@/lib/project-types";
 

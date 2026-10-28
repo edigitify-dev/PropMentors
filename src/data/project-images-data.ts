@@ -1,6 +1,8 @@
 import type { ProjectImage } from "../lib/project-types";
+import { imageUrl } from "../lib/image-storage";
 import cloudinaryMapJson from "../../cloudinary-map.json";
 import archiveProjectMediaJson from "./archive-project-images.json";
+import suppliedProjectMediaJson from "./supplied-project-images.json";
 
 const cloudinaryMap = cloudinaryMapJson as Record<string, string>;
 
@@ -24,6 +26,7 @@ interface RawImage {
 
 type RawProjectMedia = { folder: string; images: RawImage[] };
 const archiveProjectMedia: Record<string, RawProjectMedia> = archiveProjectMediaJson;
+const suppliedProjectMedia: Record<string, RawProjectMedia> = suppliedProjectMediaJson;
 
 const rawProjectMedia: Record<string, { folder: string; images: RawImage[] }> = {
   "ats-bouquet": {
@@ -385,11 +388,12 @@ const reviewedSelections: Record<string, { cover: string; interiors: number[] }>
 
 export function getProjectMedia(slug: string, projectName = "Commercial Office Tower"): ProjectMedia | null {
   const mediaSlug = suppliedMediaAliases[slug] ?? slug;
+  const supplied = suppliedProjectMedia[slug];
   const archive = archiveProjectMedia[slug];
-  const data = archive ?? rawProjectMedia[mediaSlug];
+  const data = supplied ?? archive ?? rawProjectMedia[mediaSlug];
   if (!data || !data.images.length) return null;
 
-  const selection = !archive ? reviewedSelections[mediaSlug] : undefined;
+  const selection = !supplied && !archive ? reviewedSelections[mediaSlug] : undefined;
   const images = data.images.map((img, index) => ({
     ...img,
     isInterior: selection ? selection.interiors.includes(index + 1) : img.isInterior,
@@ -406,7 +410,7 @@ export function getProjectMedia(slug: string, projectName = "Commercial Office T
       : cloudinaryMap[key] ?? `/Website%20Images/${encodeURIComponent(data.folder)}/${encodeURIComponent(img.file)}`;
     return {
       id: `${slug}-img-${index + 1}`,
-      src,
+      src: imageUrl(src),
       alt: `${projectName} - Photograph ${index + 1}`,
       width: img.width,
       height: img.height,

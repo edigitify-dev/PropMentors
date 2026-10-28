@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { ChevronLeft, PlayCircle } from "@/components/icons";

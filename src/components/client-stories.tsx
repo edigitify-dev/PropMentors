@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import { useState, type CSSProperties, type KeyboardEvent } from "react";
 import { ChevronLeft, PlayCircle } from "@/components/icons";
 

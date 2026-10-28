@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import { useRef, useState } from "react";
 import { ArrowUp, ChevronLeft } from "./icons";
 import { PropertyListingDialog } from "./property-listing-dialog";

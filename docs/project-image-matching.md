@@ -8,7 +8,15 @@ The uploaded `public/Archive 2` photographs were reviewed as contact sheets agai
 
 Passing `--archive` also backs up every original photograph, including excluded and duplicate gallery images. The backup manifest in `src/data/archive-cloudinary-backup.json` records each original relative path, full SHA-256 hash, byte count, and Cloudinary URL. Every uploaded original and optimized copy is downloaded and compared with its source hash. Progress is saved atomically, so interrupted migrations can be resumed.
 
-Migration is complete: all 135 original photographs and 125 optimized site photographs are hosted and verified in Cloudinary. The 29 archive-backed project records now use hosted URLs, and `public/Archive 2` has been removed. The preparation script can regenerate optimized photographs directly from the verified Cloudinary originals if the local archive is absent. The optimized local copies remain available as fallbacks.
+The earlier Cloudinary migration preserved all 135 original photographs and 125 optimized site photographs. These assets have now been copied to R2 and verified against their SHA-256 hashes. The preparation script resolves the archived originals through `r2-map.json` when the local archive is absent.
+
+The current `public/All Projects Images` refresh uses the explicit building and sector matches in `src/data/project-image-folders.json`. Run `npm run images:projects -- --apply` to preserve the original files in R2, prepare and verify WebP copies, and update matching database covers, galleries, views, and space photographs. The published collection contains 390 photographs for 86 projects; 57 database records changed and 29 already had the same collection. Fourteen projects have no matching new folder. Nine supplied folders name buildings outside the current catalogue; their originals are backed up in R2 without being assigned to another building. See [the full matching report](project-image-update-report.json) for those names and sector-specific decisions.
+
+The 4.00 GiB source folder has since been removed after verifying all
+468 source assets in R2: 460 images and eight videos. The recovery manifest at
+`src/data/project-source-backup.json` preserves original paths, SHA-256 hashes,
+sizes, content types, and R2 URLs. Photo refreshes use those verified originals
+when the local folder is absent; runtime pages use the published R2 collections.
 
 ## Archive matches
 

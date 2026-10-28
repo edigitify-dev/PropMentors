@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import { ClientLogoMarquee } from "./client-logo-marquee";
 
 type StatPhotoProps = {

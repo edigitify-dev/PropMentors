@@ -1,0 +1,535 @@
+{
+  "supertech-astralis": {
+    "folder": "Supertech Astralis",
+    "cover": "1.webp.jpg",
+    "interiors": [
+      "2.webp.jpg"
+    ]
+  },
+  "bptp-capital-city": {
+    "folder": "BPTP Capital City",
+    "cover": "1.jpg",
+    "interiors": [
+      "2.jpg",
+      "3.jpg",
+      "4.jpg"
+    ]
+  },
+  "club-125": {
+    "folder": "Club 125",
+    "cover": "1.webp"
+  },
+  "add-india-tower": {
+    "folder": "ADD India Tower",
+    "cover": "1.jpg"
+  },
+  "maple-corporate-park": {
+    "folder": "Maple Corporate Park",
+    "cover": "1.png"
+  },
+  "add-india-centre": {
+    "folder": "Add India Centre",
+    "cover": "1.png"
+  },
+  "pride-tower": {
+    "folder": "Pride Tower",
+    "cover": "1.png",
+    "interiors": [
+      "4.png"
+    ]
+  },
+  "lucerna-tower-sector-125": {
+    "folder": "Lucerna Tower",
+    "cover": "1.png"
+  },
+  "add-india-heights": {
+    "folder": "Add India Heights",
+    "cover": "1.png",
+    "interiors": [
+      "4.png"
+    ],
+    "exclude": [
+      "3.webp"
+    ]
+  },
+  "windsor-it-park": {
+    "folder": "Windsor IT Park",
+    "cover": "1.png",
+    "interiors": [
+      "4.png"
+    ]
+  },
+  "jask-tower-sector-125": {
+    "folder": "Jask sec 125",
+    "cover": "Jask tower.png",
+    "interiors": [
+      "76373a.webp",
+      "1764662859_1qwsdcv.jpg.webp",
+      "images 2.jpeg"
+    ],
+    "exclude": [
+      "3ee6t2.webp",
+      "1770367019_12.jpg.webp",
+      "g6ujyf.webp",
+      "1726741157054-1.jpg"
+    ]
+  },
+  "vj-business-tower": {
+    "folder": "VJ Business Tower",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "4.png"
+    ]
+  },
+  "8-square": {
+    "folder": "8 Square ",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "4.png"
+    ]
+  },
+  "tradex-tower": {
+    "folder": "Tradex Tower",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "4.png"
+    ]
+  },
+  "fusion-square": {
+    "folder": "Fusion Square",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "4.png"
+    ]
+  },
+  "ace-studio": {
+    "folder": "Ace Studio",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "4.png"
+    ]
+  },
+  "windsor-grand": {
+    "folder": "Windsor",
+    "cover": "8c9u37.webp",
+    "interiors": [
+      "Windsor-01.webp",
+      "5rr2ds.webp",
+      "bv5kvv.webp",
+      "n54e2u.webp",
+      "1745321319927.jpeg"
+    ]
+  },
+  "tapasya-corp-heights": {
+    "folder": "Tapasya Corp Heights",
+    "cover": "1.png"
+  },
+  "tirupati-akc": {
+    "folder": "Tirupati AKC",
+    "cover": "1.png",
+    "interiors": [
+      "2.png",
+      "3.png",
+      "4.png"
+    ]
+  },
+  "tech-boulevard": {
+    "folder": "Boulevard",
+    "cover": "Untitled-3.png",
+    "interiors": [
+      "d6gfxz.webp",
+      "fxgxqa.webp",
+      "preu7a.webp",
+      "1782118402_2qa.jpg.webp"
+    ],
+    "exclude": [
+      "1769768760_12.jpg.webp",
+      "1764935888181-9bke1fwqpr.jpeg"
+    ]
+  },
+  "urbtech-one-27": {
+    "folder": "Urbtech One 27",
+    "cover": "1.png"
+  },
+  "ihdp-business-park": {
+    "folder": "IHDP Business Park",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "4.png"
+    ]
+  },
+  "stellar-127": {
+    "folder": "Stellar 127",
+    "cover": "1.png",
+    "interiors": [
+      "2.png"
+    ]
+  },
+  "louts-business-park": {
+    "folder": "Louts Business park",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "4.png"
+    ]
+  },
+  "elixir": {
+    "folder": "Elixir business park",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "Untitled-34.png"
+    ]
+  },
+  "pinnacle-tower-132": {
+    "folder": "Pinnacle Tower 132",
+    "cover": "1.png"
+  },
+  "the-opus-132": {
+    "folder": "The Opus 132",
+    "cover": "1.png",
+    "interiors": [
+      "3.png",
+      "4.png"
+    ]
+  },
+  "urbtech-trade-centre": {
+    "folder": "Urbtech Trade Centre",
+    "cover": "1.png",
+    "additional": [
+      {
+        "folder": "UTC ",
+        "files": [
+          "UTC-Banner.jpg",
+          "1.jpg",
+          "gnh3kw.webp",
+          "images.jpeg",
+          "images 2.jpeg",
+          "images 3.jpeg",
+          "images 4.jpeg"
+        ],
+        "interiors": [
+          "1.jpg",
+          "gnh3kw.webp",
+          "images.jpeg",
+          "images 2.jpeg",
+          "images 3.jpeg"
+        ]
+      }
+    ]
+  },
+  "express-trade-tower": {
+    "folder": "Express Trade Tower",
+    "cover": "Untitled-3.png",
+    "interiors": [
+      "ETT2-01.webp",
+      "704869071M-1769582909794.jpg",
+      "1762853600_cow1.jpg.webp",
+      "1769341992_PHOTO-2026-01-24-17-07-41.jpg.webp",
+      "coworking-express-trade-tower-noida-2-hero.jpg"
+    ],
+    "exclude": [
+      "images-1675882879200.jpg"
+    ]
+  },
+  "delphi-tower": {
+    "folder": "Delphi tower",
+    "cover": "1.png",
+    "interiors": [
+      "2.png"
+    ]
+  },
+  "ace-capitol": {
+    "folder": "Ace Capitol",
+    "cover": "1.png"
+  },
+  "orion-tower": {
+    "folder": "Orion Tower",
+    "cover": "1.png"
+  },
+  "max-square": {
+    "folder": "Max towers 129",
+    "cover": "1746718949113-lsae2cmwo1.jpeg",
+    "interiors": [
+      "max-towers-spotlight-2.jpg",
+      "amenities.jpg",
+      "1746718947865-byr50dkalf.jpeg",
+      "images.jpeg"
+    ]
+  },
+  "gulshan-one29": {
+    "folder": "Gulshan one29 mall",
+    "cover": "overview.webp",
+    "interiors": [
+      "2026-08-19_05-06-27_20241022T115741_gall1.webp",
+      "entrance_2_1755599379240.jpg.avif",
+      "images.jpeg"
+    ]
+  },
+  "candor-techspace-sector-135": {
+    "folder": "Candor TechSpace",
+    "cover": "Amenties_9bda92e24e.jpg",
+    "interiors": [
+      "Interior_1_7553bdd46f.jpg",
+      "1.jpg",
+      "3.jpg",
+      "N2_Tower_3_and_4_lobby_bbb1e9eb3f.jpg"
+    ]
+  },
+  "aykon-tower": {
+    "folder": "Aykon Tower",
+    "cover": "g6ujyf.webp",
+    "interiors": [
+      "3twaay.webp",
+      "ctmndh.webp",
+      "u629bc.webp",
+      "1.jpg",
+      "nqttf7.jpg"
+    ]
+  },
+  "assotech-business-cresterra": {
+    "folder": "Assotech Business Cresterra",
+    "cover": "8jex87.webp",
+    "interiors": [
+      "uzsf83.webp",
+      "2njj2q.webp",
+      "images-1664215258463.jpg",
+      "1773212177_Office Space Near Noida Electronic City Metro Station.webp",
+      "images.jpeg"
+    ]
+  },
+  "opulence": {
+    "folder": "Opulence",
+    "cover": "1.png"
+  },
+  "county-space": {
+    "folder": "County space",
+    "cover": "1.png"
+  },
+  "stellar-okas-1425": {
+    "folder": "Stellar OKAS 1425",
+    "cover": "1.png"
+  },
+  "pinnacle-142": {
+    "folder": "Pinnacle 142",
+    "cover": "1.png"
+  },
+  "gm-it-park": {
+    "folder": "GM IT Park",
+    "cover": "1.png"
+  },
+  "advant-navis-business-park": {
+    "folder": "Advant navis",
+    "cover": "8540303Advant Navis-Sector-142.png",
+    "interiors": [
+      "ai0i1080.jpg",
+      "zrnqtg.webp",
+      "advant-navis-business-park-noida-sector-142-noida-business-centres-2n87tet7z8.jpg.avif",
+      "images 1.jpeg"
+    ]
+  },
+  "altf-coworking": {
+    "folder": "AltF Coworking",
+    "cover": "1.png"
+  },
+  "8-square-zen": {
+    "folder": "8 Square Zen",
+    "cover": "1.png"
+  },
+  "the-berry-coworks": {
+    "folder": "The Berry Coworks",
+    "cover": "1.png"
+  },
+  "skymark-one": {
+    "folder": "Skymark",
+    "cover": "Skymark one 4.jpeg",
+    "interiors": [
+      "6nkftb.webp",
+      "Skymark one 3.jpeg",
+      "kgtsk8.webp",
+      "q6mze7.webp",
+      "tb3259.webp",
+      "images-1660636297555.jpg",
+      "images-1660636297787.jpg"
+    ]
+  },
+  "sikka-kapital-grand": {
+    "folder": "Sikka Kapital Grand",
+    "cover": "1.png"
+  },
+  "keshav-it-park": {
+    "folder": "Keshav IT Park",
+    "cover": "1.png"
+  },
+  "embassy-oxygen-business-park": {
+    "folder": "Embassy Oxygen Business Park",
+    "cover": "74c53p.webp",
+    "interiors": [
+      "images-1673262847125.jpg",
+      "images-1673262847182.jpg",
+      "images-1673262847282.jpg",
+      "embassy_oxygen_gallery_12.png"
+    ]
+  },
+  "nsl-techzone": {
+    "folder": "NSL TechZone",
+    "cover": "1.png"
+  },
+  "sovereign-capital-gate": {
+    "folder": "Sovereign Capital Gate",
+    "cover": "1.png"
+  },
+  "k-s-corporate-tower": {
+    "folder": "K S Corporate Tower",
+    "cover": "1.png"
+  },
+  "carnoustie-tower": {
+    "folder": "Carnoustie Tower",
+    "cover": "1.png"
+  },
+  "sb-tower": {
+    "folder": "SB Tower",
+    "cover": "1.png"
+  },
+  "the-rise": {
+    "folder": "The Rise",
+    "cover": "1.png"
+  },
+  "express-corporate-park": {
+    "folder": "Express Corporate Park",
+    "cover": "1.png"
+  },
+  "it-tower": {
+    "folder": "IT Tower",
+    "cover": "1.png"
+  },
+  "the-ikon-tower": {
+    "folder": "The Ikon Tower",
+    "cover": "1.png"
+  },
+  "bgr-tower": {
+    "folder": "BGR Tower",
+    "cover": "1.png"
+  },
+  "mindmill-corporate-tower": {
+    "folder": "Mindmill Corporate Tower",
+    "cover": "1.png"
+  },
+  "dlf-tech-park": {
+    "folder": "DLF Techpark",
+    "cover": "v7m7eg.webp",
+    "interiors": [
+      "techpark-noida-reception-waiting-room-160880696.jpeg",
+      "whjgtj.webp",
+      "techpark-noida-reception-waiting-room-160880698.jpeg",
+      "property_image_6842e7665e56b.jpg"
+    ]
+  },
+  "wave-one": {
+    "folder": "Wave One",
+    "cover": "1.png"
+  },
+  "ithum-tower": {
+    "folder": "IThum Tower",
+    "cover": "1.png"
+  },
+  "the-corenthum": {
+    "folder": "The Corenthum",
+    "cover": "1.png"
+  },
+  "embassy-galaxy-business-park": {
+    "folder": "Embassy Galaxy Business Park",
+    "cover": "1.png"
+  },
+  "trapezoid-it-park": {
+    "folder": "Trapezoid IT Park",
+    "cover": "1.png"
+  },
+  "graphix-tower": {
+    "folder": "Graphix Tower",
+    "cover": "1.png"
+  },
+  "joy-tower": {
+    "folder": "Joy Tower",
+    "cover": "1.png"
+  },
+  "logix-cyber-park": {
+    "folder": "Logix Cyber Park",
+    "cover": "1.png"
+  },
+  "spg-nexus": {
+    "folder": "SPG Nexus",
+    "cover": "1.png"
+  },
+  "majestic-signia": {
+    "folder": "Majestic Signia",
+    "cover": "1.png"
+  },
+  "green-boulevard": {
+    "folder": "Green Boulevard",
+    "cover": "1.png"
+  },
+  "stellar-it-park": {
+    "folder": "Stellar IT Park",
+    "cover": "1.png"
+  },
+  "knowledge-boulevard": {
+    "folder": "Knowledge Boulevard",
+    "cover": "1.png"
+  },
+  "noida-one": {
+    "folder": "Noida One",
+    "cover": "1.png"
+  },
+  "discovery-tower-sector-62": {
+    "folder": "Discovery Tower",
+    "cover": "1.png"
+  },
+  "world-trade-tower": {
+    "folder": "World Trade Tower",
+    "cover": "1.png"
+  },
+  "max-towers": {
+    "folder": "Max towers sec 16",
+    "cover": "max-towers-big-2.jpg",
+    "interiors": [
+      "max-towers-spotlight-4.jpg",
+      "images-1658168180709.jpg",
+      "images.jpeg"
+    ]
+  },
+  "k-p-towers": {
+    "folder": "K P Towers",
+    "cover": "1.png"
+  },
+  "berger-tower": {
+    "folder": "Berger Tower",
+    "cover": "1.png"
+  },
+  "logix-park": {
+    "folder": "Logix Park",
+    "cover": "1.png"
+  },
+  "pioneer-house": {
+    "folder": "Pioneer House",
+    "cover": "1.png"
+  },
+  "pinnacle-business-park": {
+    "folder": "Pinnacle Business Park",
+    "cover": "1.png"
+  },
+  "servspaces-03": {
+    "folder": "ServSpaces 03",
+    "cover": "1.png"
+  },
+  "bajaj-bhawan": {
+    "folder": "Bajaj Bhawan",
+    "cover": "1.png"
+  }
+}

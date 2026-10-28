@@ -20,9 +20,9 @@ if (fs.existsSync(envLocalPath)) {
   }
 }
 
-const cloudName = process.env.CLOUDINARY_CLOUD_NAME || "jkcxw0xq";
-const apiKey = process.env.CLOUDINARY_API_KEY || "947729994467911";
-const apiSecret = process.env.CLOUDINARY_API_SECRET || "QWrtjiu6M9K-5XuBqUGyYMx9M9w";
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const apiKey = process.env.CLOUDINARY_API_KEY;
+const apiSecret = process.env.CLOUDINARY_API_SECRET;
 
 if (!cloudName || !apiKey || !apiSecret) {
   console.error("Missing Cloudinary credentials in .env.local or environment.");

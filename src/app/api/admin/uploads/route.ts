@@ -1,14 +1,12 @@
-import { createHash } from "node:crypto";
+import sharp from "sharp";
 import { adminMutation, ApiError, apiResponse, rateLimit, readBody } from "@/lib/api-utils";
+import { hasR2Configuration, uploadImage } from "@/lib/r2-storage";
 
 export async function POST(request: Request) {
   return apiResponse(async () => {
     const admin = await adminMutation(request);
     await rateLimit(`uploads:${admin.id}`, 100, 60);
-    const cloud = process.env.CLOUDINARY_CLOUD_NAME;
-    const key = process.env.CLOUDINARY_API_KEY;
-    const secret = process.env.CLOUDINARY_API_SECRET;
-    if (!cloud || !key || !secret) throw new ApiError(503, "Photo uploads need Cloudinary configuration. You can paste an existing image URL instead.");
+    if (!hasR2Configuration()) throw new ApiError(503, "Photo uploads need storage configuration. You can paste an existing image URL instead.");
     const contentType = request.headers.get("content-type") || "";
     if (!contentType.startsWith("multipart/form-data")) throw new ApiError(415, "Choose an image file to upload.");
     const buffer = await readBody(request, 10_100_000);
@@ -23,14 +21,14 @@ export async function POST(request: Request) {
       || (file.type === "image/webp" && bytes.toString("ascii", 0, 4) === "RIFF" && bytes.toString("ascii", 8, 12) === "WEBP")
       || (file.type === "image/avif" && bytes.toString("ascii", 4, 8) === "ftyp" && /avif|avis/.test(bytes.toString("ascii", 8, 32)));
     if (!supported) throw new ApiError(400, "Use a JPG, PNG, WebP, or AVIF image.");
-    const folder = "propmentors/projects";
-    const timestamp = String(Math.floor(Date.now() / 1000));
-    const signature = createHash("sha1").update(`folder=${folder}&timestamp=${timestamp}${secret}`).digest("hex");
-    const data = new FormData();
-    data.set("file", file); data.set("api_key", key); data.set("folder", folder); data.set("timestamp", timestamp); data.set("signature", signature);
-    const response = await fetch(`https://api.cloudinary.com/v1_1/${encodeURIComponent(cloud)}/image/upload`, { method: "POST", body: data, signal: AbortSignal.timeout(30_000) });
-    if (!response.ok) throw new ApiError(502, "The image service couldn’t complete the upload. Please try again.");
-    const result = await response.json();
-    return Response.json({ url: result.secure_url, width: result.width, height: result.height }, { status: 201 });
+    let dimensions;
+    try { dimensions = await sharp(bytes, { limitInputPixels: 40_000_000 }).metadata(); }
+    catch { throw new ApiError(400, "Choose a valid image with no more than 40 million pixels."); }
+    const { width, height } = dimensions;
+    if (!width || !height || width > 20000 || height > 20000) throw new ApiError(400, "Choose an image with dimensions below 20,000 pixels.");
+    let url;
+    try { url = await uploadImage(bytes, file.type); }
+    catch { throw new ApiError(502, "The image service couldn’t complete the upload. Please try again."); }
+    return Response.json({ url, width, height }, { status: 201 });
   });
 }

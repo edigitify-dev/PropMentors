@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/storage-image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { AdminIcon, type IconName } from "./admin-icons";

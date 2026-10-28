@@ -28,6 +28,47 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 - `npm run start` serves the production build.
 - `npm run lint` runs ESLint.
 - `npm run typecheck` checks TypeScript types.
+- `npm run migrate:r2` inventories image assets; add `-- --apply` to upload and switch verified references.
+
+## Image storage
+
+Images and new administrator uploads use Cloudflare R2. Configure `R2_ENDPOINT`,
+`R2_BUCKET_NAME`, `R2_PUBLIC_URL`, `R2_ACCESS_KEY_ID`, and `R2_SECRET_ACCESS_KEY`
+in `.env.local` and in the production host's environment. Credentials are server-only
+and must never be committed. See `.env.example` for variable names.
+
+`npm run migrate:r2 -- --apply` copies all local images, the historical Cloudinary
+image map and archive originals, and images referenced by database project records.
+Every public R2 copy is downloaded and compared with its source SHA-256 hash.
+Content-based object keys deduplicate identical images and preserve existing files.
+Only after every source passes verification does the script publish `r2-map.json`
+and update image URLs in PostgreSQL. Database records are backed up locally first;
+all other project fields and publication status are preserved. Local sources remain
+available. Videos, fonts, and spreadsheets are outside this image migration.
+
+Progress and database backups use ignored `.r2-migration-*.json` files. Rerunning
+the command verifies and reuses existing objects. Commit the public `r2-map.json`
+with the application changes after migration. The image component resolves existing
+references through that map; CSS masks are proxied through same-origin rewrites to
+preserve rendering without requiring bucket CORS changes. Restart or rebuild Next.js
+after the manifest changes. The legacy HTTP Cloudinary migration route is retired.
+
+To refresh project photographs from `public/All Projects Images`, run
+`npm run images:projects -- --apply`. Explicit building and sector matches live in
+`src/data/project-image-folders.json`. The command preserves the original uploads,
+creates WebP copies up to 1920 × 1440, verifies them in R2, publishes
+`src/data/supplied-project-images.json`, and updates matching database covers,
+galleries, interior/exterior views, and space photographs. Floor plans and project
+details are preserved. `docs/project-image-update-report.json` lists projects with
+no matching new folder and uploaded folders with no current project. A dry run
+without `--apply` reports coverage before uploading.
+
+`npm run images:archive -- --apply --remove-local` verifies the image originals,
+backs up source videos using resumable multipart uploads, verifies their SHA-256
+hashes, and removes only `public/All Projects Images` after checking that no source
+files changed during backup. `src/data/project-source-backup.json` records the
+original paths, hashes, sizes, and R2 URLs. Project photo refreshes can read those
+verified R2 originals directly when the local source folder has been removed.
 
 ## Project structure
 

@@ -1,0 +1,95 @@
+{
+  "sourceDirectory": "public/All Projects Images",
+  "matchedProjects": 86,
+  "photographs": 390,
+  "originalBytes": 474172057,
+  "optimizedBytes": 71100560,
+  "unmatchedProjects": [
+    {
+      "slug": "fortune-one",
+      "name": "Fortune One",
+      "sector": "126"
+    },
+    {
+      "slug": "bhutani-cyber-park",
+      "name": "Bhutani cyber park",
+      "sector": "127"
+    },
+    {
+      "slug": "mmr",
+      "name": "MMR",
+      "sector": "127"
+    },
+    {
+      "slug": "gro-tower",
+      "name": "Gro tower",
+      "sector": "132"
+    },
+    {
+      "slug": "maccons-tower",
+      "name": "Maccons tower",
+      "sector": "132"
+    },
+    {
+      "slug": "paras-one29",
+      "name": "Paras one29",
+      "sector": "129"
+    },
+    {
+      "slug": "bn-corporate-tower",
+      "name": "BN corporate tower",
+      "sector": "135"
+    },
+    {
+      "slug": "ats-tower",
+      "name": "Ats tower",
+      "sector": "135"
+    },
+    {
+      "slug": "limiour-tower",
+      "name": "Limiour tower",
+      "sector": "135"
+    },
+    {
+      "slug": "stellar-1423",
+      "name": "Stellar 1423",
+      "sector": "142"
+    },
+    {
+      "slug": "ansal-corporate-tower",
+      "name": "Ansal corporate tower",
+      "sector": "142"
+    },
+    {
+      "slug": "candor-techspace-sector-62",
+      "name": "Candor TechSpace",
+      "sector": "62"
+    },
+    {
+      "slug": "vin-tower",
+      "name": "VIN Tower",
+      "sector": "62"
+    },
+    {
+      "slug": "okaya-tower",
+      "name": "Okaya tower",
+      "sector": "62"
+    }
+  ],
+  "unmatchedFolders": [
+    "ATS Bouquet",
+    "Bhutani Cyberthum",
+    "Exotica One32",
+    "Fairfox EON",
+    "Logix Technova",
+    "Riana",
+    "Sikka Mall of Noida",
+    "Sovereign Corporate Towers",
+    "Stellar 135"
+  ],
+  "notes": [
+    "Candor TechSpace photos are assigned only to Sector 135; Sector 62 keeps its existing photographs.",
+    "ATS Bouquet is not the Sector 135 ATS Tower. Bhutani Cyberthum is not Bhutani Cyber Park.",
+    "UTC supplementary photographs use the previously reviewed whitelist; NPX and UTP-project-11 are excluded."
+  ]
+}

@@ -14,9 +14,12 @@
 # local environment files
 .env*
 !.env.example
+.r2-migration-*.json
+.r2-migration-*.json.tmp
 
 # deployment
 /vercel
+/.vercel/
 
 # TypeScript
 *.tsbuildinfo
