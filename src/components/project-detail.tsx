@@ -175,7 +175,7 @@ export function ProjectDetail({ project, similarProjects, listingHref = "/projec
             </button>
           </div>
           {gallery.length > 1 && <div className={styles.thumbnails}>
-            {gallery.slice(1, 4).map((item, index) => <button key={item.id} type="button" onClick={() => openPhoto(item)} aria-label={`Open property photo ${index + 2} at full size`}>
+            {gallery.slice(1, 3).map((item, index) => <button key={item.id} type="button" onClick={() => openPhoto(item)} aria-label={`Open property photo ${index + 2} at full size`}>
               <SpacePhoto image={item} />
             </button>)}
           </div>}

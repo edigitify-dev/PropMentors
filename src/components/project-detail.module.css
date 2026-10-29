@@ -212,7 +212,7 @@
   .mainPhotoWrap, .singlePhoto .mainPhotoWrap { height: auto; aspect-ratio: 4 / 3; border-radius: 16px; }
   .mainPhoto img, .thumbnails img, .teamPhoto img, .spaceView img { object-fit: cover; }
   .floorPlan img { object-fit: contain; }
-  .thumbnails { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; height: clamp(64px, 20vw, 110px); }
+  .thumbnails { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; height: clamp(64px, 20vw, 110px); }
   .thumbnails button { border-radius: 8px; }
   .thumbnails button:first-child, .thumbnails button:last-child { border-radius: 8px; }
   .viewAllPhotos { right: 12px; bottom: 12px; gap: 8px; padding-inline: 10px; font-size: 10px; }
