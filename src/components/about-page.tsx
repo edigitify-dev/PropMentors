@@ -2,7 +2,6 @@
 
 import Image from "@/components/storage-image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { AtAGlance } from "./at-a-glance";
 import { WorkspaceOffers } from "./workspace-offers";
@@ -30,7 +29,6 @@ function SectionHeading({ badge, id, title, children }: { badge: string; id: str
 }
 
 export function AboutPage({ projects }: { projects: Project[] }) {
-  const router = useRouter();
   const enquiry = useRef<HTMLDialogElement>(null);
   const [shareStatus, setShareStatus] = useState("");
   const [draft, setDraft] = useState("");
@@ -66,7 +64,7 @@ export function AboutPage({ projects }: { projects: Project[] }) {
           <source media="(max-width: 640px)" srcSet={aboutImages.mobileHero} width={1080} height={2340} />
           <Image className={styles.heroImage} src={aboutImages.hero} width={1440} height={920} alt="A team discussing commercial real estate around a meeting table" loading="eager" fetchPriority="high" unoptimized />
         </picture>
-        <ProjectHeader activePage="about" onSearch={() => router.push("/projects")} onContact={openEnquiry} />
+        <ProjectHeader activePage="about" onContact={openEnquiry} />
         <div className={styles.heroIntro}><Badge>ABOUT PROPMENTORS</Badge><h1 id="about-heading">Space Is The Product</h1><p>Guidance is the difference.</p></div>
         {/* <p className={styles.heroDescription}>PropMentors helps businesses find, evaluate and secure commercial spaces — from managed offices and co-working spaces to conventional leasing.</p> */}
       </section>

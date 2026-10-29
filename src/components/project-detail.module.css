@@ -12,11 +12,9 @@
 .titleRow h1 { margin: 8px 0 12px; font-family: "Kind Avenue", Georgia, serif; font-size: clamp(36px, 3.65vw, 56px); line-height: 1.08; font-weight: 400; letter-spacing: -.025em; text-wrap: balance; }
 .address { display: flex; align-items: center; gap: 7px; margin: 0; color: var(--detail-muted); font-size: 13px; line-height: 1.5; }
 .address svg { flex: none; width: 16px; height: 16px; color: var(--accent); }
-.primary, .outline { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 44px; padding: 12px 18px; border: 1px solid transparent; border-radius: 8px; background: var(--accent); color: var(--background); text-decoration: none; font-size: 12px; line-height: 1.5; font-weight: 500; cursor: pointer; transition: background 160ms ease, border-color 160ms ease; }
-.primary svg, .outline svg, .textLink svg { width: 16px; height: 16px; flex: none; }
+.primary { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 44px; padding: 12px 18px; border: 1px solid transparent; border-radius: 8px; background: var(--accent); color: var(--background); text-decoration: none; font-size: 12px; line-height: 1.5; font-weight: 500; cursor: pointer; transition: background 160ms ease, border-color 160ms ease; }
+.primary svg, .textLink svg { width: 16px; height: 16px; flex: none; }
 .primary:hover { background: #4874a5; }
-.outline { flex: none; background: transparent; border-color: #122c4f40; color: var(--foreground); }
-.outline:hover { background: #122c4f08; border-color: var(--foreground); }
 .textLink { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--foreground); font: inherit; font-size: 11px; font-weight: 500; line-height: 1.5; text-decoration: none; cursor: pointer; }
 .textLink:hover { color: var(--accent); }
 
@@ -77,7 +75,8 @@
 .tabs { display: flex; gap: 6px; width: max-content; max-width: 100%; padding: 4px; margin-top: 18px; border: 1px solid var(--detail-border); border-radius: 8px; background: #f4f2e9; }
 .tabs button { min-height: 36px; padding: 8px 16px; border: 0; border-radius: 5px; background: transparent; color: var(--detail-muted); font-family: inherit; font-size: 10px; font-weight: 500; cursor: pointer; }
 .tabs button[aria-selected="true"] { background: var(--accent); color: var(--background); }
-.spaceView { position: relative; height: 260px; margin-top: 16px; overflow: hidden; border: 1px solid var(--detail-border); border-radius: 8px; background: #edece5; }
+.spaceView { position: relative; height: auto; aspect-ratio: 4 / 3; max-height: 560px; margin-top: 16px; overflow: hidden; border: 1px solid var(--detail-border); border-radius: 8px; background: #edece5; }
+.spaceView img { object-fit: contain; }
 .floorPlan img { object-fit: contain; }
 .planNote { position: absolute; bottom: 16px; left: 16px; max-width: calc(100% - 32px); padding: 8px 12px; border-radius: 5px; background: var(--background); color: var(--foreground); font-size: 11px; }
 .exploreCaption { margin: 12px 0 0; color: var(--detail-muted); font-size: 11px; line-height: 1.6; white-space: pre-line; }
@@ -93,8 +92,9 @@
 .spaceBadge { color: #4a7097; font-size: 8px; font-weight: 600; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; }
 .teamBody h3 { margin: 7px 0 6px; font-size: 14px; font-weight: 500; line-height: 1.45; letter-spacing: -.02em; }
 .teamLocation { margin: 0; color: var(--detail-muted); font-size: 10px; line-height: 1.6; }
-.teamDescription { flex: 1; margin: 12px 0 10px; color: #4b5a6c; font-size: 11px; line-height: 1.75; }
-.teamBody > .textLink { justify-content: space-between; width: 100%; margin-top: auto; border-top: 1px solid var(--detail-border); }
+.teamDescription { flex: 1; margin: 12px 0 10px; color: var(--foreground); font-size: 14px; font-weight: 600; line-height: 1.6; }
+.teamBody > .textLink { justify-content: space-between; width: 100%; min-height: 50px; margin-top: auto; border-top: 1px solid var(--detail-border); font-size: 14px; font-weight: 600; }
+.teamBody > .textLink svg { width: 18px; height: 18px; }
 
 .enquiryCard { position: sticky; top: calc(var(--property-section-nav-height, 80px) + 20px); padding: 26px; border: 1px solid var(--detail-border); border-radius: 14px; background: var(--background); color: var(--foreground); box-shadow: 0 8px 28px #122c4f06; }
 .starting { display: block; color: var(--detail-muted); font-size: 9px; letter-spacing: .14em; line-height: 1.5; }
@@ -107,9 +107,6 @@
 .enquiryCard li > span { color: var(--accent); }
 .enquiryCard > .primary { justify-content: space-between; width: 100%; }
 .enquiryCard > .primary:hover { background: #4874a5; }
-.brochureLink { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 44px; margin-top: 8px; padding: 8px; border: 0; background: transparent; color: var(--foreground); font: inherit; font-size: 11px; cursor: pointer; }
-.brochureLink svg { width: 14px; height: 14px; }
-.brochureLink:hover { color: var(--accent); }
 .similarPrompt { margin-top: 18px; padding-top: 20px; border-top: 1px solid var(--detail-border); }
 .similarPrompt h3 { margin: 0; font-size: 11px; font-weight: 500; line-height: 1.6; }
 .similarPrompt p { margin: 6px 0; font-size: 11px; line-height: 1.75; color: var(--detail-muted); }
@@ -190,12 +187,10 @@
   .enquiryIntro { grid-column: 1; border-top: 0; padding-top: 0; }
   .enquiryCard > ul { grid-column: 2; grid-row: 1 / span 3; align-self: center; margin-block: 0; }
   .enquiryCard > .primary { grid-column: 1; margin-top: 20px; }
-  .brochureLink { grid-column: 1; }
-  .similarPrompt { grid-column: 2; grid-row: 4 / span 2; align-self: start; margin-top: 20px; padding-top: 16px; }
+  .similarPrompt { grid-column: 2; grid-row: 4; align-self: start; margin-top: 20px; padding-top: 16px; }
   .amenities { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .teamPhoto { height: 160px; }
   .teamBody { padding: 18px; }
-  .teamDescription { font-size: 12px; }
   .similarGrid { gap: 16px; }
   .similarGrid :global(.property-details h3) { font-size: 16px; }
 }
@@ -204,13 +199,12 @@
   .breadcrumb { margin-top: 20px; gap: 7px; font-size: 10px; }
   .titleRow { align-items: start; flex-direction: column; gap: 20px; padding-block: 24px; }
   .titleRow h1 { font-size: clamp(36px, 10vw, 48px); margin-block: 12px 14px; }
-  .titleRow > .outline { display: none; }
   .eyebrow { font-size: 9px; }
   .address { align-items: start; font-size: 12px; }
   .address svg { margin-top: 2px; }
   .gallery { height: auto; grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .mainPhotoWrap, .singlePhoto .mainPhotoWrap { height: auto; aspect-ratio: 4 / 3; border-radius: 16px; }
-  .mainPhoto img, .thumbnails img, .teamPhoto img, .spaceView img { object-fit: cover; }
+  .mainPhoto img, .thumbnails img, .teamPhoto img { object-fit: cover; }
   .floorPlan img { object-fit: contain; }
   .thumbnails { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; height: clamp(64px, 20vw, 110px); }
   .thumbnails button { border-radius: 8px; }
@@ -254,8 +248,8 @@
   .spaceBadge { padding: 5px 9px; border: 1px solid #5d87b520; border-radius: 6px; background: #becfe12b; font-size: 9px; letter-spacing: .1em; }
   .teamBody h3 { margin-block: 14px 6px; font-size: 20px; line-height: 1.35; }
   .teamLocation { font-size: 11px; line-height: 1.65; }
-  .teamDescription { margin-block: 14px 18px; font-size: 13px; line-height: 1.8; }
-  .teamBody > .textLink { min-height: 48px; padding-top: 4px; color: #4a7097; font-size: 12px; }
+  .teamDescription { margin-block: 14px 18px; font-size: 15px; }
+  .teamBody > .textLink { min-height: 52px; padding-top: 4px; color: #4a7097; font-size: 15px; }
   .enquiryCard { display: block; padding: 26px 22px; border-radius: 18px; background: linear-gradient(145deg, #becfe12b, #ffffff40); box-shadow: 0 8px 28px #122c4f08; }
   .rent { font-size: 36px; margin-bottom: 20px; }
   .enquiryIntro { padding-top: 18px; border-top: 1px solid var(--detail-border); }
@@ -294,5 +288,5 @@
   .lightboxThumbnails button { flex-basis: 56px; width: 56px; height: 42px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mainPhoto img, .thumbnails img, .teamCard, .primary, .outline, .lightbox, .lightboxArrow, .lightboxThumbnails button { animation: none; transition: none; }
+  .mainPhoto img, .thumbnails img, .teamCard, .primary, .lightbox, .lightboxArrow, .lightboxThumbnails button { animation: none; transition: none; }
 }

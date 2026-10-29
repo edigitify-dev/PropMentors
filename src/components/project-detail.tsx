@@ -16,6 +16,11 @@ import { useContactDetails } from "./contact-provider";
 
 type GalleryTab = "FLOOR PLAN" | "INTERIOR" | "EXTERIOR" | "PHOTOS";
 const defaultGalleryTabs: GalleryTab[] = ["FLOOR PLAN", "INTERIOR", "EXTERIOR"];
+const workspaceFormats = [
+  { pattern: /conventional/i, title: "Conventional Office", badge: "Conventional", range: "From 1,000 to 20,000 SQ.FT." },
+  { pattern: /managed|commercial/i, title: "Managed Spaces", badge: "Managed", range: "From 1,000 to 20,000 SQ.FT." },
+  { pattern: /co[\s-]?working/i, title: "Co-working spaces", badge: "Co-working", range: "From 5 seats to 200 seats" },
+];
 const propertySections = [
   { id: "detail-overview", label: "Overview" },
   { id: "detail-building", label: "Building" },
@@ -149,7 +154,7 @@ export function ProjectDetail({ project, similarProjects, listingHref = "/projec
 
   return <>
     <main className={styles.page} ref={pageRef}>
-      <ProjectHeader spacesHref={listingHref} revealOnScrollUp={false} onSearch={() => scrollTo("detail-spaces")} onContact={() => openEnquiry("Property enquiry")} />
+      <ProjectHeader spacesHref={listingHref} revealOnScrollUp={false} onContact={() => openEnquiry("Property enquiry")} />
       <div className={styles.container}>
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link><span>/</span><Link href={listingHref}>Spaces</Link><span>/</span><span>{project.name}</span>
@@ -160,7 +165,6 @@ export function ProjectDetail({ project, similarProjects, listingHref = "/projec
             <h1>{project.name}</h1>
             <p className={styles.address}><LocationPin />{project.locationLabel}</p>
           </div>
-          <button type="button" className={styles.outline} onClick={() => openEnquiry("Request a brochure")}>Request Brochure <ChevronRight /></button>
         </div>
 
         <section className={`${styles.gallery} ${gallery.length === 1 ? styles.singlePhoto : ""}`} aria-label="Property photographs">
@@ -199,14 +203,18 @@ export function ProjectDetail({ project, similarProjects, listingHref = "/projec
               <section className={styles.spacesSection} id="detail-spaces" aria-labelledby="team-heading">
                 <div className={styles.sectionHeading}><h2 id="team-heading">Find the space that fits your team</h2><span className={styles.eyebrow}>Workspace options</span></div>
                 {!detail.spaces.length && <p>Contact our team for current availability, office configurations and leasing terms.</p>}
-                <div className={styles.teamGrid}>{detail.spaces.map((item) => <article className={styles.teamCard} key={item.id}>
-                  <button type="button" className={`${styles.teamPhoto} ${styles.photoPreview}`} onClick={() => openPhoto(item.image)} aria-label={`View ${item.title} photo at full size`}><SpacePhoto image={item.image} /></button>
-                  <div className={styles.teamBody}>
-                    <span className={styles.spaceBadge}>{item.badge}</span>
-                    <h3>{item.title}</h3><p className={styles.teamLocation}>{item.location}</p><p className={styles.teamDescription}>{item.description}</p>
-                    <button type="button" className={styles.textLink} onClick={() => openEnquiry(`Workspace enquiry — ${item.title}`)}>Enquire <ChevronRight /></button>
-                  </div>
-                </article>)}</div>
+                <div className={styles.teamGrid}>{detail.spaces.map((item) => {
+                  const format = workspaceFormats.find(({ pattern }) => pattern.test(`${item.title} ${item.badge}`));
+                  const title = format?.title ?? item.title;
+                  return <article className={styles.teamCard} key={item.id}>
+                    <button type="button" className={`${styles.teamPhoto} ${styles.photoPreview}`} onClick={() => openPhoto(item.image)} aria-label={`View ${title} photo at full size`}><SpacePhoto image={item.image} /></button>
+                    <div className={styles.teamBody}>
+                      <span className={styles.spaceBadge}>{format?.badge ?? item.badge}</span>
+                      <h3>{title}</h3><p className={styles.teamLocation}>{item.location}</p><p className={styles.teamDescription}>{format?.range ?? item.description}</p>
+                      <button type="button" className={styles.textLink} onClick={() => openEnquiry(`Workspace enquiry — ${title}`)}>Enquire Now <ChevronRight /></button>
+                    </div>
+                  </article>;
+                })}</div>
               </section>
 
               <section className={styles.infoPanel} id="detail-building" aria-labelledby="building-heading" tabIndex={-1}>
@@ -250,7 +258,6 @@ export function ProjectDetail({ project, similarProjects, listingHref = "/projec
             <div className={styles.enquiryIntro}><h2 id="space-enquiry-heading">Interested in this space?</h2><p>Let’s help you find the right workspace for your business.</p></div>
             <ul>{detail.highlights.map((highlight) => <li key={highlight}><span aria-hidden="true">✓</span>{highlight}</li>)}</ul>
             <button type="button" className={styles.primary} onClick={() => openEnquiry()}>Request for Visit <ChevronRight /></button>
-            <button type="button" className={styles.brochureLink} onClick={() => openEnquiry("Request a brochure")}>Request Brochure <ChevronRight /></button>
             <div className={styles.similarPrompt}><h3>Not quite what you’re looking for?</h3><p>We’ll help you find a space that fits your business.</p><button type="button" className={styles.textLink} onClick={() => scrollTo("similar-spaces")}>Find Similar Spaces <ChevronRight /></button></div>
           </aside>
         </div>

@@ -1,19 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { AccountCircle, Search } from "./icons";
 import { NavbarMenu } from "./navbar-menu";
+import { NavbarSearch } from "./navbar-search";
 import { ScrollHeader } from "./scroll-header";
 import styles from "./project-hero.module.css";
 
 export function ProjectHeader({
   activePage,
-  onSearch,
-  onContact,
   revealOnScrollUp = true,
   spacesHref = "/projects",
 }: {
-  onSearch?: () => void;
   onContact?: () => void;
   activePage?: "about" | "list-your-space" | "projects" | "contact";
   revealOnScrollUp?: boolean;
@@ -42,14 +39,9 @@ export function ProjectHeader({
           </Link>
         </nav>
         <div className={styles.actions}>
-          <Link href={spacesHref} className={styles.iconButton} aria-label="Search spaces">
-            <Search />
-          </Link>
+          <NavbarSearch className={styles.iconButton} />
           <Link href="/contact" className={styles.contactButton}>
             Contact
-          </Link>
-          <Link href="/projects" className={styles.iconButton} aria-label="Account">
-            <AccountCircle />
           </Link>
           <NavbarMenu spacesHref={spacesHref} />
         </div>

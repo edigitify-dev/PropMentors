@@ -2,8 +2,9 @@
 
 import Image from "@/components/storage-image";
 import Link from "next/link";
-import { AccountCircle, ChevronRight } from "./icons";
+import { ChevronRight } from "./icons";
 import { NavbarMenu } from "./navbar-menu";
+import { NavbarSearch } from "./navbar-search";
 import { ScrollHeader } from "./scroll-header";
 import { HeroSearchFilters } from "./hero-search-filters";
 import { useHeroExpansion } from "@/hooks/use-hero-expansion";
@@ -42,7 +43,7 @@ export function Hero() {
             <Link href="/contact">Contact Us</Link>
           </nav>
           <div className="header-actions">
-            <Link href="/projects" className="icon-button" aria-label="Account"><AccountCircle /></Link>
+            <NavbarSearch className="icon-button" />
             <Link href="/contact" className="contact-button">Schedule a Call</Link>
             <NavbarMenu className="hero-menu" />
           </div>

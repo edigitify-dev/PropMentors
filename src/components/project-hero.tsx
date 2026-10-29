@@ -19,7 +19,6 @@ export function ProjectHero({
   const [filters, setFilters] = useState<ProjectFilters>(() => resolveProjectFilters(initialFilters));
   const [searchSummary, setSearchSummary] = useState("");
   const [copied, setCopied] = useState(false);
-  const firstFilter = useRef<HTMLSelectElement>(null);
   const enquiry = useRef<HTMLDialogElement>(null);
 
   const pills = [
@@ -42,10 +41,6 @@ export function ProjectHero({
       display: filters.budget === "All budgets" ? "Any budget" : filters.budget,
     },
   ];
-
-  function focusSearch() {
-    firstFilter.current?.focus();
-  }
 
   function openEnquiry() {
     setCopied(false);
@@ -114,7 +109,7 @@ export function ProjectHero({
           )}
 
           {/* Header */}
-          <ProjectHeader activePage="projects" onSearch={focusSearch} onContact={openEnquiry} />
+          <ProjectHeader activePage="projects" onContact={openEnquiry} />
 
           {/* Main Copy Area */}
           <div className={styles.intro}>
@@ -137,7 +132,6 @@ export function ProjectHero({
               Space Type
               <span className={styles.selectWrap}>
                 <select
-                  ref={firstFilter}
                   aria-label="Space Type"
                   name="spaceType"
                   value={filters.spaceType}

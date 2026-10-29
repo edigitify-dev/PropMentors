@@ -14,5 +14,5 @@ export default async function ProjectsPage({ searchParams }: {
   const initialFilters = Object.fromEntries(
     ["spaceType", "location", "budget", "query"].map((key) => [key, typeof query[key] === "string" ? query[key] : undefined]),
   );
-  return <ProjectPage initialFilters={initialFilters} projects={await getPublishedProjects()} />;
+  return <ProjectPage key={JSON.stringify(initialFilters)} initialFilters={initialFilters} projects={await getPublishedProjects()} />;
 }

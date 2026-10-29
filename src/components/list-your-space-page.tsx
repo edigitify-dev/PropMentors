@@ -99,7 +99,7 @@ export function ListYourSpacePage() {
             preload
             unoptimized
           />
-          <ProjectHeader activePage={undefined} onSearch={() => router.push("/projects")} onContact={openEnquiry} />
+          <ProjectHeader activePage={undefined} onContact={openEnquiry} />
 
           <div className={styles.heroIntro}>
             <Badge>ABOUT PROPMENTORS</Badge>
