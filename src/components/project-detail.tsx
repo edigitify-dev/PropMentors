@@ -270,15 +270,26 @@ export function ProjectDetail({ project, similarProjects, listingHref = "/projec
       <ProjectEnquiries showOwners={false} />
     </main>
     <SiteFooter homePath="/" className={styles.footer} />
-    <dialog className="hero-dialog" ref={enquiry} aria-labelledby="detail-enquiry-heading" onClose={() => { setDraft(""); setShareStatus(""); }} onClick={(event) => { if (event.target === event.currentTarget) enquiry.current?.close(); }}>
-      <div className="dialog-content">
-        <button type="button" className="dialog-close" aria-label="Close property enquiry" onClick={() => enquiry.current?.close()}>×</button><p className="dialog-eyebrow">{project.name} · {project.locationLabel}</p><h2 id="detail-enquiry-heading">{request}</h2>
-        <form className="enquiry-form" onSubmit={(event) => { event.preventDefault(); void prepareEnquiry(event.currentTarget); }}>
-          <label>Your name<input name="name" autoComplete="name" required /></label><label>Email address<input name="email" type="email" autoComplete="email" required /></label><label>Mobile number<input name="mobile" type="tel" autoComplete="tel" required /></label>
-          <label>Preferred visit date<input name="date" type="date" /></label><label>Tell us what you need<textarea name="requirements" rows={2} placeholder="Team size, preferred workspace and move-in date" /></label>
-          <p className="form-note">Send your enquiry to PropMentors. Availability and visits are confirmed by the team.</p><button type="submit" className="dialog-primary" disabled={sending}>{sending ? "Sending…" : "Send enquiry"}</button>
-          {draft && <a className={styles.email} href={`mailto:${contact.email}?subject=${encodeURIComponent(`${request} — ${project.name}`)}&body=${encodeURIComponent(draft)}`}>Also share by email</a>}<p className="copy-status" role="status">{shareStatus}</p>
-        </form>
+    <dialog className={`hero-dialog ${styles.visitDialog}`} ref={enquiry} aria-labelledby="detail-enquiry-heading" onClose={() => { setDraft(""); setShareStatus(""); }} onClick={(event) => { if (event.target === event.currentTarget) enquiry.current?.close(); }}>
+      <button type="button" className={styles.visitClose} aria-label="Close property enquiry" onClick={() => enquiry.current?.close()}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
+      <div className={styles.visitLayout}>
+        <div className={styles.visitPhoto}>
+          <Image src={detail.views.interior.src} alt="" fill sizes="(max-width: 760px) 100vw, 500px" unoptimized />
+          <div className={styles.visitPhotoCopy}>
+            <span>Plan your visit</span>
+            <h3>Step inside your next workspace.</h3>
+            <p>Explore {project.name} with our team.</p>
+          </div>
+        </div>
+        <div className={styles.visitContent}>
+          <p className="dialog-eyebrow">{project.name} · {project.locationLabel}</p><h2 id="detail-enquiry-heading">{request}</h2>
+          <form className={`enquiry-form ${styles.visitForm}`} onSubmit={(event) => { event.preventDefault(); void prepareEnquiry(event.currentTarget); }}>
+            <label>Your name<input name="name" autoComplete="name" required /></label><label>Email address<input name="email" type="email" autoComplete="email" required /></label><label>Mobile number<input name="mobile" type="tel" autoComplete="tel" required /></label>
+            <label>Preferred visit date<input name="date" type="date" /></label><label>Tell us what you need<textarea name="requirements" rows={2} placeholder="Team size, preferred workspace and move-in date" /></label>
+            <p className="form-note">Send your enquiry to PropMentors. Availability and visits are confirmed by the team.</p><button type="submit" className="dialog-primary" disabled={sending}>{sending ? "Sending…" : "Send enquiry"}</button>
+            {draft && <a className={styles.email} href={`mailto:${contact.email}?subject=${encodeURIComponent(`${request} — ${project.name}`)}&body=${encodeURIComponent(draft)}`}>Also share by email</a>}<p className="copy-status" role="status">{shareStatus}</p>
+          </form>
+        </div>
       </div>
     </dialog>
     <dialog className={styles.lightbox} ref={lightbox} aria-label="Property photo gallery" onClick={(event) => { if (event.target === event.currentTarget) lightbox.current?.close(); }} onKeyDown={(event) => {

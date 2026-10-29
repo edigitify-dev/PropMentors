@@ -134,6 +134,70 @@
 .footer :global(.footer-wordmark) { margin-top: 40px; }
 
 .lightbox { position: fixed; inset: 0; width: min(1120px, calc(100% - 64px)); height: min(820px, calc(100dvh - 64px)); max-width: none; max-height: none; margin: auto; padding: 0; overflow: hidden; border: 1px solid #ffffff50; border-radius: 20px; background: var(--background); color: var(--foreground); box-shadow: 0 32px 100px #0005; -webkit-font-smoothing: antialiased; }
+.visitDialog.visitDialog { width: min(1080px, calc(100% - 48px)); max-height: calc(100dvh - 32px); overflow: hidden; padding: 16px; border-radius: 24px; }
+:global(html):has(.visitDialog[open]) { overflow: hidden; }
+.visitLayout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 12px; }
+.visitPhoto { position: relative; min-height: 0; overflow: hidden; border-radius: 14px; background: var(--foreground); }
+.visitPhoto > img { object-fit: cover; object-position: center; }
+.visitPhoto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #081a2cb3, #081a2c33 70%, #081a2c66); pointer-events: none; }
+.visitPhotoCopy { position: relative; z-index: 1; padding: 36px 30px; color: var(--background); }
+.visitPhotoCopy > span { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+.visitPhotoCopy h3 { margin: 24px 0 16px; max-width: 14ch; font-family: "Kind Avenue", Georgia, serif; font-size: clamp(36px, 3.5vw, 50px); font-weight: 400; line-height: 1.1; }
+.visitPhotoCopy p { margin: 0; max-width: 28ch; font-size: 15px; line-height: 1.6; }
+.visitContent { min-width: 0; padding: 24px; }
+.visitContent > :global(.dialog-eyebrow) { padding-right: 28px; }
+.visitDialog .visitContent > h2 { margin: 10px 0 18px; font-size: 32px; }
+.visitForm.visitForm { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; }
+.visitForm > label { min-width: 0; gap: 5px; font-size: 13px; }
+.visitForm > label:has(textarea), .visitForm > p, .visitForm > button, .visitForm > a { grid-column: 1 / -1; }
+.visitForm :is(input, textarea) { min-width: 0; padding: 10px 12px; }
+.visitForm textarea { height: 72px; resize: none; }
+.visitForm > :global(.dialog-primary) { min-height: 44px; margin-top: 0; padding: 10px 18px; }
+.visitForm > :global(.copy-status):empty { display: none; }
+.visitClose { position: absolute; z-index: 2; top: 22px; right: 22px; display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 1px solid #122c4f26; border-radius: 50%; background: var(--background); color: var(--foreground); }
+.visitClose:hover { background: #f5efd8; }
+.visitDialog :is(input, textarea, button, a):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 760px) {
+  .visitDialog.visitDialog { width: calc(100% - 24px); padding: 10px; border-radius: 18px; }
+  .visitLayout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .visitPhoto { height: 110px; border-radius: 10px; }
+  .visitPhotoCopy { padding: 16px; }
+  .visitPhotoCopy > span { font-size: 9px; }
+  .visitPhotoCopy h3 { max-width: 20ch; margin: 8px 0 0; padding-right: 24px; font-size: 24px; }
+  .visitPhotoCopy p { display: none; }
+  .visitContent { padding: 16px 12px 10px; }
+  .visitContent > :global(.dialog-eyebrow) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; letter-spacing: 1px; }
+  .visitDialog .visitContent > h2 { margin: 8px 0 14px; font-size: 28px; }
+  .visitForm.visitForm { gap: 10px 12px; }
+  .visitForm > label { font-size: 12px; }
+  .visitForm :is(input, textarea) { padding: 9px 10px; }
+  .visitForm textarea { height: 72px; }
+  .visitForm > :global(.form-note), .visitForm > :global(.copy-status) { font-size: 12px; }
+  .visitClose { top: 18px; right: 18px; }
+}
+@media (max-width: 760px) and (max-height: 700px) {
+  .visitPhoto { display: none; }
+  .visitForm > :global(.form-note) { display: none; }
+}
+@media (min-width: 761px) and (max-height: 600px) {
+  .visitDialog.visitDialog { width: min(1180px, calc(100% - 24px)); max-height: calc(100dvh - 16px); padding: 10px; }
+  .visitContent { padding: 12px; }
+  .visitPhotoCopy { padding: 24px; }
+  .visitPhotoCopy h3 { font-size: 30px; }
+  .visitDialog .visitContent > h2 { margin: 6px 0 10px; font-size: 26px; }
+  .visitForm.visitForm { gap: 8px 12px; }
+  .visitForm > label { gap: 4px; font-size: 12px; }
+  .visitForm :is(input, textarea) { padding: 6px 10px; font-size: 14px; }
+  .visitForm textarea { height: 58px; }
+  .visitForm > :global(.dialog-primary) { min-height: 36px; padding-block: 6px; }
+  .visitForm > :global(.form-note) { display: none; }
+}
+@media (min-width: 761px) and (max-height: 480px) {
+  .visitLayout { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); }
+  .visitForm.visitForm { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .visitForm > label:has(textarea) { grid-column: 2 / -1; }
+}
+
 .lightbox[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; animation: galleryAppear 180ms ease-out; }
 .lightbox::backdrop { background: #081522b8; backdrop-filter: blur(10px); }
 :global(html):has(.lightbox[open]) { overflow: hidden; }
