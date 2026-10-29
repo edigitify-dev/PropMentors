@@ -7,7 +7,7 @@ const principles = [
   {
     id: "experience",
     title: "Experience",
-    description: "We bring practical commercial real estate experience to every space search and decision.",
+    description: "We bring practical managed real estate experience to every space search and decision.",
     image: "/images/guidance/experience.png",
     width: 1024,
     height: 683,

@@ -24,7 +24,7 @@ const explore = [
 ];
 
 const services = [
-  { label: "Commercial Leasing", href: "#workspace-offers" },
+  { label: "Managed Leasing", href: "#workspace-offers" },
   { label: "Tenant Representation", href: "#contact" },
   { label: "Landlord Representation", href: "#property-owners" },
   { label: "Advisory", href: "#real-guidance" },
@@ -167,11 +167,11 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
             </label>
             <label>
               Space type / Requirement
-              <select name="spaceType" defaultValue="Commercial">
-                <option value="Commercial">Commercial</option>
+              <select name="spaceType" defaultValue="Managed">
+                <option value="Managed">Managed</option>
                 <option value="Co-Working">Co-Working</option>
                 <option value="Conventional Leasing">Conventional Leasing</option>
-                <option value="Commercial Advisory">Commercial Advisory</option>
+                <option value="Managed Advisory">Managed Advisory</option>
               </select>
             </label>
             <label>
@@ -185,7 +185,7 @@ export function SiteFooter({ homePath = "", showCta = true, className = "", expl
               />
             </label>
             <p className="form-note">
-              Our team of 25+ commercial real estate experts will connect with you to curate the right options.
+              Our team of 25+ managed real estate experts will connect with you to curate the right options.
             </p>
             <button type="submit" className="dialog-primary talk-submit-btn" disabled={sending}>
               {sending ? "Sending…" : "Send Enquiry"}

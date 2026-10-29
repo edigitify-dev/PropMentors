@@ -116,13 +116,13 @@ export function ProjectHero({
             <h1 id="project-heading">
               Find the space that fits<br className={styles.desktopBr} /> your business
             </h1>
-            <p>Explore curated commercial spaces across locations, formats and budgets — all in one place.</p>
+            <p>Explore curated managed spaces across locations, formats and budgets — all in one place.</p>
           </div>
 
           {/* Desktop Filters (Original desktop layout untouched) */}
           <form
             className={styles.filters}
-            aria-label="Find commercial spaces"
+            aria-label="Find managed spaces"
             onSubmit={(event) => {
               event.preventDefault();
               applyFilters();

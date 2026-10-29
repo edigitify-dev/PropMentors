@@ -16,7 +16,7 @@ export const privacyPolicySections: PrivacyPolicySection[] = [
     "blocks": [
       {
         "type": "paragraph",
-        "text": "PropMentors (registered trade name: Propmentors) is a commercial real estate consultancy operated by Rakesh Chand as a sole proprietorship registered in India. This Privacy Policy explains how personal information may be collected and used when you visit our website, enquire about commercial office spaces, submit lead forms, contact us, or interact with our advertisements. Where applicable law requires consent, we seek it separately."
+        "text": "PropMentors (registered trade name: Propmentors) is a managed real estate consultancy operated by Rakesh Chand as a sole proprietorship registered in India. This Privacy Policy explains how personal information may be collected and used when you visit our website, enquire about managed office spaces, submit lead forms, contact us, or interact with our advertisements. Where applicable law requires consent, we seek it separately."
       },
       {
         "type": "heading",
@@ -74,7 +74,7 @@ export const privacyPolicySections: PrivacyPolicySection[] = [
       },
       {
         "type": "heading",
-        "text": "2.2 Commercial Property Requirements"
+        "text": "2.2 Managed Property Requirements"
       },
       {
         "type": "list",

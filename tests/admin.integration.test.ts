@@ -102,7 +102,7 @@ test("PostgreSQL admin and public website workflows", async (t) => {
       const response = await request(path);
       await assertLoginRedirect(response);
     }
-    for (const [path, method] of [["/api/admin/projects", "POST"], ["/api/admin/projects/unknown", "PUT"], ["/api/admin/contact", "PUT"], [`/api/admin/enquiries/${randomUUID()}`, "PATCH"], ["/api/admin/uploads", "POST"], ["/api/migrate-cloudinary", "POST"]]) {
+    for (const [path, method] of [["/api/admin/projects", "POST"], ["/api/admin/projects/unknown", "PUT"], ["/api/admin/projects/unknown", "PATCH"], ["/api/admin/projects/unknown", "DELETE"], ["/api/admin/contact", "PUT"], [`/api/admin/enquiries/${randomUUID()}`, "PATCH"], ["/api/admin/uploads", "POST"], ["/api/migrate-cloudinary", "POST"]]) {
       assert.equal((await request(path, method, {})).status, 401, path);
     }
   });
@@ -184,6 +184,30 @@ test("PostgreSQL admin and public website workflows", async (t) => {
     updatedAt = version;
   });
   let enquiryId: string;
+  await t.test("quick hide and show persist visibility and protect against stale or cross-origin changes", async () => {
+    const path = `/api/admin/projects/${draft.id}`;
+    for (const method of ["PATCH", "DELETE"]) {
+      assert.equal((await request(path, method, { status: "archived", updatedAt }, true, "https://untrusted.example")).status, 403);
+      assert.equal((await request(path, method, {})).status, 400);
+    }
+    assert.equal((await request(path, "PATCH", { status: "draft", updatedAt })).status, 400);
+    const previousVersion = updatedAt;
+    const hidden = await request(path, "PATCH", { status: "archived", updatedAt });
+    assert.equal(hidden.status, 200, await hidden.clone().text()); updatedAt = (await hidden.json()).updatedAt;
+    assert.equal((await request(`/projects/${draft.slug}`)).status, 404);
+    assert.equal((await request("/projects/integration-studio")).status, 404);
+    assert(!(await (await request("/projects")).text()).includes(draft.name));
+    assert(!(await (await request("/")).text()).includes(draft.name));
+    assert((await (await request("/admin/projects")).text()).includes(draft.name));
+    const { rows } = await pool.query("SELECT status FROM projects WHERE id=$1", [draft.id]);
+    assert.equal(rows[0].status, "archived");
+    assert.equal((await request(path, "PATCH", { status: "published", updatedAt: previousVersion })).status, 409);
+    assert.equal((await request(path, "DELETE", { updatedAt: previousVersion })).status, 409);
+    const shown = await request(path, "PATCH", { status: "published", updatedAt });
+    assert.equal(shown.status, 200, await shown.clone().text()); updatedAt = (await shown.json()).updatedAt;
+    assert.equal((await request(`/projects/${draft.slug}`)).status, 200);
+    assert((await (await request("/projects")).text()).includes(draft.name));
+  });
   await t.test("contact and project enquiries are validated and saved", async () => {
     assert.equal((await request("/api/enquiries", "POST", { email: "invalid" }, false)).status, 400);
     const enquiry = { name: "Aditi Rao", email: "aditi@example.test", phone: "+91 9999999999", subject: "A new workspace", message: "We need room for a team of 20.", source: "project", projectId: draft.id };
@@ -202,9 +226,24 @@ test("PostgreSQL admin and public website workflows", async (t) => {
     assert((await (await request("/")).text()).includes(details.email));
   });
   await t.test("archived projects disappear and reject new project enquiries", async () => {
-    const response = await request(`/api/admin/projects/${draft.id}`, "PUT", { project: draft, status: "archived", updatedAt }); assert.equal(response.status, 200);
+    const response = await request(`/api/admin/projects/${draft.id}`, "PUT", { project: draft, status: "archived", updatedAt }); assert.equal(response.status, 200); updatedAt = (await response.json()).updatedAt;
     assert.equal((await request(`/projects/${draft.slug}`)).status, 404);
     assert.equal((await request("/api/enquiries", "POST", { name: "Test", email: "archived@example.test", phone: "9999999999", subject: "Visit", message: "Please arrange a visit", source: "project", projectId: draft.id }, false)).status, 400);
+  });
+  await t.test("deleting a property removes it and its aliases while retaining enquiries", async () => {
+    const path = `/api/admin/projects/${draft.id}`;
+    const response = await request(path, "DELETE", { updatedAt });
+    assert.equal(response.status, 200, await response.clone().text());
+    assert.deepEqual(await response.json(), { id: draft.id, deleted: true });
+    assert.equal((await pool.query("SELECT id FROM projects WHERE id=$1", [draft.id])).rowCount, 0);
+    const { rows } = await pool.query("SELECT project_id, message FROM enquiries WHERE id=$1", [enquiryId]);
+    assert.equal(rows[0].project_id, null);
+    assert.equal(rows[0].message, "We need room for a team of 20.");
+    assert.equal((await request(`/projects/${draft.slug}`)).status, 404);
+    assert.equal((await request("/projects/integration-studio")).status, 404);
+    assert(!(await (await request("/admin/projects")).text()).includes(draft.name));
+    assert.equal((await request(path, "DELETE", { updatedAt })).status, 404);
+    assert.equal((await request(path, "PATCH", { status: "published", updatedAt })).status, 404);
   });
   await t.test("login rejects wrong passwords and sign-out revokes the server session", async () => {
     assert.equal((await request("/api/admin/auth", "POST", { email, password: "incorrect" }, false)).status, 401);

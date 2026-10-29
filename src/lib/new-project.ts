@@ -5,7 +5,7 @@ export function projectImage(src: string, name: string, index = 0): ProjectImage
 export function newProject(id: string): Project {
   const image = projectImage("/images/spaces/property-placeholder.svg", "Property photograph");
   return {
-    id, slug: "", name: "", location: "noida", locationLabel: "", type: "commercial", category: "Commercial", badge: "Enquire Now", price: null,
+    id, slug: "", name: "", location: "noida", locationLabel: "", type: "managed", category: "Managed", badge: "Enquire Now", price: null,
     spaceType: "Managed Office", finishedTypes: [], features: [], amenities: [], cover: image,
     detail: {
       description: "", overview: [], building: [], amenities: [], gallery: [], spaces: [],

@@ -1,6 +1,6 @@
 export type ProjectFilters = { spaceType: string; location: string; budget: string; query?: string };
 
-export const spaceTypes = ["Coworking", "Commercial", "Conventional Leasing", "All space types"];
+export const spaceTypes = ["Coworking", "Managed", "Conventional Leasing", "All space types"];
 export const locations = ["Noida", "GNoida", "Delhi", "All locations"];
 export const budgets = ["30k - 80k", "80k - 1.5L", "1.5L - 3L", "3L+", "All budgets"];
 
@@ -10,7 +10,7 @@ export function resolveProjectFilters(initialFilters: Partial<ProjectFilters>): 
       initialFilters.spaceType &&
       (t.toLowerCase() === initialFilters.spaceType.toLowerCase() ||
         t.toLowerCase().replace(/[-\s]/g, "") === initialFilters.spaceType.toLowerCase().replace(/[-\s]/g, "") ||
-        (t === "Commercial" && /managed\s*office/i.test(initialFilters.spaceType)))
+        (t === "Managed" && /^(?:commercial|manage|managed(?:\s*offices?)?)$/i.test(initialFilters.spaceType)))
   );
 
   const matchLocation = locations.find(

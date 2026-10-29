@@ -62,16 +62,16 @@ export function AboutPage({ projects }: { projects: Project[] }) {
       <section className={styles.hero} id="about" aria-labelledby="about-heading">
         <picture>
           <source media="(max-width: 640px)" srcSet={aboutImages.mobileHero} width={1080} height={2340} />
-          <Image className={styles.heroImage} src={aboutImages.hero} width={1440} height={920} alt="A team discussing commercial real estate around a meeting table" loading="eager" fetchPriority="high" unoptimized />
+          <Image className={styles.heroImage} src={aboutImages.hero} width={1440} height={920} alt="A team discussing managed real estate around a meeting table" loading="eager" fetchPriority="high" unoptimized />
         </picture>
         <ProjectHeader activePage="about" onContact={openEnquiry} />
         <div className={styles.heroIntro}><Badge>ABOUT PROPMENTORS</Badge><h1 id="about-heading">Space Is The Product</h1><p>Guidance is the difference.</p></div>
-        {/* <p className={styles.heroDescription}>PropMentors helps businesses find, evaluate and secure commercial spaces — from managed offices and co-working spaces to conventional leasing.</p> */}
+        {/* <p className={styles.heroDescription}>PropMentors helps businesses find, evaluate and secure managed spaces — from managed offices and co-working spaces to conventional leasing.</p> */}
       </section>
-      <section className={styles.belief} aria-label="Our approach to commercial real estate">
-        <Image className={styles.beliefImage} src={aboutImages.city} width={1569} height={1003} alt="A city of modern commercial buildings" unoptimized />
+      <section className={styles.belief} aria-label="Our approach to managed real estate">
+        <Image className={styles.beliefImage} src={aboutImages.city} width={1569} height={1003} alt="A city of modern managed buildings" unoptimized />
         <div className={styles.beliefCopy}>
-          <div><h2>We make commercial real<br /> estate easier to navigate.</h2><p>Finding the right commercial space is about more than a location. It is about understanding your business, comparing your options and making the right move.</p></div>
+          <div><h2>We make managed real<br /> estate easier to navigate.</h2><p>Finding the right managed space is about more than a location. It is about understanding your business, comparing your options and making the right move.</p></div>
           <div><h2>From requirement to<br /> right-fit space.</h2><p>We bring together relevant spaces, market understanding and practical guidance to help businesses move forward with confidence.</p></div>
         </div>
       </section>
@@ -80,7 +80,7 @@ export function AboutPage({ projects }: { projects: Project[] }) {
         <SectionHeading badge="OUR APPROACH" id="decisions-heading" title={<>Built around<br /> better decisions</>}>We make the process simpler, understanding what you need, curating the right options and helping you make informed choices.</SectionHeading>
         <div className={styles.decisionGrid}>
           <article className={styles.decisionColumn}><div className={styles.decisionText}><h3>01 - Understand</h3><p>We start with your business needs, priorities and plans for growth.</p></div><div className={styles.decisionPhoto}><Image src="/images/glance/clients.png" width={586} height={1024} alt="A team discussing their workspace requirements" unoptimized /></div></article>
-          <article className={`${styles.decisionColumn} ${styles.curateColumn}`}><div className={styles.decisionPhoto}><Image src="/images/offers/managed-offices.png" width={736} height={1008} alt="Commercial property options being reviewed" unoptimized /></div><div className={styles.decisionText}><h3>02 - Curate</h3><p>We identify spaces aligned with your goals, budget and preferred locations.</p></div></article>
+          <article className={`${styles.decisionColumn} ${styles.curateColumn}`}><div className={styles.decisionPhoto}><Image src="/images/offers/managed-offices.png" width={736} height={1008} alt="Managed property options being reviewed" unoptimized /></div><div className={styles.decisionText}><h3>02 - Curate</h3><p>We identify spaces aligned with your goals, budget and preferred locations.</p></div></article>
           <article className={styles.decisionColumn}><div className={styles.decisionText}><h3>03 - Guide</h3><p>We help you compare, evaluate and move forward with confidence.</p></div><div className={styles.decisionPhoto}><Image src="/images/guidance/experience.png" width={1024} height={683} alt="An adviser reviewing plans and workspace details" unoptimized /></div></article>
         </div>
       </section>
@@ -106,7 +106,7 @@ function AboutMarkets({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<number | null>(null);
   const city = active === null ? null : cities[active];
   return <section className={styles.markets} aria-labelledby="markets-heading">
-    <SectionHeading badge="IN KEY LOCATIONS" id="markets-heading" title={<>Where business<br /> happens, we’re there</>}>PropMentors operates across key commercial destinations, helping businesses discover the spaces and opportunities that matter to them.</SectionHeading>
+    <SectionHeading badge="IN KEY LOCATIONS" id="markets-heading" title={<>Where business<br /> happens, we’re there</>}>PropMentors operates across key managed destinations, helping businesses discover the spaces and opportunities that matter to them.</SectionHeading>
     <div className={styles.cityTabs} role="group" aria-label="Explore business destinations">{cities.map((item, index) => <button type="button" key={item.name} aria-pressed={active === index} onClick={() => setActive(index)}>{item.name}</button>)}</div>
     <div className={styles.marketMap}>
       <DestinationMap active={active} onSelect={setActive}>
@@ -154,7 +154,7 @@ function AboutTeam() {
     select((active + (event.key === "ArrowLeft" ? -1 : 1) + advisers.length) % advisers.length);
   }}>
     <div className={styles.teamPortrait} id="about-team-portrait">{advisers.map((adviser, index) => <div className={styles.teamSlide} key={adviser.id} data-active={active === index} aria-hidden={active !== index}><TeamPhoto adviser={adviser} /></div>)}</div>
-    <SectionHeading badge="MEET PROPMENTORS" id="team-heading" title={<>Experience you<br /> can talk to</>}>Real estate is ultimately about people. Our team brings commercial understanding, practical advice and the capability to turn requirements into the right spaces.</SectionHeading>
+    <SectionHeading badge="MEET PROPMENTORS" id="team-heading" title={<>Experience you<br /> can talk to</>}>Real estate is ultimately about people. Our team brings managed understanding, practical advice and the capability to turn requirements into the right spaces.</SectionHeading>
     <div className={styles.teamIdentity} aria-live="polite" aria-atomic="true"><h3>{advisers[active].name}</h3><p>{advisers[active].role}</p></div>
     <div className={styles.teamBottom}>
       <div className={styles.teamControls}><button type="button" aria-label="Previous PropMentor" onClick={() => select((active + advisers.length - 1) % advisers.length)}><ChevronLeft /></button><button type="button" aria-label="Next PropMentor" onClick={() => select((active + 1) % advisers.length)}><ChevronLeft /></button></div>

@@ -1,6 +1,6 @@
 import { database } from "@/lib/db";
 import { adminMutation, ApiError, apiResponse, readJson } from "@/lib/api-utils";
-import { projectInputSchema } from "@/lib/admin-validation";
+import { projectInputSchema, projectVersionSchema, projectVisibilitySchema } from "@/lib/admin-validation";
 import { revalidatePath } from "next/cache";
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -30,4 +30,41 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     } catch (error) { await client.query("ROLLBACK"); throw error; }
     finally { client.release(); }
   });
+}
+
+export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  return apiResponse(async () => {
+    await adminMutation(request);
+    const { id } = await params;
+    const { status, updatedAt } = await readJson(request, projectVisibilitySchema);
+    return changeProject(id, updatedAt, status);
+  });
+}
+
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  return apiResponse(async () => {
+    await adminMutation(request);
+    const { id } = await params;
+    const { updatedAt } = await readJson(request, projectVersionSchema);
+    return changeProject(id, updatedAt);
+  });
+}
+
+async function changeProject(id: string, updatedAt: string, status?: "published" | "archived") {
+  const client = await database().connect();
+  try {
+    await client.query("BEGIN");
+    // Use the same lock as project edits and creation to protect URL references during deletion.
+    await client.query("SELECT pg_advisory_xact_lock(83749202)");
+    const previous = await client.query("SELECT updated_at FROM projects WHERE id=$1 FOR UPDATE", [id]);
+    if (!previous.rowCount) throw new ApiError(404, "Project not found.");
+    const result = status
+      ? await client.query("UPDATE projects SET status=$3, updated_at=date_trunc('milliseconds',now()) WHERE id=$1 AND date_trunc('milliseconds',updated_at)=$2::timestamptz RETURNING updated_at", [id, updatedAt, status])
+      : await client.query("DELETE FROM projects WHERE id=$1 AND date_trunc('milliseconds',updated_at)=$2::timestamptz RETURNING id", [id, updatedAt]);
+    if (!result.rowCount) throw new ApiError(409, "Someone else updated this project. Reload the page before changing it.");
+    await client.query("COMMIT");
+    revalidatePath("/", "layout");
+    return Response.json(status ? { id, status, updatedAt: result.rows[0].updated_at.toISOString() } : { id, deleted: true });
+  } catch (error) { await client.query("ROLLBACK"); throw error; }
+  finally { client.release(); }
 }

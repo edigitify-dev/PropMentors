@@ -52,11 +52,13 @@ export function projectSpaceType(project: Project) {
   const value = project.spaceType ?? project.category;
   const names: Record<string, string> = {
     coworking: "Co-Working",
-    managedoffice: "Commercial",
-    managedoffices: "Commercial",
+    managedoffice: "Managed",
+    managedoffices: "Managed",
     conventional: "Conventional Leasing",
     conventionalleasing: "Conventional Leasing",
-    commercial: "Commercial",
+    manage: "Managed",
+    managed: "Managed",
+    commercial: "Managed",
   };
   return names[normalise(value)] ?? value;
 }

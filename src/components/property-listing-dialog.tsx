@@ -8,7 +8,7 @@ export function PropertyListingDialog({ dialogRef, headingId = "owner-listing-ti
 
   async function prepareListing(form: HTMLFormElement) {
     const data = new FormData(form);
-    const listing = `Commercial property listing\nOwner: ${data.get("name")}\nEmail: ${data.get("email")}\nProperty: ${data.get("property")}\nLocation: ${data.get("location")}\nDetails: ${data.get("details")}`;
+    const listing = `Managed property listing\nOwner: ${data.get("name")}\nEmail: ${data.get("email")}\nProperty: ${data.get("property")}\nLocation: ${data.get("location")}\nDetails: ${data.get("details")}`;
     try {
       await navigator.clipboard.writeText(listing);
       setCopied(true);
@@ -34,7 +34,7 @@ export function PropertyListingDialog({ dialogRef, headingId = "owner-listing-ti
         <form className="enquiry-form" onSubmit={(event) => { event.preventDefault(); void prepareListing(event.currentTarget); }}>
           <label>Your name<input name="name" autoComplete="name" required /></label>
           <label>Email address<input name="email" type="email" autoComplete="email" required /></label>
-          <label>Property name<input name="property" placeholder="Building or commercial space name" required /></label>
+          <label>Property name<input name="property" placeholder="Building or managed space name" required /></label>
           <label>Location<input name="location" placeholder="City and area" required /></label>
           <label>Property details<textarea name="details" placeholder="Space type, size, asking rent and availability" rows={3} required /></label>
           <p className="form-note">Prepare a listing draft to share with PropMentors.</p>

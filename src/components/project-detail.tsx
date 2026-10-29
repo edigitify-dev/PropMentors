@@ -18,7 +18,7 @@ type GalleryTab = "FLOOR PLAN" | "INTERIOR" | "EXTERIOR" | "PHOTOS";
 const defaultGalleryTabs: GalleryTab[] = ["FLOOR PLAN", "INTERIOR", "EXTERIOR"];
 const workspaceFormats = [
   { pattern: /conventional/i, title: "Conventional Office", badge: "Conventional", range: "From 1,000 to 20,000 SQ.FT." },
-  { pattern: /managed|commercial/i, title: "Managed Spaces", badge: "Managed", range: "From 1,000 to 20,000 SQ.FT." },
+  { pattern: /manage|commercial/i, title: "Managed Spaces", badge: "Managed", range: "From 1,000 to 20,000 SQ.FT." },
   { pattern: /co[\s-]?working/i, title: "Co-working spaces", badge: "Co-working", range: "From 5 seats to 200 seats" },
 ];
 const propertySections = [

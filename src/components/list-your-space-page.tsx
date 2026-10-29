@@ -30,7 +30,7 @@ const approachSteps = [
     image: "/images/offers/managed-offices.png",
     width: 736,
     height: 1008,
-    alt: "Commercial property options being reviewed",
+    alt: "Managed property options being reviewed",
   },
   {
     id: "guide",
@@ -105,7 +105,7 @@ export function ListYourSpacePage() {
             <Badge>ABOUT PROPMENTORS</Badge>
             <h1 id="lys-heading">Your Space Deserves The Right Tenant</h1>
             <p className={styles.heroSubtitle}>
-              List your commercial space on PropMentors and connect with businesses<br className={styles.desktopBr} />
+              List your managed space on PropMentors and connect with businesses<br className={styles.desktopBr} />
               actively looking for their next workspace.
             </p>
             <div className={styles.heroCtas}>
@@ -154,7 +154,7 @@ export function ListYourSpacePage() {
             </article>
             <article className={`${aboutStyles.decisionColumn} ${aboutStyles.curateColumn}`}>
               <div className={aboutStyles.decisionPhoto}>
-                <Image src="/images/offers/managed-offices.png" width={736} height={1008} alt="Commercial property options being reviewed" unoptimized />
+                <Image src="/images/offers/managed-offices.png" width={736} height={1008} alt="Managed property options being reviewed" unoptimized />
               </div>
               <div className={aboutStyles.decisionText}>
                 <h3><span className={styles.decisionNumber}>02</span> - Curate</h3>
@@ -233,7 +233,7 @@ export function ListYourSpacePage() {
         >
           <h2 className={styles.dialogTitle}>List your space</h2>
           <p className={styles.dialogSubtitle}>
-            Fill in your details and we&apos;ll be in touch about listing your commercial space on PropMentors.
+            Fill in your details and we&apos;ll be in touch about listing your managed space on PropMentors.
           </p>
           <label className={styles.field}>
             <span>Name</span>

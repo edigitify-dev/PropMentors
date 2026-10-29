@@ -6,11 +6,11 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { ChevronLeft, PlayCircle } from "@/components/icons";
 
 const insights = [
-  { id: "office", node: "352:2417", image: "/images/spaces/space-04.png", width: 736, height: 1308, alt: "A commercial office interior" },
+  { id: "office", node: "352:2417", image: "/images/spaces/space-04.png", width: 736, height: 1308, alt: "A managed office interior" },
   { id: "featured", node: "352:2421", image: "/images/insights/know-your-lease.png", width: 2160, height: 2700, alt: "Office floor plan showing carpet area, built-up area, and shared common areas" },
   { id: "cover-one", node: "352:2425", image: "/images/insights/cover-one.png", width: 2160, height: 2700, alt: "Before you sign that lease: check these 6 things. Know Your Lease, Vol. 001." },
   { id: "cover-two", node: "352:2429", image: "/images/insights/cover-two.png", width: 2160, height: 2700, alt: "The Leasing Playbook / 01: Why shop placement matters more than shop size?" },
-  { id: "building", node: "352:2433", image: "/images/insights/building.png", width: 816, height: 1456, alt: "A commercial building exterior" },
+  { id: "building", node: "352:2433", image: "/images/insights/building.png", width: 816, height: 1456, alt: "A managed building exterior" },
 ];
 
 export function Insights() {
@@ -110,7 +110,7 @@ export function Insights() {
         </div>
         <div className="insights-heading-row">
           <h2 id="insights-heading"><span>Know more.</span><span>Lease smarter</span></h2>
-          <p>Practical insights to help you understand commercial real estate and make better leasing decisions.</p>
+          <p>Practical insights to help you understand managed real estate and make better leasing decisions.</p>
         </div>
       </motion.div>
 

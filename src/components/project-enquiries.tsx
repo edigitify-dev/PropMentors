@@ -97,7 +97,7 @@ export function ProjectEnquiries({ showOwners = true }: { showOwners?: boolean }
       <div className={styles.ownerInner}>
           <Badge>FOR PROPERTY OWNERS &amp; DEVELOPERS</Badge>
           <h2 id="project-owners-heading">Have a space to lease?</h2>
-          <p>Own or manage a commercial property? Get it in front of<br /> businesses actively searching on PropMentors.</p>
+          <p>Own or manage a managed property? Get it in front of<br /> businesses actively searching on PropMentors.</p>
           <button className={styles.listButton} type="button" onClick={() => listingDialog.current?.showModal()}>List Your Space<ChevronLeft /></button>
       </div>
       </div>

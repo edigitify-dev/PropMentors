@@ -4,7 +4,7 @@ import { getPublishedProjects } from "@/lib/project-repository";
 
 export const metadata: Metadata = {
   title: "Find your space | PropMentors",
-  description: "Explore curated commercial spaces across locations, formats and budgets — all in one place.",
+  description: "Explore curated managed spaces across locations, formats and budgets — all in one place.",
 };
 
 export default async function ProjectsPage({ searchParams }: {

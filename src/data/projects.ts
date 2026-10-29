@@ -50,7 +50,7 @@ function describeBuilding(building: BuildingRecord) {
   if (building.source.status !== "matched") {
     return `${building.name} is listed in ${location}. Contact PropMentors for building specifications, office configurations and current leasing availability.`;
   }
-  const description = [`${building.name} offers commercial office space in ${location}.`];
+  const description = [`${building.name} offers managed office space in ${location}.`];
   const area = areaRange(building);
   if (area) description.push(`Published office sizes: ${area}` + ".");
   const configuration = building.specifications.find(([label]) => label === "Configuration")?.[1];
@@ -88,7 +88,7 @@ export const projects: Project[] = buildingResearch.map((building) => {
   const address = building.address ?? (building.sector === "Film City" ? "Film City, Noida, Uttar Pradesh" : `Sector ${building.sector}, Noida, Uttar Pradesh`);
   const nearby: ProjectFact[] = [["Locality", location], ["City", "Noida, Uttar Pradesh"]];
   if (building.nearestMetro) nearby.unshift(["Nearest metro", building.nearestMetro]);
-  const overview: ProjectFact[] = [["Building", building.name], ["Location", location], ["Property type", "Commercial office space"], ["Rent", "Price on request"]];
+  const overview: ProjectFact[] = [["Building", building.name], ["Location", location], ["Property type", "Managed office space"], ["Rent", "Price on request"]];
   if (area) overview.push(["Office sizes", area]);
   if (building.spaceType) overview.push(["Workspace format", building.spaceType]);
   const information: ProjectFact[] = [["Building name", building.name], ["Location", location], ...building.specifications.map(([label, value]): ProjectFact => [label, value])];
@@ -100,8 +100,8 @@ export const projects: Project[] = buildingResearch.map((building) => {
     name: building.name,
     location: "noida",
     locationLabel: location,
-    type: "commercial",
-    category: "Commercial",
+    type: "managed",
+    category: "Managed",
     badge: "Enquire Now",
     price: null,
     spaceType: building.spaceType ?? undefined,
@@ -126,10 +126,10 @@ export const projects: Project[] = buildingResearch.map((building) => {
         },
         {
           id: `${building.slug}-commercial`,
-          title: "Commercial space",
+          title: "Managed space",
           location: `${building.name} · ${location}`,
           description: `Discuss your business space requirements at ${building.name}. Enquire for suitable configurations and current availability.`,
-          badge: "Commercial",
+          badge: "Managed",
           image: detailGallery[1] ?? detailCover,
         },
         {

@@ -61,7 +61,7 @@ export function ExploreSpaces({ projects }: { projects: Project[] }) {
         </div>
         <div className="explore-heading-row">
           <h2 id="explore-heading">Spaces that fit the way you work</h2>
-          <p>Explore a curated selection of commercial spaces across locations, formats and budgets.</p>
+          <p>Explore a curated selection of managed spaces across locations, formats and budgets.</p>
         </div>
         <form className="space-filters" onSubmit={(event) => { event.preventDefault(); setAppliedFilters({ ...filters }); setStatus(""); }} aria-label="Filter properties">
           <div className="space-filter-fields">
@@ -77,7 +77,7 @@ export function ExploreSpaces({ projects }: { projects: Project[] }) {
               <span className="space-select">
                 {filters.propertyType === "all" && <span className="space-filter-placeholder" aria-hidden="true">Type</span>}
                 <select id="space-property-type" name="property-type" value={filters.propertyType} data-unfiltered={filters.propertyType === "all"} onChange={(event) => setFilters({ ...filters, propertyType: event.target.value })}>
-                  <option value="Commercial">Commercial</option><option value="Co-Working">Co-working</option><option value="Conventional Leasing">Conventional spaces</option><option value="all">All space types</option>
+                  <option value="Managed">Managed</option><option value="Co-Working">Co-working</option><option value="Conventional Leasing">Conventional spaces</option><option value="all">All space types</option>
                 </select><ChevronLeft />
               </span>
             </div>

@@ -14,7 +14,9 @@ For production, run `npm run db:setup` against the production database before st
 
 ## Managing content
 
-- Projects have draft, published, and archived states. Only published projects appear publicly. Archive a project to remove it from the site while preserving its information and associated enquiries.
+- Projects have draft, published, and hidden states (hidden uses the existing `archived` database status). Only published projects appear publicly. Use Hide in the projects table to remove a property from the site while preserving its information and associated enquiries. Use Show to publish it again. The Hidden tab lists hidden properties.
+- Delete in the projects table permanently removes a property after confirmation. Existing enquiries are preserved, with their project reference cleared. Hide, Show, and Delete reject stale versions so another administrator's changes cannot be overwritten.
+- Property copy and space-type selectors use “Managed”. Existing database records display the updated wording without changing their IDs, slugs, image URLs, or aliases, and older Commercial search links remain supported.
 - The editor covers listing information, pricing, facts, amenities, finished types, image uploads and URLs, gallery, map coordinates, nearby landmarks, workspace options, benefits, highlights, and related projects.
 - Changing a project's URL preserves its previous slug as an alias. Existing catalogue aliases remain supported. Colliding URLs are rejected. Saving a stale editor version produces a conflict instead of overwriting someone else's changes.
 - Contact settings update the contact page heading, introduction, phone, email, and address. Business details also update in the shared footer.

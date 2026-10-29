@@ -37,9 +37,11 @@ function initialSelection(search: ProjectFilters | null): ListingFilters {
   const spaceTypes: Record<string, string> = {
     Coworking: "Co-Working",
     "Co-Working": "Co-Working",
-    Commercial: "Commercial",
-    "Managed Offices": "Commercial",
-    "Managed Office": "Commercial",
+    Manage: "Managed",
+    Managed: "Managed",
+    Commercial: "Managed",
+    "Managed Offices": "Managed",
+    "Managed Office": "Managed",
     "Conventional Leasing": "Conventional Leasing",
   };
   const locations: Record<string, string> = {

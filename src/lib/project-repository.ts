@@ -1,24 +1,25 @@
 import "server-only";
 import { cache } from "react";
 import { database } from "./db";
+import { currentProjectCopy } from "./project-copy";
 import type { Project } from "@/lib/project-types";
 import type { AdminProject, ContactDetails, Enquiry } from "./admin-types";
 
 type ProjectRow = { payload: Project; status: AdminProject["status"]; created_at: Date; updated_at: Date };
 function toAdminProject(row: ProjectRow): AdminProject {
-  return { project: row.payload, status: row.status, createdAt: row.created_at.toISOString(), updatedAt: row.updated_at.toISOString() };
+  return { project: currentProjectCopy(row.payload), status: row.status, createdAt: row.created_at.toISOString(), updatedAt: row.updated_at.toISOString() };
 }
 
 export const getPublishedProjects = cache(async (): Promise<Project[]> => {
   const { rows } = await database().query<{ payload: Project }>("SELECT payload FROM projects WHERE status = 'published' ORDER BY created_at, id");
-  return rows.map((row) => row.payload);
+  return rows.map((row) => currentProjectCopy(row.payload));
 });
 
 export const findPublishedProject = cache(async (slugOrId: string): Promise<Project | undefined> => {
   const { rows } = await database().query<{ payload: Project }>(
     "SELECT payload FROM projects WHERE status = 'published' AND (slug = $1 OR id = $1 OR payload->'aliases' ? $1) LIMIT 1", [slugOrId],
   );
-  return rows[0]?.payload;
+  return rows[0] ? currentProjectCopy(rows[0].payload) : undefined;
 });
 
 export async function getAdminProjects(): Promise<AdminProject[]> {

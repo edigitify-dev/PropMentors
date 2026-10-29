@@ -30,6 +30,8 @@ export const projectSchema = z.object({
   }),
 });
 export const projectInputSchema = z.object({ project: projectSchema, status: z.enum(["draft", "published", "archived"]), updatedAt: z.iso.datetime().optional() });
+export const projectVersionSchema = z.object({ updatedAt: z.iso.datetime() });
+export const projectVisibilitySchema = projectVersionSchema.extend({ status: z.enum(["published", "archived"]) });
 export const contactSchema = z.object({
   phone: required(40).regex(/^[+\d\s().-]{5,40}$/, "Enter a valid phone number."), email: z.email().max(254),
   address: required(1000), heading: required(160), introduction: required(2000),

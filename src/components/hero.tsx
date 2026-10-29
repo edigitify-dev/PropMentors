@@ -11,8 +11,8 @@ import { useHeroExpansion } from "@/hooks/use-hero-expansion";
 
 const workspaces = [
   {
-    label: "COMMERCIAL",
-    href: "/projects?spaceType=Commercial#project-listings",
+    label: "MANAGED",
+    href: "/projects?spaceType=Managed#project-listings",
   },
   {
     label: "CO-WORKING",

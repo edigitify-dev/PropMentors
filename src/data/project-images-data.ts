@@ -386,7 +386,7 @@ const reviewedSelections: Record<string, { cover: string; interiors: number[] }>
   "max-towers": { cover: "max-towers-big-2.jpg", interiors: [1, 4, 5] },
 };
 
-export function getProjectMedia(slug: string, projectName = "Commercial Office Tower"): ProjectMedia | null {
+export function getProjectMedia(slug: string, projectName = "Managed Office Tower"): ProjectMedia | null {
   const mediaSlug = suppliedMediaAliases[slug] ?? slug;
   const supplied = suppliedProjectMedia[slug];
   const archive = archiveProjectMedia[slug];

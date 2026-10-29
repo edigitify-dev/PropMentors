@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "PropMentors | Find the right space",
-  description: "Find commercial spaces that fit your business, your team and the way you work — with PropMentors by your side.",
+  description: "Find managed spaces that fit your business, your team and the way you work — with PropMentors by your side.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",

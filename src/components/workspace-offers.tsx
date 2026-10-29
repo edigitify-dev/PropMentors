@@ -12,7 +12,7 @@ const offers = [
     image: "/images/offers/managed-offices.png",
     width: 736,
     height: 1008,
-    alt: "Commercial property advisers reviewing an agreement together",
+    alt: "Managed property advisers reviewing an agreement together",
   },
   {
     id: "coworking",
@@ -46,7 +46,7 @@ export function WorkspaceOffers() {
         </div>
         <div className="offers-heading-row">
           <h2 id="offers-heading">More than finding a property</h2>
-          <p>Whether you need a ready-to-use office, flexible workspace or a conventional commercial space, we&apos;ll help you find the right fit.</p>
+          <p>Whether you need a ready-to-use office, flexible workspace or a conventional managed space, we&apos;ll help you find the right fit.</p>
         </div>
       </div>
 
